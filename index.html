@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Polina Tsoy – Product Designer: Превращаю сложность продукта в ясный интерфейс и рост метрик. Ищу продуктовые команды и стартапы.">
+    <title>Polina Tsoy | Product Designer</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#4a4a4a',
+                        accent: '#6366f1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Card hover effect */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Button hover */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Background pattern */
+        .bg-grid {
+            background-image: 
+                linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+                linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* Smooth underline for links */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #6366f1;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-bold text-gray-900">
+                    Polina Tsoy
+                    <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
+                </div>
+                <a href="#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Написать
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-grid relative overflow-hidden pt-20">
+        <!-- Decorative background elements -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-200 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in">
+            <!-- MAIN TITLE -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Product Designer: 
+                <span class="gradient-text">от гипотезы — к интерфейсу,</span><br>
+                <span class="gradient-text">от интерфейса — к результату.</span>
+            </h1>
+            
+            <!-- SUBTITLE -->
+            <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Помогаю продуктам расти через глубокие исследования, 
+                продуманные системы и ясную логику. Фокус на 
+                <strong>B2C</strong> и сложных <strong>B2B-интерфейсах</strong>.
+            </p>
+            
+            <!-- CTA Button + Secondary Text -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#cases" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900">
+                    Посмотреть кейсы
+                </a>
+                <span class="text-gray-500 text-sm">
+                    ⭐ Готовлюсь к новому продуктовому вызову
+                </span>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Pain Section -->
+    <section id="problem" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    «Мы увязаем в деталях<br>вместо движения вперёд»
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Item 1 -->
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-sm border-2 border-red-400 fade-in">
+                    <!-- Pie Chart: 80% strategy (removed), 20% pixels (kept) -->
+                    <div class="mb-4">
+                        <svg viewBox="0 0 100 100" class="w-24 h-24 mx-auto">
+                            <!-- Pie background -->
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#fee2e2" stroke-width="8"/>
+                            <!-- Pie slice (20% - kept strategy) -->
+                            <path d="M50 50 L50 5 A45 45 0 0 1 84.6 67.6 Z" fill="#ef4444" opacity="0.7"/>
+                            <!-- Pie slice (80% - removed pixels) -->
+                            <path d="M50 50 L84.6 67.6 A45 45 0 1 1 50 5 Z" fill="#ef4444" opacity="0.3"/>
+                        </svg>
+                        <p class="text-xs text-center text-gray-500 mt-1">20% стратегия / 80% пиксели</p>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-red-600">Стратегия vs. пиксели</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <strong class="text-gray-800">Проблема:</strong> Дизайнер не видит дальше макета, не понимает бизнес-контекст и не спорит за лучшее решение.
+                    </p>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-sm border-2 border-red-400 fade-in">
+                    <!-- Line Chart: peaks (debt) and valleys (refactoring) -->
+                    <div class="mb-4">
+                        <svg viewBox="0 0 100 50" class="w-full h-16 mx-auto">
+                            <!-- Grid lines -->
+                            <line x1="0" y1="10" x2="100" y2="10" stroke="#e5e7eb" stroke-width="1"/>
+                            <line x1="0" y1="25" x2="100" y2="25" stroke="#e5e7eb" stroke-width="1"/>
+                            <line x1="0" y1="40" x2="100" y2="40" stroke="#e5e7eb" stroke-width="1"/>
+                            <!-- Line with peaks (debt) -->
+                            <polyline points="5,35 20,5 35,20 50,10 65,30 80,15 95,35" fill="none" stroke="#ef4444" stroke-width="2"/>
+                            <!-- Labels -->
+                            <text x="20" y="45" font-size="6" fill="#6b7280">Долг</text>
+                            <text x="50" y="45" font-size="6" fill="#6b7280">Рефакторинг</text>
+                            <text x="80" y="45" font-size="6" fill="#6b7280">Долг</text>
+                        </svg>
+                        <p class="text-xs text-center text-gray-500 mt-1">Волны технического долга</p>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-red-600">Технический долг в интерфейсе</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <strong class="text-gray-800">Проблема:</strong> Новые фичи ломают старые, нет единой системы. Разработка замедляется, пользователи путаются.
+                    </p>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-sm border-2 border-red-400 fade-in">
+                    <!-- Radar Chart with missing sectors -->
+                    <div class="mb-4">
+                        <svg viewBox="0 0 100 100" class="w-24 h-24 mx-auto">
+                            <!-- Background circle -->
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+                            <circle cx="50" cy="50" r="10" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+                            <!-- Missing sectors (gaps in data) -->
+                            <path d="M50 50 L90 50" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+                            <path d="M50 50 L67.7 22.3" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+                            <path d="M50 50 L32.3 22.3" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+                            <path d="M50 50 L10 50" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+                            <path d="M50 50 L32.3 77.7" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+                            <path d="M50 50 L67.7 77.7" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+                        </svg>
+                        <p class="text-xs text-center text-gray-500 mt-1">Пропущенные сектора данных</p>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-red-600">Решения вслепую</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <strong class="text-gray-800">Проблема:</strong> Нет понимания, почему пользователи уходят или не конвертят. Дизайн строится на предположениях, а не на данных.
+                    </p>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-sm border-2 border-red-400 fade-in">
+                    <!-- Organizational Chart with broken links -->
+                    <div class="mb-4">
+                        <svg viewBox="0 0 100 60" class="w-full h-20 mx-auto">
+                            <!-- Nodes -->
+                            <rect x="40" y="5" width="20" height="12" fill="#6366f1" rx="2"/>
+                            <rect x="15" y="25" width="18" height="12" fill="#e5e7eb" rx="2"/>
+                            <rect x="41" y="25" width="18" height="12" fill="#e5e7eb" rx="2"/>
+                            <rect x="67" y="25" width="18" height="12" fill="#e5e7eb" rx="2"/>
+                            <!-- Broken links (dashed lines with X) -->
+                            <line x1="50" y1="17" x2="24" y2="25" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.7"/>
+                            <text x="20" y="22" font-size="6" fill="#ef4444">✖</text>
+                            <line x1="50" y1="17" x2="50" y2="25" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.7"/>
+                            <text x="48" y="22" font-size="6" fill="#ef4444">✖</text>
+                            <line x1="50" y1="17" x2="76" y2="25" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.7"/>
+                            <text x="74" y="22" font-size="6" fill="#ef4444">✖</text>
+                            <!-- Labels -->
+                            <text x="44" y="13" font-size="4" fill="white">PM</text>
+                            <text x="17" y="33" font-size="4" fill="#374151">Dev</text>
+                            <text x="43" y="33" font-size="4" fill="#374151">Design</text>
+                            <text x="69" y="33" font-size="4" fill="#374151">Data</text>
+                        </svg>
+                        <p class="text-xs text-center text-gray-500 mt-1">Разорванные связи между командами</p>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-red-600">Команда как вагонетка</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <strong class="text-gray-800">Проблема:</strong> Дизайн живёт в вакууме, не синхронизирован с разработкой и аналитикой. Спринты превращаются в хаос.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution / Expertise Section -->
+    <section id="solution" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Я закрываю эти пробелы.<br>Вот мои сильные зоны:
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Zone 1 -->
+                <div class="card-hover bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4">🔍</div>
+                    <h3 class="text-lg font-bold mb-2">Исследования & Аналитика</h3>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Не «нравится/не нравится», а «работает/не работает»</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Провожу коридорные и юзабилити-исследования, анализирую метрики и карты кликов, строю CJM. Моя цель — найти корень проблемы, а не предложить косметический фикс.
+                    </p>
+                </div>
+                
+                <!-- Zone 2 -->
+                <div class="card-hover bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-lg font-bold mb-2">Сложные системные интерфейсы</h3>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Админки, ЛК, дашборды — моя стихия</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Имею большой опыт проектирования многофункциональных экосистем (медицина, финтех, IPTV). Умею структурировать хаос данных в интуитивные потоки.
+                    </p>
+                </div>
+                
+                <!-- Zone 3 -->
+                <div class="card-hover bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4">📐</div>
+                    <h3 class="text-lg font-bold mb-2">Дизайн-системы как актив</h3>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Скорость, консистентность, масштабирование</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Создаю и развиваю UI-kit, которые становятся источником правды для всей команды. Это не просто библиотека компонентов, а инструмент для быстрого тестирования гипотез.
+                    </p>
+                </div>
+                
+                <!-- Zone 4 -->
+                <div class="card-hover bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-lg font-bold mb-2">Работа внутри команды</h3>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Мост между видением, дизайном и кодом</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Говорю на языке PM и разработчиков. Ставлю задачи в Jira, веду ревью, планирую фичи. Со мной спокойно строить roadmap.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Как я работаю
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Мой процесс — это не линейный конвейер, а цикл</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        1
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Понять контекст</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Погружение в бизнес-модель, метрики, пользователей. Формулируем гипотезу, а не ТЗ.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        2
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Исследовать & Прототипировать</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Быстрые скетчи, пользовательские интервью, тестирование бумажных прототипов. Ищем инсайты до детального дизайна.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        3
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Спроектировать систему</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Разработка логики, flow и UI, который ляжет в основу дизайн-системы. Важно решение, а не «красота».
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                        4
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Запустить & Учиться</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Активное сопровождение разработки, QA, анализ первых данных после релиза. Готовность к итерациям.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Кейсы
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Глубокий разбор вместо галереи картинок</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Case 1 -->
+                <a href="wuw.html" class="block group relative overflow-hidden">
+                    <article class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in relative">
+                        <!-- Image -->
+                        <div class="relative h-48 bg-gradient-to-br from-indigo-100 to-purple-100">
+                            <svg class="w-full h-full p-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <!-- Overlay with "смотреть кейс" -->
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-semibold text-lg uppercase tracking-wider">Смотреть кейс</span>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">WUW</span>
+                            </div>
+                            
+                            <h3 class="text-2xl font-bold mb-4">Эволюция продукта через системный подход к дизайну</h3>
+                            
+                            <div class="space-y-4 text-gray-700">
+                                <div>
+                                    <span class="font-semibold text-gray-900">Контекст:</span>
+                                    <span class="text-gray-600"> Платформа для личностного роста. 5000+ пользователей.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Моя роль:</span>
+                                    <span class="text-gray-600"> Lead Product Designer (от исследований до разработки).</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Проблема:</span>
+                                    <span class="text-gray-600"> Хаос в интерфейсе (200+ стилей), падение скорости разработки, невозможность White Label.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Решение:</span>
+                                    <span class="text-gray-600"> Системный подход: 35 переиспользуемых компонентов, токены, эволюционный рефакторинг.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Результат:</span>
+                                    <span class="text-gray-600"> -90% стилей, ×3 скорость разработки, White Label открыт, консистентность 95% → 95%.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Ключевое решение:</span>
+                                    <span class="text-gray-600"> Вместо перерисовки с нуля создала конструктор, из которого собирается 80% интерфейса.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                
+                <!-- Case 2 -->
+                <a href="tvip.html" class="block group relative overflow-hidden">
+                    <article class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in relative">
+                        <!-- Image -->
+                        <div class="relative h-48 bg-gradient-to-br from-blue-100 to-cyan-100">
+                            <svg class="w-full h-full p-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <!-- Overlay with "смотреть кейс" -->
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-semibold text-lg uppercase tracking-wider">Смотреть кейс</span>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">TVIP</span>
+                            </div>
+                            
+                            <h3 class="text-2xl font-bold mb-4">Дизайн кросс-платформенного медиасервиса</h3>
+                            
+                            <div class="space-y-4 text-gray-700">
+                                <div>
+                                    <span class="font-semibold text-gray-900">Контекст:</span>
+                                    <span class="text-gray-600"> Медиасервис с готовым бэкендом, устаревший интерфейс. 5 платформ.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Моя роль:</span>
+                                    <span class="text-gray-600"> Product Designer. От исследований к дизайну систем.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Проблема:</span>
+                                    <span class="text-gray-600"> Единый интерфейс для всех: ТВ-просмотр, индивидуальный смартфон, фоновый планшет, архив ПК.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Решение:</span>
+                                    <span class="text-gray-600"> Система профилей для 4 персон, 2 цветовые темы (день/ночь), UI-kit для 5 платформ, онбординг.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Результат:</span>
+                                    <span class="text-gray-600"> Персонализированные профили, автоматическое переключение тем, единый опыт на всех устройствах.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                
+                <!-- Case 3 -->
+                <a href="relaunch.html" class="block group relative overflow-hidden">
+                    <article class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in relative">
+                        <!-- Image -->
+                        <div class="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100">
+                            <svg class="w-full h-full p-8 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        </div>
+                        <!-- Overlay with "смотреть кейс" -->
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-semibold text-lg uppercase tracking-wider">Смотреть кейс</span>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">Relaunch</span>
+                            </div>
+                            
+                            <h3 class="text-2xl font-bold mb-4">Кейс внутренней платформы для сотрудников</h3>
+                            
+                            <div class="space-y-4 text-gray-700">
+                                <div>
+                                    <span class="font-semibold text-gray-900">Контекст:</span>
+                                    <span class="text-gray-600"> Корпоративная платформа. 100% сотрудников компании.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Моя роль:</span>
+                                    <span class="text-gray-600"> Product Designer (ведущий). От исследований до внедрения.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Проблема:</span>
+                                    <span class="text-gray-600"> Разрозненные инструменты (5+ систем), устаревший интерфейс, отсутствие социального взаимодействия и геймификации.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Решение:</span>
+                                    <span class="text-gray-600"> Создание единой экосистемы с 25+ функциями, дизайн-груминг, дизайн-система из 50+ компонентов, социальные функции и геймификация.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Результат:</span>
+                                    <span class="text-gray-600"> ×4 время сессии, +40% вовлечённость, 60% активности с мобильных, 100% adoption. 80% UI-проблем решалось в режиме реального времени.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                
+                <!-- Case 4 -->
+                <a href="docsbird.html" class="block group relative overflow-hidden">
+                    <article class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in relative">
+                        <!-- Image -->
+                        <div class="relative h-48 bg-gradient-to-br from-green-100 to-emerald-100">
+                            <svg class="w-full h-full p-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <!-- Overlay with "смотреть кейс" -->
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-semibold text-lg uppercase tracking-wider">Смотреть кейс</span>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">DocsBird</span>
+                            </div>
+                            
+                            <h3 class="text-2xl font-bold mb-4">Запуск международного продукта в условиях жёстких ограничений</h3>
+                            
+                            <div class="space-y-4 text-gray-700">
+                                <div>
+                                    <span class="font-semibold text-gray-900">Контекст:</span>
+                                    <span class="text-gray-600"> Международный продукт для управления документами. Европа и Балтия.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Моя роль:</span>
+                                    <span class="text-gray-600"> Product Designer (ведущий). От исследований до тестирования.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Проблема:</span>
+                                    <span class="text-gray-600"> Запустить продукт с нуля за 1 год, учитывая регуляторные требования и культурные различия.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Решение:</span>
+                                    <span class="text-gray-600"> Создание отдельного бренда и дизайн-системы, адаптация для международных рынков. Сокращение 7 шагов регистрации до 3.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Результат:</span>
+                                    <span class="text-gray-600"> Успешный запуск в 4 странах. Конверсия +45%. Положительные отзывы о доверительности интерфейса.</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-900">Ключевое решение:</span>
+                                    <span class="text-gray-600"> Переход от сложных B2B-флоу к простым self-service решениям через системный подход к дизайну.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Обо мне
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Не просто дизайнер. Партнёр по продукту.</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Main Text -->
+                <div class="fade-in">
+                    <div class="flex items-start gap-6 mb-6">
+                        <img src="images/about-me.jpg" alt="Polina Tsoy" class="w-24 h-24 rounded-full object-cover border-4 border-indigo-100 flex-shrink-0">
+                        <div>
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                Я — <strong>Polina</strong>, Senior Product Designer с фокусом на исследования и сложные системы. За 10+ лет в дизайне я пришла к простой истине: лучший интерфейс — тот, который решает проблему пользователя и помогает бизнесу расти.
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Мой интерес — в «кухне» продукта: в формировании гипотез, поиске данных для решений и построении процессов, где дизайн — не этап, а часть цикла разработки. Верю в прагматичный дизайн, основанный на здравом смысле и контексте, а не в тренды ради трендов.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Ищу команду, где можно влиять на продукт на уровне стратегии, а не только экранов.
+                    </p>
+                </div>
+                
+                <!-- Facts -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900">Факты</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl">💼</span>
+                            <div>
+                                <span class="font-semibold text-gray-900">Опыт:</span>
+                                <span class="text-gray-600"> 7+ лет в продуктовом дизайне</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl">🎯</span>
+                            <div>
+                                <span class="font-semibold text-gray-900">Фокус:</span>
+                                <span class="text-gray-600"> B2C & Сложные B2B-системы (финтех, медицина, медиа)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl">🌐</span>
+                            <div>
+                                <span class="font-semibold text-gray-900">Работа:</span>
+                                <span class="text-gray-600"> Полностью удалённо. Готова к перезапуску продукта или развитию существующего.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="border-gray-100 my-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Сертификаты и документы:</h4>
+                        <div class="flex gap-3">
+                            <a href="images/сертификат-коуча.jpg" target="_blank" class="flex flex-col items-center gap-1 group">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg flex items-center justify-center group-hover:bg-purple-100 transition-colors">
+                                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 group-hover:text-indigo-600">Сертификат</span>
+                            </a>
+                            <a href="images/диплом-бакалавра-с-отличием.jpg" target="_blank" class="flex flex-col items-center gap-1 group">
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 group-hover:text-indigo-600">Диплом</span>
+                            </a>
+                            <a href="images/рекомендательное-письмо-полина.pdf" target="_blank" class="flex flex-col items-center gap-1 group">
+                                <div class="w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                                    <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 group-hover:text-indigo-600">Рекомендация</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Есть сложный продукт, который нуждается в ясности?
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Давайте обсудим, как мои навыки исследований, системного мышления и работы в команде могут помочь вашему проекту. Ищу долгосрочный вызов.
+            </p>
+            
+            <!-- Contact Options -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <a href="https://t.me/ewersawers" target="_blank" rel="noopener noreferrer" class="btn-primary bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.53.26-.194 0-.58-.204-.58-.204l-1.584-1.58 2.858-2.788-.888-.888c-.658-.658-.508-1.084.508-1.084l9.28-1.97c.455-.145.793-.217.793-.217s.358-.072.793.217c.434.289.793.217.793.217z"/></svg>
+                    Написать в Telegram
+                </a>
+                <a href="#" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Скачать резюме (PDF)
+                </a>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-xl inline-block">
+                <p class="text-gray-500 text-sm">✉️ neolissa@gmail.com</p>
+            </div>
+            
+            <p class="text-gray-400 text-sm mt-6">
+                Обсуждение — конфиденциально. Любые детали проекта останутся между нами.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-gray-900 text-gray-400">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        Polina Tsoy
+                    </h3>
+                    <p class="text-gray-400 mb-4">Senior Product Designer</p>
+                    <p class="text-gray-300 italic">
+                        «Превращаю сложность в ясность»
+                    </p>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Контакты</h4>
+                    <ul class="space-y-2">
+                        <li>📧 neolissa@gmail.com</li>
+                        <li>💬 <a href="https://t.me/ewersawers" target="_blank" class="hover:text-white transition-colors">@ewersawers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Портфолио и мысли</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">Behance (Избранные работы)</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">VC.ru (Статьи о подходе)</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">LinkedIn (Рекомендации)</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors text-sm">Политика конфиденциальности</a>
+                    <a href="#" class="hover:text-white transition-colors text-sm">Полное резюме</a>
+                </div>
+                <p class="text-sm text-gray-500">
+                    © 2026 Polina Tsoy. Всё продумано.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for fade-in animations -->
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+        
+        // Smooth scroll for navigation links (fallback)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

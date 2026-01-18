@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейс TVIP — дизайн кросс-платформенного медиасервиса">
+    <title>TVIP — Кейс | Polina Tsoy</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#4a4a4a',
+                        accent: '#6366f1',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Timeline styles */
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e5e7eb;
+            z-index: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 3px solid #6366f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 24px;
+            color: #6366f1;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.1);
+            background: #6366f1;
+            color: white;
+        }
+        
+        /* Device cards */
+        .device-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .device-card:hover {
+            border-color: #6366f1;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        }
+        
+        /* Theme comparison */
+        .theme-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .theme-day {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 30px;
+        }
+        
+        .theme-night {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 30px;
+            color: white;
+        }
+        
+        /* Button hover */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Stat card */
+        .stat-card {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        /* Person card */
+        .person-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .person-card:hover {
+            border-color: #6366f1;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        }
+        
+        .person-icon {
+            width: 50px;
+            height: 50px;
+            background: #eef2ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #6366f1;
+            margin-bottom: 12px;
+        }
+    </style>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-gray-900">
+                    Polina Tsoy
+                    <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
+                    <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
+                    <a href="index.html#contact" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
+                </div>
+                <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Написать
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20">
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10 fade-in">
+            <!-- Badge -->
+            <div class="inline-block mb-6">
+                <span class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium">
+                    Case Study
+                </span>
+            </div>
+            
+            <!-- MAIN TITLE -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                TVIP
+            </h1>
+            
+            <!-- SUBTITLE -->
+            <p class="text-2xl md:text-3xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+                Кроссплатформенный медиасервис для 5 устройств
+            </p>
+            
+            <!-- Context -->
+            <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto text-left mb-10">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">💼</div>
+                    <div class="text-sm font-semibold text-gray-900">Роль</div>
+                    <div class="text-gray-900 font-bold">Product Designer</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">📱</div>
+                    <div class="text-sm font-semibold text-gray-900">Устройства</div>
+                    <div class="text-gray-900 font-bold">ТВ, ПК, планшет, телефон</div>
+                    <div class="text-gray-600 text-sm">5 платформ</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">🧩</div>
+                    <div class="text-sm font-semibold text-gray-900">Особенность</div>
+                    <div class="text-gray-900 font-bold">Наследование legacy</div>
+                    <div class="text-gray-600 text-sm">Готовый бэкенд</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">✨</div>
+                    <div class="text-sm font-semibold text-gray-900">Результат</div>
+                    <div class="text-gray-900 font-bold">2 темы, профили, UI-kit</div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <a href="#result" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 inline-flex items-center gap-2">
+                Смотреть результаты
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Context Section -->
+    <section id="context" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Контекст: Наследие как вызов
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Left side -->
+                <div class="space-y-6 fade-in">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="text-4xl mb-4">🏢</div>
+                        <h3 class="text-xl font-bold mb-3">Состояние проекта</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Готовый MVP с обширным бэкендом, но устаревшим интерфейсом. Я пришла на проект уже при наличии работающего продукта.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="text-4xl mb-4">⚠️</div>
+                        <h3 class="text-xl font-bold mb-3">Проблема</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Один интерфейс для всех — от семейного просмотра на ТВ до индивидуального на смартфоне. Не было персонализации.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-2xl border-l-4 border-indigo-600">
+                        <p class="text-lg text-gray-800 italic">
+                            «Задача — не сломать работающее, но сделать современным.»
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right side - Visual diagram -->
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white">
+                        <h3 class="text-xl font-bold mb-6 text-center">Схема трансформации</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center">
+                                    <div class="text-sm opacity-70">Legacy бэкенд</div>
+                                    <div class="font-bold">Готовый API</div>
+                                </div>
+                                <div class="text-2xl text-indigo-400">→</div>
+                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center border-2 border-indigo-500">
+                                    <div class="text-sm opacity-70">Новый интерфейс</div>
+                                    <div class="font-bold">Персонализация</div>
+                                </div>
+                            </div>
+                            <div class="text-center text-gray-400 text-sm">
+                                Эволюционный дизайн вместо революционного
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Исследование: 4 персоны пользователей
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Формулировка персон для системы профилей</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Person 1 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Семейный просмотр</h3>
+                    <p class="text-sm text-gray-500 mb-3">ТВ, вечер</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Групповой контент</li>
+                        <li>• Родительский контроль</li>
+                        <li>• Простая навигация</li>
+                    </ul>
+                </div>
+                
+                <!-- Person 2 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Индивидуальный</h3>
+                    <p class="text-sm text-gray-500 mb-3">Смартфон, транспорт</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Персональные рекомендации</li>
+                        <li>• Онлайн-просмотр</li>
+                        <li>• Сохранение прогресса</li>
+                    </ul>
+                </div>
+                
+                <!-- Person 3 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Фоновый</h3>
+                    <p class="text-sm text-gray-500 mb-3">Планшет, работа</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Дополнительный контент</li>
+                        <li>• Фоновое воспроизведение</li>
+                        <li>• Минимальное отвлечение</li>
+                    </ul>
+                </div>
+                
+                <!-- Person 4 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Киноман</h3>
+                    <p class="text-sm text-gray-500 mb-3">ПК, архив</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Расширенный поиск</li>
+                        <li>• Архив и коллекции</li>
+                        <li>• Детальная навигация</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gray-50 p-8 rounded-2xl fade-in">
+                <h3 class="text-xl font-bold mb-4">Результат исследования</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Сформирована доска запрашиваемых функций, сгруппированных по персонам. 
+                    Это стало основой для создания системы профилей внутри одного сервиса.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profiles System Section -->
+    <section id="profiles" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Система профилей
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Профили как персонализированные пространства</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="mb-12 fade-in">
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="font-bold mb-1">Аноним</div>
+                        <div class="text-sm text-gray-600">Базовый доступ</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="font-bold mb-1">Персона</div>
+                        <div class="text-sm text-gray-600">История просмотров</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="font-bold mb-1">Настройки</div>
+                        <div class="text-sm text-gray-600">Рекомендации</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div class="font-bold mb-1">Контроль</div>
+                        <div class="text-sm text-gray-600">Родительский доступ</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Left side -->
+                <div class="space-y-6 fade-in">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">Персональные настройки</h4>
+                        <p class="text-gray-600 text-sm">Каждый профиль имеет уникальный набор настроек и предпочтений</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">История и рекомендации</h4>
+                        <p class="text-gray-600 text-sm">Персонализированный контент на основе просмотров каждого профиля</p>
+                    </div>
+                </div>
+                <!-- Right side -->
+                <div class="space-y-6 fade-in">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">Родительский контроль</h4>
+                        <p class="text-gray-600 text-sm">Возможность ограничивать контент для детских профилей</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">Быстрое переключение</h4>
+                        <p class="text-gray-600 text-sm">Мгновенный переход между профилями без перезагрузки</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gradient-to-r from-indigo-500 to-purple-600 p-8 rounded-2xl text-white fade-in text-center">
+                <p class="text-lg font-bold">
+                    Профили стали не просто «именами», а полноценными персонализированными пространствами
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-platform Section -->
+    <section id="crossplatform" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Кроссплатформенность
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">5 устройств — один опыт</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="mb-12 fade-in">
+                <h3 class="text-2xl font-bold mb-8 text-center">Визуализация 5 устройств</h3>
+                <div class="grid md:grid-cols-5 gap-4">
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">📺</div>
+                        <div class="font-bold">ТВ</div>
+                        <div class="text-sm text-gray-600">10-футовый интерфейс</div>
+                        <div class="text-xs text-gray-500">Пульт ДУ</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">💻</div>
+                        <div class="font-bold">ПК</div>
+                        <div class="text-sm text-gray-600">Многофункциональность</div>
+                        <div class="text-xs text-gray-500">Архив, настройки</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">📱</div>
+                        <div class="font-bold">Телефон</div>
+                        <div class="text-sm text-gray-600">Портативность</div>
+                        <div class="text-xs text-gray-500">Личный опыт</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">📲</div>
+                        <div class="font-bold">Планшет</div>
+                        <div class="text-sm text-gray-600">Онлайн-просмотр</div>
+                        <div class="text-xs text-gray-500">Фоновый</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">🔗</div>
+                        <div class="font-bold">Синхрон</div>
+                        <div class="text-sm text-gray-600">Единый аккаунт</div>
+                        <div class="text-xs text-gray-500">Все платформы</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 p-8 rounded-2xl fade-in">
+                <h3 class="text-xl font-bold mb-4">Единый UI-kit</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Компоненты, адаптирующиеся под размеры и способы взаимодействия. 
+                    Одна дизайн-система для всех платформ с учетом особенностей каждого контекста.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Адаптивность</span>
+                    <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Контекст использования</span>
+                    <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Модальность взаимодействия</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section id="themes" class="py-24 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+                    Визуальная система: День и ночь
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">Учёт разных условий просмотра</p>
+                <div class="w-20 h-1 bg-indigo-400 mx-auto"></div>
+            </div>
+            
+            <div class="theme-split rounded-2xl overflow-hidden mb-12 fade-in">
+                <!-- Day theme -->
+                <div class="theme-day">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl mb-2">☀️</div>
+                        <h3 class="text-2xl font-bold text-gray-800">Дневная тема</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <div class="font-bold text-gray-800">Светлые тона</div>
+                            <div class="text-sm text-gray-600">Чёткость при естественном освещении</div>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <div class="w-8 h-8 bg-white rounded border border-gray-300"></div>
+                            <div class="w-8 h-8 bg-gray-100 rounded border border-gray-300"></div>
+                            <div class="w-8 h-8 bg-gray-200 rounded border border-gray-300"></div>
+                            <div class="w-8 h-8 bg-indigo-600 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Night theme -->
+                <div class="theme-night">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl mb-2">🌙</div>
+                        <h3 class="text-2xl font-bold">Ночная тема</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <div class="font-bold">Тёмные интерфейсы</div>
+                            <div class="text-sm text-gray-300">Сниженная яркость, акцент на контент</div>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <div class="w-8 h-8 bg-gray-900 rounded border border-gray-700"></div>
+                            <div class="w-8 h-8 bg-gray-800 rounded border border-gray-700"></div>
+                            <div class="w-8 h-8 bg-gray-700 rounded border border-gray-700"></div>
+                            <div class="w-8 h-8 bg-indigo-500 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 p-8 rounded-2xl fade-in">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-sun text-yellow-400"></i>
+                            Автоматическое переключение
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            Тема меняется автоматически в зависимости от времени суток или системы освещения устройства
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-palette text-indigo-400"></i>
+                            Единая палитра
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            Обе темы используют одинаковые базовые цвета, подобранные для контрастности
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Onboarding Section -->
+    <section id="onboarding" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Онбординг
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Обучение без раздражения</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 p-8 rounded-2xl fade-in">
+                    <div class="text-4xl mb-4">🤔</div>
+                    <h3 class="text-xl font-bold mb-3">Проблема</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Новые функции (профили, архив) могут запутать существующих пользователей.
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 p-8 rounded-2xl fade-in">
+                    <div class="text-4xl mb-4">✅</div>
+                    <h3 class="text-xl font-bold mb-3">Решение</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ненавязчивый онбординг, который появляется только при первом использовании функции.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">🎯</div>
+                    <div class="font-bold mb-2">Контекстный</div>
+                    <div class="text-sm text-gray-600">Только при первом использовании</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">💡</div>
+                    <div class="font-bold mb-2">Полезный</div>
+                    <div class="text-sm text-gray-600">Объясняет пользу, не механику</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">📱</div>
+                    <div class="font-bold mb-2">Кроссплатформенный</div>
+                    <div class="text-sm text-gray-600">Работает на всех устройствах</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="result" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Результаты
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">От MVP к экосистеме</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <!-- Created -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Что создано</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">👥</div>
+                            <div>
+                                <div class="font-bold">Система профилей</div>
+                                <div class="text-sm text-gray-600">Для 4 типов пользователей</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🎨</div>
+                            <div>
+                                <div class="font-bold">UI-kit</div>
+                                <div class="text-sm text-gray-600">Для 5 платформ</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🌓</div>
+                            <div>
+                                <div class="font-bold">2 цветовые темы</div>
+                                <div class="text-sm text-gray-600">С автоматическим переключением</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">📦</div>
+                            <div>
+                                <div class="font-bold">Раздел онлайн-архива</div>
+                                <div class="text-sm text-gray-600">Для киноманов</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advantages -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Системные преимущества</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">📈</div>
+                            <div>
+                                <div class="font-bold">Масштабируемость</div>
+                                <div class="text-sm text-gray-600">Новые функции добавляются в существующую структуру</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🔄</div>
+                            <div>
+                                <div class="font-bold">Консистентность</div>
+                                <div class="text-sm text-gray-600">Единый опыт на всех устройствах</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🎯</div>
+                            <div>
+                                <div class="font-bold">Персонализация</div>
+                                <div class="text-sm text-gray-600">Разный интерфейс для разных целей</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🔄</div>
+                            <div>
+                                <div class="font-bold">Адаптивность</div>
+                                <div class="text-sm text-gray-600">Интерфейс подстраивается под контекст использования</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 rounded-2xl text-white inline-block">
+                    <div class="text-2xl font-bold mb-4">Экосистема</div>
+                    <div class="text-sm opacity-90">
+                        Все компоненты связаны между собой: профили → темы → платформы
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusions Section -->
+    <section id="conclusions" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Выводы
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Когда ограничения становятся преимуществом</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-gray-900 text-white p-8 rounded-2xl fade-in">
+                    <div class="text-sm text-gray-400 mb-2">Главный урок</div>
+                    <h3 class="text-xl font-bold mb-4">Наследование legacy-системы — не недостаток, а возможность для эволюционного дизайна</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Сохранить работоспособность бэкенда при полном обновлении интерфейса стало ключевой задачей, 
+                        которая привела к созданию масштабируемой системы.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-green-50 p-8 rounded-2xl fade-in">
+                        <h4 class="font-bold mb-3 text-green-800 flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i>
+                            Что удалось
+                        </h4>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>• Сохранить работоспособность бэкенда</li>
+                            <li>• Создать систему, а не набор экранов</li>
+                            <li>• Учесть радикально разные сценарии</li>
+                            <li>• Сделать сложное простым через персонализацию</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 p-8 rounded-2xl fade-in">
+                        <h4 class="font-bold mb-3 text-red-800 flex items-center gap-2">
+                            <i class="fas fa-times-circle"></i>
+                            Что было сложно
+                        </h4>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>• Баланс между единым стилем и платформенными особенностями</li>
+                            <li>• Перенос ТВ-интерфейса на мобильные устройства</li>
+                            <li>• Обучение пользователей новым функциям без отталкивания</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-8 rounded-2xl fade-in">
+                    <h4 class="font-bold mb-3 text-blue-800">На будущее</h4>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm text-gray-700">
+                        <div class="bg-white p-4 rounded-lg">
+                            <div class="font-bold mb-1">A/B-тестирование тем</div>
+                            <div class="text-xs text-gray-600">Проверка эффективности цветовых схем</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <div class="font-bold mb-1">Адаптивная сложность</div>
+                            <div class="text-xs text-gray-600">Интерфейс под уровень пользователя</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <div class="font-bold mb-1">Голосовые помощники</div>
+                            <div class="text-xs text-gray-600">Интеграция для ТВ-платформ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Case Section -->
+    <section id="why" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Почему этот кейс показателен
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">📏</div>
+                    <div class="font-bold mb-2">Масштаб</div>
+                    <div class="text-sm text-gray-600">5 платформ с разной логикой взаимодействия</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">🧩</div>
+                    <div class="font-bold mb-2">Наследование</div>
+                    <div class="text-sm text-gray-600">Работа с legacy-кодом как дизайн-вызов</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">🔗</div>
+                    <div class="font-bold mb-2">Системность</div>
+                    <div class="text-sm text-gray-600">Профили → Темы → Платформы — всё связано</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">👤</div>
+                    <div class="font-bold mb-2">Пользовательский фокус</div>
+                    <div class="text-sm text-gray-600">От исследования персон до персонализированного интерфейса</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="py-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 leading-relaxed">
+                    «Это не просто «сделать красиво». Это переосмысление продукта — от анонимного сервиса к персонализированной медиа-экосистеме, где каждый пользователь получает свой идеальный интерфейс на своём устройстве.»
+                </h2>
+                
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Кроссплатформенность</span>
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Legacy-рефакторинг</span>
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Система профилей</span>
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Адаптивные темы</span>
+                </div>
+                
+                <div class="flex justify-center gap-4">
+                    <a href="index.html#cases" class="btn-primary bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100">
+                        Вернуться к кейсам
+                    </a>
+                    <a href="index.html#cta" class="btn-primary bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-700">
+                        Обсудить проект
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-gray-900 text-gray-400">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        Polina Tsoy
+                    </h3>
+                    <p class="text-gray-400 mb-4">Senior Product Designer</p>
+                    <p class="text-gray-300 italic">
+                        «Превращаю сложность в ясность»
+                    </p>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Контакты</h4>
+                    <ul class="space-y-2">
+                        <li>📧 neolissa@gmail.com</li>
+                        <li>💬 <a href="https://t.me/ewersawers" target="_blank" class="hover:text-white transition-colors">@ewersawers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Портфолио и мысли</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Главная</a></li>
+                        <li><a href="index.html#cases" class="hover:text-white transition-colors">Кейсы</a></li>
+                        <li><a href="index.html#about" class="hover:text-white transition-colors">Обо мне</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors text-sm">Политика конфиденциальности</a>
+                    <a href="#" class="hover:text-white transition-colors text-sm">Полное резюме</a>
+                </div>
+                <p class="text-sm text-gray-500">
+                    © 2026 Polina Tsoy. Всё продумано.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for fade-in animations -->
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+        
+        // Smooth scroll for navigation links (fallback)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
