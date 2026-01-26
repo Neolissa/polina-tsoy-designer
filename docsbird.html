@@ -784,22 +784,86 @@
                 <p class="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
                     "DocsBird стал не локальным продуктом с другим интерфейсом, а международной платформой, которая говорит на языке своего пользователя."
                 </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                    <a href="index.html" class="bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i>
-                        Вернуться в портфолио
-                    </a>
-                    <a href="wuw.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all flex items-center gap-2">
-                        Следующий кейс
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Cases Section -->
+    <section id="related" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Другие кейсы
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Глубокий разбор вместо галереи картинок</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
             </div>
             
-            <div class="mt-8 bg-white/10 rounded-xl inline-block px-6 py-3">
-                <p class="text-gray-300 text-sm">✉️ neolissa@gmail.com</p>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Case 1 -->
+                <a href="relaunch.html" class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in block">
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                Case Study
+                            </span>
+                            <span class="text-gray-400 text-sm">Relaunch</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Кейс внутренней платформы для сотрудников</h3>
+                        <p class="text-gray-600 text-sm">
+                            Корпоративная платформа. 100% сотрудников компании.
+                        </p>
+                    </div>
+                </a>
+                
+                <!-- Case 2 -->
+                <a href="docsbird.html" class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in block">
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                Case Study
+                            </span>
+                            <span class="text-gray-400 text-sm">DocsBird</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Запуск международного продукта в условиях жёстких ограничений</h3>
+                        <p class="text-gray-600 text-sm">
+                            Международный продукт для управления документами. Европа и Балтия.
+                        </p>
+                    </div>
+                </a>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Есть сложный продукт, который нуждается в ясности?
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Давайте обсудим, как мои навыки исследований, системного мышления и работы в команде могут помочь вашему проекту. Ищу долгосрочный вызов.
+            </p>
+            
+            <!-- Contact Options -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <a href="https://t.me/ewersawers" target="_blank" rel="noopener noreferrer" class="btn-primary bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.53.26-.194 0-.58-.204-.58-.204l-1.584-1.58 2.858-2.788-.888-.888c-.658-.658-.508-1.084.508-1.084l9.28-1.97c.455-.145.793-.217.793-.217s.358-.072.793.217c.434.289.793.217.793.217z"/></svg>
+                    Написать в Telegram
+                </a>
+                <a href="#" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Скачать резюме (PDF)
+                </a>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl inline-block shadow-sm">
+                <p class="text-gray-500 text-sm">✉️ neolissa@gmail.com</p>
+            </div>
+            
+            <p class="text-gray-400 text-sm mt-6">
+                Обсуждение — конфиденциально. Любые детали проекта останутся между нами.
+            </p>
         </div>
     </section>
 
@@ -831,9 +895,9 @@
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-4">Портфолио и мысли</h4>
                     <ul class="space-y-2">
-                        <li><a href="https://www.behance.net/polinatra" target="_blank" class="hover:text-white transition-colors">Behance (Избранные работы)</a></li>
-                        <li><a href="https://vc.ru/design/717548-ekonomim-dengi-klienta-vremya-razrabotchika-i-nervy-polzovatelya-optimizaciya-ux-ui-pri-produktovom-podhode" target="_blank" class="hover:text-white transition-colors">VC.ru (Статьи о подходе)</a></li>
-                        <li><span class="opacity-50 cursor-not-allowed">LinkedIn (скоро)</span></li>
+                        <li><a href="index.html" class="hover:text-white transition-colors">Главная</a></li>
+                        <li><a href="index.html#cases" class="hover:text-white transition-colors">Кейсы</a></li>
+                        <li><a href="index.html#about" class="hover:text-white transition-colors">Обо мне</a></li>
                     </ul>
                 </div>
             </div>
@@ -850,16 +914,8 @@
         </div>
     </footer>
 
-    <!-- JavaScript for animations and progress bar -->
+    <!-- JavaScript for fade-in animations -->
     <script>
-        // Progress bar on scroll
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercentage = (scrollTop / scrollHeight) * 100;
-            document.getElementById('progress-bar').style.width = scrollPercentage + '%';
-        });
-        
         // Fade-in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
         
