@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейс DocsBird — запуск международного продукта в условиях жёстких ограничений">
+    <title>DocsBird — Кейс | Polina Tsoy</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#4a4a4a',
+                        accent: '#6366f1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        /* CTA gradient */
+        .cta-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+        
+        /* Card with border-left */
+        .card-border-left {
+            border-left: 4px solid #6366f1;
+        }
+        
+        /* Icon box */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 20px;
+        }
+        
+        /* Process step */
+        .process-step {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid #e5e7eb;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            border-color: #6366f1;
+            transform: translateX(4px);
+        }
+        
+        .step-number {
+            position: absolute;
+            left: -16px;
+            top: 20px;
+            width: 32px;
+            height: 32px;
+            background: #6366f1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        /* Case card */
+        .case-card {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid #10b981;
+            position: relative;
+        }
+        
+        /* Timeline horizontal */
+        .timeline-horizontal {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            text-align: center;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .timeline-step.active {
+            border-color: #10b981;
+            background: #ecfdf5;
+            color: #065f46;
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            background: white;
+            border: 2px solid #6366f1;
+            color: #4f46e5;
+        }
+        
+        /* Gradient badge */
+        .gradient-badge {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+        }
+        
+        /* Quote box */
+        .quote-box {
+            background: #1e293b;
+            color: white;
+            border-radius: 12px;
+            padding: 24px;
+            font-style: italic;
+            border-left: 4px solid #6366f1;
+        }
+        
+        /* Mini palette */
+        .mini-palette {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        /* Card hover */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Button hover */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Background pattern */
+        .bg-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* Progress bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+    </style>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon from Uxfolio -->
+    <link rel="icon" type="image/png" href="https://uxfolio-prod.s3.us-east-1.amazonaws.com/5dab32e3e523d600043b2c32/7f45318cafb1a5a906049c841aa9317d-sticker_FNR.png">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+    
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-gray-900">
+                    Polina Tsoy
+                    <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
+                    <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
+                    <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
+                </div>
+                <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Написать
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden pt-20">
+        <div class="bg-grid absolute inset-0 opacity-30"></div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-200 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10 fade-in">
+            <!-- Badge -->
+            <div class="inline-block mb-6">
+                <span class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium">
+                    Case Study
+                </span>
+            </div>
+            
+            <!-- MAIN TITLE -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+                DocsBird
+            </h1>
+            
+            <!-- SUBTITLE -->
+            <p class="text-2xl md:text-3xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+                Запуск международного продукта в условиях жёстких ограничений
+            </p>
+            
+            <!-- Hero Image - White Background -->
+            <div class="max-w-2xl mx-auto mb-10 fade-in">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden p-4">
+                    <img src="images/hero-docsbird.png" alt="DocsBird Hero Image" class="w-full h-auto" style="aspect-ratio: 16/9; object-fit: cover;">
+                </div>
+            </div>
+            
+            <!-- Context -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left mb-10">
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                    <div class="text-2xl mb-2">💼</div>
+                    <div class="text-sm font-semibold text-gray-300">Роль</div>
+                    <div class="text-white font-bold">Product Designer (ведущий)</div>
+                    <div class="text-gray-400 text-sm">Полный цикл: от исследования до тестирования</div>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                    <div class="text-2xl mb-2">⏱️</div>
+                    <div class="text-sm font-semibold text-gray-300">Срок</div>
+                    <div class="text-white font-bold">1 год</div>
+                    <div class="text-gray-400 text-sm">Полный цикл продукта</div>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                    <div class="text-2xl mb-2">🛠️</div>
+                    <div class="text-sm font-semibold text-gray-300">Стек</div>
+                    <div class="text-white font-bold">Figma, FigJam, Miro</div>
+                    <div class="text-gray-400 text-sm">User Testing, Analytics</div>
+                </div>
+            </div>
+            
+            <!-- Visual -->
+            <div class="max-w-2xl mx-auto mb-10">
+                <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-8 shadow-2xl">
+                    <div class="text-white text-center">
+                        <i class="fas fa-file-alt text-6xl mb-4"></i>
+                        <i class="fas fa-globe text-4xl mb-2"></i>
+                        <div class="text-xl font-bold">DocsBird — документы без границ</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <a href="#results" class="btn-primary bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 inline-flex items-center gap-2">
+                Смотреть результаты
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section id="challenge" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Вызов: запустить продукт, которого нет
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-2xl card-border-left fade-in">
+                    <div class="text-4xl mb-4">
+                        <i class="fas fa-flag text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Контекст и ограничения</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        DocsBird — международный продукт для управления документами, который нужно было запустить на рынках Европы и Балтии. Главная сложность: продукта как такового не существовало. Нужно было создать его с нуля, учитывая жёсткие требования регуляторов, языковые особенности и культурные различия.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Ограничение времени (1 год) и ресурсов вынуждало идти нестандартным путём: вместо полного редизайна пришлось создавать отдельный бренд и дизайн-систему, которые бы работали параллельно с существующей инфраструктурой.
+                    </p>
+                </div>
+                
+                <div class="mt-8 quote-box fade-in">
+                    <i class="fas fa-quote-left text-2xl mb-4"></i>
+                    <p class="text-lg leading-relaxed">
+                        "Эта была задача на создание продукта внутри продукта: от бренда до интерфейса, где каждый пиксель должен был работать на доверие пользователя к новому рынку."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Исследование: понять, чем рынки отличаются на самом деле
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Column 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="icon-box mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Анализ рынка</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Исследование 5 ключевых конкурентов в Европе и Балтии. Выявление различий в локальных паттернах, ожиданиях пользователей и нормах регуляторов.
+                    </p>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Аудит 30+ продуктов</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Изучение GDPR и локальных законов</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Анализ ценовых стратегий</li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 (Accent) -->
+                <div class="bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-2xl shadow-xl text-white fade-in">
+                    <div class="icon-box mb-4" style="background: rgba(255,255,255,0.2);">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Ключевой инсайт</h3>
+                    <p class="text-indigo-100 text-sm leading-relaxed mb-4">
+                        Главная разница — не в интерфейсе, а в доверии. Пользователи в Балтии и Европе более консервативны к финансовым продуктам. Им нужна не просто функциональность, а уверенность в безопасности и прозрачности.
+                    </p>
+                    <div class="bg-white/20 rounded-lg p-4">
+                        <strong class="block mb-2">Вывод:</strong>
+                        <span class="text-sm">Дизайн должен работать на доверие, а не на краткость пути.</span>
+                    </div>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="icon-box mb-4">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Визуальное тестирование</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        A/B тестирование 3 цветовых схем с фокус-группами в 4 странах. Определение наиболее нейтральной и доверительной палитры.
+                    </p>
+                    <div class="mini-palette">
+                        <div class="color-swatch" style="background: #10b981;"></div>
+                        <div class="color-swatch" style="background: #059669;"></div>
+                        <div class="color-swatch" style="background: #047857;"></div>
+                        <div class="color-swatch" style="background: #065f46;"></div>
+                        <div class="color-swatch" style="background: #064e3b;"></div>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-2 text-center">Зелёная гамма — символ надёжности</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section id="strategy" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Стратегия: не копировать, а переосмыслить
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Вертикальный timeline реализации</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="process-step fade-in">
+                    <span class="step-number">1</span>
+                    <h3 class="text-xl font-bold mb-2">Аудит — Взяла за основу структуру UI-kit</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Вместо разработки с нуля проанализировала существующие компоненты продукта. Выделила универсальные элементы, которые можно адаптировать под новые рынки, и определила "слепые зоны" — где нужен абсолютно новый подход.
+                    </p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <span class="step-number">2</span>
+                    <h3 class="text-xl font-bold mb-2">Пересборка — Заменила визуальный язык</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ушла от тёмных, сложных интерфейсов к светлой, простой палитре с акцентом на зелёный. Переработал визуальную иерархию, чтобы фокус был на действиях, а не на визуальных элементах.
+                    </p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <span class="step-number">3</span>
+                    <h3 class="text-xl font-bold mb-2">Масштабирование — Новая библиотека Figma</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Создала масштабируемую систему компонентов, которая позволяла легко добавлять новые языки (локализации) и адаптироваться под новые регуляторные требования без переработки всего интерфейса.
+                    </p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <span class="step-number">4</span>
+                    <h3 class="text-xl font-bold mb-2">Брендинг — Координация логотипа</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Вместо полного ребрендинга разработала систему расширений: логотип DocsBird с флагами и языковыми метками, сохраняя узнаваемость основного продукта, но добавляя международный контекст.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Scenario Section -->
+    <section id="scenario" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Ключевой сценарий: регистрация как конкурентное преимущество
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <!-- Timeline Horizontal -->
+            <div class="mb-12 fade-in">
+                <div class="timeline-horizontal mb-8">
+                <div class="timeline-step active">
+                    <i class="fas fa-history text-lg mb-2"></i>
+                    <div class="text-sm">Версия 1.0</div>
+                </div>
+                <div class="timeline-step">
+                    <i class="fas fa-exclamation-triangle text-lg mb-2"></i>
+                    <div class="text-sm">Проблема</div>
+                </div>
+                <div class="timeline-step">
+                    <i class="fas fa-sync-alt text-lg mb-2"></i>
+                    <div class="text-sm">Итерации</div>
+                </div>
+                <div class="timeline-step active">
+                    <i class="fas fa-flag-checkered text-lg mb-2"></i>
+                    <div class="text-sm">Версия 2.0</div>
+                </div>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-4 text-center text-sm font-semibold text-gray-600">
+                    <div>7 шагов</div>
+                    <div class="text-red-600">→ Высокий отвал</div>
+                    <div>→ Упрощение</div>
+                    <div class="text-green-600">→ 3 шага</div>
+                </div>
+            </div>
+            
+            <!-- Quote and Visualization -->
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <i class="fas fa-quote-left text-2xl mb-4"></i>
+                    <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                        "Сложные B2B-флоу превратились в простые self-service решения. Сократили 7 шагов до 3, сохранив при этом все регуляторные требования."
+                    </p>
+                    <div class="text-sm text-gray-500">
+                        <strong>Метрики:</strong> Dropout rate снизился на 45%, среднее время регистрации — с 12 до 4 минут
+                    </div>
+                </div>
+                
+                <!-- Visual: Progress Diagram -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <h3 class="text-xl font-bold mb-6 text-center">Визуализация прогресса</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold">7</div>
+                            <div class="flex-1 h-2 bg-red-200 rounded-full"></div>
+                            <div class="text-red-600 font-semibold">Сложно</div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 font-bold">4</div>
+                            <div class="flex-1 h-2 bg-yellow-200 rounded-full"></div>
+                            <div class="text-yellow-600 font-semibold">Упрощение</div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">3</div>
+                            <div class="flex-1 h-2 bg-green-200 rounded-full"></div>
+                            <div class="text-green-600 font-semibold">Оптимально</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-green-50 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-green-600 mb-1">+45%</div>
+                        <div class="text-sm text-green-700">Завершение регистрации</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Результат: продукт, который работает на новом рынке
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4 text-indigo-600">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Дизайн-система</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Создана масштабируемая система компонентов, позволяющая адаптировать продукт под новые рынки за 2-3 недели вместо 3-4 месяцев.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4 text-green-600">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Успешный запуск</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Продукт запущен в 4 странах Балтии и Европы. Положительные отзывы от первых 1000 пользователей о понятности и доверительности интерфейса.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4 text-purple-600">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Визуальный язык</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Разработана нейтральная и доверительная визуальная система, которая не конфликтует с локальными культурными особенностями.
+                    </p>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4 text-emerald-600">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Конверсия +45%</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Сокращение шагов регистрации и упрощение форм привело к увеличению конверсии на 45% по сравнению с предварительными оценками.
+                    </p>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4 text-blue-600">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Сценарии адаптированы</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Пользовательские сценарии были полностью переработаны с учётом локальных рабочих процессов и культурных особенностей.
+                    </p>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in">
+                    <div class="text-4xl mb-4 text-orange-600">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Время сократилось</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Среднее время на выполнение ключевых задач сократилось на 40% благодаря интуитивному интерфейсу и адаптированным сценариям.
+                    </p>
+                </div>
+                
+                <!-- Card 7 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 fade-in col-span-2">
+                    <div class="text-4xl mb-4 text-pink-600">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Процесс регистрации</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Положительная связь от пользователей: "Наконец-то продукт, который понимает мои нужды и не пытается впихнуть меня в чужие процессы."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusions Section -->
+    <section id="conclusions" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Выводы: ограничение как возможность
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Left Column -->
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fas fa-lightbulb text-yellow-500"></i>
+                        Главный урок
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Ограничения — не препятствие, а направление. Жёсткие требования регуляторов и культурные различия заставляли искать нестандартные решения, которые в итоге стали конкурентным преимуществом.
+                        </p>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fas fa-trophy text-green-500"></i>
+                        Что удалось
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-700">Создать продукт, который не копирует, а адаптируется под рынок</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-700">Доказать, что дизайн-система может быть бизнес-активом</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-700">Запустить международный продукт за 1 год с нуля</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="space-y-6 fade-in">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-exclamation-circle text-orange-500"></i>
+                            Что было сложно
+                        </h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-minus text-orange-400 mt-1"></i>
+                                <span>Баланс между локализацией и глобальностью продукта</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-minus text-orange-400 mt-1"></i>
+                                <span>Согласование визуального языка с международными и локальными командами</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-minus text-orange-400 mt-1"></i>
+                                <span>Сохранение узнаваемости бренда при адаптации под новые рынки</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-rocket text-blue-500"></i>
+                            На будущее
+                        </h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-arrow-right text-blue-400 mt-1"></i>
+                                <span>Расширение на новые рынки (Скандинавия, Центральная Европа)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-arrow-right text-blue-400 mt-1"></i>
+                                <span>Интеграция AI для автоматической адаптации интерфейса под локальные нормы</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-arrow-right text-blue-400 mt-1"></i>
+                                <span>Развитие экосистемы партнёрских интеграций</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Case Section -->
+    <section id="why-important" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Почему этот кейс важен
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto fade-in">
+                <span class="badge gradient-badge">
+                    <i class="fas fa-search mr-2"></i>Исследование рынка
+                </span>
+                <span class="badge gradient-badge">
+                    <i class="fas fa-globe mr-2"></i>Международная адаптация
+                </span>
+                <span class="badge gradient-badge">
+                    <i class="fas fa-layer-group mr-2"></i>Дизайн-системы
+                </span>
+                <span class="badge gradient-badge">
+                    <i class="fas fa-chart-line mr-2"></i>Рост метрик
+                </span>
+                <span class="badge gradient-badge">
+                    <i class="fas fa-briefcase mr-2"></i>B2B & B2C
+                </span>
+            </div>
+            
+            <div class="mt-12 text-center fade-in">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Этот кейс демонстрирует, как дизайн может стать стратегическим инструментом для выхода на новые рынки, превращая ограничения в конкурентные преимущества.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="cta" class="py-24 cta-gradient text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
+                <i class="fas fa-quote-left text-3xl mb-4"></i>
+                <p class="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
+                    "DocsBird стал не локальным продуктом с другим интерфейсом, а международной платформой, которая говорит на языке своего пользователя."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Cases Section -->
+    <section id="related" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Другие кейсы
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Глубокий разбор вместо галереи картинок</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Case 1 -->
+                <a href="relaunch.html" class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in block">
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                Case Study
+                            </span>
+                            <span class="text-gray-400 text-sm">Relaunch</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Кейс внутренней платформы для сотрудников</h3>
+                        <p class="text-gray-600 text-sm">
+                            Корпоративная платформа. 100% сотрудников компании.
+                        </p>
+                    </div>
+                </a>
+                
+<!-- Case 2 -->
+<a href="tvip.html" class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in block">
+    <div class="p-8">
+        <div class="flex items-center gap-3 mb-4">
+            <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                Case Study
+            </span>
+            <span class="text-gray-400 text-sm">TVIP</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Дизайн кросс-платформенного медиасервиса</h3>
+        <p class="text-gray-600 text-sm">
+            Медиасервис с готовым бэкендом, устаревший интерфейс. 5 платформ.
+        </p>
+    </div>
+</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Есть сложный продукт, который нуждается в ясности?
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Давайте обсудим, как мои навыки исследований, системного мышления и работы в команде могут помочь вашему проекту. Ищу долгосрочный вызов.
+            </p>
+            
+            <!-- Contact Options -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <a href="https://t.me/ewersawers" target="_blank" rel="noopener noreferrer" class="btn-primary bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.53.26-.194 0-.58-.204-.58-.204l-1.584-1.58 2.858-2.788-.888-.888c-.658-.658-.508-1.084.508-1.084l9.28-1.97c.455-.145.793-.217.793-.217s.358-.072.793.217c.434.289.793.217.793.217z"/></svg>
+                    Написать в Telegram
+                </a>
+                <a href="#" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Скачать резюме (PDF)
+                </a>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl inline-block shadow-sm">
+                <p class="text-gray-500 text-sm">✉️ neolissa@gmail.com</p>
+            </div>
+            
+            <p class="text-gray-400 text-sm mt-6">
+                Обсуждение — конфиденциально. Любые детали проекта останутся между нами.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="py-16 bg-gray-900 text-gray-400">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        Polina Tsoy
+                    </h3>
+                    <p class="text-gray-400 mb-4">Senior Product Designer</p>
+                    <p class="text-gray-300 italic">
+                        «Превращаю сложность в ясность»
+                    </p>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Контакты</h4>
+                    <ul class="space-y-2">
+                        <li>📧 neolissa@gmail.com</li>
+                        <li>💬 <a href="https://t.me/ewersawers" target="_blank" class="hover:text-white transition-colors">@ewersawers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Портфолио и мысли</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.behance.net/polinatra" target="_blank" class="hover:text-white transition-colors">Behance (Избранные работы)</a></li>
+                        <li><a href="https://vc.ru/design/717548-ekonomim-dengi-klienta-vremya-razrabotchika-i-nervy-polzovatelya-optimizaciya-ux-ui-pri-produktovom-podhode" target="_blank" class="hover:text-white transition-colors">VC.ru (Статьи о подходе)</a></li>
+                        <li><span class="opacity-50 cursor-not-allowed">LinkedIn (скоро)</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex gap-6">
+                    <a href="privacy.html" class="hover:text-white transition-colors text-sm">Политика конфиденциальности</a>
+                    <a href="index.html#cta" class="hover:text-white transition-colors text-sm">Полное резюме</a>
+                </div>
+                <p class="text-sm text-gray-500">
+                    © 2026 Polina Tsoy. Всё продумано.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for fade-in animations -->
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+        
+        // Smooth scroll for navigation links (fallback)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

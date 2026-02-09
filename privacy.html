@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Политика конфиденциальности — Полина Цой, Product Designer">
+    <title>Политика конфиденциальности | Polina Tsoy</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#4a4a4a',
+                        accent: '#6366f1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Smooth underline for links */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #6366f1;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* List styling */
+        .content-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        
+        .content-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon from Uxfolio -->
+    <link rel="icon" type="image/png" href="https://uxfolio-prod.s3.us-east-1.amazonaws.com/5dab32e3e523d600043b2c32/7f45318cafb1a5a906049c841aa9317d-sticker_FNR.png">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-gray-900">
+                    Polina Tsoy
+                    <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
+                    <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
+                    <a href="index.html#contact" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
+                </div>
+                <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Написать
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center bg-grid relative overflow-hidden pt-20">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-200 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in">
+            <div class="text-left bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                    Политика конфиденциальности
+                </h1>
+                
+                <p class="text-gray-500 mb-8">
+                    <strong>Дата обновления:</strong> 24 января 2026 года
+                </p>
+                
+                <div class="space-y-6 text-gray-700">
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">1. Общие положения</h2>
+                        <p class="leading-relaxed">
+                            Настоящая Политика конфиденциальности разработана в соответствии с законодательством 
+                            Российской Федерации и определяет порядок обработки персональных данных, которые могут 
+                            быть предоставлены пользователями при использовании сайта Polina Tsoy (далее — Сайт).
+                        </p>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">2. Персональные данные</h2>
+                        <p class="leading-relaxed mb-4">
+                            Мы собираем и обрабатываем следующие персональные данные:
+                        </p>
+                        <ul class="content-list leading-relaxed">
+                            <li><strong>Контактная информация:</strong> имя, адрес электронной почты, телефон (при отправке запроса через форму контактов);</li>
+                            <li><strong>Информация об устройстве:</strong> тип устройства, операционная система, браузер, IP-адрес, время посещения;</li>
+                            <li><strong>Информация о сайте:</strong> страницы, которые вы посещаете, ссылки, по которым переходите;</li>
+                            <li><strong>Данные, которые вы отправляете самостоятельно:</strong> сообщения, запросы, комментарии.</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">3. Цели обработки</h2>
+                        <p class="leading-relaxed mb-4">
+                            Мы обрабатываем ваши персональные данные для следующих целей:
+                        </p>
+                        <ul class="content-list leading-relaxed">
+                            <li>Предоставление услуг и информации, запрошенных пользователем;</li>
+                            <li>Связь с пользователем по вопросам оказания услуг;</li>
+                            <li>Улучшение работы Сайта и сервисов;</li>
+                            <li>Анализ статистики посещаемости и поведения пользователей;</li>
+                            <li>Соблюдение требований законодательства Российской Федерации.</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">4. Способы обработки</h2>
+                        <p class="leading-relaxed mb-4">
+                            Мы обрабатываем персональные данные с использованием следующих способов:
+                        </p>
+                        <ul class="content-list leading-relaxed">
+                            <li><strong>Автоматизированная обработка:</strong> использование программных средств для сбора и анализа информации;</li>
+                            <li><strong>Неавтоматизированная обработка:</strong> ручная обработка запросов и сообщений;</li>
+                            <li><strong>Смешанная обработка:</strong> комбинация автоматизированных и неавтоматизированных методов.</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">5. Права пользователя</h2>
+                        <p class="leading-relaxed mb-4">
+                            Вы имеете следующие права в отношении своих персональных данных:
+                        </p>
+                        <ul class="content-list leading-relaxed">
+                            <li><strong>Право на информацию:</strong> получать информацию о обработке своих персональных данных;</li>
+                            <li><strong>Право на доступ:</strong> получать доступ к своим персональным данным;</li>
+                            <li><strong>Право на исправление:</strong> требовать исправления неточных или неполных данных;</li>
+                            <li><strong>Право на удаление:</strong> требовать удаления своих персональных данных при соблюдении условий, предусмотренных законом;</li>
+                            <li><strong>Право на ограничение обработки:</strong> требовать ограничения обработки своих персональных данных;</li>
+                            <li><strong>Право на возражение:</strong> возражать против обработки своих персональных данных;</li>
+                            <li><strong>Право на отзыв согласия:</strong> отозвать согласие на обработку персональных данных.</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">6. Защита данных</h2>
+                        <p class="leading-relaxed mb-4">
+                            Мы принимаем следующие меры для защиты ваших персональных данных:
+                        </p>
+                        <ul class="content-list leading-relaxed">
+                            <li><strong>Технические меры:</strong> использование защищенных протоколов передачи данных (HTTPS), регулярное обновление программного обеспечения;</li>
+                            <li><strong>Организационные меры:</strong> ограничение доступа к персональным данным уполномоченных лиц, обучение сотрудников;</li>
+                            <li><strong>Юридические меры:</strong> заключение соглашений о неразглашении с третьими лицами, получение необходимых согласий.</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">7. Передача данных третьим лицам</h2>
+                        <p class="leading-relaxed">
+                            Мы не передаем ваши персональные данные третьим лицам за исключением следующих случаев:
+                        </p>
+                        <ul class="content-list leading-relaxed mt-4">
+                            <li><strong>С вашего согласия:</strong> когда вы дали явное согласие на передачу данных;</li>
+                            <li><strong>В соответствии с законом:</strong> когда это требуется по требованию суда, правоохранительных органов или иных государственных органов;</li>
+                            <li><strong>При использовании сервисов:</strong> когда это необходимо для оказания услуг (например, хостингинговые сервисы, почтовые сервисы);</li>
+                            <li><strong>В случаях, предусмотренных законодательством.</strong></li>
+                        </ul>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">8. Cookies и аналогичные технологии</h2>
+                        <p class="leading-relaxed">
+                            Сайт использует файлы cookies и аналогичные технологии для:
+                        </p>
+                        <ul class="content-list leading-relaxed mt-4">
+                            <li>Обеспечения корректной работы сайта;</li>
+                            <li>Сбора статистических данных об использовании Сайта;</li>
+                            <li>Персонализации вашего опыта использования Сайта;</li>
+                            <li>Анализа эффективности маркетинговых кампаний.</li>
+                        </ul>
+                        <p class="leading-relaxed mt-4">
+                            Вы можете отключить файлы cookies в настройках вашего браузера, однако это может повлиять 
+                            на функциональность некоторых разделов Сайта.
+                        </p>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">9. Изменения политики</h2>
+                        <p class="leading-relaxed">
+                            Мы оставляем за собой право вносить изменения в настоящую Политику конфиденциальности. 
+                            Новая редакция Политики вступает в силу с момента ее размещения на Сайте, если иное не предусмотрено новой редакцией. 
+                            Рекомендуем периодически проверять актуальную версию Политики на Сайте.
+                        </p>
+                    </section>
+                    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-900">10. Контактная информация</h2>
+                        <p class="leading-relaxed mb-4">
+                            Если у вас есть вопросы, предложения или замечания по поводу настоящей Политики конфиденциальности, 
+                            вы можете связаться с нами:
+                        </p>
+                        <ul class="content-list leading-relaxed">
+                            <li><strong>Электронная почта:</strong> <a href="mailto:neolissa@gmail.com" class="text-indigo-600 hover:text-indigo-800 underline">neolissa@gmail.com</a></li>
+                            <li><strong>Telegram:</strong> <a href="https://t.me/ewersawers" target="_blank" class="text-indigo-600 hover:text-indigo-800 underline">@ewersawers</a></li>
+                        </ul>
+                    </section>
+                    
+                    <div class="border-t border-gray-200 pt-8 mt-8">
+                        <p class="text-gray-500 text-sm italic">
+                            Данный документ является официальной публичной политикой конфиденциальности 
+                            и не является юридическим договором. При необходимости получения юридических 
+                            консультаций рекомендуем обратиться к квалифицированному специалисту.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-gray-200">
+                    <a href="index.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Вернуться на главную
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- Load footer component -->
+    <script src="loadComponent.js"></script>
+
+    <!-- JavaScript for fade-in animations -->
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+        
+        // Smooth scroll for navigation links (fallback)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
