@@ -133,7 +133,10 @@
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
             border-radius: 12px;
-            padding: 20px;
+            padding: 1.25rem 1rem;
+            min-height: 15rem;
+            display: flex;
+            flex-direction: column;
         }
         
     </style>
@@ -168,7 +171,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20">
+    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20 pb-16 md:pb-24">
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10 fade-in">
             <!-- Badge -->
             <div class="inline-block mb-6">
@@ -189,8 +192,8 @@
             
             <!-- Hero Image -->
             <div class="max-w-2xl mx-auto mb-10 fade-in">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                    <img src="images/hero-wuw2.png" alt="WUW Hero Image" class="w-full h-auto" style="aspect-ratio: 16/9; object-fit: cover;">
+                <div class="bg-gray-50 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-gray-100">
+                    <img src="images/hero-wuw2.png" alt="WUW Hero Image" class="w-full h-auto max-h-[min(56vw,480px)] object-contain" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
                 </div>
             </div>
             
@@ -410,6 +413,10 @@
                                 <p>Как успешный инвестор и предприниматель, стремится к постоянному профессиональному и личностному росту.</p>
                             </div>
                             <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Профессиональный опыт</h4>
+                                <p>Более 15 лет в венчурных инвестициях и развитии технологических компаний: советы директоров портфельных проектов, соосновательство в финтехе и B2B SaaS. Фокус на масштабировании продукта, управлении рисками и кросс-функциональными командами.</p>
+                            </div>
+                            <div>
                                 <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Ожидания от приложения</h4>
                                 <p>Джонатан заинтересован в приложении, которое позволит оптимизировать личные и деловые процессы, развивать лидерские качества и эффективно управлять стрессом.</p>
                             </div>
@@ -436,6 +443,10 @@
                             <div>
                                 <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Цели</h4>
                                 <p>Стремится к постоянному росту в личностном и профессиональном плане. Ключевая задача — успевать решать широкий круг вопросов, сохраняя баланс между работой и личной жизнью.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Профессиональный опыт</h4>
+                                <p>Свыше 20 лет в операционном управлении в Европе: дистрибуция, логистика и международные контракты. Выстраивал процессы и команды при росте и смене рынков; ответственность за P&amp;L и стратегические партнёрства.</p>
                             </div>
                             <div>
                                 <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Ожидания от приложения</h4>
@@ -770,30 +781,30 @@
             </div>
             
             <!-- Stats Cards -->
-            <div class="grid md:grid-cols-4 gap-6 mb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
                 <div class="stat-card fade-in">
                     <div class="text-4xl mb-2">🎨</div>
-                    <div class="text-3xl font-bold mb-1">200 → 24</div>
-                    <div class="text-sm opacity-80">Стилей в UI-kit</div>
-                    <div class="text-2xl font-bold mt-2">-90%</div>
+                    <div class="text-2xl sm:text-3xl font-bold mb-1 leading-tight">200 → 24</div>
+                    <div class="text-sm opacity-90 leading-snug">Стилей в UI-kit</div>
+                    <div class="text-xl sm:text-2xl font-bold mt-auto pt-3">-90%</div>
                 </div>
                 <div class="stat-card fade-in">
                     <div class="text-4xl mb-2">⏱️</div>
-                    <div class="text-3xl font-bold mb-1">2-3 → 0.5</div>
-                    <div class="text-sm opacity-80">Дней на вёрстку</div>
-                    <div class="text-2xl font-bold mt-2">×3</div>
+                    <div class="text-2xl sm:text-3xl font-bold mb-1 leading-tight">2-3 → 0.5</div>
+                    <div class="text-sm opacity-90 leading-snug">Дней на вёрстку</div>
+                    <div class="text-xl sm:text-2xl font-bold mt-auto pt-3">×3</div>
                 </div>
                 <div class="stat-card fade-in">
                     <div class="text-4xl mb-2">🏷️</div>
-                    <div class="text-3xl font-bold mb-1">Нет → Да</div>
-                    <div class="text-sm opacity-80">White Label</div>
-                    <div class="text-2xl font-bold mt-2">Новый бизнес</div>
+                    <div class="text-2xl sm:text-3xl font-bold mb-1 leading-tight">Нет → Да</div>
+                    <div class="text-sm opacity-90 leading-snug">White Label</div>
+                    <div class="text-xl sm:text-2xl font-bold mt-auto pt-3">Новый бизнес</div>
                 </div>
                 <div class="stat-card fade-in">
                     <div class="text-4xl mb-2">😊</div>
-                    <div class="text-3xl font-bold mb-1">40% → 95%</div>
-                    <div class="text-sm opacity-80">Консистентность</div>
-                    <div class="text-2xl font-bold mt-2">Удовлетворённость</div>
+                    <div class="text-2xl sm:text-3xl font-bold mb-1 leading-tight">40% → 95%</div>
+                    <div class="text-sm opacity-90 leading-snug text-balance">Консистентность</div>
+                    <div class="text-lg sm:text-xl font-bold mt-auto pt-3 leading-snug text-balance hyphens-auto">Удовлетворённость</div>
                 </div>
             </div>
             
