@@ -8,8 +8,6 @@
     
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Splide (Carousel) CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.9/dist/css/splide.min.css">
     
     <!-- Custom Tailwind Config -->
     <script>
@@ -137,6 +135,7 @@
             border-radius: 12px;
             padding: 20px;
         }
+        
     </style>
     
     <!-- Google Fonts for better typography -->
@@ -159,7 +158,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
                     <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
-                    <a href="index.html#contact" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
+                    <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
                 </div>
                 <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
                     Написать
@@ -341,144 +340,145 @@
         </div>
     </section>
 
-    <!-- Hypothesis Section -->
+    <!-- Персоны (разметка дублирует components/personas-wuw.html для SSR и fade-in) -->
+    <section id="personas" class="py-24 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14 fade-in">
+                <p class="text-sm font-semibold uppercase tracking-wider text-indigo-600 mb-3">Исследование</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Персоны</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Портреты целевой аудитории и B2B-партнёра — основа для сценариев, приоритизации фич и проверки гипотез.
+                </p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto mt-8"></div>
+            </div>
 
-    <!-- Image Carousel for Research Section -->
-<div class="relative mt-12" style="max-width: 800px; margin: 40px auto;">
-    <div class="carousel-container">
-        <div class="carousel-track flex transition-transform duration-700 ease-in-out" style="transform: translateX(0%);">
-            <!-- Slide 1 -->
-            <div class="carousel-slide flex-shrink-0 w-full">
-                <img src="images/wuw/исследование/Frame 289.png" alt="Research Image 1" class="w-full rounded-lg shadow-lg">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
+                <article class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col fade-in">
+                    <div class="aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden bg-gray-100">
+                        <img src="images/wuw/personas/sofia.jpg" alt="Портрет персоны София" class="w-full h-full object-cover object-top" width="800" height="500" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-6 sm:p-8 flex flex-col flex-1">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">София</h3>
+                                <p class="text-indigo-600 font-medium">Эксперт в области финансов</p>
+                            </div>
+                            <span class="text-sm text-gray-500 whitespace-nowrap">35 лет</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-4">
+                            <span class="font-medium text-gray-700">Интересы:</span> карьера, семья, здоровье, отдых, саморазвитие, спорт, красота, психология.
+                        </p>
+                        <div class="space-y-4 text-gray-600 text-sm leading-relaxed flex-1">
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Цели</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Получение доступа к эксклюзивным ресурсам, рекомендациям и инструментам для сбалансированного управления жизнью, карьерой и семейными обязанностями.</li>
+                                    <li>Развитие лидерских качеств и профессиональных навыков.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Профессиональный опыт</h4>
+                                <p>Более 10 лет в сфере финансов и управления инвестициями. Успешно управляла финансовыми активами и инвестиционными портфелями в различных компаниях и организациях.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Ожидания от приложения</h4>
+                                <p>София ищет приложение, которое даст доступ к эксклюзивным аналитическим материалам, советам и инструментам для управления финансами и инвестициями, поможет развивать лидерские компетенции, оптимизировать деловые процессы и справляться со стрессом.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col fade-in">
+                    <div class="aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden bg-gray-100">
+                        <img src="images/wuw/personas/jonathan.jpg" alt="Портрет персоны Джонатан" class="w-full h-full object-cover object-top" width="800" height="500" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-6 sm:p-8 flex flex-col flex-1">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Джонатан</h3>
+                                <p class="text-indigo-600 font-medium">Успешный инвестор и предприниматель</p>
+                            </div>
+                            <span class="text-sm text-gray-500 whitespace-nowrap">40 лет · США</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-4">
+                            <span class="font-medium text-gray-700">Интересы:</span> карьера, семья, здоровье, отдых, саморазвитие, спорт, красота, психология.
+                        </p>
+                        <div class="space-y-4 text-gray-600 text-sm leading-relaxed flex-1">
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Цели</h4>
+                                <p>Как успешный инвестор и предприниматель, стремится к постоянному профессиональному и личностному росту.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Ожидания от приложения</h4>
+                                <p>Джонатан заинтересован в приложении, которое позволит оптимизировать личные и деловые процессы, развивать лидерские качества и эффективно управлять стрессом.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col fade-in">
+                    <div class="aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden bg-gray-100">
+                        <img src="images/wuw/personas/alexey.jpg" alt="Портрет персоны Алексей" class="w-full h-full object-cover object-top" width="800" height="500" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-6 sm:p-8 flex flex-col flex-1">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Алексей</h3>
+                                <p class="text-indigo-600 font-medium">Успешный бизнесмен</p>
+                            </div>
+                            <span class="text-sm text-gray-500 whitespace-nowrap">50 лет · Европа</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-4">
+                            <span class="font-medium text-gray-700">Интересы:</span> карьера, семья, здоровье, отдых, саморазвитие, спорт, красота, психология.
+                        </p>
+                        <div class="space-y-4 text-gray-600 text-sm leading-relaxed flex-1">
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Цели</h4>
+                                <p>Стремится к постоянному росту в личностном и профессиональном плане. Ключевая задача — успевать решать широкий круг вопросов, сохраняя баланс между работой и личной жизнью.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Ожидания от приложения</h4>
+                                <p>Алексей ищет приложение, которое будет способствовать развитию лидерских качеств, помогать в управлении бизнесом и финансами, а также обеспечивать гармонию между рабочими задачами и личной жизнью.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col lg:col-span-2 fade-in">
+                    <div class="sm:flex sm:min-h-[220px]">
+                        <div class="sm:w-2/5 lg:w-1/3 min-h-[200px] sm:min-h-0 overflow-hidden bg-slate-900">
+                            <img src="images/wuw/personas/excelsior.jpg" alt="Офисные здания — иллюстрация корпоративной персоны" class="w-full h-full object-cover min-h-[200px] sm:min-h-full" width="1200" height="800" loading="lazy" decoding="async">
+                        </div>
+                        <div class="p-6 sm:p-8 flex flex-col flex-1">
+                            <div class="mb-4">
+                                <span class="inline-block text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full mb-3">B2B · Организация</span>
+                                <h3 class="text-2xl font-bold text-gray-900">Корпорация «Экселисор»</h3>
+                                <p class="text-indigo-600 font-medium mt-1">Финансовые услуги и консалтинг</p>
+                            </div>
+                            <div class="space-y-4 text-gray-600 text-sm leading-relaxed">
+                                <p>Крупная корпорация, специализирующаяся на финансовых услугах и консалтинге.</p>
+                                <p><span class="font-medium text-gray-800">География:</span> офисы в США и Европе.</p>
+                                <div>
+                                    <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Цели организации</h4>
+                                    <p>Корпорация заинтересована в стратегическом партнёрстве с приложением, которое предоставляет инструменты и ресурсы для личного и профессионального развития. Решение должно быть интегрируемо в существующие программы обучения и развития персонала.</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold uppercase tracking-wide text-gray-400 mb-2">Ожидания от приложения</h4>
+                                    <p>«Экселисор» стремится обеспечить сотрудникам доступ к эксклюзивным ресурсам и инструментам, способствующим повышению производительности и ускорению карьерного роста.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
-            <!-- Slide 2 -->
-            <div class="carousel-slide flex-shrink-0 w-full">
-                <img src="images/wuw/исследование/Frame 290.png" alt="Research Image 2" class="w-full rounded-lg shadow-lg">
-            </div>
-            <!-- Slide 3 -->
-            <div class="carousel-slide flex-shrink-0 w-full">
-                <img src="images/wuw/исследование/Frame 291.png" alt="Research Image 3" class="w-full rounded-lg shadow-lg">
-            </div>
-            <!-- Slide 4 -->
-            <div class="carousel-slide flex-shrink-0 w-full">
-                <img src="images/wuw/исследование/Frame 292.png" alt="Research Image 4" class="w-full rounded-lg shadow-lg">
-            </div>
+
+            <p class="text-center text-xs text-gray-400 mt-10 max-w-2xl mx-auto leading-relaxed">
+                Фото персон: Unsplash (бесплатная лицензия). Сюжетные портреты иллюстративные и не связаны с реальными респондентами.
+            </p>
         </div>
-    </div>
+    </section>
 
-    <!-- Navigation Arrows -->
-    <button class="carousel-prev absolute top-1/2 left-0 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full ml-4 hover:bg-black focus:outline-none" aria-label="Previous Slide">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-    </button>
-    <button class="carousel-next absolute top-1/2 right-0 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full mr-4 hover:bg-black focus:outline-none" aria-label="Next Slide">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-    </button>
-
-    <!-- Pagination Dots -->
-    <div class="carousel-pagination absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-3">
-        <!-- Dots will be inserted by JS -->
-    </div>
-</div>
-
-<!-- Custom CSS for Carousel (add to your existing <style> block or a new one) -->
-<style>
-.carousel-container {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    /* max-width is set inline for responsiveness */
-}
-
-.carousel-slide {
-    flex-shrink: 0; /* Prevent slides from shrinking */
-    width: 100%;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-.carousel-track {
-    display: flex;
-}
-</style>
-
-<!-- Custom JavaScript for Carousel (add before the closing </body> tag, after existing scripts) -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const carouselTrack = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const prevButton = document.querySelector('.carousel-prev');
-        const nextButton = document.querySelector('.carousel-next');
-        const paginationContainer = document.querySelector('.carousel-pagination');
-        let currentIndex = 0;
-        let totalSlides = slides.length;
-
-        // Function to update carousel based on current index
-        const updateCarousel = () => {
-            if (!carouselTrack || !slides.length || !paginationContainer) return; // Exit if elements are not found
-
-            const slideWidth = slides[0].clientWidth; // Get current slide width
-            carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-            // Update pagination dots
-            const dots = paginationContainer.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.remove('bg-indigo-600', 'scale-110');
-                if (index === currentIndex) {
-                    dot.classList.add('bg-indigo-600', 'scale-110');
-                }
-            });
-        };
-
-        // Create pagination dots
-        if (paginationContainer) {
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.classList.add('carousel-dot', 'w-3', 'h-3', 'rounded-full', 'bg-gray-400', 'focus:outline-none', 'transition-colors', 'duration-200');
-                if (i === currentIndex) {
-                    dot.classList.add('bg-indigo-600', 'scale-110');
-                }
-                dot.addEventListener('click', () => goToSlide(i));
-                paginationContainer.appendChild(dot);
-            }
-        }
-
-        // Function to move to a specific slide
-        const goToSlide = (index) => {
-            if (index < 0) index = totalSlides - 1;
-            if (index >= totalSlides) index = 0;
-            currentIndex = index;
-            updateCarousel();
-        };
-
-        // Event listeners for navigation buttons
-        if (prevButton) {
-            prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
-        }
-        if (nextButton) {
-            nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
-        }
-
-        // Initial setup and resize listener
-        updateCarousel(); // Set initial carousel state
-
-        // Debounce function for resize handler
-        const debounce = (func, wait) => {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        };
-
-        const debouncedUpdateCarousel = debounce(updateCarousel, 100);
-        window.addEventListener('resize', debouncedUpdateCarousel);
-    });
-</script>
-<!-- Hypothesis Section -->
+    <!-- Hypothesis Section -->
     <section id="hypothesis" class="py-24 bg-gray-900 text-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16 fade-in">
@@ -654,9 +654,9 @@
                 <div class="mt-12 text-center">
                     <h4 class="text-xl font-semibold mb-6">Реальные скриншоты: как это выглядело и как стало</h4>
                     <picture>
-                        <source srcset="images/wuw-before-after-400w.webp 400w, images/wuw-before-after-800w.webp 800w, images/wuw-before-after-1200w.webp 1200w, images/wuw-before-after-1600w.webp 1600w, images/wuw-before-after-2000w.webp 2000w" sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" type="image/webp">
-                        <source srcset="images/wuw-before-after-400w.avif 400w, images/wuw-before-after-800w.avif 800w, images/wuw-before-after-1200w.avif 1200w, images/wuw-before-after-1600w.avif 1600w, images/wuw-before-after-2000w.avif 2000w" sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" type="image/avif">
-                        <img src="images/wuw-before-after.png" srcset="images/wuw-before-after-400w.png 400w, images/wuw-before-after-800w.png 800w, images/wuw-before-after-1200w.png 1200w, images/wuw-before-after-1600w.png 1600w, images/wuw-before-after-2000w.png 2000w" sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Сравнение интерфейса WUW: как выглядело до и после системного подхода" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <source srcset="images/wuw-before-after.webp" type="image/webp">
+                        <source srcset="images/wuw-before-after.avif" type="image/avif">
+                        <img src="images/wuw-before-after.png" srcset="images/wuw-before-after-400w.png 400w, images/wuw-before-after.png 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Сравнение интерфейса WUW: как выглядело до и после системного подхода" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     </picture>
                     <p class="text-center text-gray-600 mt-4">
                         200+ разрозненных элементов → 35 переиспользуемых компонентов
@@ -700,38 +700,17 @@
             <!-- White Label -->
             <div class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold mb-6 text-center">White Label за 2 клика</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl">
-                        <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                        <div class="flex-1">
-                            <div class="font-bold">Бренд А</div>
-                            <div class="text-sm text-gray-600">Красный тема</div>
-                        </div>
-                        <div class="text-gray-400">→</div>
-                        <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">Весь интерфейс</div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl">
-                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold">B</div>
-                        <div class="flex-1">
-                            <div class="font-bold">Бренд Б</div>
-                            <div class="text-sm text-gray-600">Синяя тема</div>
-                        </div>
-                        <div class="text-gray-400">→</div>
-                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">Весь интерфейс</div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl">
-                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold">C</div>
-                        <div class="flex-1">
-                            <div class="font-bold">Бренд В</div>
-                            <div class="text-sm text-gray-600">Зеленая тема</div>
-                        </div>
-                        <div class="text-gray-400">→</div>
-                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">Весь интерфейс</div>
-                    </div>
+                <div class="max-w-4xl mx-auto">
+                    <video
+                        class="w-full rounded-xl shadow-lg bg-black"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        aria-label="Демонстрация White Label за два клика"
+                    >
+                        <source src="images/wuw/whitelabel.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <p class="text-center text-gray-600 mt-4">
-                    Партнёры могут запускать свой бренд за час вместо месяца
-                </p>
             </div>
             
             <!-- Gamification -->
