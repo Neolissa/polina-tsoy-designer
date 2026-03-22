@@ -31,7 +31,9 @@
         document.querySelectorAll('img[data-lightbox]').forEach(function (el) {
             el.classList.add('cursor-zoom-in');
             var label = el.alt ? 'Увеличить: ' + el.alt : 'Увеличить изображение';
-            el.addEventListener('click', function () {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
                 openLightbox(el.currentSrc || el.src, el.alt);
             });
             el.addEventListener('keydown', function (e) {

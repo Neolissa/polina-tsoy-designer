@@ -178,6 +178,19 @@
             color: #6366f1;
             margin-bottom: 12px;
         }
+        
+        /* Карты эмпатии: полноширинный слайдер */
+        .empathy-slider-track {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            touch-action: pan-x;
+        }
+        .empathy-slider-track::-webkit-scrollbar {
+            display: none;
+        }
+        .empathy-slider-dot[aria-current="true"] {
+            transform: scale(1.2);
+        }
     </style>
     
     <!-- Google Fonts for better typography -->
@@ -232,7 +245,7 @@
             <!-- Hero Image -->
             <div class="max-w-2xl mx-auto mb-10 fade-in">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                    <img src="images/hero-tvip.png" alt="TVIP Hero Image" class="w-full h-auto" style="aspect-ratio: 16/9; object-fit: cover;">
+                    <img src="images/hero-tvip.png" alt="TVIP Hero Image" data-lightbox class="w-full h-auto" style="aspect-ratio: 16/9; object-fit: cover;">
                 </div>
             </div>
             
@@ -405,56 +418,65 @@
             
             <div class="mt-16 fade-in">
                 <h3 class="text-2xl font-bold mb-2 text-center">Карты эмпатии семьи</h3>
-                <p class="text-gray-600 text-center mb-10 max-w-2xl mx-auto text-sm">Роли зрителей в домашнем контексте — основа для сценариев и профилей</p>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-indigo-50 border-b border-indigo-100">
-                            <h4 class="font-semibold text-sm text-gray-900">Боли</h4>
+                <p class="text-gray-600 text-center mb-8 max-w-2xl mx-auto text-sm">Роли зрителей в домашнем контексте — основа для сценариев и профилей</p>
+                
+                <div id="empathy-slider" class="relative w-screen max-w-[100vw] left-1/2 -translate-x-1/2 bg-gray-100 border-y border-gray-200 shadow-inner" role="region" aria-roledescription="карусель" aria-label="Карты эмпатии семьи">
+                    <div class="relative">
+                        <div class="empathy-slider-track flex overflow-x-auto scroll-smooth snap-x snap-mandatory" data-empathy-track tabindex="0" aria-label="Листание картинок стрелками или свайпом">
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%9E%D0%9B%D0%98.jpg" data-lightbox alt="Карта эмпатии: боли семьи как зрителей TVIP" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" width="1200" height="900" loading="eager" decoding="async" fetchpriority="high">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%9E%D0%A2%D0%A0%D0%95%D0%91%D0%9D%D0%9E%D0%A1%D0%A2%D0%98.jpg" data-lightbox alt="Карта эмпатии: потребности семьи" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" width="1200" height="900" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%B0%D0%B1%D1%83%D1%88%D0%BA%D0%B0.jpg" data-lightbox alt="Карта эмпатии: персона бабушки" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D0%B5%D0%B4%D1%83%D1%88%D0%BA%D0%B0.jpg" data-lightbox alt="Карта эмпатии: персона дедушки" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D1%8F%D0%B4%D1%8F.jpg" data-lightbox alt="Карта эмпатии: персона дяди" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%B0%D0%BC%D0%B0.jpg" data-lightbox alt="Карта эмпатии: персона мамы" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%BB%D0%B0%D0%B4%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" data-lightbox alt="Карта эмпатии: младший ребёнок" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%B0%D0%BF%D0%B0.jpg" data-lightbox alt="Карта эмпатии: персона папы" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A1%D1%82%D0%B0%D1%80%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" data-lightbox alt="Карта эмпатии: старший ребёнок" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A2%D1%91%D1%82%D1%8F.jpg" data-lightbox alt="Карта эмпатии: персона тёти" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
                         </div>
-                        <div class="rounded-b-xl overflow-hidden bg-gray-50">
-                            <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%9E%D0%9B%D0%98.jpg" alt="Карта эмпатии: боли семьи как зрителей TVIP" data-lightbox class="w-full h-auto object-contain max-h-[320px]" width="800" height="600" loading="lazy" decoding="async">
+                        <button type="button" data-empathy-prev class="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md ring-1 ring-black/5 hover:bg-white md:left-4" aria-label="Предыдущая карта">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" data-empathy-next class="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md ring-1 ring-black/5 hover:bg-white md:right-4" aria-label="Следующая карта">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white px-4 py-5 border-t border-gray-200">
+                        <p class="text-center font-semibold text-gray-900 text-lg mb-1" data-empathy-caption>Боли</p>
+                        <p class="text-center text-xs text-gray-500 mb-4" data-empathy-counter aria-live="polite">1 / 10</p>
+                        <div class="flex flex-wrap justify-center gap-x-2 gap-y-2 max-w-4xl mx-auto" data-empathy-dots role="tablist" aria-label="Выбор карты эмпатии">
+                            <button type="button" role="tab" aria-selected="true" aria-current="true" data-empathy-dot="0" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-indigo-600 transition-all hover:bg-indigo-500" title="Боли" aria-label="Боли"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="1" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Потребности" aria-label="Потребности"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="2" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Бабушка" aria-label="Бабушка"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="3" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Дедушка" aria-label="Дедушка"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="4" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Дядя" aria-label="Дядя"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="5" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Мама" aria-label="Мама"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="6" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Младший ребёнок" aria-label="Младший ребёнок"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="7" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Папа" aria-label="Папа"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="8" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Старший ребёнок" aria-label="Старший ребёнок"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="9" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Тётя" aria-label="Тётя"></button>
                         </div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-indigo-50 border-b border-indigo-100">
-                            <h4 class="font-semibold text-sm text-gray-900">Потребности</h4>
-                        </div>
-                        <div class="rounded-b-xl overflow-hidden bg-gray-50">
-                            <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%9E%D0%A2%D0%A0%D0%95%D0%91%D0%9D%D0%9E%D0%A1%D0%A2%D0%98.jpg" alt="Карта эмпатии: потребности семьи" data-lightbox class="w-full h-auto object-contain max-h-[320px]" width="800" height="600" loading="lazy" decoding="async">
-                        </div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Бабушка</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%B0%D0%B1%D1%83%D1%88%D0%BA%D0%B0.jpg" alt="Карта эмпатии: персона бабушки" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Дедушка</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D0%B5%D0%B4%D1%83%D1%88%D0%BA%D0%B0.jpg" alt="Карта эмпатии: персона дедушки" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Дядя</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D1%8F%D0%B4%D1%8F.jpg" alt="Карта эмпатии: персона дяди" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Мама</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%B0%D0%BC%D0%B0.jpg" alt="Карта эмпатии: персона мамы" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Младший ребёнок</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%BB%D0%B0%D0%B4%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" alt="Карта эмпатии: младший ребёнок" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Папа</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%B0%D0%BF%D0%B0.jpg" alt="Карта эмпатии: персона папы" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Старший ребёнок</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A1%D1%82%D0%B0%D1%80%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" alt="Карта эмпатии: старший ребёнок" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
-                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
-                        <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Тётя</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A2%D1%91%D1%82%D1%8F.jpg" alt="Карта эмпатии: персона тёти" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
-                    </article>
+                    </div>
                 </div>
             </div>
             
@@ -597,7 +619,7 @@
                 <h3 class="text-xl font-bold mb-2 text-center">Планшет, вертикальная ориентация</h3>
                 <p class="text-gray-600 text-sm text-center mb-6">Тот же UI-kit в формате «второго экрана» и онлайн-просмотра</p>
                 <div class="rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden bg-gray-100">
-                    <img src="images/tvip/tvip%20tablet%20vertical.png" alt="Интерфейс TVIP на планшете в вертикальной ориентации" class="w-full h-auto object-contain max-h-[75vh] mx-auto" width="900" height="1200" loading="lazy" decoding="async">
+                    <img src="images/tvip/tvip%20tablet%20vertical.png" alt="Интерфейс TVIP на планшете в вертикальной ориентации" data-lightbox class="w-full h-auto object-contain max-h-[75vh] mx-auto" width="900" height="1200" loading="lazy" decoding="async">
                 </div>
             </div>
             
@@ -669,31 +691,35 @@
                 </div>
             </div>
             
-            <div class="grid sm:grid-cols-2 gap-4 mb-12 fade-in">
-                <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
-                    <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">День — вариант 1</figcaption>
-                    <div class="rounded-lg overflow-hidden bg-gray-100">
-                        <img src="images/tvip/day1.jpg" alt="TVIP: дневная тема интерфейса, экран 1" class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
-                    </div>
-                </figure>
-                <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
-                    <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">День — вариант 2</figcaption>
-                    <div class="rounded-lg overflow-hidden bg-gray-100">
-                        <img src="images/tvip/day2.jpg" alt="TVIP: дневная тема интерфейса, экран 2" class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
-                    </div>
-                </figure>
-                <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
-                    <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Ночь — вариант 1</figcaption>
-                    <div class="rounded-lg overflow-hidden bg-gray-900/80">
-                        <img src="images/tvip/night1.jpg" alt="TVIP: ночная тёмная тема, экран 1" class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
-                    </div>
-                </figure>
-                <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
-                    <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Ночь — вариант 2</figcaption>
-                    <div class="rounded-lg overflow-hidden bg-gray-900/80">
-                        <img src="images/tvip/night2.jpg" alt="TVIP: ночная тёмная тема, экран 2" class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
-                    </div>
-                </figure>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 fade-in">
+                <div class="flex flex-col gap-4">
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">День — вариант 1</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-100">
+                            <img src="images/tvip/day1.jpg" alt="TVIP: дневная тема интерфейса, экран 1" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">День — вариант 2</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-100">
+                            <img src="images/tvip/day2.jpg" alt="TVIP: дневная тема интерфейса, экран 2" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Ночь — вариант 1</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-900/80">
+                            <img src="images/tvip/night1.jpg" alt="TVIP: ночная тёмная тема, экран 1" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Ночь — вариант 2</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-900/80">
+                            <img src="images/tvip/night2.jpg" alt="TVIP: ночная тёмная тема, экран 2" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                </div>
             </div>
             
             <div class="bg-gray-800 p-8 rounded-2xl fade-in">
@@ -1107,6 +1133,88 @@
         });
         
         fadeElements.forEach(el => observer.observe(el));
+        
+        (function initEmpathySlider() {
+            const root = document.getElementById('empathy-slider');
+            if (!root) return;
+            const track = root.querySelector('[data-empathy-track]');
+            const dots = root.querySelectorAll('[data-empathy-dot]');
+            const caption = root.querySelector('[data-empathy-caption]');
+            const counter = root.querySelector('[data-empathy-counter]');
+            const prevBtn = root.querySelector('[data-empathy-prev]');
+            const nextBtn = root.querySelector('[data-empathy-next]');
+            const titles = ['Боли', 'Потребности', 'Бабушка', 'Дедушка', 'Дядя', 'Мама', 'Младший ребёнок', 'Папа', 'Старший ребёнок', 'Тётя'];
+            const total = titles.length;
+            let scrollRaf = 0;
+
+            function slideWidth() {
+                return track.clientWidth || 1;
+            }
+
+            function indexFromScroll() {
+                const w = slideWidth();
+                return Math.min(total - 1, Math.max(0, Math.round(track.scrollLeft / w)));
+            }
+
+            function updateUI() {
+                const idx = indexFromScroll();
+                if (caption) caption.textContent = titles[idx];
+                if (counter) counter.textContent = (idx + 1) + ' / ' + total;
+                dots.forEach(function (dot, i) {
+                    const on = i === idx;
+                    dot.setAttribute('aria-selected', on ? 'true' : 'false');
+                    if (on) dot.setAttribute('aria-current', 'true');
+                    else dot.removeAttribute('aria-current');
+                    dot.classList.toggle('bg-indigo-600', on);
+                    dot.classList.toggle('bg-gray-300', !on);
+                });
+            }
+
+            function goTo(index) {
+                const i = Math.max(0, Math.min(total - 1, index));
+                track.scrollTo({ left: i * slideWidth(), behavior: 'smooth' });
+            }
+
+            function onScroll() {
+                if (scrollRaf) cancelAnimationFrame(scrollRaf);
+                scrollRaf = requestAnimationFrame(function () {
+                    scrollRaf = 0;
+                    updateUI();
+                });
+            }
+
+            track.addEventListener('scroll', onScroll, { passive: true });
+            if ('onscrollend' in window) {
+                track.addEventListener('scrollend', updateUI);
+            }
+
+            window.addEventListener('resize', function () {
+                const idx = indexFromScroll();
+                track.scrollTo({ left: idx * slideWidth(), behavior: 'auto' });
+                updateUI();
+            });
+
+            dots.forEach(function (dot) {
+                dot.addEventListener('click', function () {
+                    goTo(parseInt(dot.getAttribute('data-empathy-dot'), 10));
+                });
+            });
+
+            if (prevBtn) prevBtn.addEventListener('click', function () { goTo(indexFromScroll() - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { goTo(indexFromScroll() + 1); });
+
+            track.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    goTo(indexFromScroll() - 1);
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    goTo(indexFromScroll() + 1);
+                }
+            });
+
+            updateUI();
+        })();
         
         // Smooth scroll for navigation links (fallback)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
