@@ -57,7 +57,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20">
+    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20 pb-16 md:pb-24">
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
             <!-- Badge -->
             <div class="inline-block mb-6">
@@ -253,9 +253,9 @@
                             </div>
                         </div>
                         <div class="mt-6">
-                            <p class="text-sm font-medium text-gray-700 mb-2">Упрощённый user flow</p>
+                            <p class="text-sm font-medium text-gray-700 mb-2">Упрощённый user flow <span class="text-gray-400 font-normal">(нажмите для увеличения)</span></p>
                             <div class="rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden bg-gray-100">
-                                <img src="images/coin/coin%202%20user%20flow.png" alt="Схема упрощённого пользовательского пути по платформе после редизайна" class="w-full h-auto object-contain max-h-[min(70vh,520px)]" width="1200" height="700" loading="lazy" decoding="async">
+                                <img src="images/coin/coin%202%20user%20flow.png" alt="Схема упрощённого пользовательского пути по платформе после редизайна" data-lightbox class="w-full h-auto object-contain max-h-[min(70vh,520px)]" width="1200" height="700" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -333,15 +333,21 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Social -->
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border border-blue-100 flex flex-col">
-                    <div class="text-3xl mb-4">👥</div>
-                    <h3 class="text-xl font-bold mb-3">Социальные функции</h3>
-                    <ul class="text-gray-600 space-y-2 text-sm">
-                        <li>• Мессенджер и группы — коммуникация без границ</li>
-                        <li>• Мероприятия и встречи — календарь корпоративной жизни</li>
-                        <li>• Монеты благодарности — визуальный дождь из монет</li>
+                    <div class="text-3xl mb-3">👥</div>
+                    <h3 class="text-xl font-bold mb-4">Социальные функции</h3>
+                    <div class="flex flex-wrap gap-2 mb-4" aria-hidden="true">
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Чаты">💬</span>
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Группы">👥</span>
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Календарь">📅</span>
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Монеты">🪙</span>
+                    </div>
+                    <ul class="text-gray-600 space-y-2.5 text-sm flex-1">
+                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Мессенджер и группы — коммуникация без границ</span></li>
+                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Мероприятия и встречи — календарь корпоративной жизни</span></li>
+                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Монеты благодарности — визуальный дождь из монет</span></li>
                     </ul>
-                    <div class="mt-6 rounded-xl overflow-hidden ring-1 ring-blue-200/60 bg-white/80 flex-1 flex flex-col justify-end">
-                        <img src="images/coin/coin%207%20social%20functions.png" alt="Интерфейс социальных функций корпоративной платформы" class="w-full h-auto object-contain max-h-56" width="800" height="500" loading="lazy" decoding="async">
+                    <div class="mt-5 rounded-xl overflow-hidden ring-1 ring-blue-200/60 bg-white/80">
+                        <img src="images/coin/coin%207%20social%20functions.png" alt="Интерфейс социальных функций корпоративной платформы" data-lightbox class="w-full h-auto object-contain max-h-52" width="800" height="500" loading="lazy" decoding="async">
                     </div>
                 </div>
                 
@@ -443,29 +449,29 @@
                 <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="flex flex-col gap-12 max-w-4xl mx-auto">
                 <!-- Architecture -->
-                <div>
+                <div class="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                     <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
                         <span class="text-2xl">🏗️</span> Архитектура дизайн-системы
                     </h3>
                     <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <div class="font-bold">1. Токены</div>
                             <div class="text-sm text-gray-600">Цвета, типографика, отступы (единые переменные)</div>
                         </div>
                         <div class="flex justify-center text-2xl text-gray-400">↓</div>
-                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <div class="font-bold">2. Компоненты</div>
                             <div class="text-sm text-gray-600">Библиотека из 50+ переиспользуемых элементов</div>
                         </div>
                         <div class="flex justify-center text-2xl text-gray-400">↓</div>
-                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <div class="font-bold">3. Шаблоны</div>
                             <div class="text-sm text-gray-600">Готовые экранные шаблоны для типовых страниц</div>
                         </div>
                         <div class="flex justify-center text-2xl text-gray-400">↓</div>
-                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                             <div class="font-bold">4. Готовые экраны</div>
                             <div class="text-sm text-gray-600">100+ экранов с консистентным дизайном</div>
                         </div>
@@ -473,24 +479,24 @@
                 </div>
                 
                 <!-- Key Decisions -->
-                <div>
+                <div class="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                     <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
                         <span class="text-2xl">⚡</span> Ключевые решения
                     </h3>
                     <div class="space-y-4">
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
                             <div class="font-bold mb-2">Единая система токенов</div>
                             <p class="text-gray-600 text-sm">Изменение одного токена обновляет все экраны</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
                             <div class="font-bold mb-2">Библиотека из 50+ компонентов</div>
                             <p class="text-gray-600 text-sm">Охватывает веб и мобильные приложения</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
                             <div class="font-bold mb-2">Готовые шаблоны</div>
                             <p class="text-gray-600 text-sm">Для типовых страниц и форм</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
                             <div class="font-bold mb-2">Чёткие правила адаптивности</div>
                             <p class="text-gray-600 text-sm">Поддержка всех устройств</p>
                         </div>
@@ -940,6 +946,12 @@
             </div>
         </div>
     </footer>
+
+    <div id="image-lightbox-overlay" class="fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
+        <button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Закрыть">×</button>
+        <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
+    </div>
+    <script src="js/image-lightbox.js"></script>
 
     <!-- JavaScript for fade-in animations -->
     <script>

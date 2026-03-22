@@ -210,7 +210,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20">
+    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20 pb-16 md:pb-24">
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10 fade-in">
             <!-- Badge -->
             <div class="inline-block mb-6">
@@ -282,10 +282,10 @@
                 <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-stretch">
                 <!-- Left side -->
-                <div class="space-y-6 fade-in">
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="flex flex-col gap-6 fade-in min-h-0">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex-1">
                         <div class="text-4xl mb-4">🏢</div>
                         <h3 class="text-xl font-bold mb-3">Состояние проекта</h3>
                         <p class="text-gray-600 leading-relaxed">
@@ -293,7 +293,7 @@
                         </p>
                     </div>
                     
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex-1">
                         <div class="text-4xl mb-4">⚠️</div>
                         <h3 class="text-xl font-bold mb-3">Проблема</h3>
                         <p class="text-gray-600 leading-relaxed">
@@ -309,17 +309,17 @@
                 </div>
                 
                 <!-- Right side - Visual diagram -->
-                <div class="fade-in">
-                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white">
+                <div class="fade-in flex min-h-0">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white w-full flex flex-col justify-center">
                         <h3 class="text-xl font-bold mb-6 text-center">Схема трансформации</h3>
                         <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center">
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center min-w-0">
                                     <div class="text-sm opacity-70">Legacy бэкенд</div>
                                     <div class="font-bold">Готовый API</div>
                                 </div>
-                                <div class="text-2xl text-indigo-400">→</div>
-                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center border-2 border-indigo-500">
+                                <div class="text-2xl text-indigo-400 text-center shrink-0 py-1 sm:py-0" aria-hidden="true"><span class="sm:hidden">↓</span><span class="hidden sm:inline">→</span></div>
+                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center border-2 border-indigo-500 min-w-0">
                                     <div class="text-sm opacity-70">Новый интерфейс</div>
                                     <div class="font-bold">Персонализация</div>
                                 </div>
@@ -412,7 +412,7 @@
                             <h4 class="font-semibold text-sm text-gray-900">Боли</h4>
                         </div>
                         <div class="rounded-b-xl overflow-hidden bg-gray-50">
-                            <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%9E%D0%9B%D0%98.jpg" alt="Карта эмпатии: боли семьи как зрителей TVIP" class="w-full h-auto object-contain max-h-[320px]" width="800" height="600" loading="lazy" decoding="async">
+                            <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%9E%D0%9B%D0%98.jpg" alt="Карта эмпатии: боли семьи как зрителей TVIP" data-lightbox class="w-full h-auto object-contain max-h-[320px]" width="800" height="600" loading="lazy" decoding="async">
                         </div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
@@ -420,40 +420,40 @@
                             <h4 class="font-semibold text-sm text-gray-900">Потребности</h4>
                         </div>
                         <div class="rounded-b-xl overflow-hidden bg-gray-50">
-                            <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%9E%D0%A2%D0%A0%D0%95%D0%91%D0%9D%D0%9E%D0%A1%D0%A2%D0%98.jpg" alt="Карта эмпатии: потребности семьи" class="w-full h-auto object-contain max-h-[320px]" width="800" height="600" loading="lazy" decoding="async">
+                            <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%9E%D0%A2%D0%A0%D0%95%D0%91%D0%9D%D0%9E%D0%A1%D0%A2%D0%98.jpg" alt="Карта эмпатии: потребности семьи" data-lightbox class="w-full h-auto object-contain max-h-[320px]" width="800" height="600" loading="lazy" decoding="async">
                         </div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Бабушка</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%B0%D0%B1%D1%83%D1%88%D0%BA%D0%B0.jpg" alt="Карта эмпатии: персона бабушки" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%B0%D0%B1%D1%83%D1%88%D0%BA%D0%B0.jpg" alt="Карта эмпатии: персона бабушки" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Дедушка</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D0%B5%D0%B4%D1%83%D1%88%D0%BA%D0%B0.jpg" alt="Карта эмпатии: персона дедушки" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D0%B5%D0%B4%D1%83%D1%88%D0%BA%D0%B0.jpg" alt="Карта эмпатии: персона дедушки" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Дядя</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D1%8F%D0%B4%D1%8F.jpg" alt="Карта эмпатии: персона дяди" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D1%8F%D0%B4%D1%8F.jpg" alt="Карта эмпатии: персона дяди" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Мама</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%B0%D0%BC%D0%B0.jpg" alt="Карта эмпатии: персона мамы" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%B0%D0%BC%D0%B0.jpg" alt="Карта эмпатии: персона мамы" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Младший ребёнок</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%BB%D0%B0%D0%B4%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" alt="Карта эмпатии: младший ребёнок" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%BB%D0%B0%D0%B4%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" alt="Карта эмпатии: младший ребёнок" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Папа</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%B0%D0%BF%D0%B0.jpg" alt="Карта эмпатии: персона папы" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%B0%D0%BF%D0%B0.jpg" alt="Карта эмпатии: персона папы" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Старший ребёнок</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A1%D1%82%D0%B0%D1%80%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" alt="Карта эмпатии: старший ребёнок" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A1%D1%82%D0%B0%D1%80%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" alt="Карта эмпатии: старший ребёнок" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                     <article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col">
                         <div class="px-3 py-2 bg-gray-50 border-b border-gray-100"><h4 class="font-semibold text-sm text-gray-900">Тётя</h4></div>
-                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A2%D1%91%D1%82%D1%8F.jpg" alt="Карта эмпатии: персона тёти" class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
+                        <div class="overflow-hidden bg-gray-50"><img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A2%D1%91%D1%82%D1%8F.jpg" alt="Карта эмпатии: персона тёти" data-lightbox class="w-full h-auto object-contain max-h-[320px]" loading="lazy" decoding="async"></div>
                     </article>
                 </div>
             </div>
@@ -1084,6 +1084,12 @@
             </div>
         </div>
     </footer>
+
+    <div id="image-lightbox-overlay" class="fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
+        <button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Закрыть">×</button>
+        <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
+    </div>
+    <script src="js/image-lightbox.js"></script>
 
     <!-- JavaScript for fade-in animations -->
     <script>
