@@ -1111,7 +1111,7 @@
         <button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Close">×</button>
         <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
     </div>
-    <script src="js/image-lightbox.js"></script>
+    <script src="../js/image-lightbox.js"></script>
 
     <!-- JavaScript for fade-in animations -->
     <script>
@@ -1155,9 +1155,9 @@
             if (flag) flag.textContent = currentLang === 'en' ? '🇬🇧' : '🇷🇺';
 
             function toLangUrl(lang){
-                var p = window.location.pathname.replace(/^/(ru|en)//, '/');
-                if (p === '/') p = '/index.html';
-                return '/' + lang + p;
+                var p = window.location.pathname;
+                var file = p.substring(p.lastIndexOf('/') + 1) || 'index.html';
+                return '../' + lang + '/' + file;
             }
 
             if (toggle) {

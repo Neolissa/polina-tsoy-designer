@@ -5,10 +5,12 @@
         
         if (footerContainer) {
             var isEn = window.location.pathname.indexOf('/en/') !== -1;
+            var isNestedLocale = window.location.pathname.indexOf('/en/') !== -1 || window.location.pathname.indexOf('/ru/') !== -1;
+            var basePrefix = isNestedLocale ? '../' : '';
             var footerPath = isEn ? 'components/footer-en.html' : 'components/footer-ru.html';
 
             // Fetch localized footer component
-            fetch(footerPath)
+            fetch(basePrefix + footerPath)
                 .then(function(response) {
                     if (!response.ok) {
                         throw new Error('Failed to load footer component');

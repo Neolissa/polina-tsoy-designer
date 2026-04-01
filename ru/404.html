@@ -176,7 +176,7 @@
     <div id="footer-container"></div>
     
     <!-- Load footer component -->
-    <script src="loadComponent.js"></script>
+    <script src="../loadComponent.js"></script>
 
     <!-- JavaScript for fade-in animations -->
     <script>
@@ -220,9 +220,9 @@
             if (flag) flag.textContent = currentLang === 'en' ? '🇬🇧' : '🇷🇺';
 
             function toLangUrl(lang){
-                var p = window.location.pathname.replace(/^/(ru|en)//, '/');
-                if (p === '/') p = '/index.html';
-                return '/' + lang + p;
+                var p = window.location.pathname;
+                var file = p.substring(p.lastIndexOf('/') + 1) || 'index.html';
+                return '../' + lang + '/' + file;
             }
 
             if (toggle) {

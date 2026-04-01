@@ -3,8 +3,25 @@
  * Requires #image-lightbox-overlay with nested <img>.
  */
 (function () {
+    function ensureOverlay() {
+        var overlay = document.getElementById('image-lightbox-overlay');
+        if (overlay) return overlay;
+
+        overlay = document.createElement('div');
+        overlay.id = 'image-lightbox-overlay';
+        overlay.className = 'fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-hidden', 'true');
+        overlay.innerHTML =
+            '<button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Close">×</button>' +
+            '<img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">';
+        document.body.appendChild(overlay);
+        return overlay;
+    }
+
     function getOverlay() {
-        return document.getElementById('image-lightbox-overlay');
+        return ensureOverlay();
     }
 
     function openLightbox(src, alt) {
