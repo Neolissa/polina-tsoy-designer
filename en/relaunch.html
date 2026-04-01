@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case of Relaunch of an internal platform for employees - a complete redesign and relaunch of a corporate platform with gamification">
+    <title>Relaunch of the internal platform - Case | Polina Tsoy</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#4a4a4a',
+                        accent: '#6366f1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon from Uxfolio -->
+    <link rel="icon" type="image/png" href="https://uxfolio-prod.s3.us-east-1.amazonaws.com/5dab32e3e523d600043b2c32/7f45318cafb1a5a906049c841aa9317d-sticker_FNR.png">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-gray-900">
+                    Polina Tsoy
+                    <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
+                </a>
+                <div class="flex items-center">
+                    <div class="hidden md:flex space-x-8">
+                        <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Cases</a>
+                        <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">About</a>
+                        <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                    </div>
+                    <div class="lang-switch" data-lang-switch>
+                        <span class="lang-flag" data-lang-flag aria-hidden="true"></span>
+                        <span class="lang-label">RU</span>
+                        <label class="lang-toggle" aria-label="Language switch">
+                            <input type="checkbox" data-lang-toggle>
+                            <span class="lang-slider"></span>
+                        </label>
+                        <span class="lang-label">EN</span>
+                    </div>
+                </div>
+                <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Write
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20 pb-16 md:pb-24">
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-block mb-6">
+                <span class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium">
+                    Case Study
+                </span>
+            </div>
+            
+            <!-- MAIN TITLE -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">Relaunch internal platform</h1>
+            
+            <!-- SUBTITLE -->
+            <p class="text-2xl md:text-3xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">Complete redesign and relaunch of the enterprise platform, turning workflows into a social ecosystem with gamification</p>
+            
+            <!-- Hero Image -->
+            <div class="max-w-2xl mx-auto mb-10 fade-in">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                    <img src="images/hero-coin.png" alt="Relaunch Hero Image" data-lightbox class="w-full h-auto" style="aspect-ratio: 16/9; object-fit: cover;">
+                </div>
+            </div>
+            
+            <!-- Context -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left mb-10">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">🏢</div>
+                    <div class="text-sm font-semibold text-gray-900">Context</div>
+                    <div class="text-gray-600 text-sm">Enterprise platform</div>
+                    <div class="text-gray-900 font-bold">100% of the company's employees</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">💼</div>
+                    <div class="text-sm font-semibold text-gray-900">Role</div>
+                    <div class="text-gray-600 text-sm">Product Designer (lead)</div>
+                    <div class="text-gray-900 font-bold">Research → Development</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">📊</div>
+                    <div class="text-sm font-semibold text-gray-900">Result</div>
+                    <div class="text-gray-600 text-sm">25+ functions</div>
+                    <div class="text-gray-900 font-bold">Unified ecosystem</div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <a href="#results" class="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 inline-flex items-center gap-2">View results<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Context Section -->
+    <section id="context" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">1. Context: When the intranet becomes obsolete</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Problem -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="text-2xl">⚠️</span>Problem</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">The existing enterprise platform did not meet the modern needs of employees - disparate tools, lack of social interaction, outdated interface.</p>
+                </div>
+                
+                <!-- Goal -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="text-2xl">🎯</span>Goal</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">Create a unified ecosystem that will combine administrative functions, social tools, a development system and gamification. Turn a mandatory tool into a platform that employees use voluntarily.</p>
+                </div>
+            </div>
+            
+            <!-- Unification Blocks -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-8 text-center">What needed to be combined</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="text-4xl mb-4">🔐</div>
+                        <div class="font-bold mb-2">Administrative functions</div>
+                        <p class="text-sm text-gray-600">Accesses, management</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="text-4xl mb-4">💬</div>
+                        <div class="font-bold mb-2">Social tools</div>
+                        <p class="text-sm text-gray-600">Messenger, events, groups</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="text-4xl mb-4">📈</div>
+                        <div class="font-bold mb-2">Development system</div>
+                        <p class="text-sm text-gray-600">Growth plans, knowledge library</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="text-4xl mb-4">🏆</div>
+                        <div class="font-bold mb-2">Gamification</div>
+                        <p class="text-sm text-gray-600">Coins, awards, ratings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">2. Research: Understanding real-life work scenarios</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Methods -->
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-2xl">🔬</span>Methods</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">15 in-depth interviews</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Company-wide surveys</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Usability testing</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Corridor studies</span>
+                    </div>
+                </div>
+                
+                <!-- Insights -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100 h-full min-h-0 flex flex-col">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 flex-shrink-0">
+                            <span class="text-2xl">💡</span>Key insights</h3>
+                        <div class="flex-1 flex flex-col justify-between gap-4 min-h-0">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl flex-shrink-0">👥</span>
+                                <div>
+                                    <div class="font-bold text-gray-900">Social deficit</div>
+                                    <div class="text-gray-600 text-sm">Employees lack informal communication between departments</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl flex-shrink-0">🎯</span>
+                                <div>
+                                    <div class="font-bold text-gray-900">Recognition as a motivator</div>
+                                    <div class="text-gray-600 text-sm">Lack of a gratitude system reduced engagement</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl flex-shrink-0">🧩</span>
+                                <div>
+                                    <div class="font-bold text-gray-900">Fragmentation of tools</div>
+                                    <div class="text-gray-600 text-sm">5+ different systems for work tasks</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl flex-shrink-0">📱</span>
+                                <div>
+                                    <div class="font-bold text-gray-900">Mobility</div>
+                                    <div class="text-gray-600 text-sm">60% of employees wanted access to key functions from their phone</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl flex-shrink-0">⚖️</span>
+                                <div>
+                                    <div class="font-bold text-gray-900">Sociality does not replace the admin panel</div>
+                                    <div class="text-gray-600 text-sm">Employees wanted communication and recognition, but were not ready to sacrifice work processes - they needed balance in one ecosystem</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl flex-shrink-0">🎮</span>
+                                <div>
+                                    <div class="font-bold text-gray-900">Gamification works if it makes sense</div>
+                                    <div class="text-gray-600 text-sm">Coins and ratings went where they were tied to real actions and transparent accrual logic</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl flex-shrink-0">🔍</span>
+                                <div>
+                                    <div class="font-bold text-gray-900">An interview is not a formality, but a filter for decisions</div>
+                                    <div class="text-gray-600 text-sm">15 in-depth interviews and surveys about the company cut off “beautiful for the sake of beautiful” and recorded priorities: sociality, mobility, single sign-on</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- User Flow Visualization -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-xl font-bold mb-4">Custom path</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <div class="font-bold text-gray-900 mb-1">BEFORE</div>
+                                <div class="text-sm text-gray-600">Complex path with returns, difficulty finding information</div>
+                            </div>
+                            <div class="flex justify-center text-2xl text-gray-400">↓</div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                <div class="font-bold text-gray-900 mb-1">AFTER</div>
+                                <div class="text-sm text-gray-600">A linear, clear path. Single entry point for all tasks</div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <p class="text-sm font-medium text-gray-700 mb-2">Simplified user flow<span class="text-gray-400 font-normal">(click to enlarge)</span></p>
+                            <div class="rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden bg-white">
+                                <img src="images/coin/coin%202%20user%20flow.jpg" alt="Diagram of a simplified user path through the platform after the redesign" data-lightbox class="w-full h-auto object-contain max-h-[min(70vh,520px)]" width="1200" height="700" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section id="innovation" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">3. Innovation in the process: Design grooming</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Problem -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="text-2xl">🚫</span>Problem</h3>
+                    <p class="text-gray-600 leading-relaxed">The classic review process created bureaucracy - each small bug turned into a separate task, slowing down the team's work.</p>
+                </div>
+                
+                <!-- Solution -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="text-2xl">✨</span>Solution</h3>
+                    <p class="text-gray-600 leading-relaxed">Introduced design grooming - monthly one-hour sessions with developers, where up to 10 visual problems were corrected in real time.</p>
+                </div>
+            </div>
+            
+            <!-- Results -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                    <div class="text-3xl mb-2">80%</div>
+                    <div class="font-bold mb-2">Minor UI problems were resolved immediately</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                    <div class="text-3xl mb-2">↓</div>
+                    <div class="font-bold mb-2">The volume of tasks in the backlog has decreased</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                    <div class="text-3xl mb-2">🗣️</div>
+                    <div class="font-bold mb-2">Designers and developers speak the same language</div>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                <p class="text-lg font-bold text-center text-indigo-900">Changing the culture of collaboration between design and development</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Platform Section -->
+    <section id="core" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">4. Core of the platform: Social + Development</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Social -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border border-blue-100 flex flex-col">
+                    <div class="text-3xl mb-3">👥</div>
+                    <h3 class="text-xl font-bold mb-4">Social features</h3>
+                    <div class="flex flex-wrap gap-2 mb-4" aria-hidden="true">
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Chats">💬</span>
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Groups">👥</span>
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Calendar">📅</span>
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Coins">🪙</span>
+                    </div>
+                    <ul class="text-gray-600 space-y-2.5 text-sm flex-1">
+                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Messenger and groups - communication without borders</span></li>
+                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Events and meetings - corporate life calendar</span></li>
+                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Gratitude coins - visual rain of coins</span></li>
+                    </ul>
+                    <div class="mt-5 rounded-xl overflow-hidden ring-1 ring-blue-200/60 bg-white/80 flex justify-center">
+                        <img src="images/coin/coin%207%20social%20functions.png" alt="Interface of social functions of the corporate platform" data-lightbox class="w-full max-w-lg h-auto object-contain max-h-[min(90vh,900px)] mx-auto" width="800" height="500" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                
+                <!-- Development -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border border-green-100 flex flex-col">
+                    <div class="text-3xl mb-4">🌱</div>
+                    <h3 class="text-xl font-bold mb-3">Employee development</h3>
+                    <ul class="text-gray-600 space-y-2 text-sm">
+                        <li>• Individual growth plans - from goals to achievements</li>
+                        <li>• Knowledge Library - centralized database of materials</li>
+                        <li>• Mentoring programs – connecting experienced and new employees</li>
+                    </ul>
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 mb-1">Personal growth</p>
+                            <div class="rounded-xl overflow-hidden ring-1 ring-emerald-200/60 bg-white/80">
+                                <img src="images/coin/coin%2011%20personal%20growth.png" alt="Employee development and goals screen" data-lightbox class="w-full h-auto object-contain max-h-48" width="800" height="500" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 mb-1">Articles and knowledge base</p>
+                            <div class="rounded-xl overflow-hidden ring-1 ring-emerald-200/60 bg-white/80">
+                                <img src="images/coin/coin%208%20articles%20writing.png" alt="Section of articles and writing materials in the knowledge library" data-lightbox class="w-full h-auto object-contain max-h-48" width="800" height="500" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gamification -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-100 flex flex-col">
+                    <div class="text-3xl mb-4">🎮</div>
+                    <h3 class="text-xl font-bold mb-3">Gamification</h3>
+                    <ul class="text-gray-600 space-y-2 text-sm">
+                        <li>• Ratings and achievements - transparent progress</li>
+                        <li>• Coin store - exchange for real bonuses</li>
+                        <li>• Awards and statuses - visualization of contributions</li>
+                    </ul>
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 mb-1">Employee rating</p>
+                            <div class="rounded-xl overflow-hidden ring-1 ring-purple-200/60 bg-white/80">
+                                <img src="images/coin/coin%209%20employees%20rating.png" alt="Employee rating and evaluation screen" data-lightbox class="w-full h-auto object-contain max-h-44" width="800" height="500" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 mb-1">Acknowledgments</p>
+                            <div class="rounded-xl overflow-hidden ring-1 ring-purple-200/60 bg-white/80">
+                                <img src="images/coin/coin%2010%20thanksgiving.png" alt="Interface of gratitude coins and rewards" data-lightbox class="w-full h-auto object-contain max-h-44" width="800" height="500" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Visualization Block -->
+            <div class="mt-12 bg-gray-50 p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold mb-6 text-center">Visualization of gamification</h3>
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row items-center gap-4">
+                        <div class="bg-white p-4 rounded-lg border-2 border-gray-200 w-full md:w-1/4 text-center">
+                            <div class="text-2xl mb-2">🎯</div>
+                            <div class="font-bold">Action</div>
+                            <div class="text-sm text-gray-600">Employee completes task</div>
+                        </div>
+                        <div class="text-3xl text-gray-400 hidden md:block">→</div>
+                        <div class="bg-green-50 p-4 rounded-lg border-2 border-green-200 w-full md:w-1/4 text-center">
+                            <div class="text-2xl mb-2">💰</div>
+                            <div class="font-bold">Coins</div>
+                            <div class="text-sm text-gray-600">Accrual of points/coins</div>
+                        </div>
+                        <div class="text-3xl text-gray-400 hidden md:block">→</div>
+                        <div class="bg-purple-50 p-4 rounded-lg border-2 border-purple-200 w-full md:w-1/4 text-center">
+                            <div class="text-2xl mb-2">🏆</div>
+                            <div class="font-bold">Achievements</div>
+                            <div class="text-sm text-gray-600">Unlock statuses</div>
+                        </div>
+                        <div class="text-3xl text-gray-400 hidden md:block">→</div>
+                        <div class="bg-pink-50 p-4 rounded-lg border-2 border-pink-200 w-full md:w-1/4 text-center">
+                            <div class="text-2xl mb-2">🎁</div>
+                            <div class="font-bold">Reward</div>
+                            <div class="text-sm text-gray-600">Real bonuses</div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-600 mt-4">Gamification as a retention mechanic, not decoration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Section -->
+    <section id="implementation" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">5. Technical implementation: Design system as a basis for scaling</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col gap-12 max-w-5xl mx-auto">
+                <!-- Architecture -->
+                <div class="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-2xl">🏗️</span>Design system architecture</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <div class="font-bold">1. Tokens</div>
+                            <div class="text-sm text-gray-600">Colors, typography, spacing (single variables)</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <div class="font-bold">2. Components</div>
+                            <div class="text-sm text-gray-600">Library of 50+ reusable elements</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <div class="font-bold">3. Templates</div>
+                            <div class="text-sm text-gray-600">Ready-made screen templates for typical pages</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <div class="font-bold">4. Finished screens</div>
+                            <div class="text-sm text-gray-600">100+ screens with consistent design</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Decisions -->
+                <div class="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-2xl">⚡</span>Key decisions</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                            <div class="font-bold mb-2">Unified token system</div>
+                            <p class="text-gray-600 text-sm">Changing one token updates all screens</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                            <div class="font-bold mb-2">Library of 50+ components</div>
+                            <p class="text-gray-600 text-sm">Covers web and mobile applications</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                            <div class="font-bold mb-2">Ready-made templates</div>
+                            <p class="text-gray-600 text-sm">For standard pages and forms</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                            <div class="font-bold mb-2">Clear rules for adaptability</div>
+                            <p class="text-gray-600 text-sm">Supports all devices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-14 max-w-4xl mx-auto fade-in">
+                <h3 class="text-xl font-bold mb-2 text-center">UI-kit in the interface</h3>
+                <p class="text-gray-600 text-sm text-center mb-6">Library components on real platform screens</p>
+                <div class="rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden bg-white">
+                    <img src="images/coin/coin%205%20UI%20kit.png" alt="Interface fragments with components of a single UI-kit" data-lightbox class="w-full h-auto object-contain max-h-[70vh]" width="1200" height="800" loading="lazy" decoding="async">
+                </div>
+            </div>
+            
+            <!-- Before/After Visualization -->
+            <div class="mt-12 bg-gray-900 text-white p-8 rounded-2xl">
+                <h3 class="text-xl font-bold mb-6 text-center">Before/After the systems approach</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-red-800/30 p-6 rounded-xl border border-red-600/50">
+                        <div class="text-center mb-4">
+                            <span class="text-red-400 font-bold text-lg">BEFORE</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-gray-800 p-3 rounded border-2 border-red-400">
+                                <div class="flex gap-1 mb-2">
+                                    <div class="w-16 h-8 bg-gray-500 rounded"></div>
+                                    <div class="w-12 h-8 bg-gray-600 rounded"></div>
+                                    <div class="w-14 h-8 bg-gray-700 rounded"></div>
+                                </div>
+                                <div class="text-xs text-gray-300">200+ disparate buttons</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border-2 border-yellow-400">
+                                <div class="flex gap-3 mb-2">
+                                    <div class="w-full h-2 bg-red-500 rounded"></div>
+                                    <div class="w-full h-2 bg-blue-500 rounded"></div>
+                                </div>
+                                <div class="text-xs text-gray-300">Multiple color schemes</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border-2 border-orange-400">
+                                <div class="text-xs text-gray-300">Chaos in spacing and typography</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-800/30 p-6 rounded-xl border border-green-600/50">
+                        <div class="text-center mb-4">
+                            <span class="text-green-400 font-bold text-lg">AFTER</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-gray-800 p-3 rounded border-2 border-green-400">
+                                <div class="flex gap-2 mb-2">
+                                    <div class="w-20 h-8 bg-indigo-600 rounded"></div>
+                                    <div class="w-20 h-8 bg-indigo-600 rounded"></div>
+                                    <div class="w-20 h-8 bg-indigo-600 rounded"></div>
+                                </div>
+                                <div class="text-xs text-gray-300">35 universal components</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border-2 border-green-400">
+                                <div class="flex gap-3 mb-2">
+                                    <div class="w-full h-2 bg-indigo-500 rounded"></div>
+                                    <div class="w-full h-2 bg-purple-500 rounded"></div>
+                                </div>
+                                <div class="text-xs text-gray-300">24 styles via tokens</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded border-2 border-green-400">
+                                <div class="text-xs text-gray-300">8px grid, consistent typography</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-gray-300 mt-4">200+ disparate elements → 35 reusable components</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">6. Results: From tool to ecosystem</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <!-- For Employees -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
+                    <span class="text-3xl">😊</span>For employees</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">🚪 Single point of entry</div>
+                        <p class="text-gray-600 text-sm">For all work tasks</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">📈 Increased engagement</div>
+                        <p class="text-gray-600 text-sm">Through social functions</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">🌱 Transparent growth</div>
+                        <p class="text-gray-600 text-sm">From trainee to manager</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">🙌 Culture of recognition</div>
+                        <p class="text-gray-600 text-sm">Instead of formal assessments</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- For Business -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
+                    <span class="text-3xl">💼</span>For business</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">🔗 Reducing systems</div>
+                        <p class="text-gray-600 text-sm">From 5+ to 1 single platform</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">📊 Increased engagement</div>
+                        <p class="text-gray-600 text-sm">+40% according to internal surveys</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">⚡ Acceleration of adaptation</div>
+                        <p class="text-gray-600 text-sm">New employees</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="font-bold mb-2">🏢 Building a culture</div>
+                        <p class="text-gray-600 text-sm">Through the digital medium</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Metrics -->
+            <div class="bg-gray-900 text-white p-8 rounded-2xl">
+                <h3 class="text-xl font-bold mb-8 text-center">Numbers</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">25+</div>
+                        <div class="text-gray-300">Functions in a single ecosystem</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">100%</div>
+                        <div class="text-gray-300">Employees are used daily</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">60%</div>
+                        <div class="text-gray-300">Activities from mobile devices</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">12 min</div>
+                        <div class="text-gray-300">Average session time (was 3 minutes)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Impact Section -->
+    <section id="business" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Business Impact Slide
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-[800px] bg-white rounded-xl overflow-hidden shadow-sm">
+                    <thead>
+                        <tr class="bg-gray-900 text-white">
+                            <th class="p-4 text-left">Metrica</th>
+                            <th class="p-4 text-center">Was</th>
+                            <th class="p-4 text-center">Became</th>
+                            <th class="p-4 text-center">Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-4 font-semibold flex items-center gap-2">
+                                <span>⏱️</span>Session time</td>
+                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">3 minutes</td>
+                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">12 minutes</td>
+                            <td class="p-4 text-center font-bold">×4</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-4 font-semibold flex items-center gap-2">
+                                <span>😊</span>Engagement</td>
+                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">Low</td>
+                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">+40%</td>
+                            <td class="p-4 text-center font-bold">Increased by 40%</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-4 font-semibold flex items-center gap-2">
+                                <span>📱</span>Mobile activity</td>
+                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">No</td>
+                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">60%</td>
+                            <td class="p-4 text-center font-bold">Access from phone</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold flex items-center gap-2">
+                                <span>🔄</span>Number of systems</td>
+                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">5+</td>
+                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">1</td>
+                            <td class="p-4 text-center font-bold">Simplification</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusions Section -->
+    <section id="conclusions" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">7. Conclusions: When design changes company culture</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Success -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-2xl">✅</span>What worked</h3>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                            <div class="font-bold mb-2">Created an ecosystem</div>
+                            <p class="text-gray-600 text-sm">From administration to social interaction</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                            <div class="font-bold mb-2">Implemented design grooming</div>
+                            <p class="text-gray-600 text-sm">New methodology for working with development</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                            <div class="font-bold mb-2">Proved gamification</div>
+                            <p class="text-gray-600 text-sm">Operates in the B2E segment</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                            <div class="font-bold mb-2">Combined tools</div>
+                            <p class="text-gray-600 text-sm">Into a unified user experience</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Challenges -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-2xl">⚠️</span>What was difficult</h3>
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-200">
+                            <div class="font-bold mb-2">Balance of administration and sociality</div>
+                            <p class="text-gray-600 text-sm">Don't lose functionality for the sake of social features</p>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-200">
+                            <div class="font-bold mb-2">Adaptation of desktop functions for mobile</div>
+                            <p class="text-gray-600 text-sm">60% of phone activity required a special approach</p>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-200">
+                            <div class="font-bold mb-2">Implementing a culture of gratitude</div>
+                            <p class="text-gray-600 text-sm">In companies with a strict hierarchy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Future -->
+            <div class="mt-12 bg-indigo-50 p-8 rounded-xl border border-indigo-100">
+                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">🚀</span>For the future</h3>
+                <ul class="text-gray-600 space-y-2">
+                    <li>• Extend analytics to measure impact on business metrics</li>
+                    <li>• Integration with external HR systems</li>
+                    <li>• Development of AI recommendations for personalized experiences</li>
+                </ul>
+            </div>
+            
+            <!-- Unique -->
+            <div class="mt-8 bg-gray-900 text-white p-8 rounded-2xl text-center">
+                <h3 class="text-xl font-bold mb-4">Why this case is unique</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div>
+                        <div class="font-bold mb-2">Scale</div>
+                        <div class="text-gray-300 text-sm">25+ functions in a single ecosystem</div>
+                    </div>
+                    <div>
+                        <div class="font-bold mb-2">Process Innovation</div>
+                        <div class="text-gray-300 text-sm">Design grooming as a new methodology</div>
+                    </div>
+                    <div>
+                        <div class="font-bold mb-2">Depth of influence</div>
+                        <div class="text-gray-300 text-sm">Design changed corporate culture</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Final Thought -->
+            <div class="mt-12 bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+                <p class="text-xl font-bold text-gray-900">This is not just an intranet redesign. This is the transformation of the work experience through design - from a mandatory tool to an ecosystem that employees choose for themselves.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Cases Section -->
+    <section id="related" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Other cases</h2>
+                <p class="text-xl text-gray-600 mb-8">Deep analysis instead of an image gallery</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- WUW Case -->
+                <a href="wuw.html" class="block">
+                    <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">WUW</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Product evolution through a systematic approach to design</h3>
+                            <p class="text-gray-600 text-sm">Platform for personal growth. 5000+ users.</p>
+                        </div>
+                    </article>
+                </a>
+                
+                <!-- DocsBird Case -->
+                <a href="docsbird.html" class="block">
+                    <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">DocsBird</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Launching an international product under severe restrictions</h3>
+                            <p class="text-gray-600 text-sm">International document management product. Europe and the Baltics.</p>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Have a complex product that needs clarity?</h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">Let's discuss how my research, systems thinking, and teamwork skills can help your project. Looking for a long term challenge.</p>
+            
+            <!-- Contact Options -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <a href="https://t.me/ewersawers" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 transition-all flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.53.26-.194 0-.58-.204-.58-.204l-1.584-1.58 2.858-2.788-.888-.888c-.658-.658-.508-1.084.508-1.084l9.28-1.97c.455-.145.793-.217.793-.217s.358-.072.793.217c.434.289.793.217.793.217z"/></svg>Write to Telegram</a>
+                <a href="#" class="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 transition-all flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Download resume (PDF)</a>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-xl inline-block">
+                <p class="text-gray-500 text-sm">✉️ neolissa@gmail.com</p>
+            </div>
+            
+            <p class="text-gray-400 text-sm mt-6">Discussion is confidential. Any details of the project will remain between us.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-gray-900 text-gray-400">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        Polina Tsoy
+                    </h3>
+                    <p class="text-gray-400 mb-4">Senior Product Designer</p>
+                    <p class="text-gray-300 italic">"Transforming complexity into clarity"</p>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contacts</h4>
+                    <ul class="space-y-2">
+                        <li>📧 neolissa@gmail.com</li>
+                        <li>💬 <a href="https://t.me/ewersawers" target="_blank" class="hover:text-white transition-colors">@ewersawers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Portfolio and thoughts</h4>
+                  <ul class="space-y-2">
+                        <li><a href="https://www.behance.net/polinatra" target="_blank" class="hover:text-white transition-colors">Behance (Selected works)</a></li>
+                        <li><a href="https://vc.ru/design/717548-ekonomim-dengi-klienta-vremya-razrabotchika-i-nervy-polzovatelya-optimizaciya-ux-ui-pri-produktovom-podhode" target="_blank" class="hover:text-white transition-colors">VC.ru (Articles about the approach)</a></li>
+                        <li><span class="opacity-50 cursor-not-allowed">LinkedIn (coming soon)</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors text-sm">Full summary</a>
+                </div>
+                <p class="text-sm text-gray-500">© 2026 Polina Tsoy. Everything is thought out.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="image-lightbox-overlay" class="fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
+        <button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Close">×</button>
+        <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
+    </div>
+    <script src="js/image-lightbox.js"></script>
+
+    <!-- JavaScript for fade-in animations -->
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+        
+        // Smooth scroll for navigation links (fallback)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        (function(){
+            var pathName = window.location.pathname;
+            var currentLang = pathName.indexOf('/en/') !== -1 ? 'en' : 'ru';
+            var toggle = document.querySelector('[data-lang-toggle]');
+            var flag = document.querySelector('[data-lang-flag]');
+            if (toggle) toggle.checked = currentLang === 'en';
+            if (flag) flag.textContent = currentLang === 'en' ? '🇬🇧' : '🇷🇺';
+
+            function toLangUrl(lang){
+                var p = window.location.pathname.replace(/^/(ru|en)//, '/');
+                if (p === '/') p = '/index.html';
+                return '/' + lang + p;
+            }
+
+            if (toggle) {
+                toggle.addEventListener('change', function(){
+                    var nextLang = toggle.checked ? 'en' : 'ru';
+                    window.location.href = toLangUrl(nextLang);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

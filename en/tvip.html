@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TVIP case - design of a cross-platform media service">
+    <title>TVIP – Case | Polina Tsoy</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#4a4a4a',
+                        accent: '#6366f1',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Timeline styles */
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e5e7eb;
+            z-index: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background:white;
+            border: 3px solid #6366f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 24px;
+            color: #6366f1;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.1);
+            background: #6366f1;
+            color: white;
+        }
+        
+        /* Device cards */
+        .device-card {
+            background:white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .device-card:hover {
+            border-color: #6366f1;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        }
+        
+        /* Theme comparison */
+        .theme-split {
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .theme-day {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 30px;
+        }
+        
+        .theme-night {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 30px;
+            color: white;
+        }
+        
+        /* Button hover */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Stat card */
+        .stat-card {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        /* Person card */
+        .person-card {
+            background:white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .person-card:hover {
+            border-color: #6366f1;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        }
+        
+        .person-icon {
+            width: 50px;
+            height: 50px;
+            background: #eef2ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #6366f1;
+            margin-bottom: 12px;
+        }
+        
+        /* Empathy Maps: Full Width Slider */
+        .empathy-slider-track {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            touch-action: pan-x;
+        }
+        .empathy-slider-track::-webkit-scrollbar {
+            display: none;
+        }
+        .empathy-slider-dot[aria-current="true"] {
+            transform: scale(1.2);
+        }
+    
+        .lang-switch { display:flex; align-items:center; gap:0.6rem; margin-left:1rem; }
+        .lang-flag { font-size: 1rem; line-height:1; }
+        .lang-label { font-size:0.75rem; font-weight:600; color:#6b7280; }
+        .lang-toggle { position: relative; width: 44px; height: 24px; display:inline-block; }
+        .lang-toggle input { opacity: 0; width:0; height:0; }
+        .lang-slider { position:absolute; cursor:pointer; inset:0; background:#d1d5db; border-radius:999px; transition:all .25s ease; }
+        .lang-slider::before { content:''; position:absolute; height:18px; width:18px; left:3px; top:3px; background:white; border-radius:50%; transition:all .25s ease; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+        .lang-toggle input:checked + .lang-slider { background:#6366f1; }
+        .lang-toggle input:checked + .lang-slider::before { transform: translateX(20px); }
+
+    </style>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon from Uxfolio -->
+    <link rel="icon" type="image/png" href="https://uxfolio-prod.s3.us-east-1.amazonaws.com/5dab32e3e523d600043b2c32/7f45318cafb1a5a906049c841aa9317d-sticker_FNR.png">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-gray-900">
+                    Polina Tsoy
+                    <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
+                </a>
+                <div class="flex items-center">
+                    <div class="hidden md:flex space-x-8">
+                        <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Cases</a>
+                        <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">About</a>
+                        <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                    </div>
+                    <div class="lang-switch" data-lang-switch>
+                        <span class="lang-flag" data-lang-flag aria-hidden="true"></span>
+                        <span class="lang-label">RU</span>
+                        <label class="lang-toggle" aria-label="Language switch">
+                            <input type="checkbox" data-lang-toggle>
+                            <span class="lang-slider"></span>
+                        </label>
+                        <span class="lang-label">EN</span>
+                    </div>
+                </div>
+                <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Write
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20 pb-16 md:pb-24">
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10 fade-in">
+            <!-- Badge -->
+            <div class="inline-block mb-6">
+                <span class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium">
+                    Case Study
+                </span>
+            </div>
+            
+            <!-- MAIN TITLE -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                TVIP
+            </h1>
+            
+            <!-- SUBTITLE -->
+            <p class="text-2xl md:text-3xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+                Cross-platform media service for 5 devices
+            </p>
+            
+            <!-- Hero Image -->
+            <div class="max-w-2xl mx-auto mb-10 fade-in">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                    <img src="images/hero-tvip.png" alt="TVIP Hero Image" data-lightbox class="w-full h-auto" style="aspect-ratio: 16/9; object-fit: cover;">
+                </div>
+            </div>
+            
+            <!-- Context -->
+            <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto text-left mb-10">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">💼</div>
+                    <div class="text-sm font-semibold text-gray-900">Role</div>
+                    <div class="text-gray-900 font-bold">Product Designer</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">📱</div>
+                    <div class="text-sm font-semibold text-gray-900">Devices</div>
+                    <div class="text-gray-900 font-bold">TV, PC, tablet, phone</div>
+                    <div class="text-gray-600 text-sm">5 platforms</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">🧩</div>
+                    <div class="text-sm font-semibold text-gray-900">Peculiarity</div>
+                    <div class="text-gray-900 font-bold">legacy inheritance</div>
+                    <div class="text-gray-600 text-sm">Ready backend</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="text-2xl mb-2">✨</div>
+                    <div class="text-sm font-semibold text-gray-900">Result</div>
+                    <div class="text-gray-900 font-bold">2 themes, profiles, UI-kit</div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <a href="#result" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 inline-flex items-center gap-2">
+                View results
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Context Section -->
+    <section id="context" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Context: Heritage as a challenge
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-stretch">
+                <!-- Left side -->
+                <div class="flex flex-col gap-6 fade-in min-h-0">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex-1">
+                        <div class="text-4xl mb-4">🏢</div>
+                        <h3 class="text-xl font-bold mb-3">Project status</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            A ready-made MVP with an extensive backend, but an outdated interface. I came to the project already having a working product.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex-1">
+                        <div class="text-4xl mb-4">⚠️</div>
+                        <h3 class="text-xl font-bold mb-3">Problem</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            One interface for everyone - from family viewing on TV to individual viewing on a smartphone. There was no personalization.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-2xl border-l-4 border-indigo-600">
+                        <p class="text-lg text-gray-800 italic">
+                            “The goal is not to break what works, but to make it modern.”
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right side - Visual diagram -->
+                <div class="fade-in flex min-h-0">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white w-full flex flex-col justify-center">
+                        <h3 class="text-xl font-bold mb-6 text-center">Transformation scheme</h3>
+                        <div class="space-y-6">
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center min-w-0">
+                                    <div class="text-sm opacity-70">Legacy backend</div>
+                                    <div class="font-bold">Ready API</div>
+                                </div>
+                                <div class="text-2xl text-indigo-400 text-center shrink-0 py-1 sm:py-0" aria-hidden="true"><span class="sm:hidden">↓</span><span class="hidden sm:inline">→</span></div>
+                                <div class="flex-1 bg-gray-700 p-4 rounded-xl text-center border-2 border-indigo-500 min-w-0">
+                                    <div class="text-sm opacity-70">New interface</div>
+                                    <div class="font-bold">Personalization</div>
+                                </div>
+                            </div>
+                            <div class="text-center text-gray-400 text-sm">
+                                Evolutionary design instead of revolutionary
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Research: 4 user personas
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Formulation of persons for the profile system</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Person 1 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Family viewing</h3>
+                    <p class="text-sm text-gray-500 mb-3">TV, evening</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Group content</li>
+                        <li>• Parental controls</li>
+                        <li>• Easy navigation</li>
+                    </ul>
+                </div>
+                
+                <!-- Person 2 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Individual</h3>
+                    <p class="text-sm text-gray-500 mb-3">Smartphone, transport</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Personal recommendations</li>
+                        <li>• Online viewing</li>
+                        <li>• Saving progress</li>
+                    </ul>
+                </div>
+                
+                <!-- Person 3 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Background</h3>
+                    <p class="text-sm text-gray-500 mb-3">Tablet, work</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Additional content</li>
+                        <li>• Background playback</li>
+                        <li>• Minimal distraction</li>
+                    </ul>
+                </div>
+                
+                <!-- Person 4 -->
+                <div class="person-card fade-in">
+                    <div class="person-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Movie buff</h3>
+                    <p class="text-sm text-gray-500 mb-3">PC, archive</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Advanced search</li>
+                        <li>• Archive and collections</li>
+                        <li>• Detailed navigation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 fade-in">
+                <h3 class="text-2xl font-bold mb-2 text-center">Family Empathy Maps</h3>
+                <p class="text-gray-600 text-center mb-8 max-w-2xl mx-auto text-sm">Viewer roles in the home context—the basis for scenarios and profiles</p>
+                
+                <div id="empathy-slider" class="relative w-screen max-w-[100vw] left-1/2 -translate-x-1/2 bg-gray-100 border-y border-gray-200 shadow-inner" role="region" aria-roledescription="carousel" aria-label="Family Empathy Maps">
+                    <div class="relative">
+                        <div class="empathy-slider-track flex overflow-x-auto scroll-smooth snap-x snap-mandatory" data-empathy-track tabindex="0" aria-label="Scrolling through pictures using arrows or swiping">
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%9E%D0%9B%D0%98.jpg" data-lightbox alt="Map of empathy: the pains of families as TVIP viewers" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" width="1200" height="900" loading="eager" decoding="async" fetchpriority="high">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%9E%D0%A2%D0%A0%D0%95%D0%91%D0%9D%D0%9E%D0%A1%D0%A2%D0%98.jpg" data-lightbox alt="Empathy Map: Family Needs" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" width="1200" height="900" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%91%D0%B0%D0%B1%D1%83%D1%88%D0%BA%D0%B0.jpg" data-lightbox alt="Empathy Map: Grandma Persona" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D0%B5%D0%B4%D1%83%D1%88%D0%BA%D0%B0.jpg" data-lightbox alt="Empathy Map: Grandfather Persona" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%94%D1%8F%D0%B4%D1%8F.jpg" data-lightbox alt="Empathy Map: Uncle Persona" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%B0%D0%BC%D0%B0.jpg" data-lightbox alt="Empathy Map: Mom Persona" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9C%D0%BB%D0%B0%D0%B4%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" data-lightbox alt="Empathy Map: Youngest Child" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%9F%D0%B0%D0%BF%D0%B0.jpg" data-lightbox alt="Empathy Map: Dad Persona" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A1%D1%82%D0%B0%D1%80%D1%88%D0%B8%D0%B9%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BE%D0%BA.jpg" data-lightbox alt="Empathy Map: Older Child" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="min-w-full snap-start snap-always shrink-0 m-0 bg-gray-50 flex items-center justify-center">
+                                <img src="images/tvip/%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D1%8D%D0%BC%D0%BF%D0%B0%D1%82%D0%B8%D0%B8%20%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F/%D0%A2%D1%91%D1%82%D1%8F.jpg" data-lightbox alt="Empathy Map: Aunt Persona" class="w-full h-auto max-h-[min(88vh,960px)] object-contain" loading="lazy" decoding="async">
+                            </figure>
+                        </div>
+                        <button type="button" data-empathy-prev class="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md ring-1 ring-black/5 hover:bg-white md:left-4" aria-label="Previous map">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" data-empathy-next class="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md ring-1 ring-black/5 hover:bg-white md:right-4" aria-label="Next card">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white px-4 py-5 border-t border-gray-200">
+                        <p class="text-center font-semibold text-gray-900 text-lg mb-1" data-empathy-caption>Pain</p>
+                        <p class="text-center text-xs text-gray-500 mb-4" data-empathy-counter aria-live="polite">1 / 10</p>
+                        <div class="flex flex-wrap justify-center gap-x-2 gap-y-2 max-w-4xl mx-auto" data-empathy-dots role="tablist" aria-label="Choosing an Empathy Card">
+                            <button type="button" role="tab" aria-selected="true" aria-current="true" data-empathy-dot="0" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-indigo-600 transition-all hover:bg-indigo-500" title="Pain" aria-label="Pain"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="1" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Needs" aria-label="Needs"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="2" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Grandmother" aria-label="Grandmother"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="3" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Grandfather" aria-label="Grandfather"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="4" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Uncle" aria-label="Uncle"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="5" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Mother" aria-label="Mother"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="6" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Youngest child" aria-label="Youngest child"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="7" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Dad" aria-label="Dad"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="8" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Oldest child" aria-label="Oldest child"></button>
+                            <button type="button" role="tab" aria-selected="false" data-empathy-dot="9" class="empathy-slider-dot h-2.5 w-2.5 rounded-full bg-gray-300 transition-all hover:bg-indigo-400" title="Aunt" aria-label="Aunt"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gray-50 p-8 rounded-2xl fade-in">
+                <h3 class="text-xl font-bold mb-4">Research result</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    A board of requested functions has been created, grouped by person. 
+                    This became the basis for creating a system of profiles within one service.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profiles System Section -->
+    <section id="profiles" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Profile system
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Profiles as personalized spaces</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="mb-12 fade-in">
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="font-bold mb-1">Anonymous</div>
+                        <div class="text-sm text-gray-600">Basic access</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="font-bold mb-1">Person</div>
+                        <div class="text-sm text-gray-600">Browsing history</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="font-bold mb-1">Settings</div>
+                        <div class="text-sm text-gray-600">Recommendations</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div class="font-bold mb-1">Control</div>
+                        <div class="text-sm text-gray-600">Parental access</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Left side -->
+                <div class="space-y-6 fade-in">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">Personal settings</h4>
+                        <p class="text-gray-600 text-sm">Each profile has a unique set of settings and preferences</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">History and recommendations</h4>
+                        <p class="text-gray-600 text-sm">Personalized content based on views of each profile</p>
+                    </div>
+                </div>
+                <!-- Right side -->
+                <div class="space-y-6 fade-in">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">Parental Controls</h4>
+                        <p class="text-gray-600 text-sm">Ability to restrict content for children's profiles</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-bold mb-2">Fast switching</h4>
+                        <p class="text-gray-600 text-sm">Instantly switch between profiles without rebooting</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gradient-to-r from-indigo-500 to-purple-600 p-8 rounded-2xl text-white fade-in text-center">
+                <p class="text-lg font-bold">
+                    Profiles have become not just “names”, but full-fledged personalized spaces
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-platform Section -->
+    <section id="crossplatform" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Cross-platform
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">5 devices - one experience</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="mb-12 fade-in">
+                <h3 class="text-2xl font-bold mb-8 text-center">Visualization of 5 devices</h3>
+                <div class="grid md:grid-cols-5 gap-4">
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">📺</div>
+                        <div class="font-bold">TV</div>
+                        <div class="text-sm text-gray-600">10ft interface</div>
+                        <div class="text-xs text-gray-500">Remote control</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">💻</div>
+                        <div class="font-bold">PC</div>
+                        <div class="text-sm text-gray-600">Multifunctionality</div>
+                        <div class="text-xs text-gray-500">Archive, settings</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">📱</div>
+                        <div class="font-bold">Telephone</div>
+                        <div class="text-sm text-gray-600">Portability</div>
+                        <div class="text-xs text-gray-500">Personal experience</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">📲</div>
+                        <div class="font-bold">Tablet</div>
+                        <div class="text-sm text-gray-600">Online viewing</div>
+                        <div class="text-xs text-gray-500">Background</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="text-3xl mb-2">🔗</div>
+                        <div class="font-bold">Synchronous</div>
+                        <div class="text-sm text-gray-600">Single account</div>
+                        <div class="text-xs text-gray-500">All platforms</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12 fade-in max-w-3xl mx-auto">
+                <h3 class="text-xl font-bold mb-2 text-center">Tablet, portrait orientation</h3>
+                <p class="text-gray-600 text-sm text-center mb-6">The same UI-kit in the “second screen” format and online viewing</p>
+                <div class="rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden bg-gray-100">
+                    <img src="images/tvip/tvip%20tablet%20vertical.png" alt="TVIP interface on a tablet in portrait orientation" data-lightbox class="w-full h-auto object-contain max-h-[75vh] mx-auto" width="900" height="1200" loading="lazy" decoding="async">
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 p-8 rounded-2xl fade-in">
+                <h3 class="text-xl font-bold mb-4">Unified UI kit</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Components that adapt to size and interaction methods. 
+                    One design system for all platforms, tailored to each context.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Adaptability</span>
+                    <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Context of use</span>
+                    <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Modality of interaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section id="themes" class="py-24 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+                    Visual system: Day and night
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">Accounting for different viewing conditions</p>
+                <div class="w-20 h-1 bg-indigo-400 mx-auto"></div>
+            </div>
+            
+            <div class="theme-split rounded-2xl overflow-hidden mb-12 fade-in">
+                <!-- Day theme -->
+                <div class="theme-day">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl mb-2">☀️</div>
+                        <h3 class="text-2xl font-bold text-gray-800">Daily theme</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/50 p-4 rounded-lg">
+                            <div class="font-bold text-gray-800">Light colors</div>
+                            <div class="text-sm text-gray-600">Clarity in natural light</div>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <div class="w-8 h-8 bg-white rounded border border-gray-300"></div>
+                            <div class="w-8 h-8 bg-gray-100 rounded border border-gray-300"></div>
+                            <div class="w-8 h-8 bg-gray-200 rounded border border-gray-300"></div>
+                            <div class="w-8 h-8 bg-indigo-600 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Night theme -->
+                <div class="theme-night">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl mb-2">🌙</div>
+                        <h3 class="text-2xl font-bold">Night theme</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <div class="font-bold">Dark interfaces</div>
+                            <div class="text-sm text-gray-300">Reduced brightness, focus on content</div>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <div class="w-8 h-8 bg-gray-900 rounded border border-gray-700"></div>
+                            <div class="w-8 h-8 bg-gray-800 rounded border border-gray-700"></div>
+                            <div class="w-8 h-8 bg-gray-700 rounded border border-gray-700"></div>
+                            <div class="w-8 h-8 bg-indigo-500 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-12 fade-in">
+                <div class="flex flex-col gap-4">
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Day - option 1</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-100">
+                            <img src="images/tvip/day1.jpg" alt="TVIP: daytime interface theme, screen 1" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Day - option 2</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-100">
+                            <img src="images/tvip/day2.jpg" alt="TVIP: daytime interface theme, screen 2" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Night - option 1</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-900/80">
+                            <img src="images/tvip/night1.jpg" alt="TVIP: dark night theme, screen 1" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                    <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
+                        <figcaption class="text-center text-sm font-semibold text-gray-800 py-2">Night - option 2</figcaption>
+                        <div class="rounded-lg overflow-hidden bg-gray-900/80">
+                            <img src="images/tvip/night2.jpg" alt="TVIP: night dark theme, screen 2" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 p-8 rounded-2xl fade-in">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-sun text-yellow-400"></i>
+                            Automatic switching
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            The theme changes automatically depending on the time of day or the device's lighting system
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-palette text-indigo-400"></i>
+                            Single palette
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            Both themes use the same base colors, chosen for contrast.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Onboarding Section -->
+    <section id="onboarding" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Onboarding
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Training without irritation</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 p-8 rounded-2xl fade-in">
+                    <div class="text-4xl mb-4">🤔</div>
+                    <h3 class="text-xl font-bold mb-3">Problem</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        New features (profiles, archive) may confuse existing users.
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 p-8 rounded-2xl fade-in">
+                    <div class="text-4xl mb-4">✅</div>
+                    <h3 class="text-xl font-bold mb-3">Solution</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Unobtrusive onboarding that appears only the first time you use the feature.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">🎯</div>
+                    <div class="font-bold mb-2">Contextual</div>
+                    <div class="text-sm text-gray-600">First use only</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">💡</div>
+                    <div class="font-bold mb-2">Useful</div>
+                    <div class="text-sm text-gray-600">Explains the benefits, not the mechanics</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">📱</div>
+                    <div class="font-bold mb-2">Cross-platform</div>
+                    <div class="text-sm text-gray-600">Works on all devices</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="result" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Results
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">From MVP to ecosystem</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <!-- Created -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">What has been created</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">👥</div>
+                            <div>
+                                <div class="font-bold">Profile system</div>
+                                <div class="text-sm text-gray-600">For 4 types of users</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🎨</div>
+                            <div>
+                                <div class="font-bold">UI-kit</div>
+                                <div class="text-sm text-gray-600">For 5 platforms</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🌓</div>
+                            <div>
+                                <div class="font-bold">2 color themes</div>
+                                <div class="text-sm text-gray-600">With automatic switching</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">📦</div>
+                            <div>
+                                <div class="font-bold">Online archive section</div>
+                                <div class="text-sm text-gray-600">For film buffs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advantages -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">System benefits</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">📈</div>
+                            <div>
+                                <div class="font-bold">Scalability</div>
+                                <div class="text-sm text-gray-600">New features are added to the existing structure</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🔄</div>
+                            <div>
+                                <div class="font-bold">Consistency</div>
+                                <div class="text-sm text-gray-600">Consistent experience across all devices</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🎯</div>
+                            <div>
+                                <div class="font-bold">Personalization</div>
+                                <div class="text-sm text-gray-600">Different interface for different purposes</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm">
+                            <div class="text-2xl">🔄</div>
+                            <div>
+                                <div class="font-bold">Adaptability</div>
+                                <div class="text-sm text-gray-600">The interface adapts to the context of use</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 rounded-2xl text-white inline-block">
+                    <div class="text-2xl font-bold mb-4">Ecosystem</div>
+                    <div class="text-sm opacity-90">
+                        All components are interconnected: profiles → themes → platforms
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusions Section -->
+    <section id="conclusions" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Conclusions
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">When limitations become an advantage</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-gray-900 text-white p-8 rounded-2xl fade-in">
+                    <div class="text-sm text-gray-400 mb-2">Main lesson</div>
+                    <h3 class="text-xl font-bold mb-4">Inheriting a legacy system is not a disadvantage, but an opportunity for evolutionary design</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Maintaining the functionality of the backend while completely updating the interface became a key task, 
+                        which led to the creation of a scalable system.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-green-50 p-8 rounded-2xl fade-in">
+                        <h4 class="font-bold mb-3 text-green-800 flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i>
+                            What worked
+                        </h4>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>• Keep the backend running</li>
+                            <li>• Create a system, not a set of screens</li>
+                            <li>• Consider radically different scenarios</li>
+                            <li>• Make the complex simple through personalization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 p-8 rounded-2xl fade-in">
+                        <h4 class="font-bold mb-3 text-red-800 flex items-center gap-2">
+                            <i class="fas fa-times-circle"></i>
+                            What was difficult
+                        </h4>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>• Balance between a unified style and platform features</li>
+                            <li>• Transfer of the TV interface to mobile devices</li>
+                            <li>• Train users on new features without pushing them away</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-8 rounded-2xl fade-in">
+                    <h4 class="font-bold mb-3 text-blue-800">For the future</h4>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm text-gray-700">
+                        <div class="bg-white p-4 rounded-lg">
+                            <div class="font-bold mb-1">A/B testing of themes</div>
+                            <div class="text-xs text-gray-600">Testing the effectiveness of color schemes</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <div class="font-bold mb-1">Adaptive complexity</div>
+                            <div class="text-xs text-gray-600">User-level interface</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <div class="font-bold mb-1">Voice assistants</div>
+                            <div class="text-xs text-gray-600">Integration for TV platforms</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Case Section -->
+    <section id="why" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Why is this case illustrative?
+                </h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">📏</div>
+                    <div class="font-bold mb-2">Scale</div>
+                    <div class="text-sm text-gray-600">5 platforms with different interaction logic</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">🧩</div>
+                    <div class="font-bold mb-2">Inheritance</div>
+                    <div class="text-sm text-gray-600">Working with legacy code as a design challenge</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">🔗</div>
+                    <div class="font-bold mb-2">Systematicity</div>
+                    <div class="text-sm text-gray-600">Profiles → Topics → Platforms - everything is connected</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 fade-in text-center">
+                    <div class="text-3xl mb-3">👤</div>
+                    <div class="font-bold mb-2">User focus</div>
+                    <div class="text-sm text-gray-600">From persona research to personalized interface</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="py-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 leading-relaxed">
+                    This is a rethinking of the product - from an anonymous service to a personalized media ecosystem, where each user receives his own ideal interface on his device.”
+                </h2>
+                
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Cross-platform</span>
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Legacy refactoring</span>
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Profile system</span>
+                    <span class="bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium text-white">Responsive Themes</span>
+                </div>
+                         
+            </div>
+        </div>
+    </section>
+
+        <!-- Related Cases Section -->
+    <section id="related" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Other cases
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Deep analysis instead of an image gallery</p>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- WUW Case -->
+                <a href="wuw.html" class="block">
+                    <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">WUW</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Product evolution through a systematic approach to design</h3>
+                            <p class="text-gray-600 text-sm">
+                                Platform for personal growth. 5000+ users.
+                            </p>
+                        </div>
+                    </article>
+                </a>
+                
+                <!-- DocsBird Case -->
+                <a href="docsbird.html" class="block">
+                    <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                                    Case Study
+                                </span>
+                                <span class="text-gray-400 text-sm">DocsBird</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Launching an international product under severe restrictions</h3>
+                            <p class="text-gray-600 text-sm">
+                                International product for document management. Europe and the Baltics.
+                            </p>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="py-16 bg-gray-900 text-gray-400">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        Polina Tsoy
+                    </h3>
+                    <p class="text-gray-400 mb-4">Senior Product Designer</p>
+                    <p class="text-gray-300 italic">
+                        "Transforming complexity into clarity"
+                    </p>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contacts</h4>
+                    <ul class="space-y-2">
+                        <li>📧 neolissa@gmail.com</li>
+                        <li>💬 <a href="https://t.me/ewersawers" target="_blank" class="hover:text-white transition-colors">@ewersawers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Portfolio and thoughts</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.behance.net/polinatra" target="_blank" class="hover:text-white transition-colors">Behance (Selected Works)</a></li>
+                        <li><a href="https://vc.ru/design/717548-ekonomim-dengi-klienta-vremya-razrabotchika-i-nervy-polzovatelya-optimizaciya-ux-ui-pri-produktovom-podhode" target="_blank" class="hover:text-white transition-colors">VC.ru (Articles about the approach)</a></li>
+                        <li><span class="opacity-50 cursor-not-allowed">LinkedIn (coming soon)</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex gap-6">
+                    <a href="privacy.html" class="hover:text-white transition-colors text-sm">Privacy Policy</a>
+                    <a href="index.html#cta" class="hover:text-white transition-colors text-sm">Full resume</a>
+                </div>
+                <p class="text-sm text-gray-500">
+                    © 2026 Polina Tsoy. Everything is thought out.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="image-lightbox-overlay" class="fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
+        <button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Close">×</button>
+        <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
+    </div>
+    <script src="js/image-lightbox.js"></script>
+
+    <!-- JavaScript for fade-in animations -->
+    <script>
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+        
+        (function initEmpathySlider() {
+            const root = document.getElementById('empathy-slider');
+            if (!root) return;
+            const track = root.querySelector('[data-empathy-track]');
+            const dots = root.querySelectorAll('[data-empathy-dot]');
+            const caption = root.querySelector('[data-empathy-caption]');
+            const counter = root.querySelector('[data-empathy-counter]');
+            const prevBtn = root.querySelector('[data-empathy-prev]');
+            const nextBtn = root.querySelector('[data-empathy-next]');
+            const titles = ['Pains', 'Needs', 'Grandma', 'Grandfather', 'Uncle', 'Mom', 'Youngest Child', 'Dad', 'Older Child', 'Auntie'];
+            const total = titles.length;
+            let scrollRaf = 0;
+
+            function slideWidth() {
+                return track.clientWidth || 1;
+            }
+
+            function indexFromScroll() {
+                const w = slideWidth();
+                return Math.min(total - 1, Math.max(0, Math.round(track.scrollLeft / w)));
+            }
+
+            function updateUI() {
+                const idx = indexFromScroll();
+                if (caption) caption.textContent = titles[idx];
+                if (counter) counter.textContent = (idx + 1) + ' / ' + total;
+                dots.forEach(function (dot, i) {
+                    const on = i === idx;
+                    dot.setAttribute('aria-selected', on ? 'true' : 'false');
+                    if (on) dot.setAttribute('aria-current', 'true');
+                    else dot.removeAttribute('aria-current');
+                    dot.classList.toggle('bg-indigo-600', on);
+                    dot.classList.toggle('bg-gray-300', !on);
+                });
+            }
+
+            function goTo(index) {
+                const i = Math.max(0, Math.min(total - 1, index));
+                track.scrollTo({ left: i * slideWidth(), behavior: 'smooth' });
+            }
+
+            function onScroll() {
+                if (scrollRaf) cancelAnimationFrame(scrollRaf);
+                scrollRaf = requestAnimationFrame(function () {
+                    scrollRaf = 0;
+                    updateUI();
+                });
+            }
+
+            track.addEventListener('scroll', onScroll, { passive: true });
+            if ('onscrollend' in window) {
+                track.addEventListener('scrollend', updateUI);
+            }
+
+            window.addEventListener('resize', function () {
+                const idx = indexFromScroll();
+                track.scrollTo({ left: idx * slideWidth(), behavior: 'auto' });
+                updateUI();
+            });
+
+            dots.forEach(function (dot) {
+                dot.addEventListener('click', function () {
+                    goTo(parseInt(dot.getAttribute('data-empathy-dot'), 10));
+                });
+            });
+
+            if (prevBtn) prevBtn.addEventListener('click', function () { goTo(indexFromScroll() - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { goTo(indexFromScroll() + 1); });
+
+            track.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    goTo(indexFromScroll() - 1);
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    goTo(indexFromScroll() + 1);
+                }
+            });
+
+            updateUI();
+        })();
+        
+        // Smooth scroll for navigation links (fallback)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        (function(){
+            var pathName = window.location.pathname;
+            var currentLang = pathName.indexOf('/en/') !== -1 ? 'en' : 'ru';
+            var toggle = document.querySelector('[data-lang-toggle]');
+            var flag = document.querySelector('[data-lang-flag]');
+            if (toggle) toggle.checked = currentLang === 'en';
+            if (flag) flag.textContent = currentLang === 'en' ? '🇬🇧' : '🇷🇺';
+
+            function toLangUrl(lang){
+                var p = window.location.pathname.replace(/^/(ru|en)//, '/');
+                if (p === '/') p = '/index.html';
+                return '/' + lang + p;
+            }
+
+            if (toggle) {
+                toggle.addEventListener('change', function(){
+                    var nextLang = toggle.checked ? 'en' : 'ru';
+                    window.location.href = toLangUrl(nextLang);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

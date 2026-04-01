@@ -1,6 +1,6 @@
 /**
- * Лайтбокс для изображений: клик по элементу с data-lightbox (обычно <img>).
- * Требует в документе #image-lightbox-overlay с <img> внутри.
+ * Image lightbox: click an element with data-lightbox (usually <img>).
+ * Requires #image-lightbox-overlay with nested <img>.
  */
 (function () {
     function getOverlay() {
@@ -28,9 +28,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        var isEn = window.location.pathname.indexOf('/en/') !== -1;
         document.querySelectorAll('img[data-lightbox]').forEach(function (el) {
             el.classList.add('cursor-zoom-in');
-            var label = el.alt ? 'Увеличить: ' + el.alt : 'Увеличить изображение';
+            var label = isEn
+                ? (el.alt ? 'Zoom: ' + el.alt : 'Zoom image')
+                : (el.alt ? 'Увеличить: ' + el.alt : 'Увеличить изображение');
             el.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
