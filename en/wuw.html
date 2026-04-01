@@ -140,8 +140,8 @@
         }
         
     
-        .lang-switch { display:flex; align-items:center; gap:0.6rem; margin-left:1rem; }
-        .lang-label { font-size:0.75rem; font-weight:600; color:#6b7280; }
+        .lang-switch { display:flex; align-items:center; gap:0.5rem; padding:0.35rem 0.6rem; border:1px solid #e5e7eb; background:#f3f4f6; border-radius:999px; }
+        .lang-label { font-size:0.7rem; font-weight:700; color:#6b7280; letter-spacing:0.04em; }
         .lang-toggle { position: relative; width: 44px; height: 24px; display:inline-block; }
         .lang-toggle input { opacity: 0; width:0; height:0; }
         .lang-slider { position:absolute; cursor:pointer; inset:0; background:#d1d5db; border-radius:999px; transition:all .25s ease; }
@@ -168,12 +168,12 @@
                     Polina Tsoy
                     <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
                 </a>
-                <div class="flex items-center">
-                    <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8">
                         <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Cases</a>
                         <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">About</a>
                         <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
                     </div>
+                <div class="flex items-center gap-3">
                     <div class="lang-switch" data-lang-switch>
                         <span class="lang-label">RU</span>
                         <label class="lang-toggle" aria-label="Language switch">
@@ -182,10 +182,10 @@
                         </label>
                         <span class="lang-label">EN</span>
                     </div>
-                </div>
-                <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
                     Write
                 </a>
+                </div>
             </div>
         </div>
     </nav>
