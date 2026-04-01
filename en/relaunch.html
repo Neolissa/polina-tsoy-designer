@@ -51,7 +51,6 @@
                         <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
                     </div>
                     <div class="lang-switch" data-lang-switch>
-                        <span class="lang-flag" data-lang-flag aria-hidden="true"></span>
                         <span class="lang-label">RU</span>
                         <label class="lang-toggle" aria-label="Language switch">
                             <input type="checkbox" data-lang-toggle>
@@ -946,9 +945,7 @@
             var pathName = window.location.pathname;
             var currentLang = pathName.indexOf('/en/') !== -1 ? 'en' : 'ru';
             var toggle = document.querySelector('[data-lang-toggle]');
-            var flag = document.querySelector('[data-lang-flag]');
             if (toggle) toggle.checked = currentLang === 'en';
-            if (flag) flag.textContent = currentLang === 'en' ? '🇬🇧' : '🇷🇺';
 
             function toLangUrl(lang){
                 var p = window.location.pathname;
