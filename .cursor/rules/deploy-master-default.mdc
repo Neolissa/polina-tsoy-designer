@@ -1,0 +1,12 @@
+---
+description: Deploy and publish from master by default
+alwaysApply: true
+---
+
+# Deployment Branch Policy
+
+- Use `master` as the primary deployment branch for this project.
+- When a user asks to publish to GitHub Pages, prefer updating and pushing `master`.
+- Before pushing, verify local branch status and remote sync (`git status -sb`).
+- Avoid publishing from `gh-pages` unless the user explicitly asks for that exception.
+- If branch cleanup is requested, ask for explicit confirmation before deleting any branch.
