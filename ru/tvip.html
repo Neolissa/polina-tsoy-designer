@@ -191,15 +191,70 @@
         .empathy-slider-dot[aria-current="true"] {
             transform: scale(1.2);
         }
-    
-        .lang-switch { display:flex; align-items:center; gap:0.5rem; padding:0.35rem 0.6rem; border:1px solid #e5e7eb; background:#f3f4f6; border-radius:999px; }
-        .lang-label { font-size:0.7rem; font-weight:700; color:#6b7280; letter-spacing:0.04em; }
-        .lang-toggle { position: relative; width: 44px; height: 24px; display:inline-block; }
-        .lang-toggle input { opacity: 0; width:0; height:0; }
-        .lang-slider { position:absolute; cursor:pointer; inset:0; background:#d1d5db; border-radius:999px; transition:all .25s ease; }
-        .lang-slider::before { content:''; position:absolute; height:18px; width:18px; left:3px; top:3px; background:white; border-radius:50%; transition:all .25s ease; box-shadow:0 2px 6px rgba(0,0,0,.2); }
-        .lang-toggle input:checked + .lang-slider { background:#6366f1; }
-        .lang-toggle input:checked + .lang-slider::before { transform: translateX(20px); }
+
+        .lang-dropdown { position: relative; }
+        .lang-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.65rem;
+            border: 1px solid #e5e7eb;
+            background: #f3f4f6;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #4b5563;
+            letter-spacing: 0.03em;
+            min-width: 70px;
+            justify-content: center;
+        }
+        .lang-trigger svg { width: 12px; height: 12px; color: #6b7280; }
+        .lang-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 8px);
+            min-width: 112px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            padding: 0.3rem;
+            z-index: 80;
+        }
+        .lang-option {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.55rem;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            color: #374151;
+            text-align: center; justify-content: center;
+            background: transparent;
+        }
+        .lang-option:hover { background: #f3f4f6; }
+        .lang-option.active { background: #eef2ff; color: #4338ca; font-weight: 700; }
+
+        @media (max-width: 640px) {
+            .lang-trigger {
+                padding: 0.06rem 0.16rem;
+                min-width: 44px;
+                font-size: 0.58rem;
+            }
+            .lang-trigger svg { width: 10px; height: 10px; }
+            .lang-dropdown { margin: 0 0.25rem; }
+            .lang-menu {
+                min-width: 98px;
+                top: calc(100% + 6px);
+                padding: 0.22rem;
+            }
+            .lang-option {
+                font-size: 0.7rem;
+                padding: 0.36rem 0.45rem;
+                gap: 0.3rem;
+            }
+        }
 
     </style>
     
@@ -214,27 +269,31 @@
     
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-xl font-bold text-gray-900">
+                <a href="index.html" class="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
                     Polina Tsoy
-                    <span class="text-gray-400 font-normal text-sm ml-2">Product Designer</span>
+                    <span class="text-gray-400 font-normal text-xs sm:text-sm ml-1.5 sm:ml-2 hidden sm:inline">Product Designer</span>
                 </a>
                 <div class="hidden md:flex space-x-8">
                         <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
                         <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
                         <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
                     </div>
-                <div class="flex items-center gap-3">
-                    <div class="lang-switch" data-lang-switch>
-                        <span class="lang-label">RU</span>
-                        <label class="lang-toggle" aria-label="Language switch">
-                            <input type="checkbox" data-lang-toggle>
-                            <span class="lang-slider"></span>
-                        </label>
-                        <span class="lang-label">EN</span>
+                <div class="flex items-center gap-1 sm:gap-3">
+                    <div class="lang-dropdown" data-lang-dropdown>
+                        <button type="button" class="lang-trigger" data-lang-trigger aria-haspopup="listbox" aria-expanded="false">
+                            <span data-lang-current>ru</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="lang-menu hidden" data-lang-menu role="listbox" aria-label="Language">
+                            <button type="button" class="lang-option" data-lang-option="ru" role="option">ru</button>
+                            <button type="button" class="lang-option" data-lang-option="en" role="option">en</button>
+                        </div>
                     </div>
-                    <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    <a href="index.html#cta" class="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors min-w-[108px] sm:min-w-[132px] text-center">
                     Написать
                 </a>
                 </div>
@@ -1251,12 +1310,19 @@
         });
     </script>
 
-    <script>
+        <script>
         (function(){
             var pathName = window.location.pathname;
             var currentLang = pathName.indexOf('/en/') !== -1 ? 'en' : 'ru';
-            var toggle = document.querySelector('[data-lang-toggle]');
-            if (toggle) toggle.checked = currentLang === 'en';
+            var trigger = document.querySelector('[data-lang-trigger]');
+            var menu = document.querySelector('[data-lang-menu]');
+            var current = document.querySelector('[data-lang-current]');
+            var options = Array.from(document.querySelectorAll('[data-lang-option]'));
+
+            if (current) current.textContent = currentLang === 'en' ? 'en' : 'ru';
+            options.forEach(function(opt){
+                opt.classList.toggle('active', opt.getAttribute('data-lang-option') === currentLang);
+            });
 
             function toLangUrl(lang){
                 var p = window.location.pathname;
@@ -1264,12 +1330,36 @@
                 return '../' + lang + '/' + file;
             }
 
-            if (toggle) {
-                toggle.addEventListener('change', function(){
-                    var nextLang = toggle.checked ? 'en' : 'ru';
-                    window.location.href = toLangUrl(nextLang);
+            function closeMenu(){
+                if (!menu || !trigger) return;
+                menu.classList.add('hidden');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+
+            if (trigger && menu) {
+                trigger.addEventListener('click', function(){
+                    var isHidden = menu.classList.contains('hidden');
+                    menu.classList.toggle('hidden');
+                    trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
                 });
             }
+
+            options.forEach(function(opt){
+                opt.addEventListener('click', function(){
+                    var next = opt.getAttribute('data-lang-option');
+                    window.location.href = toLangUrl(next);
+                });
+            });
+
+            document.addEventListener('click', function(e){
+                var box = document.querySelector('[data-lang-dropdown]');
+                if (!box) return;
+                if (!box.contains(e.target)) closeMenu();
+            });
+
+            document.addEventListener('keydown', function(e){
+                if (e.key === 'Escape') closeMenu();
+            });
         })();
     </script>
 </body>
