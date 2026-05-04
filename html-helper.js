@@ -213,7 +213,7 @@ function generateExamples() {
     
     simpleImage: generateSimpleImage(
       'images/about-me.jpg',
-      'Photo of Polina Tsoy, Product Designer',
+      'Photo of Polina Tsoy, UX|UI product designer',
       'profile-photo'
     ),
     
