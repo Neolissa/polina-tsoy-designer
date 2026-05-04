@@ -1,0 +1,7450 @@
+# Node modules (if you use any build tools in the future)
+node_modules/
+
+# Dependencies (package-lock.json is usually committed, but node_modules is not)
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+.TMP
+.tmpfile
+
+# NPM/Yarn lock files (optional - you can commit them if you want)
+# package-lock.json
+# yarn.lock
+
+# Git files
+.git/
+
+# Vercel/Netlify (if you deploy there later)
+.vercel/
+.netlify/
+
+# Build output (if you build your project)
+build/
+dist/
+out/
+.next/
+.nuxt/
+.gatsby/
+public/static/
+
+# Cache directories
+.cache/
+.meteor/
+.nyc_output/
+coverage/
+.gulp-cache/
+.tmp/
+
+# Optional: Large media files
+*.mp4
+!images/wuw/whitelabel.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.flac
+*.wav
+*.aiff
+*.aifc
+*.aiffc
+*.alac
+*.ogg
+*.m4a
+*.wma
+*.mp3
+*.aac
+*.opus
+
+# Optional: Source files (if you only want to deploy compiled output)
+src/
+src-*/
+*.src
+
+# Optional: Design files (if you want to keep them separate)
+*.fig
+*.sketch
+*.xd
+*.ai
+*.psd
+*.indd
+
+# Optional: Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+
+# Optional: Temporary download files
+*.download
+*.crdownload
+*.part
+
+# Optional: Archive files
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+*.iso
+*.deb
+*.rpm
+
+# Optional: Database files
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-journal
+
+# Optional: Binary files (if you want to exclude them)
+*.bin
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Optional: Certificate files
+*.pem
+*.crt
+*.key
+*.p12
+*.pfx
+*.cer
+
+# Optional: Temporary IDE files
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+*.temp
+
+# Optional: Vercel Netlify (if you deploy there later)
+.vercel
+.netlify
+
+# Optional: Coverage (if you use testing)
+coverage/
+.nyc_output/
+
+# Optional: Cache (if you use compilers)
+.cache/
+.npm/
+.yarn/
+.yarn-integrity
+
+# Optional: Lock files (if you want to commit them)
+# package-lock.json
+# yarn.lock
+
+# Optional: Platform-specific files
+Thumbs.db
+.DS_Store
+desktop.ini
+.DStore
+._*
+.Spotlight-V100
+.Trashes
+
+# Optional: Temporary files from text editors
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+
+# Optional: IDE files (if you want to exclude them)
+.vscode/
+.idea/
+*.code-workspace
+*.vscode
+
+# Optional: Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Optional: Build output (if you build your project)
+build/
+dist/
+out/
+.public/
+.next/
+.nuxt/
+.gatsby/
+
+# Optional: Cache directories
+.cache/
+.meteor/
+.nyc_output/
+coverage/
+
+# Optional: Temporary files from frameworks
+.next/
+.nuxt/
+.gatsby/
+.public/
+.cache/
+
+# Optional: Temporary files from package managers
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: Coverage files
+coverage/
+.nyc_output/
+*.lcov
+
+# Optional: Temporary files from testing
+.test/
+.test-results/
+.test-coverage/
+
+# Optional: Temporary files from debugging
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Optional: Temporary files from documentation
+*.mdx
+*.mdown
+*.mkdown
+*.markdown
+
+# Optional: Temporary files from exports
+*.export
+*.dump
+*.backup
+*.bak
+
+# Optional: Temporary files from deployment
+.deployment/
+.vercel/
+.netlify/
+.build/
+.static/
+
+# Optional: Temporary files from image optimization
+*.webp
+*.avif
+*.heic
+*.heif
+
+# Optional: Temporary files from fonts
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# Optional: Temporary files from icons
+*.ico
+*.icns
+
+# Optional: Temporary files from favicons
+favicon-*
+!images/favicon-32.png
+apple-touch-icon-*
+
+# Optional: Temporary files from sitemap
+sitemap.xml
+robots.txt
+
+# Optional: Temporary files from RSS feeds
+rss.xml
+feed.xml
+
+# Optional: Temporary files from API responses
+*.api
+*.json
+
+# Optional: Temporary files from configuration
+*.config.js
+*.config.json
+*.config.yaml
+*.config.yml
+
+# Optional: Temporary files from documentation
+*.README
+*.CHANGELOG
+*.CONTRIBUTING
+*.CODE_OF_CONDUCT
+*.LICENSE
+*.NOTICE
+*.AUTHORS
+*.CREDITS
+*.ACKNOWLEDGMENTS
+
+# Optional: Temporary files from generators
+*.generator
+*.scaffold
+*.template
+*.boilerplate
+*.starter
+
+# Optional: Temporary files from AI
+*.ai
+*.assistant
+*.chat
+*.conversation
+*.prompt
+*.response
+*.completion
+
+# Optional: Temporary files from testing
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+*.spec
+*.test
+
+# Optional: Temporary files from coverage
+*.coverage
+*.lcov
+*.report
+*.summary
+
+# Optional: Temporary files from linting
+*.lint
+*.eslint
+*.prettier
+*.stylelint
+*.tslint
+*.prettier
+*.husky
+
+# Optional: Temporary files from formatting
+*.format
+*.pretty
+*.prettier
+*.standard
+*.airbnb
+
+# Optional: Temporary files from git hooks
+*.pre-commit
+*.commit-msg
+*.post-commit
+*.prepare-commit-msg
+*.push-to-checkout
+*.pre-push
+*.post-merge
+*.post-checkout
+*.pre-merge
+*.pre-rebase
+
+# Optional: Temporary files from git attributes
+*.gitattributes
+*.gitignore
+*.gitmodules
+*.gitkeep
+*.gitmessage
+
+# Optional: Temporary files from git config
+*.gitconfig
+*.git-credentials
+*.git-refs
+*.git-objects
+
+# Optional: Temporary files from git operations
+*.git-*
+*.gitignore
+*.gitattributes
+*.gitmodules
+*.gitkeep
+
+# Optional: Temporary files from git tags
+*.annotated
+*.lightweight
+*.signed
+*.annotated-tag
+*.lightweight-tag
+*.signed-tag
+
+# Optional: Temporary files from git notes
+*.git-note
+*.git-notes
+
+# Optional: Temporary files from git worktree
+*.git-worktree
+
+# Optional: Temporary files from git sparse checkout
+*.sparse-checkout
+*.sparse-checkout.git
+
+# Optional: Temporary files from git shallow clone
+*.shallow
+*.partial
+
+# Optional: Temporary files from git bundle
+*.bundle
+*.git-bundle
+
+# Optional: Temporary files from git archive
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar
+*.zip
+
+# Optional: Temporary files from git bundle
+*.bundle
+*.git-bundle
+
+# Optional: Temporary files from git clone
+*.clone
+*.clone.git
+*.clone.bundle
+
+# Optional: Temporary files from git remote
+*.remote
+*.remote.git
+*.remote.bundle
+
+# Optional: Temporary files from git fetch
+*.fetch
+*.fetch.git
+*.fetch.bundle
+
+# Optional: Temporary files from git pull
+*.pull
+*.pull.git
+*.pull.bundle
+
+# Optional: Temporary files from git push
+*.push
+*.push.git
+*.push.bundle
+
+# Optional: Temporary files from git merge
+*.merge
+*.merge.git
+*.merge.bundle
+
+# Optional: Temporary files from git rebase
+*.rebase
+*.rebase.git
+*.rebase.bundle
+
+# Optional: Temporary files from git cherry-pick
+*.cherry-pick
+*.cherry-pick.git
+*.cherry-pick.bundle
+
+# Optional: Temporary files from git bisect
+*.bisect
+*.bisect.git
+*.bisect.bundle
+
+# Optional: Temporary files from git stash
+*.stash
+*.stash.git
+*.stash.bundle
+
+# Optional: Temporary files from git worktree
+*.worktree
+*.worktree.git
+*.worktree.bundle
+
+# Optional: Temporary files from git submodule
+*.submodule
+*.submodule.git
+*.submodule.bundle
+
+# Optional: Temporary files from git subtree
+*.subtree
+*.subtree.git
+*.subtree.bundle
+
+# Optional: Temporary files from git reflog
+*.reflog
+*.reflog.git
+*.reflog.bundle
+
+# Optional: Temporary files from git notes
+*.notes
+*.notes.git
+*.notes.bundle
+
+# Optional: Temporary files from git bundle
+*.bundle
+*.git-bundle
+
+# Optional: Temporary files from git archive
+*.archive
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar
+*.zip
+
+# Optional: Temporary files from git patch
+*.patch
+*.diff
+*.patch.gz
+*.diff.gz
+
+# Optional: Temporary files from git log
+*.log
+*.log.git
+*.log.bundle
+
+# Optional: Temporary files from git status
+*.status
+*.status.git
+*.status.bundle
+
+# Optional: Temporary files from git show
+*.show
+*.show.git
+*.show.bundle
+
+# Optional: Temporary files from git blame
+*.blame
+*.blame.git
+*.blame.bundle
+
+# Optional: Temporary files from git diff
+*.diff
+*.diff.git
+*.diff.bundle
+
+# Optional: Temporary files from git mergetool
+*.merge
+*.merge.git
+*.merge.bundle
+
+# Optional: Temporary files from git rerere
+*.rerere
+*.rerere.git
+*.rerere.bundle
+
+# Optional: Temporary files from git commit
+*.commit
+*.commit.git
+*.commit.bundle
+
+# Optional: Temporary files from git describe
+*.describe
+*.describe.git
+*.describe.bundle
+
+# Optional: Temporary files from git name-rev
+*.name-rev
+*.name-rev.git
+*.name-rev.bundle
+
+# Optional: Temporary files from git rev-list
+*.rev-list
+*.rev-list.git
+*.rev-list.bundle
+
+# Optional: Temporary files from git rev-parse
+*.rev-parse
+*.rev-parse.git
+*.rev-parse.bundle
+
+# Optional: Temporary files from git symbol-full-ref
+*.symbol-full-ref
+*.symbol-full-ref.git
+*.symbol-full-ref.bundle
+
+# Optional: Temporary files from git for-each-ref
+*.for-each-ref
+*.for-each-ref.git
+*.for-each-ref.bundle
+
+# Optional: Temporary files from git ls-remote
+*.ls-remote
+*.ls-remote.git
+*.ls-remote.bundle
+
+# Optional: Temporary files from git ls-tree
+*.ls-tree
+*.ls-tree.git
+*.ls-tree.bundle
+
+# Optional: Temporary files from git cat-file
+*.cat-file
+*.cat-file.git
+*.cat-file.bundle
+
+# Optional: Temporary files from git count-objects
+*.count-objects
+*.count-objects.git
+*.count-objects.bundle
+
+# Optional: Temporary files from git pack-objects
+*.pack-objects
+*.pack-objects.git
+*.pack-objects.bundle
+
+# Optional: Temporary files from git unpack-objects
+*.unpack-objects
+*.unpack-objects.git
+*.unpack-objects.bundle
+
+# Optional: Temporary files from git index-pack
+*.index-pack
+*.index-pack.git
+*.index-pack.bundle
+
+# Optional: Temporary files from git verify-pack
+*.verify-pack
+*.verify-pack.git
+*.verify-pack.bundle
+
+# Optional: Temporary files from git unpack-file
+*.unpack-file
+*.unpack-file.git
+*.unpack-file.bundle
+
+# Optional: Temporary files from git rev-list
+*.rev-list
+*.rev-list.git
+*.rev-list.bundle
+
+# Optional: Temporary files from git rev-parse
+*.rev-parse
+*.rev-parse.git
+*.rev-parse.bundle
+
+# Optional: Temporary files from git symbolic-ref
+*.symbolic-ref
+*.symbolic-ref.git
+*.symbolic-ref.bundle
+
+# Optional: Temporary files from git for-each-ref
+*.for-each-ref
+*.for-each-ref.git
+*.for-each-ref.bundle
+
+# Optional: Temporary files from git merge-base
+*.merge-base
+*.merge-base.git
+*.merge-base.bundle
+
+# Optional: Temporary files from git merge-tree
+*.merge-tree
+*.merge-tree.git
+*.merge-tree.bundle
+
+# Optional: Temporary files from git merge-file
+*.merge-file
+*.merge-file.git
+*.merge-file.bundle
+
+# Optional: Temporary files from git merge-index
+*.merge-index
+*.merge-index.git
+*.merge-index.bundle
+
+# Optional: Temporary files from git rerere
+*.rerere
+*.rerere.git
+*.rerere.bundle
+
+# Optional: Temporary files from git diff-index
+*.diff-index
+*.diff-index.git
+*.diff-index.bundle
+
+# Optional: Temporary files from git diff-tree
+*.diff-tree
+*.diff-tree.git
+*.diff-tree.bundle
+
+# Optional: Temporary files from git diff-files
+*.diff-files
+*.diff-files.git
+*.diff-files.bundle
+
+# Optional: Temporary files from git diff
+*.diff
+*.diff.git
+*.diff.bundle
+
+# Optional: Temporary files from git apply
+*.apply
+*.apply.git
+*.apply.bundle
+
+# Optional: Temporary files from git cherry-pick
+*.cherry-pick
+*.cherry-pick.git
+*.cherry-pick.bundle
+
+# Optional: Temporary files from git revert
+*.revert
+*.revert.git
+*.revert.bundle
+
+# Optional: Temporary files from git bisect
+*.bisect
+*.bisect.git
+*.bisect.bundle
+
+# Optional: Temporary files from git bisect start
+*.bisect-start
+*.bisect-start.git
+*.bisect-start.bundle
+
+# Optional: Temporary files from git bisect good
+*.bisect-good
+*.bisect-good.git
+*.bisect-good.bundle
+
+# Optional: Temporary files from git bisect bad
+*.bisect-bad
+*.bisect-bad.git
+*.bisect-bad.bundle
+
+# Optional: Temporary files from git bisect reset
+*.bisect-reset
+*.bisect-reset.git
+*.bisect-reset.bundle
+
+# Optional: Temporary files from git bisect view
+*.bisect-view
+*.bisect-view.git
+*.bisect-view.bundle
+
+# Optional: Temporary files from git bisect run
+*.bisect-run
+*.bisect-run.git
+*.bisect-run.bundle
+
+# Optional: Temporary files from git stash
+*.stash
+*.stash.git
+*.stash.bundle
+
+# Optional: Temporary files from git stash list
+*.stash-list
+*.stash-list.git
+*.stash-list.bundle
+
+# Optional: Temporary files from git stash show
+*.stash-show
+*.stash-show.git
+*.stash-show.bundle
+
+# Optional: Temporary files from git stash apply
+*.stash-apply
+*.stash-apply.git
+*.stash-apply.bundle
+
+# Optional: Temporary files from git stash drop
+*.stash-drop
+*.stash-drop.git
+*.stash-drop.bundle
+
+# Optional: Temporary files from git stash clear
+*.stash-clear
+*.stash-clear.git
+*.stash-clear.bundle
+
+# Optional: Temporary files from git stash pop
+*.stash-pop
+*.stash-pop.git
+*.stash-pop.bundle
+
+# Optional: Temporary files from git worktree
+*.worktree
+*.worktree.git
+*.worktree.bundle
+
+# Optional: Temporary files from git worktree add
+*.worktree-add
+*.worktree-add.git
+*.worktree-add.bundle
+
+# Optional: Temporary files from git worktree list
+*.worktree-list
+*.worktree-list.git
+*.worktree-list.bundle
+
+# Optional: Temporary files from git worktree remove
+*.worktree-remove
+*.worktree-remove.git
+*.worktree-remove.bundle
+
+# Optional: Temporary files from git worktree prune
+*.worktree-prune
+*.worktree-prune.git
+*.worktree-prune.bundle
+
+# Optional: Temporary files from git worktree repair
+*.worktree-repair
+*.worktree-repair.git
+*.worktree-repair.bundle
+
+# Optional: Temporary files from git submodule
+*.submodule
+*.submodule.git
+*.submodule.bundle
+
+# Optional: Temporary files from git submodule add
+*.submodule-add
+*.submodule-add.git
+*.submodule-add.bundle
+
+# Optional: Temporary files from git submodule update
+*.submodule-update
+*.submodule-update.git
+*.submodule-update.bundle
+
+# Optional: Temporary files from git submodule status
+*.submodule-status
+*.submodule-status.git
+*.submodule-status.bundle
+
+# Optional: Temporary files from git submodule foreach
+*.submodule-foreach
+*.submodule-foreach.git
+*.submodule-foreach.bundle
+
+# Optional: Temporary files from git submodule sync
+*.submodule-sync
+*.submodule-sync.git
+*.submodule-sync.bundle
+
+# Optional: Temporary files from git submodule init
+*.submodule-init
+*.submodule-init.git
+*.submodule-init.bundle
+
+# Optional: Temporary files from git submodule deinit
+*.submodule-deinit
+*.submodule-deinit.git
+*.submodule-deinit.bundle
+
+# Optional: Temporary files from git submodule summary
+*.submodule-summary
+*.submodule-summary.git
+*.submodule-summary.bundle
+
+# Optional: Temporary files from git subtree
+*.subtree
+*.subtree.git
+*.subtree.bundle
+
+# Optional: Temporary files from git subtree add
+*.subtree-add
+*.subtree-add.git
+*.subtree-add.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+*.subtree-branch.bundle
+
+# Optional: Temporary files from git subtree extract
+*.subtree-extract
+*.subtree-extract.git
+*.subtree-extract.bundle
+
+# Optional: Temporary files from git subtree merge
+*.subtree-merge
+*.subtree-merge.git
+*.subtree-merge.bundle
+
+# Optional: Temporary files from git subtree split
+*.subtree-split
+*.subtree-split.git
+*.subtree-split.bundle
+
+# Optional: Temporary files from git subtree push
+*.subtree-push
+*.subtree-push.git
+*.subtree-push.bundle
+
+# Optional: Temporary files from git subtree pull
+*.subtree-pull
+*.subtree-pull.git
+*.subtree-pull.bundle
+
+# Optional: Temporary files from git subtree set
+*.subtree-set
+*.subtree-set.git
+*.subtree-set.bundle
+
+# Optional: Temporary files from git subtree branch
+*.subtree-branch
+*.subtree-branch.git
+
+# Media Manager
+./images-processed/
+./images-originals/

@@ -14,21 +14,22 @@ const source = join(root, "images-originals", "8674975.jpg");
 
 const base = sharp(source).rotate();
 
+// Мелкие иконки: смещение влево — в исходнике слева основной женский персонаж (центр давал «двоих»).
 await base
   .clone()
-  .resize(32, 32, { fit: "cover", position: "centre" })
+  .resize(32, 32, { fit: "cover", position: "left" })
   .png()
   .toFile(join(images, "favicon-32.png"));
 
 await base
   .clone()
-  .resize(180, 180, { fit: "cover", position: "centre" })
+  .resize(180, 180, { fit: "cover", position: "left" })
   .png()
   .toFile(join(images, "apple-touch-icon.png"));
 
 await base
   .clone()
-  .resize(1200, 630, { fit: "cover", position: "centre" })
+  .resize(1200, 630, { fit: "cover", position: "left" })
   .png({ compressionLevel: 9 })
   .toFile(join(images, "og-portfolio.png"));
 
