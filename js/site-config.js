@@ -1,7 +1,8 @@
 window.PORTFOLIO_CONFIG = window.PORTFOLIO_CONFIG || {
   analytics: {
-    posthogApiKey: "",
+    posthogApiKey: "phc_zVcSbU7bxrXKr6ExKitFPGbaD88DsTcKyAxLBtrbC7gz",
     posthogHost: "https://eu.i.posthog.com",
+    projectId: "176715",
     clarityProjectId: ""
   },
   admin: {

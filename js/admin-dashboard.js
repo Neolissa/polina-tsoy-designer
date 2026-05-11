@@ -62,6 +62,62 @@
     if (totalEl) totalEl.textContent = String(total);
     if (casesEl) casesEl.textContent = String(cases);
     if (contactsEl) contactsEl.textContent = String(contacts);
+    setAbKpis(events);
+  }
+
+  function setAbKpis(events) {
+    var exposedA = 0;
+    var exposedB = 0;
+    var clickA = 0;
+    var clickB = 0;
+    var minSample = 20;
+
+    events.forEach(function (event) {
+      var variant = event.props && event.props.variant ? String(event.props.variant).toUpperCase() : "";
+      if (!variant) return;
+      if (event.name === "hero_ab_exposed") {
+        if (variant === "A") exposedA += 1;
+        if (variant === "B") exposedB += 1;
+      }
+      if (event.name === "hero_cta_clicked") {
+        if (variant === "A") clickA += 1;
+        if (variant === "B") clickB += 1;
+      }
+    });
+
+    var ctrA = exposedA > 0 ? ((clickA / exposedA) * 100).toFixed(1) + "%" : "—";
+    var ctrB = exposedB > 0 ? ((clickB / exposedB) * 100).toFixed(1) + "%" : "—";
+    var elCtrA = document.querySelector("[data-kpi-ctr-a]");
+    var elCtrB = document.querySelector("[data-kpi-ctr-b]");
+    var elExpA = document.querySelector("[data-kpi-exp-a]");
+    var elExpB = document.querySelector("[data-kpi-exp-b]");
+    var badge = document.querySelector("[data-ab-winner-badge]");
+
+    if (elCtrA) elCtrA.textContent = ctrA;
+    if (elCtrB) elCtrB.textContent = ctrB;
+    if (elExpA) elExpA.textContent = "exposures: " + exposedA + ", clicks: " + clickA;
+    if (elExpB) elExpB.textContent = "exposures: " + exposedB + ", clicks: " + clickB;
+
+    if (!badge) return;
+    badge.className = "rounded-full px-3 py-1 text-xs font-semibold";
+
+    if (exposedA < minSample || exposedB < minSample) {
+      badge.textContent = "no winner yet";
+      badge.classList.add("bg-gray-100", "text-gray-700");
+      return;
+    }
+
+    var rateA = exposedA ? clickA / exposedA : 0;
+    var rateB = exposedB ? clickB / exposedB : 0;
+    if (rateA === rateB) {
+      badge.textContent = "tie";
+      badge.classList.add("bg-amber-100", "text-amber-800");
+      return;
+    }
+
+    var winner = rateA > rateB ? "A" : "B";
+    badge.textContent = "winner: variant " + winner;
+    badge.classList.add("bg-emerald-100", "text-emerald-800");
   }
 
   function renderEventsChart(countMap) {

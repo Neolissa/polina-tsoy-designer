@@ -115,7 +115,13 @@
     document.body.addEventListener("click", function (event) {
       var heroButton = event.target.closest('a[href="#cases"], a[data-track="hero-cta"]');
       if (heroButton) {
-        captureEvent("hero_cta_clicked", addBaseProps({ location: "hero" }));
+        captureEvent(
+          "hero_cta_clicked",
+          addBaseProps({
+            location: "hero",
+            variant: document.documentElement.getAttribute("data-hero-variant") || "A"
+          })
+        );
       }
 
       var caseCard = event.target.closest('a[href$="wuw.html"],a[href$="tvip.html"],a[href$="relaunch.html"],a[href$="docsbird.html"]');
