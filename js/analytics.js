@@ -1,5 +1,7 @@
 (function () {
   var SCROLL_MARKS = [25, 50, 75, 90];
+  var LOCAL_EVENTS_KEY = "portfolioAnalyticsEvents";
+  var MAX_LOCAL_EVENTS = 500;
   var reachedMarks = {};
   var loaded = false;
   var posthogReady = false;
@@ -76,8 +78,26 @@
 
   function captureEvent(name, props) {
     if (getConsentState() !== "accepted") return;
+    persistLocalEvent(name, props || {});
     if (window.posthog && typeof window.posthog.capture === "function") {
       window.posthog.capture(name, props || {});
+    }
+  }
+
+  function persistLocalEvent(name, props) {
+    try {
+      var events = JSON.parse(localStorage.getItem(LOCAL_EVENTS_KEY) || "[]");
+      events.push({
+        name: name,
+        props: props,
+        ts: Date.now()
+      });
+      if (events.length > MAX_LOCAL_EVENTS) {
+        events = events.slice(events.length - MAX_LOCAL_EVENTS);
+      }
+      localStorage.setItem(LOCAL_EVENTS_KEY, JSON.stringify(events));
+    } catch (error) {
+      return;
     }
   }
 
@@ -137,6 +157,13 @@
   window.portfolioAnalytics = {
     capture: function (name, props) {
       captureEvent(name, addBaseProps(props));
+    },
+    getLocalEvents: function () {
+      try {
+        return JSON.parse(localStorage.getItem(LOCAL_EVENTS_KEY) || "[]");
+      } catch (error) {
+        return [];
+      }
     }
   };
 

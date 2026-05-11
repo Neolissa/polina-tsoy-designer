@@ -5,7 +5,9 @@ window.PORTFOLIO_CONFIG = window.PORTFOLIO_CONFIG || {
     clarityProjectId: ""
   },
   admin: {
-    password: "change-me-now"
+    email: "neolissa@gmail.com",
+    password: "neolissaAdmin1001001",
+    role: "ADMIN"
   },
   experiments: {
     heroExperimentKey: "hero-headline-v1",
