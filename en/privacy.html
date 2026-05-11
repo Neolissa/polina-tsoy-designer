@@ -286,7 +286,16 @@
                             <li>Personalize your experience using the Site;</li>
                             <li>Analysis of the effectiveness of marketing campaigns.</li>
                         </ul>
-                        <p class="leading-relaxed mt-4">You can disable cookies in your browser settings, however this may affect </p>
+                        <p class="leading-relaxed mt-4">You can disable cookies in your browser settings, however this may affect the functionality of some parts of the site.</p>
+                        <div class="mt-4 rounded-xl border border-indigo-100 bg-indigo-50 p-4 text-sm text-gray-700">
+                            <p class="font-semibold text-gray-900 mb-2">Analytics services in use</p>
+                            <ul class="content-list">
+                                <li><strong>PostHog:</strong> behavioral events (clicks, scroll depth, case funnel, A/B variants).</li>
+                                <li><strong>Microsoft Clarity:</strong> aggregated click/scroll heatmaps and anonymized session recordings.</li>
+                            </ul>
+                            <p class="mt-3">Analytics scripts are loaded only after explicit consent in the cookie banner.</p>
+                            <p class="mt-2">You can update your choice at any time via <strong>Cookie settings</strong> in the footer.</p>
+                        </div>
                     </section>
                     
                     <section class="mb-8">
@@ -324,6 +333,9 @@
     <!-- Load footer component -->
     <script src="../loadComponent.js"></script>
 
+    <script src="../js/site-config.js"></script>
+    <script src="../js/consent-manager.js"></script>
+    <script src="../js/analytics.js"></script>
     <!-- JavaScript for fade-in animations -->
     <script>
         // Fade-in animation on scroll

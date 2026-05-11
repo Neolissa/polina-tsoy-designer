@@ -73,12 +73,11 @@
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
         }
         
-        /* Background pattern */
+        /* Hero background */
         .bg-grid {
-            background-image: 
-                linear-gradient(to right, #e5e7eb 1px, transparent 1px),
-                linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
-            background-size: 40px 40px;
+            background: -webkit-linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
+            background: -moz-linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
+            background: linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
         }
         
         /* Smooth underline for links */
@@ -216,23 +215,23 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-grid relative overflow-hidden pt-20 pb-16 md:pb-24">
+    <section class="min-h-screen flex items-center justify-center bg-grid relative overflow-hidden py-24">
         <!-- Decorative background elements -->
         <div class="absolute inset-0 opacity-30">
             <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-200 rounded-full blur-3xl"></div>
             <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full blur-3xl"></div>
         </div>
         
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in pt-8 md:pt-10">
             <!-- MAIN TITLE -->
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 data-hero-title class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 UX|UI Product designer: 
                 <span class="gradient-text">from hypothesis to interface,</span><br>
                 <span class="gradient-text">from the interface to the result.</span>
             </h1>
             
             <!-- SUBTITLE -->
-            <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p data-hero-subtitle class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
                 Helping products grow through deep research, 
                 well-thought-out systems and clear logic. Focus on 
                 <strong>B2C</strong> and complex <strong>B2B interfaces</strong>.
@@ -240,7 +239,7 @@
             
             <!-- CTA Button + Secondary Text -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#cases" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900">
+                <a href="#cases" data-track="hero-cta" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900">
                     View cases
                 </a>
                 <span class="text-gray-500 text-sm">
@@ -851,6 +850,7 @@
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex gap-6">
                     <a href="privacy.html" class="hover:text-white transition-colors text-sm">Privacy Policy</a>
+                    <a href="../admin/index.html" class="hover:text-white transition-colors text-sm">Admin</a>
                 </div>
                 <p class="text-sm text-gray-500">
                     © 2026 Polina Tsoy. Everything is thought out.
@@ -865,6 +865,10 @@
     </div>
     <script src="../js/image-lightbox.js"></script>
 
+    <script src="../js/site-config.js"></script>
+    <script src="../js/consent-manager.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script src="../js/ab-hero.js"></script>
     <!-- JavaScript for fade-in animations -->
     <script>
         // Fade-in animation on scroll

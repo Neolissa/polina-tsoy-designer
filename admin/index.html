@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Analytics | Polina Tsoy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <header class="mb-8">
+      <p class="text-sm uppercase tracking-wide text-indigo-600">Portfolio Admin</p>
+      <h1 class="text-3xl font-bold">Аналитика, heatmap и A/B</h1>
+      <p class="mt-2 text-sm text-gray-600">
+        Быстрый кабинет для продуктовой проверки портфолио. Данные о событиях смотрите в PostHog, heatmap/scrollmap в Clarity.
+      </p>
+    </header>
+
+    <section data-admin-login class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-2 text-xl font-semibold">Вход в кабинет</h2>
+      <p class="mb-4 text-sm text-gray-600">Текущий режим: client-side пароль (минимальная защита для GitHub Pages).</p>
+      <form data-admin-form class="space-y-3">
+        <label class="block text-sm font-medium" for="admin-password">Пароль</label>
+        <input id="admin-password" data-admin-password type="password" class="w-full rounded-xl border border-gray-300 px-3 py-2" placeholder="Введите пароль">
+        <p data-admin-error class="hidden text-sm text-red-600">Неверный пароль.</p>
+        <button type="submit" class="rounded-full bg-black px-5 py-2 text-sm font-semibold text-white">Открыть кабинет</button>
+      </form>
+    </section>
+
+    <section data-admin-content class="hidden space-y-6">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="rounded-2xl border border-gray-200 bg-white p-5">
+          <p class="text-xs text-gray-500">Hero CTR (A/B)</p>
+          <p class="mt-2 text-2xl font-bold">Смотрите в PostHog</p>
+          <p class="mt-2 text-xs text-gray-600">Формула: `hero_cta_clicked / hero_ab_exposed`</p>
+        </article>
+        <article class="rounded-2xl border border-gray-200 bg-white p-5">
+          <p class="text-xs text-gray-500">Топ кейсов по кликам</p>
+          <p class="mt-2 text-2xl font-bold">case_card_clicked</p>
+          <p class="mt-2 text-xs text-gray-600">Сегментация по `case_slug` и `lang`.</p>
+        </article>
+        <article class="rounded-2xl border border-gray-200 bg-white p-5">
+          <p class="text-xs text-gray-500">Drop-off index → case → contact</p>
+          <p class="mt-2 text-2xl font-bold">Funnel</p>
+          <p class="mt-2 text-xs text-gray-600">События: `case_card_clicked`, `case_page_viewed`, `contact_click_*`.</p>
+        </article>
+        <article class="rounded-2xl border border-gray-200 bg-white p-5">
+          <p class="text-xs text-gray-500">Scroll depth</p>
+          <p class="mt-2 text-2xl font-bold">25/50/75/90%</p>
+          <p class="mt-2 text-xs text-gray-600">Событие `scroll_depth_reached`.</p>
+        </article>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-2">
+        <article class="rounded-2xl border border-gray-200 bg-white p-6">
+          <h3 class="text-lg font-semibold">Heatmap и Scrollmap</h3>
+          <p class="mt-2 text-sm text-gray-600">Откройте Clarity и проверьте карты скролла для `ru/index.html` и кейсов.</p>
+          <a href="https://clarity.microsoft.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-full border border-gray-300 px-4 py-2 text-sm font-semibold">Открыть Microsoft Clarity</a>
+        </article>
+        <article class="rounded-2xl border border-gray-200 bg-white p-6">
+          <h3 class="text-lg font-semibold">A/B эксперименты</h3>
+          <p class="mt-2 text-sm text-gray-600">Активный эксперимент: `hero-headline-v1`, варианты `A/B`.</p>
+          <p class="mt-2 text-sm text-gray-600">Интерпретация: если variant B держит лучший CTR при стабильном bounce, переносим B в default.</p>
+          <a href="https://eu.posthog.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-full border border-gray-300 px-4 py-2 text-sm font-semibold">Открыть PostHog</a>
+        </article>
+      </div>
+
+      <article class="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+        <h3 class="text-lg font-semibold">Важно по безопасности</h3>
+        <p class="mt-2 text-sm text-amber-900">Этот вход защищает только от случайного доступа. Для production-защиты нужен Cloudflare Access или отдельный backend.</p>
+      </article>
+
+      <div class="flex items-center gap-3">
+        <button type="button" data-admin-logout class="rounded-full border border-gray-300 px-4 py-2 text-sm font-semibold">Выйти</button>
+        <a href="../ru/index.html" class="text-sm text-indigo-700 underline">Вернуться на сайт</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/site-config.js"></script>
+  <script src="../js/consent-manager.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/admin-auth.js"></script>
+</body>
+</html>
