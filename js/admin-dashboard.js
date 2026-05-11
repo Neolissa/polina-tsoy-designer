@@ -62,7 +62,48 @@
     if (totalEl) totalEl.textContent = String(total);
     if (casesEl) casesEl.textContent = String(cases);
     if (contactsEl) contactsEl.textContent = String(contacts);
+    setTrafficKpis(events);
     setAbKpis(events);
+  }
+
+  function getViewEvents(events) {
+    return events.filter(function (event) {
+      return event.name === "page_viewed" || event.name === "case_page_viewed";
+    });
+  }
+
+  function countViewsSince(events, sinceTs) {
+    return getViewEvents(events).filter(function (event) {
+      return typeof event.ts === "number" && event.ts >= sinceTs;
+    }).length;
+  }
+
+  function countUniqueVisitors(events, sinceTs) {
+    var unique = {};
+    getViewEvents(events).forEach(function (event) {
+      if (typeof event.ts !== "number" || event.ts < sinceTs) return;
+      var visitorId = event.props && event.props.visitor_id ? String(event.props.visitor_id) : "";
+      if (!visitorId) return;
+      unique[visitorId] = true;
+    });
+    return Object.keys(unique).length;
+  }
+
+  function setTrafficKpis(events) {
+    var now = Date.now();
+    var hourAgo = now - 60 * 60 * 1000;
+    var dayAgo = now - 24 * 60 * 60 * 1000;
+    var monthAgo = now - 30 * 24 * 60 * 60 * 1000;
+
+    var viewsHourEl = document.querySelector("[data-kpi-views-hour]");
+    var viewsDayEl = document.querySelector("[data-kpi-views-day]");
+    var viewsMonthEl = document.querySelector("[data-kpi-views-month]");
+    var uniqueUsersEl = document.querySelector("[data-kpi-unique-users]");
+
+    if (viewsHourEl) viewsHourEl.textContent = String(countViewsSince(events, hourAgo));
+    if (viewsDayEl) viewsDayEl.textContent = String(countViewsSince(events, dayAgo));
+    if (viewsMonthEl) viewsMonthEl.textContent = String(countViewsSince(events, monthAgo));
+    if (uniqueUsersEl) uniqueUsersEl.textContent = String(countUniqueVisitors(events, monthAgo));
   }
 
   function setAbKpis(events) {

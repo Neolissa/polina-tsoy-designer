@@ -2,6 +2,7 @@
   var SCROLL_MARKS = [25, 50, 75, 90];
   var LOCAL_EVENTS_KEY = "portfolioAnalyticsEvents";
   var MAX_LOCAL_EVENTS = 500;
+  var VISITOR_ID_KEY = "portfolioVisitorId";
   var reachedMarks = {};
   var loaded = false;
   var posthogReady = false;
@@ -105,10 +106,23 @@
     return Object.assign(
       {
         lang: getLang(),
-        path: window.location.pathname
+        path: window.location.pathname,
+        visitor_id: getVisitorId()
       },
       props || {}
     );
+  }
+
+  function getVisitorId() {
+    try {
+      var existing = localStorage.getItem(VISITOR_ID_KEY);
+      if (existing) return existing;
+      var generated = "v_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 10);
+      localStorage.setItem(VISITOR_ID_KEY, generated);
+      return generated;
+    } catch (error) {
+      return "v_fallback";
+    }
   }
 
   function wireClicks() {
@@ -160,6 +174,15 @@
     );
   }
 
+  function capturePageView() {
+    captureEvent(
+      "page_viewed",
+      addBaseProps({
+        page: window.location.pathname
+      })
+    );
+  }
+
   window.portfolioAnalytics = {
     capture: function (name, props) {
       captureEvent(name, addBaseProps(props));
@@ -177,6 +200,10 @@
     wireClicks();
     wireScrollDepth();
     loadTrackersIfAllowed();
+    if (getConsentState() === "accepted") capturePageView();
     window.addEventListener("portfolio:consent-change", loadTrackersIfAllowed);
+    window.addEventListener("portfolio:consent-change", function () {
+      if (getConsentState() === "accepted") capturePageView();
+    });
   });
 })();
