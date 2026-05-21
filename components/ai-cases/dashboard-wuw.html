@@ -1,0 +1,148 @@
+<div class="mock-app" data-theme="wuw" role="region" aria-label="WUW admin analytics demo">
+  <div class="flex min-h-[420px]">
+    <aside class="mock-sidebar hidden sm:block p-2.5 shrink-0">
+      <div class="mock-brand">WUW Admin</div>
+      <nav class="space-y-0.5" aria-label="Sections">
+        <button type="button" class="mock-nav-item active" data-nav-page="overview">Overview</button>
+        <button type="button" class="mock-nav-item" data-nav-page="users">Users</button>
+        <button type="button" class="mock-nav-item" data-nav-page="lessons">Lessons</button>
+        <button type="button" class="mock-nav-item" data-nav-page="settings">Settings</button>
+      </nav>
+    </aside>
+    <main class="flex-1 p-3 min-w-0">
+      <div class="sm:hidden mb-2">
+        <select class="mock-select w-full" data-wuw-mobile-nav aria-label="Section">
+          <option value="overview">Overview</option>
+          <option value="users">Users</option>
+          <option value="lessons">Lessons</option>
+          <option value="settings">Settings</option>
+        </select>
+      </div>
+      <div class="mock-topbar">
+        <span class="font-semibold text-sm shrink-0" style="color: var(--mock-text)">Analytics</span>
+        <div class="mock-topbar-controls">
+          <div class="mock-topbar-segments">
+            <button type="button" class="mock-segment active" data-segment="b2c">B2C</button>
+            <button type="button" class="mock-segment" data-segment="wl">White Label</button>
+          </div>
+          <span class="text-[9px] shrink-0" style="color: var(--mock-muted)" data-wuw-period-label>Last 30 days</span>
+          <button type="button" class="mock-segment mock-period-preset" data-wuw-preset="7d">7d</button>
+          <button type="button" class="mock-segment mock-period-preset active" data-wuw-preset="30d">30d</button>
+          <button type="button" class="mock-segment mock-period-preset" data-wuw-preset="90d">90d</button>
+          <input type="date" class="mock-field mock-date-input" data-wuw-date-from aria-label="From date">
+          <input type="date" class="mock-field mock-date-input" data-wuw-date-to aria-label="To date">
+        </div>
+      </div>
+
+      <div class="mock-page" data-page="overview">
+        <div class="mock-grid-6 mb-2">
+          <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">MAU</div><div class="mock-kpi-value text-base" data-kpi-mau>48.2k</div><div class="mock-kpi-delta">+6%</div></div>
+          <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">DAU</div><div class="mock-kpi-value text-base" data-kpi-dau>12.4k</div><div class="mock-kpi-delta">+8%</div></div>
+          <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">Avg session</div><div class="mock-kpi-value text-base" data-kpi-session>14m</div></div>
+          <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">Lesson done</div><div class="mock-kpi-value text-base" data-kpi-lesson>67%</div><div class="mock-kpi-delta">+5%</div></div>
+          <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">Churn</div><div class="mock-kpi-value text-base" data-kpi-retention>4.2%</div><div class="mock-kpi-delta down">+0.3</div></div>
+          <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">WL active</div><div class="mock-kpi-value text-base" data-kpi-partners>18</div></div>
+        </div>
+        <div class="mock-grid-3 mb-2">
+          <div class="mock-chart-panel mock-chart-interactive" data-wuw-engagement-panel>
+            <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Engagement trend</div>
+            <div class="mock-trend-chart">
+              <div class="mock-trend-yaxis" data-wuw-spark-yaxis></div>
+              <div class="mock-trend-body" data-wuw-spark-body>
+                <svg class="mock-sparkline" viewBox="0 0 200 40" preserveAspectRatio="none"><polyline data-wuw-spark-fill fill="var(--mock-chart-fill)" stroke="none" points=""/><polyline data-wuw-spark-line fill="none" stroke="var(--mock-chart)" stroke-width="2" points=""/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="mock-chart-panel mock-chart-interactive" data-wuw-signup-panel>
+            <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Weekly signups</div>
+            <div class="mock-bar-chart-row" data-wuw-signup-bars></div>
+          </div>
+          <div class="mock-chart-panel flex gap-2 items-center">
+            <div class="flex-1"><div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Traffic mix</div><div class="text-[9px]" style="color:var(--mock-muted)" data-wuw-traffic-mix>Organic 42% · Partners 31%</div></div>
+            <div class="mock-donut"></div>
+          </div>
+        </div>
+        <div class="mock-chart-panel overflow-x-auto">
+          <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Top funnels</div>
+          <table class="mock-table">
+            <thead><tr><th>Funnel</th><th>Sessions</th><th>Conv.</th><th>Trend</th></tr></thead>
+            <tbody data-wuw-funnel-tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mock-page hidden" data-page="users">
+        <div class="mock-chart-panel">
+          <table class="mock-table">
+            <thead><tr><th>Segment</th><th>Active</th><th>Retention</th><th>7d trend</th></tr></thead>
+            <tbody>
+              <tr><td>New (&lt;7d)</td><td>2,140</td><td>52%</td><td class="mock-kpi-delta">↑</td></tr>
+              <tr><td>Core users</td><td>6,820</td><td>71%</td><td class="mock-kpi-delta">↑</td></tr>
+              <tr><td>At-risk</td><td>890</td><td style="color:var(--mock-danger)">18%</td><td class="mock-kpi-delta down">↓</td></tr>
+              <tr><td>B2B via partner</td><td>1,420</td><td>48%</td><td>—</td></tr>
+              <tr><td>Dormant 30d+</td><td>3,100</td><td>4%</td><td class="mock-kpi-delta down">↓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mock-page hidden" data-page="lessons">
+        <div class="mock-grid-2 gap-2 mb-2">
+          <div class="mock-chart-panel flex items-center gap-3"><div class="mock-ring">67%</div><div><div class="font-semibold">Avg completion</div><div class="text-[9px]" style="color:var(--mock-muted)">All modules · 30d</div></div></div>
+          <div class="mock-chart-panel mock-chart-interactive" data-wuw-score-panel>
+            <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Score distribution</div>
+            <div class="mock-bar-chart-row h-12" data-wuw-score-bars></div>
+          </div>
+        </div>
+        <div class="mock-chart-panel space-y-1.5">
+          <div class="flex items-center gap-2 text-[10px]"><span class="w-16 shrink-0">Module 1</span><div class="mock-progress-inline"><span style="width:82%"></span></div><span>82%</span></div>
+          <div class="flex items-center gap-2 text-[10px]"><span class="w-16 shrink-0">Module 2</span><div class="mock-progress-inline"><span style="width:74%"></span></div><span>74%</span></div>
+          <div class="flex items-center gap-2 text-[10px]"><span class="w-16 shrink-0">Module 3</span><div class="mock-progress-inline"><span style="width:58%"></span></div><span>58%</span></div>
+          <div class="flex items-center gap-2 text-[10px]"><span class="w-16 shrink-0">Module 4</span><div class="mock-progress-inline"><span style="width:91%"></span></div><span>91%</span></div>
+          <div class="flex items-center gap-2 text-[10px]"><span class="w-16 shrink-0">Module 5</span><div class="mock-progress-inline"><span style="width:63%"></span></div><span>63%</span></div>
+        </div>
+      </div>
+
+      <div class="mock-page hidden mock-settings-panel" data-page="settings">
+        <div class="mock-grid-2 gap-2 mb-2">
+          <div class="mock-chart-panel">
+            <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Export schedule</div>
+            <p class="text-[10px] mb-1" style="color:var(--mock-text)">CSV weekly · Mondays 08:00</p>
+            <button type="button" class="mock-btn-secondary px-2 py-1">Edit schedule</button>
+          </div>
+          <div class="mock-chart-panel">
+            <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Alert thresholds</div>
+            <ul class="text-[9px] space-y-0.5" style="color:var(--mock-text)">
+              <li>Churn rate &gt; 5%</li>
+              <li>DAU drop &gt; 10% week-over-week</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mock-chart-panel mb-2 space-y-1.5">
+          <div class="flex justify-between items-center text-[10px] gap-2">
+            <span style="color:var(--mock-text)">Email digests</span>
+            <button type="button" class="mock-toggle" data-settings-toggle="email" aria-checked="true" aria-label="Email digests"></button>
+          </div>
+          <div class="flex justify-between items-center text-[10px] gap-2">
+            <span style="color:var(--mock-text)">Partner WL notifications</span>
+            <button type="button" class="mock-toggle" data-settings-toggle="partner" aria-checked="true" aria-label="Partner notifications"></button>
+          </div>
+          <div class="flex justify-between items-center gap-2 text-[10px]">
+            <span style="color:var(--mock-text)">Timezone</span>
+            <select class="mock-select mock-select-arrow-fix text-[9px]"><option>UTC+2 Riga</option><option>UTC+0 London</option></select>
+          </div>
+        </div>
+        <div class="mock-chart-panel overflow-x-auto">
+          <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">API keys</div>
+          <table class="mock-table mock-table-keys">
+            <thead><tr><th>Name</th><th>Key</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Production</td><td style="color:var(--mock-muted)">wuw_live_••••8f2a</td><td><button type="button" class="mock-accept-btn">Revoke</button></td></tr>
+              <tr><td>Staging</td><td style="color:var(--mock-muted)">wuw_test_••••1c9b</td><td><button type="button" class="mock-accept-btn">Revoke</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

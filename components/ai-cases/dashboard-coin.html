@@ -1,0 +1,82 @@
+<div class="mock-app" data-theme="coin" role="region" aria-label="Coin internal analytics demo">
+  <div class="p-3 space-y-2 min-h-[420px]">
+    <div class="mock-topbar border-0 pb-2 mb-0">
+      <div>
+        <div class="text-[11px] font-bold" style="color:var(--mock-accent)">Coin Analytics</div>
+        <div class="text-[9px]" style="color:var(--mock-muted)">Internal platform · HR & Product</div>
+      </div>
+      <div class="flex gap-1 flex-wrap">
+        <select class="mock-select" data-coin-period aria-label="Period">
+          <option value="30d">Last 30 days</option>
+          <option value="7d">Last 7 days</option>
+        </select>
+        <select class="mock-select" data-coin-dept aria-label="Department">
+          <option value="all">All departments</option>
+          <option value="engineering">Engineering</option>
+          <option value="hr">HR</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex gap-1" role="tablist">
+      <button type="button" class="mock-tab active" role="tab" aria-selected="true" data-tab="behavior">Behavior</button>
+      <button type="button" class="mock-tab" role="tab" aria-selected="false" data-tab="sections">Sections</button>
+      <button type="button" class="mock-tab" role="tab" aria-selected="false" data-tab="surveys">Surveys</button>
+    </div>
+
+    <div class="mock-tab-panel" data-tab-panel="behavior">
+      <div class="mock-grid-6 mb-2">
+        <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">Visits/mo</div><div class="mock-kpi-value" data-kpi-visits>3.2</div></div>
+        <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">Time/day</div><div class="mock-kpi-value" data-kpi-time>18m</div><div class="mock-kpi-delta">+12%</div></div>
+        <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">Depth</div><div class="mock-kpi-value" data-kpi-depth>4.6</div></div>
+        <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">DAU</div><div class="mock-kpi-value" data-kpi-dau>2.8k</div></div>
+        <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">CSAT</div><div class="mock-kpi-value" data-kpi-csat>4.2</div></div>
+        <div class="mock-kpi mock-kpi-compact"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">NPS</div><div class="mock-kpi-value mock-kpi-delta" data-kpi-nps>+24</div></div>
+      </div>
+      <div class="mock-grid-2 mb-2">
+        <div class="mock-chart-panel mock-chart-interactive" data-coin-weekday-panel>
+          <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Traffic by weekday</div>
+          <div class="mock-bar-chart-row" data-weekday-bars></div>
+          <p class="text-[8px] mt-1" style="color:var(--mock-muted)" data-peak-note>Peak: Friday after 2pm</p>
+        </div>
+        <div class="mock-chart-panel mock-chart-interactive" data-coin-trend-panel>
+          <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)" data-trend-title>Active users (30d)</div>
+          <div class="mock-trend-chart">
+            <div class="mock-trend-yaxis" data-trend-yaxis></div>
+            <div class="mock-trend-body" data-trend-body>
+              <svg class="mock-sparkline" viewBox="0 0 200 48" preserveAspectRatio="none"><polyline data-trend-fill fill="var(--mock-chart-fill)" stroke="none" points=""/><polyline data-trend-line fill="none" stroke="var(--mock-chart)" stroke-width="2" points=""/></svg>
+            </div>
+          </div>
+          <div class="flex justify-between text-[8px] mt-1 pl-8" style="color:var(--mock-muted)" data-trend-xaxis><span>Week 1</span><span>Week 4</span></div>
+        </div>
+      </div>
+      <div class="mock-chart-panel flex flex-wrap gap-2 items-center">
+        <span class="mock-badge gold">Coins earned +18%</span>
+        <span class="text-[9px]" style="color:var(--mock-muted)" data-mobile-note>Mobile sessions: 62% · Desktop: 38%</span>
+      </div>
+    </div>
+
+    <div class="mock-tab-panel hidden" data-tab-panel="sections">
+      <div class="mock-chart-panel space-y-2 mb-2" data-sections-bars>
+        <div class="flex items-center gap-2 text-[10px]"><span class="w-20 shrink-0">Feed</span><div class="mock-progress-inline"><span style="width:92%"></span></div><span class="font-semibold w-8 text-right">92%</span></div>
+      </div>
+      <table class="mock-table">
+        <thead><tr><th>Section</th><th>Avg time</th><th>Bounce</th></tr></thead>
+        <tbody data-sections-table></tbody>
+      </table>
+    </div>
+
+    <div class="mock-tab-panel hidden" data-tab-panel="surveys">
+      <div class="mock-grid-2 mb-2">
+        <div class="mock-kpi text-center py-3"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">CSAT</div><div class="mock-kpi-value text-2xl" data-survey-csat>4.2</div><div class="text-[9px]" style="color:var(--mock-muted)">out of 5</div></div>
+        <div class="mock-kpi text-center py-3"><div class="text-[8px] uppercase" style="color:var(--mock-muted)">NPS</div><div class="mock-kpi-value text-2xl mock-kpi-delta" data-survey-nps>+24</div><div class="text-[9px]" style="color:var(--mock-muted)">Q1 2026</div></div>
+      </div>
+      <div class="mock-chart-panel">
+        <div class="flex justify-between mb-1"><span class="text-[9px] font-semibold" style="color:var(--mock-muted)">Recent surveys</span><span class="text-[9px]" style="color:var(--mock-muted)" data-survey-rate>Response rate 68%</span></div>
+        <table class="mock-table">
+          <thead><tr><th>Survey</th><th>Responses</th><th>Score</th></tr></thead>
+          <tbody data-surveys-tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейсы с ИИ и аналитикой — дашборды WUW и Coin, ИИ в интерфейсе DocsBird. Polina Tsoy, product designer.">
+    <title>Кейсы с ИИ — Polina Tsoy</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { accent: '#6366f1' },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/ai-cases.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased ai-cases-page">
+
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="ru/index.html" class="text-xl font-bold text-gray-900">
+                    Polina Tsoy
+                    <span class="text-gray-400 font-normal text-sm ml-2 hidden sm:inline">Дизайнер интерфейсов в продукте</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="ru/index.html#cases" class="text-gray-600 hover:text-gray-900">Кейсы</a>
+                    <a href="ru/index.html#about" class="text-gray-600 hover:text-gray-900">Обо мне</a>
+                    <a href="ru/index.html#cta" class="text-gray-600 hover:text-gray-900">Контакты</a>
+                </div>
+                <a href="ru/index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Написать
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 relative overflow-hidden pt-24 pb-16">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-16 left-10 w-72 h-72 bg-indigo-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-violet-600 rounded-full blur-3xl"></div>
+        </div>
+        <div class="ai-cases-content text-center relative z-10 fade-in">
+            <span class="inline-block bg-indigo-500/20 text-indigo-200 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-indigo-400/30">
+                Аналитика · ИИ в продукте
+            </span>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">
+                Кейсы с ИИ
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
+                Как я проектирую дашборды для решений и встраиваю умные сценарии в интерфейс — без «магических кнопок» и перегруза.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#case-coin" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-2.5 rounded-full text-sm font-semibold transition-colors">Coin · Дашборд</a>
+                <a href="#case-wuw" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-2.5 rounded-full text-sm font-semibold transition-colors">WUW · Аналитика</a>
+                <a href="#case-docsbird" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-2.5 rounded-full text-sm font-semibold transition-colors">DocsBird · ИИ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case 1: Coin -->
+    <section id="case-coin" class="py-20 md:py-28 bg-white">
+        <div class="ai-cases-content">
+            <div class="fade-in">
+                <p class="text-xs font-semibold uppercase tracking-wide mb-4">
+                    <span class="text-blue-700">Coin</span>
+                    <span class="text-gray-400 mx-1">·</span>
+                    <span class="text-gray-500">Внутренняя аналитика</span>
+                </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">Аналитический дашборд приложения</h2>
+                <p class="text-lg text-gray-600 mb-8 font-medium">Понять, пользуются ли сотрудники платформой по-настоящему</p>
+                <div class="space-y-6 text-gray-700 leading-relaxed">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Контекст</h3>
+                        <p>Relaunch корпоративной платформы для 100% сотрудников компании. HR и продукту нужны данные о вовлечённости — не только «сколько установили приложение».</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Задача</h3>
+                        <p>Дашборд для внутренних стейкхолдеров: частота посещений, глубина просмотра, среднее время в приложении за сутки, разделы, пики по дням недели, опросы, оценки и удовлетворённость.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Роль</h3>
+                        <p>Product Designer: дерево метрик → дрилдаун периодов → когорты подразделений → связка поведенческих графиков с блоком опросов.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Подход</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Дерево: поведение → контент → удовлетворённость</li>
+                            <li>Дрилдаун: месяц → неделя → день; heatmap по дням недели</li>
+                            <li>Глубина просмотра разделов: лента, обучение, геймификация, опросы</li>
+                            <li>CSAT, NPS и таблица последних опросов рядом с активностью</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 mb-12 fade-in mock-stage-wrap">
+                <button type="button" class="mock-reset-btn" data-mock-reset aria-label="Reset demo"></button>
+                <div class="mock-stage w-full" id="mock-coin" data-mock="components/ai-cases/dashboard-coin.html" data-demo="coin"></div>
+            </div>
+            <div class="fade-in">
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                    <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Результат</h3>
+                    <p class="mb-3 text-gray-700">Решения по развитию функций — социальные механики, обучение, геймификация — на данных, а не на ощущениях команды.</p>
+                    <p class="text-sm text-gray-600"><a href="relaunch.html" class="text-blue-700 font-semibold hover:underline">Полный кейс платформы Coin →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case 2: WUW -->
+    <section id="case-wuw" class="py-20 md:py-28 bg-[#0f1419] text-slate-200">
+        <div class="ai-cases-content">
+            <div class="fade-in">
+                <p class="text-xs font-semibold uppercase tracking-wide mb-4">
+                    <span class="text-sky-400">WUW</span>
+                    <span class="text-slate-600 mx-1">·</span>
+                    <span class="text-slate-400">Аналитика</span>
+                </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">Дашборд аналитики</h2>
+                <p class="text-lg text-slate-300 mb-8 font-medium">От разрозненных отчётов к одному экрану для продукта и партнёров</p>
+                <div class="space-y-6 text-slate-300 leading-relaxed">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 mb-2">Контекст</h3>
+                        <p>B2C/B2B-приложение с геймификацией и white label. Команде нужны были воронки, удержание и сегменты — без бесконечных выгрузок в Excel и «сводок на коленке» перед каждым созвоном.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 mb-2">Задача</h3>
+                        <p>Спроектировать дашборд для PM, маркетинга и B2B-партнёров: за минуту видеть здоровье продукта, кастомизацию под бренд и узкие места в сценариях.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 mb-2">Роль</h3>
+                        <p>Product Designer: карта метрик с бизнесом → иерархия экранов → UI виджетов → согласование с разработкой на единой библиотеке блоков.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 mb-2">Подход</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Карта метрик и приоритизация с продуктом и маркетингом</li>
+                            <li>Иерархия: сводка → тренды → детализация по сценариям</li>
+                            <li>Фильтры: период, сегмент, партнёр / white label</li>
+                            <li>Переиспользуемые виджеты для dev — один паттерн KPI, график, таблица</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 mb-12 fade-in mock-stage-wrap">
+                <button type="button" class="mock-reset-btn" data-mock-reset aria-label="Reset demo"></button>
+                <div class="mock-stage w-full" id="mock-wuw" data-mock="components/ai-cases/dashboard-wuw.html" data-demo="wuw"></div>
+            </div>
+            <div class="fade-in">
+                <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700">
+                    <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 mb-2">Результат</h3>
+                    <p class="mb-3 text-slate-300">Один источник правды для продуктовых решений; меньше времени на «собрать отчёт»; основа для A/B-тестов и развития white label.</p>
+                    <p class="text-sm text-slate-400"><a href="wuw.html" class="text-sky-400 font-semibold hover:underline">Полный кейс WUW →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case 3: DocsBird -->
+    <section id="case-docsbird" class="py-20 md:py-28 bg-white">
+        <div class="ai-cases-content">
+            <div class="fade-in">
+                <p class="text-xs font-semibold uppercase tracking-wide mb-4">
+                    <span class="text-emerald-800">DocsBird</span>
+                    <span class="text-gray-400 mx-1">·</span>
+                    <span class="text-gray-500">ИИ в UI</span>
+                </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">Внедрение ИИ в интерфейс продукта</h2>
+                <p class="text-lg text-gray-600 mb-8 font-medium">ИИ как помощник в документообороте, а не как «магическая кнопка»</p>
+                <div class="space-y-6 text-gray-700 leading-relaxed">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Контекст</h3>
+                        <p>Международный документооборот: пользователям нужны подсказки по шагам, локализации и compliance — без перегруза интерфейса и потери доверия к продукту.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Задача</h3>
+                        <p>Встроить ИИ-сценарии в существующие потоки — создание соглашения, фильтры, подписание — предсказуемо, с контролем пользователя и возможностью откатить подсказку.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Роль</h3>
+                        <p>Product Designer: сценарии «человек в центре» → точки входа ИИ → состояния UI (ожидание, результат, ошибка) → мобильная адаптация.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Подход</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Точки входа: подсказка, автозаполнение, проверка полей — в контексте формы</li>
+                            <li>Прозрачность: чипы «предложено ИИ», кнопки «принять / отклонить»</li>
+                            <li>Состояния: idle, loading, успех, ошибка — без блокировки всего экрана</li>
+                            <li>Боковая панель ассистента с готовыми действиями, а не свободным чатом «на весь экран»</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 mb-12 fade-in mock-stage-wrap">
+                <button type="button" class="mock-reset-btn" data-mock-reset aria-label="Reset demo"></button>
+                <div class="mock-stage w-full" id="mock-docsbird" data-mock="components/ai-cases/ai-docsbird.html" data-demo="docsbird"></div>
+            </div>
+            <div class="fade-in">
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                    <h3 class="text-sm font-bold uppercase tracking-wide text-gray-500 mb-2">Результат</h3>
+                    <p class="mb-3 text-gray-700">Меньше ошибок в формах, быстрее онбординг на новых рынках; ИИ усиливает сценарий, а не подменяет ответственность пользователя.</p>
+                    <p class="text-sm text-gray-600"><a href="docsbird.html" class="text-emerald-800 font-semibold hover:underline">Полный кейс DocsBird →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-900 text-center">
+        <div class="ai-cases-content fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Обсудим аналитику или ИИ в вашем продукте?</h2>
+            <p class="text-gray-400 mb-8">Напишите в Telegram или на почту — расскажу, как подходил к похожим задачам.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://t.me/ewersawers" target="_blank" rel="noopener" class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors">Telegram</a>
+                <a href="mailto:neolissa@gmail.com" class="border border-gray-600 text-white px-8 py-4 rounded-full font-semibold hover:border-gray-400 transition-colors">neolissa@gmail.com</a>
+            </div>
+            <p class="text-gray-500 text-sm mt-8"><a href="ru/index.html#cases" class="hover:text-gray-300 underline">← Все кейсы на главной</a></p>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="js/site-config.js"></script>
+    <script src="js/consent-manager.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/ai-cases-demos.js"></script>
+    <script src="loadComponent.js"></script>
+    <script>
+        (function () {
+            var mockNodes = document.querySelectorAll('[data-mock]');
+            var loadMock = window.loadAiCaseMock;
+
+            mockNodes.forEach(function (node) {
+                if (!loadMock) return;
+                loadMock(node).catch(function (err) {
+                    console.error('Mock load failed:', err);
+                    node.innerHTML = '<p class="text-sm text-gray-500 p-4">Не удалось загрузить демо.</p>';
+                });
+            });
+
+            var fadeElements = document.querySelectorAll('.fade-in');
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            window.mockObserver = observer;
+            fadeElements.forEach(function (el) { observer.observe(el); });
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                anchor.addEventListener('click', function (e) {
+                    var href = this.getAttribute('href');
+                    if (!href || href === '#') return;
+                    var target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
