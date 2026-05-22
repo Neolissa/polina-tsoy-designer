@@ -57,9 +57,11 @@
             <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Weekly signups</div>
             <div class="mock-bar-chart-row" data-wuw-signup-bars></div>
           </div>
-          <div class="mock-chart-panel flex gap-2 items-center">
+          <div class="mock-chart-panel mock-chart-interactive flex gap-2 items-center" data-wuw-donut-panel>
             <div class="flex-1"><div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)">Traffic mix</div><div class="text-[9px]" style="color:var(--mock-muted)" data-wuw-traffic-mix>Organic 42% · Partners 31%</div></div>
-            <div class="mock-donut"></div>
+            <div class="mock-donut-wrap shrink-0">
+              <div class="mock-donut" data-wuw-donut role="img" aria-label="Traffic mix chart"></div>
+            </div>
           </div>
         </div>
         <div class="mock-chart-panel overflow-x-auto">

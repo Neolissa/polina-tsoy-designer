@@ -38,15 +38,17 @@
           <div class="mock-bar-chart-row" data-weekday-bars></div>
           <p class="text-[8px] mt-1" style="color:var(--mock-muted)" data-peak-note>Peak: Friday after 2pm</p>
         </div>
-        <div class="mock-chart-panel mock-chart-interactive" data-coin-trend-panel>
-          <div class="text-[9px] font-semibold mb-1" style="color:var(--mock-muted)" data-trend-title>Active users (30d)</div>
-          <div class="mock-trend-chart">
-            <div class="mock-trend-yaxis" data-trend-yaxis></div>
-            <div class="mock-trend-body" data-trend-body>
-              <svg class="mock-sparkline" viewBox="0 0 200 48" preserveAspectRatio="none"><polyline data-trend-fill fill="var(--mock-chart-fill)" stroke="none" points=""/><polyline data-trend-line fill="none" stroke="var(--mock-chart)" stroke-width="2" points=""/></svg>
+        <div class="mock-chart-panel mock-chart-interactive mock-trend-panel-stack" data-coin-trend-panel>
+          <div class="mock-trend-panel-title text-[9px] font-semibold" style="color:var(--mock-muted)" data-trend-title>Active users (30d)</div>
+          <div class="mock-trend-chart-wrap">
+            <div class="mock-trend-chart">
+              <div class="mock-trend-yaxis" data-trend-yaxis></div>
+              <div class="mock-trend-body" data-trend-body>
+                <svg class="mock-sparkline" viewBox="0 0 200 48" preserveAspectRatio="none"><polyline data-trend-fill fill="var(--mock-chart-fill)" stroke="none" points=""/><polyline data-trend-line fill="none" stroke="var(--mock-chart)" stroke-width="2" points=""/></svg>
+              </div>
             </div>
+            <div class="flex justify-between text-[8px] mt-1 mock-trend-xaxis-row" style="color:var(--mock-muted)" data-trend-xaxis><span>Week 1</span><span>Week 4</span></div>
           </div>
-          <div class="flex justify-between text-[8px] mt-1 pl-8" style="color:var(--mock-muted)" data-trend-xaxis><span>Week 1</span><span>Week 4</span></div>
         </div>
       </div>
       <div class="mock-chart-panel flex flex-wrap gap-2 items-center">

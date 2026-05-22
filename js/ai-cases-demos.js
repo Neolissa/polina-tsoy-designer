@@ -171,6 +171,62 @@
     });
   }
 
+  var WUW_DONUT_SEGMENTS = [
+    { label: "Organic", pct: 42 },
+    { label: "Partners", pct: 31 },
+    { label: "Paid", pct: 19 },
+    { label: "Direct", pct: 8 }
+  ];
+
+  function donutSegmentAtAngle(deg) {
+    var acc = 0;
+    for (var i = 0; i < WUW_DONUT_SEGMENTS.length; i++) {
+      var seg = WUW_DONUT_SEGMENTS[i];
+      var start = (acc / 100) * 360;
+      acc += seg.pct;
+      var end = (acc / 100) * 360;
+      if (deg >= start && deg < end) return seg;
+    }
+    return WUW_DONUT_SEGMENTS[0];
+  }
+
+  function bindDonutChart(panel, donutEl) {
+    if (!panel || !donutEl || panel.dataset.donutBound) return;
+    panel.dataset.donutBound = "1";
+    var ui = ensureChartOverlay(panel);
+    var wrap = donutEl.closest(".mock-donut-wrap") || donutEl.parentElement;
+
+    function onMove(e) {
+      var rect = donutEl.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var dx = e.clientX - cx;
+      var dy = e.clientY - cy;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var outer = rect.width / 2;
+      var inner = outer * 0.4;
+      if (dist < inner || dist > outer) {
+        hideChartTip(ui);
+        return;
+      }
+      var deg = ((Math.atan2(dx, -dy) * 180) / Math.PI + 360) % 360;
+      var seg = donutSegmentAtAngle(deg);
+      var pr = panel.getBoundingClientRect();
+      var wr = wrap.getBoundingClientRect();
+      showChartTip(
+        ui,
+        wr.left + wr.width / 2 - pr.left,
+        wr.top + wr.height / 2 - pr.top,
+        seg.label + " · " + seg.pct + "%"
+      );
+    }
+
+    donutEl.addEventListener("mousemove", onMove);
+    donutEl.addEventListener("mouseleave", function () {
+      hideChartTip(ui);
+    });
+  }
+
   function applyTrendChart(panel, yAxisEl, fillEl, lineEl, xAxisEl, values, xLabels, svgH) {
     var h = svgH || 48;
     var paths = buildTrendPaths(values, 200, h);
@@ -462,6 +518,10 @@
       });
     }
 
+    var donutPanel = root.querySelector("[data-wuw-donut-panel]");
+    var donutEl = root.querySelector("[data-wuw-donut]");
+    if (donutPanel && donutEl) bindDonutChart(donutPanel, donutEl);
+
     root.addEventListener("click", function (e) {
       var nav = e.target.closest("[data-nav-page]");
       if (nav) {
@@ -508,6 +568,56 @@
     if (dateTo) dateTo.addEventListener("change", onDateChange);
   }
 
+  function initMockPointerHint(stageWrap, app, demo) {
+    if (!stageWrap || !app) return;
+    if (stageWrap._pointerTimer) {
+      clearInterval(stageWrap._pointerTimer);
+      stageWrap._pointerTimer = null;
+    }
+    var old = stageWrap.querySelector(".mock-pointer-hint");
+    if (old) old.remove();
+
+    var selectorsByDemo = {
+      coin: ["[data-coin-period]", '[data-tab="behavior"]', "[data-coin-dept]"],
+      wuw: ["[data-wuw-preset=\"30d\"]", "[data-segment=\"b2c\"]", "[data-wuw-date-from]"],
+      docsbird: [
+        "[data-ai-action=\"template\"]",
+        "[data-docsbird-check]",
+        "[data-docsbird-save-draft]",
+        "[data-docsbird-send-wrap]"
+      ]
+    };
+    var selectors = selectorsByDemo[demo];
+    if (!selectors || !selectors.length) return;
+
+    var hint = document.createElement("div");
+    hint.className = "mock-pointer-hint";
+    hint.setAttribute("aria-hidden", "true");
+    hint.innerHTML = '<span class="mock-pointer-finger" role="presentation">👆</span>';
+    stageWrap.appendChild(hint);
+
+    var index = 0;
+
+    function place() {
+      var tries = 0;
+      while (tries < selectors.length) {
+        var el = app.querySelector(selectors[index % selectors.length]);
+        index += 1;
+        tries += 1;
+        if (!el || el.disabled || el.offsetParent === null) continue;
+        var wr = stageWrap.getBoundingClientRect();
+        var er = el.getBoundingClientRect();
+        var x = er.left - wr.left + Math.min(er.width * 0.75, er.width - 8);
+        var y = er.top - wr.top + er.height * 0.45;
+        hint.style.transform = "translate(" + Math.round(x) + "px," + Math.round(y) + "px)";
+        return;
+      }
+    }
+
+    place();
+    stageWrap._pointerTimer = setInterval(place, 3200);
+  }
+
   function initDocsbird(root) {
     var checkBtn = root.querySelector("[data-docsbird-check]");
     var spinner = root.querySelector("[data-check-spinner]");
@@ -515,7 +625,17 @@
     var statusEl = root.querySelector("[data-ai-status]");
     var hintEl = root.querySelector("[data-ai-hint]");
     var toast = root.querySelector("[data-draft-toast]");
+    var complianceBadge = root.querySelector("[data-compliance-badge]");
+    var gdprBtn = root.querySelector("[data-gdpr-btn]");
+    var sendWrap = root.querySelector("[data-docsbird-send-wrap]");
+    var shareWrap = root.querySelector("[data-docsbird-share-wrap]");
+    var sendMenu = root.querySelector("[data-docsbird-send-menu]");
+    var shareMenu = root.querySelector("[data-docsbird-share-menu]");
+    var previewStatus = root.querySelector("[data-preview-status]");
     var toastTimer;
+    var docPhase = "editing";
+    var gdprPhase = "idle";
+    var checkedSnapshot = null;
 
     var fields = {
       counterparty: root.querySelector('[data-field="counterparty"]'),
@@ -524,11 +644,193 @@
       term: root.querySelector('[data-field="term"]')
     };
 
-    var aiValues = {
-      template: { counterparty: "SIA Baltic Trade Ltd · reg. 40103245678" },
-      gdpr: { term: "14 days · GDPR Art. 6(1)(b)" },
-      purpose: { purpose: "Consulting services Q1 2026 per agreement §4.2 (EN/LV)" }
+    var preview = {
+      counterparty: root.querySelector("[data-preview-counterparty]"),
+      amount: root.querySelector("[data-preview-amount]"),
+      term: root.querySelector("[data-preview-term]"),
+      status: previewStatus
     };
+
+    var suggestValues = {
+      amount: "12 450,00",
+      purpose: "Consulting services Q1 2026 per agreement §4.2 (EN/LV)",
+      term: "14 days"
+    };
+
+    var templateValues = {
+      counterparty: "SIA Baltic Trade Ltd",
+      amount: "12 450,00",
+      purpose: "Consulting services Q1 2026 per agreement §4.2",
+      term: "14 days"
+    };
+
+    var gdprFixValues = {
+      counterparty: "SIA Baltic Trade Ltd",
+      amount: "12 450,00",
+      purpose: "Consulting services Q1 2026 per agreement §4.2 (EN/LV)",
+      term: "14 days"
+    };
+
+    function parseAmount(str) {
+      var s = String(str || "")
+        .replace(/\s/g, "")
+        .replace(",", ".");
+      var n = parseFloat(s);
+      return isNaN(n) ? null : n;
+    }
+
+    function validators() {
+      return {
+        counterparty: function () {
+          var v = (fields.counterparty && fields.counterparty.value.trim()) || "";
+          if (!v) return { ok: false, msg: "Select a company from the list" };
+          return { ok: true };
+        },
+        amount: function () {
+          var n = fields.amount ? parseAmount(fields.amount.value) : null;
+          if (!n || n <= 0) return { ok: false, msg: "Enter amount > 0 (e.g. 1 234,56)" };
+          return { ok: true };
+        },
+        purpose: function () {
+          var v = (fields.purpose && fields.purpose.value.trim()) || "";
+          if (v.length < 10) return { ok: false, msg: "At least 10 characters required" };
+          return { ok: true };
+        },
+        term: function () {
+          var v = (fields.term && fields.term.value.trim()) || "";
+          var m = v.match(/^(\d+)\s*days?$/i);
+          if (m) {
+            var n = parseInt(m[1], 10);
+            if (n >= 1 && n <= 90) return { ok: true };
+          }
+          return { ok: false, msg: "Use 14 days or a number from 1 to 90" };
+        }
+      };
+    }
+
+    function validateAll() {
+      var v = validators();
+      return v.counterparty().ok && v.amount().ok && v.purpose().ok && v.term().ok;
+    }
+
+    function setFieldError(name, show, msg) {
+      var el = fields[name];
+      var err = root.querySelector('[data-field-error="' + name + '"]');
+      if (el) el.classList.toggle("mock-field-invalid", show);
+      if (err) {
+        err.classList.toggle("hidden", !show);
+        if (show && msg) err.textContent = msg;
+      }
+    }
+
+    function updatePreview() {
+      if (preview.counterparty) {
+        preview.counterparty.textContent = fields.counterparty && fields.counterparty.value.trim() ? fields.counterparty.value.trim() : "—";
+      }
+      if (preview.amount) {
+        var amt = fields.amount && fields.amount.value.trim();
+        preview.amount.textContent = amt ? "EUR " + amt : "—";
+      }
+      if (preview.term) {
+        preview.term.textContent = fields.term && fields.term.value.trim() ? "Due: " + fields.term.value.trim() : "—";
+      }
+    }
+
+    function updateCompliance() {
+      if (!complianceBadge) return;
+      var show = validateAll() && docPhase !== "sent" && docPhase !== "signed";
+      complianceBadge.classList.toggle("hidden", !show);
+    }
+
+    function closeMenus() {
+      if (sendMenu) sendMenu.classList.add("hidden");
+      if (shareMenu) shareMenu.classList.add("hidden");
+      root.querySelectorAll("[data-docsbird-send-caret],[data-docsbird-share-caret]").forEach(function (b) {
+        b.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    function setFormLocked(locked) {
+      Object.keys(fields).forEach(function (name) {
+        if (fields[name]) fields[name].disabled = locked;
+      });
+      root.querySelectorAll("[data-suggest],[data-accept],[data-ai-action],[data-gdpr-btn]").forEach(function (btn) {
+        btn.disabled = locked || (btn === gdprBtn && gdprPhase === "fixed");
+      });
+      if (checkBtn && locked) checkBtn.disabled = true;
+    }
+
+    function updatePreviewStatus() {
+      if (!preview.status) return;
+      var labels = { editing: "Draft", checked: "Draft", sent: "Sent", signed: "Signed" };
+      preview.status.textContent = labels[docPhase] || "Draft";
+      preview.status.style.color =
+        docPhase === "sent" || docPhase === "signed" ? "var(--mock-success)" : "var(--mock-muted)";
+    }
+
+    function getFormSnapshot() {
+      return Object.keys(fields)
+        .map(function (k) {
+          return k + ":" + (fields[k] ? fields[k].value : "");
+        })
+        .join("|");
+    }
+
+    function isFormDirty() {
+      if (!checkedSnapshot) return false;
+      return getFormSnapshot() !== checkedSnapshot;
+    }
+
+    function saveCheckedSnapshot() {
+      checkedSnapshot = getFormSnapshot();
+    }
+
+    function handleFormEdited() {
+      if (docPhase === "checked" && isFormDirty()) {
+        docPhase = "editing";
+        checkedSnapshot = null;
+        closeMenus();
+        if (statusEl) {
+          statusEl.textContent = "Changes detected — check again";
+          statusEl.classList.remove("mock-status-success");
+        }
+        if (hintEl) hintEl.textContent = "Fields updated. Run Check document before sending.";
+        updateToolbar();
+      }
+      refreshValidation(gdprPhase === "checked");
+    }
+
+    function updateToolbar() {
+      var showCheck =
+        docPhase !== "sent" && docPhase !== "signed" && (docPhase === "editing" || isFormDirty());
+      var showSend = docPhase === "checked" && !isFormDirty();
+      if (checkBtn) {
+        checkBtn.classList.toggle("hidden", !showCheck);
+        if (showCheck) checkBtn.disabled = false;
+      }
+      if (sendWrap) sendWrap.classList.toggle("hidden", !showSend);
+      if (shareWrap) shareWrap.classList.toggle("hidden", docPhase !== "sent" && docPhase !== "signed");
+      updatePreviewStatus();
+    }
+
+    function refreshValidation(showErrors) {
+      if (docPhase === "sent" || docPhase === "signed") return;
+      var v = validators();
+      Object.keys(v).forEach(function (name) {
+        var r = v[name]();
+        if (showErrors || gdprPhase === "checked") setFieldError(name, !r.ok, r.msg);
+        else if (r.ok) setFieldError(name, false);
+      });
+      updatePreview();
+      updateCompliance();
+      if (statusEl && docPhase === "editing" && !statusEl.classList.contains("mock-status-success")) {
+        statusEl.textContent = validateAll() ? "Ready to check" : "Awaiting input";
+      }
+    }
+
+    function pendingFixCount() {
+      return root.querySelectorAll(".mock-fix-pending").length;
+    }
 
     function setFixState(key, state) {
       var item = root.querySelector('[data-fix="' + key + '"]');
@@ -540,18 +842,46 @@
       if (icon) icon.textContent = state === "fixed" ? "✓" : "○";
       if (label && state === "fixed" && key === "vat") label.textContent = "VAT rate matches LV region";
       if (label && state === "fixed" && key === "purpose") label.textContent = "Payment purpose validated";
-      if (label && state === "pending" && key === "purpose")
-        label.textContent = "Payment purpose — awaiting review";
+      if (label && state === "pending" && key === "vat") label.textContent = "VAT rate — will verify on check";
+      if (label && state === "pending" && key === "purpose") label.textContent = "Payment purpose — will verify on check";
     }
 
-    function setAiField(name, on) {
+    function setSuggestField(name, on) {
       var el = fields[name];
       if (!el) return;
       el.classList.toggle("mock-field-ai", on);
       var chip = root.querySelector("[data-chip-" + name + "]");
       if (chip) chip.classList.toggle("hidden", !on);
       var accept = root.querySelector('[data-accept="' + name + '"]');
+      var suggest = root.querySelector('[data-suggest="' + name + '"]');
       if (accept) accept.classList.toggle("hidden", !on);
+      if (suggest) suggest.classList.toggle("hidden", on);
+    }
+
+    function applyPatch(patch, useSuggest) {
+      Object.keys(patch).forEach(function (k) {
+        if (!fields[k]) return;
+        fields[k].value = patch[k];
+        if (useSuggest) setSuggestField(k, true);
+      });
+    }
+
+    function hasInvalidFields() {
+      var v = validators();
+      return Object.keys(v).some(function (name) {
+        return !v[name]().ok;
+      });
+    }
+
+    function applyGdprFixes() {
+      Object.keys(gdprFixValues).forEach(function (k) {
+        if (!fields[k]) return;
+        var v = validators()[k]();
+        if (!v.ok) fields[k].value = gdprFixValues[k];
+      });
+      Object.keys(fields).forEach(function (name) {
+        setFieldError(name, false);
+      });
     }
 
     function showToast() {
@@ -563,40 +893,75 @@
       }, 3000);
     }
 
-    setFixState("vat", "fixed");
+    setFixState("vat", "pending");
     setFixState("purpose", "pending");
+    updateToolbar();
+    refreshValidation(false);
+
+    Object.keys(fields).forEach(function (name) {
+      var el = fields[name];
+      if (!el) return;
+      el.addEventListener("change", handleFormEdited);
+      el.addEventListener("input", handleFormEdited);
+      el.addEventListener("blur", function () {
+        handleFormEdited();
+        refreshValidation(true);
+      });
+    });
 
     root.addEventListener("click", function (e) {
-      var accept = e.target.closest("[data-accept]");
-      if (accept) {
-        var name = accept.getAttribute("data-accept");
-        setAiField(name, false);
-        accept.classList.add("hidden");
-        if (name === "purpose") setFixState("purpose", "fixed");
-        if (name === "amount") setFixState("vat", "fixed");
+      if (!e.target.closest(".mock-split-btn")) closeMenus();
+
+      var suggestBtn = e.target.closest("[data-suggest]");
+      if (suggestBtn && !suggestBtn.disabled) {
+        var sName = suggestBtn.getAttribute("data-suggest");
+        if (suggestValues[sName] !== undefined) {
+          fields[sName].value = suggestValues[sName];
+          setSuggestField(sName, true);
+          if (sName === "purpose") setFixState("purpose", "pending");
+          handleFormEdited();
+        }
         return;
       }
 
-      var action = e.target.closest("[data-ai-action]");
-      if (action) {
-        var key = action.getAttribute("data-ai-action");
-        var patch = aiValues[key];
-        if (patch) {
-          Object.keys(patch).forEach(function (k) {
-            if (fields[k]) {
-              fields[k].value = patch[k];
-              setAiField(k, k === "purpose" || k === "amount");
-            }
-          });
-        }
-        if (key === "purpose") setFixState("purpose", "pending");
-        if (hintEl) {
-          hintEl.textContent =
-            key === "gdpr"
-              ? "GDPR check: no issues found."
-              : key === "template"
-                ? "Details filled from LV template."
-                : "Payment wording suggested in EN/LV.";
+      var accept = e.target.closest("[data-accept]");
+      if (accept && !accept.disabled) {
+        var aName = accept.getAttribute("data-accept");
+        setSuggestField(aName, false);
+        if (aName === "purpose") setFixState("purpose", "fixed");
+        if (aName === "amount") setFixState("vat", "fixed");
+        handleFormEdited();
+        return;
+      }
+
+      if (e.target.closest("[data-ai-action=\"template\"]") && docPhase !== "sent" && docPhase !== "signed") {
+        applyPatch(templateValues, false);
+        setFixState("vat", "pending");
+        setFixState("purpose", "pending");
+        if (hintEl) hintEl.textContent = "Template applied. Run Check document when ready.";
+        handleFormEdited();
+        return;
+      }
+
+      if (e.target.closest("[data-gdpr-btn]") && gdprBtn && !gdprBtn.disabled) {
+        if (gdprPhase === "idle") {
+          gdprPhase = "checked";
+          refreshValidation(true);
+          if (hasInvalidFields()) {
+            gdprBtn.textContent = "Fix issues";
+            if (hintEl) hintEl.textContent = "GDPR check: fix highlighted fields, then click Fix issues.";
+          } else {
+            gdprPhase = "fixed";
+            gdprBtn.disabled = true;
+            if (hintEl) hintEl.textContent = "GDPR check: all fields compliant.";
+          }
+        } else if (gdprPhase === "checked") {
+          applyGdprFixes();
+          gdprPhase = "fixed";
+          gdprBtn.textContent = "Fix issues";
+          gdprBtn.disabled = true;
+          if (hintEl) hintEl.textContent = "GDPR issues fixed. Run Check document to continue.";
+          handleFormEdited();
         }
         return;
       }
@@ -606,7 +971,83 @@
         return;
       }
 
+      if (
+        docPhase === "checked" &&
+        (e.target.closest("[data-docsbird-send-caret]") || e.target.closest("[data-docsbird-send-toggle]"))
+      ) {
+        if (sendMenu) {
+          var opening = sendMenu.classList.contains("hidden");
+          closeMenus();
+          if (opening) {
+            sendMenu.classList.remove("hidden");
+            root.querySelectorAll("[data-docsbird-send-toggle],[data-docsbird-send-caret]").forEach(function (b) {
+              b.setAttribute("aria-expanded", "true");
+            });
+          }
+        }
+        return;
+      }
+
+      if (
+        e.target.closest("[data-docsbird-share-caret]") ||
+        e.target.closest("[data-docsbird-share-toggle]")
+      ) {
+        if (shareMenu) shareMenu.classList.toggle("hidden");
+        return;
+      }
+
+      var sendAction = e.target.closest("[data-send-action]");
+      if (sendAction && docPhase === "checked") {
+        closeMenus();
+        var mode = sendAction.getAttribute("data-send-action");
+        docPhase = mode === "sign-send" ? "signed" : "sent";
+        setFixState("vat", "fixed");
+        setFixState("purpose", "fixed");
+        if (statusEl) {
+          statusEl.textContent = docPhase === "signed" ? "Signed" : "Sent";
+          statusEl.classList.add("mock-status-success");
+        }
+        if (hintEl) {
+          hintEl.textContent =
+            docPhase === "signed"
+              ? "Document signed and sent. Share or download below."
+              : "Document sent. Share link or download PDF.";
+        }
+        setFormLocked(true);
+        updateToolbar();
+        updateCompliance();
+        return;
+      }
+
+      var shareAction = e.target.closest("[data-share-action]");
+      if (shareAction) {
+        closeMenus();
+        if (toast) {
+          toast.textContent =
+            shareAction.getAttribute("data-share-action") === "pdf"
+              ? "PDF download started"
+              : "Link copied to clipboard";
+          showToast();
+          toastTimer = setTimeout(function () {
+            toast.classList.remove("visible");
+            toast.textContent = "Draft saved";
+          }, 3000);
+        }
+        return;
+      }
+
       if (e.target.closest("[data-docsbird-check]") && checkBtn && !checkBtn.disabled) {
+        refreshValidation(true);
+        if (!validateAll()) {
+          if (statusEl) {
+            statusEl.textContent = "Complete required fields";
+            statusEl.classList.remove("mock-status-success");
+          }
+          if (hintEl) hintEl.textContent = "Select counterparty and fill all fields before checking.";
+          return;
+        }
+
+        var pending = pendingFixCount();
         checkBtn.disabled = true;
         if (spinner) spinner.classList.remove("hidden");
         if (checkLabel) checkLabel.textContent = "Checking…";
@@ -615,16 +1056,34 @@
           statusEl.classList.remove("mock-status-success");
         }
         setTimeout(function () {
-          checkBtn.disabled = false;
           if (spinner) spinner.classList.add("hidden");
           if (checkLabel) checkLabel.textContent = "Check document";
+
+          refreshValidation(true);
+          if (!validateAll()) {
+            checkBtn.disabled = false;
+            if (statusEl) statusEl.textContent = "Complete required fields";
+            if (hintEl) hintEl.textContent = "Fix highlighted fields, then run Check again.";
+            updateCompliance();
+            updateToolbar();
+            return;
+          }
+
+          if (pending > 0) {
+            setFixState("vat", "fixed");
+            setFixState("purpose", "fixed");
+          }
+          docPhase = "checked";
+          saveCheckedSnapshot();
           if (statusEl) {
-            statusEl.textContent = "2 issues fixed · ready to send";
+            statusEl.textContent = pending
+              ? pending + " issue" + (pending === 1 ? "" : "s") + " fixed · ready to send"
+              : "0 issues found · check complete";
             statusEl.classList.add("mock-status-success");
           }
-          if (hintEl) hintEl.textContent = "Document meets LV and EU requirements.";
-          setFixState("vat", "fixed");
-          setFixState("purpose", "fixed");
+          if (hintEl) hintEl.textContent = "Open Send and choose Send or Sign and send.";
+          updateCompliance();
+          updateToolbar();
         }, 1200);
       }
     });
@@ -1013,10 +1472,12 @@
     if (!container) return;
     var demo = container.getAttribute("data-demo");
     var app = container.querySelector(".mock-app");
+    var stageWrap = container.closest(".mock-stage-wrap");
     if (!app) return;
     if (demo === "wuw") initWuw(app);
     else if (demo === "docsbird") initDocsbird(app);
     else if (demo === "coin") initCoin(app);
+    if (stageWrap) initMockPointerHint(stageWrap, app, demo);
   };
 
   function initResetButtons() {
@@ -1028,6 +1489,10 @@
         var wrap = btn.closest(".mock-stage-wrap");
         var node = wrap && wrap.querySelector("[data-mock]");
         if (!node || btn.disabled) return;
+        if (wrap && wrap._pointerTimer) {
+          clearInterval(wrap._pointerTimer);
+          wrap._pointerTimer = null;
+        }
         btn.disabled = true;
         loadAiCaseMock(node)
           .catch(function (err) {
