@@ -147,6 +147,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/wuw-whitelabel-mock.css">
     <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -726,19 +727,20 @@
             </div>
             
             <!-- White Label -->
-            <div class="mb-20 fade-in">
+            <div id="white-label" class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold mb-6 text-center">White Label за 2 клика</h3>
-                <div class="max-w-4xl mx-auto">
-                    <video
-                        class="w-full rounded-xl shadow-lg bg-black"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Демонстрация White Label за два клика"
-                        src="images/wuw/whitelabel.mp4"
-                    >
-                        <source src="images/wuw/whitelabel.mp4" type="video/mp4">
-                    </video>
+                <div class="wuw-mock-stage-block">
+                    <p class="wuw-mock-caption text-center text-xs text-gray-400 tracking-wide">интерактивный макет</p>
+                    <div class="wuw-whitelabel-stage">
+                        <div
+                            class="wuw-whitelabel-mock"
+                            data-wuw-whitelabel-mock
+                            data-appearance="night"
+                            data-svg-base="images/wuw/"
+                            style="--wuw-accent: #0788FF"
+                            aria-label="Интерактивный макет дашборда WUW"
+                        ></div>
+                    </div>
                 </div>
             </div>
             
@@ -1120,5 +1122,6 @@
             });
         });
     </script>
+    <script src="js/wuw-whitelabel-mock.js" defer></script>
 </body>
 </html>
