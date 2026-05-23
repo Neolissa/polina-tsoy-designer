@@ -1,15 +1,23 @@
 (function () {
   var DEVICE_ENTRY = {
     desktop: "login",
-    tablet: "login",
+    tablet: "t-login",
     mobile: "m-home"
   };
 
-  var DEVICE_DEFAULT = {
-    desktop: "login",
-    tablet: "login",
-    mobile: "m-home"
-  };
+  function screenForState(state) {
+    if (state.device === "mobile") {
+      return state.screen.indexOf("m-") === 0 ? state.screen : "m-home";
+    }
+    if (state.device === "tablet") {
+      if (state.screen.indexOf("m-") === 0) return "t-login";
+      return state.screen.indexOf("t-") === 0 ? state.screen : "t-login";
+    }
+    if (state.screen.indexOf("m-") === 0 || state.screen.indexOf("t-") === 0) {
+      return "login";
+    }
+    return state.screen;
+  }
 
   function buildControls(root, labels) {
     labels = labels || {};
@@ -17,15 +25,7 @@
     var themeLabel = labels.theme || "Тема";
     var hint =
       labels.hint ||
-      "Макеты из Figma. На экране входа нажмите «Войти»; на мобилке — каталог и фильтр.";
-    var themeAutoTitle = labels.themeAutoTitle || "Автоматическое переключение";
-    var themePaletteTitle = labels.themePaletteTitle || "Единая палитра";
-    var themeAuto =
-      labels.themeAuto ||
-      "Тема меняется автоматически в зависимости от времени суток или системы освещения устройства";
-    var themePalette =
-      labels.themePalette ||
-      "Обе темы используют одинаковые базовые цвета, подобранные для контрастности";
+      "Нажимайте кнопки на макете. На планшете — онбординг и каталог, на мобилке — фильтр.";
 
     var controls = document.createElement("aside");
     controls.className = "tvip-interactive-mock__controls";
@@ -47,14 +47,16 @@
       "</div>" +
       '<div class="tvip-mock-theme-notes">' +
       '<p class="tvip-mock-theme-note"><span class="tvip-mock-theme-note__title">' +
-      themeAutoTitle +
+      (labels.themeAutoTitle || "Автоматическое переключение") +
       "</span> " +
-      themeAuto +
+      (labels.themeAuto ||
+        "Тема меняется автоматически в зависимости от времени суток или системы освещения устройства") +
       "</p>" +
       '<p class="tvip-mock-theme-note"><span class="tvip-mock-theme-note__title">' +
-      themePaletteTitle +
+      (labels.themePaletteTitle || "Единая палитра") +
       "</span> " +
-      themePalette +
+      (labels.themePalette ||
+        "Обе темы используют одинаковые базовые цвета, подобранные для контрастности") +
       "</p></div></div>" +
       '<p class="tvip-mock-hint">' +
       hint +
@@ -75,17 +77,9 @@
     return wrap;
   }
 
-  function screenForState(state) {
-    if (state.device === "mobile") return state.screen;
-    if (state.screen === "m-home" || state.screen === "m-filter") {
-      return "login";
-    }
-    return state.screen;
-  }
-
   function mountTvips(root) {
     if (!root || root.dataset.tvipMockReady === "1") return;
-    if (!window.CaseMockSvg) return;
+    if (!window.CaseMockSvg || !window.TvipMockOverlays) return;
 
     var appearance = root.getAttribute("data-appearance") || "night";
     var device = root.getAttribute("data-device") || "desktop";
@@ -101,7 +95,7 @@
       device: isEn ? "Device" : "Устройство",
       theme: isEn ? "Theme" : "Тема",
       hint: isEn
-        ? "Figma mocks. Tap Sign in on login; on mobile — catalog and filter."
+        ? "Tap buttons on the mock. Tablet — onboarding & catalog; mobile — filter."
         : undefined,
       themeAutoTitle: isEn ? "Automatic switching" : undefined,
       themePaletteTitle: isEn ? "Single palette" : undefined,
@@ -138,11 +132,20 @@
       state.screen = id;
       root.dataset.device = state.device;
       root.dataset.appearance = state.appearance;
-      window.CaseMockSvg.mountTvipsScreen(screenHost, id, state.appearance, function (next) {
-        state.backStack.push(state.screen);
-        state.screen = next;
-        renderScreen();
-      });
+      window.CaseMockSvg.mountTvipsScreen(
+        screenHost,
+        id,
+        state.appearance,
+        function (next) {
+          if (!next) return;
+          state.backStack.push(state.screen);
+          if (next === "detail" && state.device === "tablet") next = "t-detail";
+          if (next === "home" && state.device === "tablet") next = "t-home";
+          state.screen = next;
+          renderScreen();
+        },
+        isEn
+      );
     }
 
     root.__tvipMockReset = function () {

@@ -1,0 +1,185 @@
+<div class="tvip-app" data-tvip-app role="application" aria-label="TVIP demo">
+  <!-- Desktop / tablet: login -->
+  <div class="tvip-screen is-active" data-tvip-screen="login" data-tvip-devices="desktop,tablet">
+    <div class="tvip-login-center">
+      <div class="tvip-logo">TVIP</div>
+      <p style="color:var(--tvip-muted);font-size:9px;margin:0 0 0.65rem">Войдите в персональный медиакаталог</p>
+      <input class="tvip-field" type="text" placeholder="Email" aria-label="Email" value="family@home.tv" readonly>
+      <input class="tvip-field" type="password" placeholder="Пароль" aria-label="Пароль" value="••••••" readonly>
+      <button type="button" class="tvip-btn tvip-btn--block" data-tvip-goto="onboarding">Войти</button>
+    </div>
+  </div>
+
+  <!-- Desktop / tablet: onboarding -->
+  <div class="tvip-screen" data-tvip-screen="onboarding" data-tvip-devices="desktop,tablet">
+    <div class="tvip-topbar">
+      <span class="tvip-logo">Настройка профиля</span>
+      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-goto="home" style="font-size:8px;padding:0.25rem 0.5rem">Пропустить</button>
+    </div>
+    <div class="tvip-body" style="padding:0.75rem">
+      <p style="margin:0 0 0.35rem;font-weight:600;font-size:10px" data-tvip-onb-title>Кого смотрим чаще?</p>
+      <p style="margin:0 0 0.5rem;font-size:8px;color:var(--tvip-muted)" data-tvip-onb-desc>Рекомендации подстроятся под выбор</p>
+      <div class="tvip-chips" data-tvip-onb-chips>
+        <button type="button" class="tvip-chip active" data-tvip-chip>Семья</button>
+        <button type="button" class="tvip-chip" data-tvip-chip>Дети</button>
+        <button type="button" class="tvip-chip" data-tvip-chip>Кино</button>
+        <button type="button" class="tvip-chip" data-tvip-chip>Сериалы</button>
+      </div>
+      <div class="tvip-onb-dots" data-tvip-onb-dots>
+        <span class="tvip-onb-dot active"></span>
+        <span class="tvip-onb-dot"></span>
+        <span class="tvip-onb-dot"></span>
+      </div>
+      <button type="button" class="tvip-btn tvip-btn--block" data-tvip-onb-next>Далее</button>
+    </div>
+  </div>
+
+  <!-- Desktop: home -->
+  <div class="tvip-screen" data-tvip-screen="home" data-tvip-devices="desktop">
+    <div class="tvip-topbar">
+      <span class="tvip-logo">TVIP</span>
+      <span class="tvip-search">Поиск фильмов и сериалов…</span>
+      <span class="tvip-avatar" title="Профиль семьи"></span>
+    </div>
+    <div class="tvip-body tvip-body--split">
+      <aside class="tvip-sidebar">
+        <button type="button" class="tvip-nav-item active">Главная</button>
+        <button type="button" class="tvip-nav-item">Фильмы</button>
+        <button type="button" class="tvip-nav-item">Сериалы</button>
+        <button type="button" class="tvip-nav-item">ТВ-шоу</button>
+        <button type="button" class="tvip-nav-item">Продолжить</button>
+      </aside>
+      <div class="tvip-main">
+        <div class="tvip-hero">
+          <h2>Продолжить «Северный ветер»</h2>
+          <p>Серия 4 · осталось 18 мин</p>
+          <div class="tvip-progress"><span style="width:62%"></span></div>
+          <button type="button" class="tvip-btn" style="margin-top:0.45rem" data-tvip-goto="detail">Смотреть</button>
+        </div>
+        <p class="tvip-row-title">Рекомендуем для вас</p>
+        <div class="tvip-cards">
+          <button type="button" class="tvip-card" data-tvip-goto="detail"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Арктика</div></button>
+          <button type="button" class="tvip-card"><div class="tvip-card__thumb" style="background:linear-gradient(160deg,#2d3a52,#6366f1)"></div><div class="tvip-card__meta">Орбита</div></button>
+          <button type="button" class="tvip-card"><div class="tvip-card__thumb" style="background:linear-gradient(160deg,#1e3a2f,#10b981)"></div><div class="tvip-card__meta">Сад</div></button>
+          <button type="button" class="tvip-card"><div class="tvip-card__thumb" style="background:linear-gradient(160deg,#422006,#f59e0b)"></div><div class="tvip-card__meta">Закат</div></button>
+        </div>
+        <p class="tvip-row-title">Сериалы в тренде</p>
+        <div class="tvip-cards">
+          <button type="button" class="tvip-card"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">S02</div></button>
+          <button type="button" class="tvip-card"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">S01</div></button>
+          <button type="button" class="tvip-card"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Новинка</div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet: catalog -->
+  <div class="tvip-screen" data-tvip-screen="home-tablet" data-tvip-devices="tablet">
+    <div class="tvip-topbar">
+      <span class="tvip-logo">Фильмы</span>
+      <span class="tvip-search">Жанр, год…</span>
+    </div>
+    <div class="tvip-body">
+      <div class="tvip-chips" style="margin-bottom:0.45rem">
+        <span class="tvip-chip active">Все</span>
+        <span class="tvip-chip">Драма</span>
+        <span class="tvip-chip">Комедия</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.35rem">
+        <button type="button" class="tvip-card" style="flex:none;width:100%" data-tvip-goto="detail-tablet"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Арктика</div></button>
+        <button type="button" class="tvip-card" style="flex:none;width:100%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Орбита</div></button>
+        <button type="button" class="tvip-card" style="flex:none;width:100%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Полночь</div></button>
+        <button type="button" class="tvip-card" style="flex:none;width:100%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Каникулы</div></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop / tablet: detail -->
+  <div class="tvip-screen" data-tvip-screen="detail" data-tvip-devices="desktop,tablet">
+    <div class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-back style="font-size:8px;padding:0.2rem 0.45rem">← Назад</button>
+      <span style="font-weight:600;font-size:9px">Арктика</span>
+      <span class="tvip-avatar"></span>
+    </div>
+    <div class="tvip-body">
+      <div class="tvip-detail-poster" aria-hidden="true"></div>
+      <h2 style="margin:0 0 0.25rem;font-size:11px">Арктика · 2024</h2>
+      <p style="margin:0 0 0.45rem;font-size:8px;color:var(--tvip-muted)">Драма · 1ч 52м · 12+</p>
+      <button type="button" class="tvip-btn">▶ Смотреть</button>
+      <button type="button" class="tvip-btn tvip-btn--ghost" style="margin-left:0.25rem">+ В список</button>
+      <p style="margin-top:0.5rem;font-size:8px;color:var(--tvip-muted);clear:both">Семейная драма о путешествии на север — в вашей подборке «Семья».</p>
+    </div>
+  </div>
+
+  <div class="tvip-screen" data-tvip-screen="detail-tablet" data-tvip-devices="tablet">
+    <div class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-back data-tvip-back-target="home-tablet" style="font-size:8px;padding:0.2rem 0.45rem">←</button>
+      <span style="font-weight:600;font-size:9px">Арктика</span>
+    </div>
+    <div class="tvip-body" style="text-align:center">
+      <div class="tvip-detail-poster" style="float:none;width:55%;margin:0 auto 0.45rem"></div>
+      <button type="button" class="tvip-btn tvip-btn--block">▶ Смотреть</button>
+    </div>
+  </div>
+
+  <!-- Mobile: home -->
+  <div class="tvip-screen is-active" data-tvip-screen="m-home" data-tvip-devices="mobile">
+    <div class="tvip-topbar">
+      <span class="tvip-logo">TVIP</span>
+      <span class="tvip-search" style="max-width:7rem">Поиск…</span>
+    </div>
+    <div class="tvip-body">
+      <div class="tvip-hero" style="padding:0.5rem">
+        <h2 style="font-size:10px">Продолжить просмотр</h2>
+        <div class="tvip-progress"><span style="width:45%"></span></div>
+      </div>
+      <p class="tvip-row-title">Для вас</p>
+      <div class="tvip-cards">
+        <button type="button" class="tvip-card" style="flex:0 0 38%" data-tvip-goto="m-detail"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Арктика</div></button>
+        <button type="button" class="tvip-card" style="flex:0 0 38%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Орбита</div></button>
+      </div>
+    </div>
+    <nav class="tvip-mobile-nav">
+      <button type="button" class="active">Главная</button>
+      <button type="button" data-tvip-goto="m-filter">Каталог</button>
+      <button type="button">Профиль</button>
+    </nav>
+  </div>
+
+  <!-- Mobile: filter -->
+  <div class="tvip-screen" data-tvip-screen="m-filter" data-tvip-devices="mobile">
+    <div class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-goto="m-home" style="font-size:8px;padding:0.2rem 0.4rem">←</button>
+      <span style="font-weight:600">Фильтры</span>
+    </div>
+    <div class="tvip-body">
+      <p class="tvip-row-title">Жанр</p>
+      <div class="tvip-filter-grid" data-tvip-filter-grid>
+        <button type="button" class="tvip-filter-item active">Все</button>
+        <button type="button" class="tvip-filter-item">Драма</button>
+        <button type="button" class="tvip-filter-item">Комедия</button>
+        <button type="button" class="tvip-filter-item">Детям</button>
+      </div>
+      <p class="tvip-row-title">Год</p>
+      <div class="tvip-chips">
+        <button type="button" class="tvip-chip active" data-tvip-chip>2024</button>
+        <button type="button" class="tvip-chip" data-tvip-chip>2023</button>
+        <button type="button" class="tvip-chip" data-tvip-chip>Архив</button>
+      </div>
+      <button type="button" class="tvip-btn tvip-btn--block" style="margin-top:0.5rem" data-tvip-goto="m-detail">Показать 24 тайтла</button>
+    </div>
+  </div>
+
+  <!-- Mobile: detail -->
+  <div class="tvip-screen" data-tvip-screen="m-detail" data-tvip-devices="mobile">
+    <div class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-goto="m-home" style="font-size:8px;padding:0.2rem 0.4rem">←</button>
+      <span style="font-weight:600">Арктика</span>
+    </div>
+    <div class="tvip-body">
+      <div class="tvip-detail-poster" style="width:100%;float:none;margin:0 0 0.45rem"></div>
+      <button type="button" class="tvip-btn tvip-btn--block">▶ Смотреть</button>
+      <p style="font-size:8px;color:var(--tvip-muted);margin-top:0.35rem">Скачать · Трейлер · В список</p>
+    </div>
+  </div>
+</div>

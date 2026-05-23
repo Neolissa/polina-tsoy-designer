@@ -17,111 +17,36 @@
 
   var TVIP_SCREENS = {
     login: {
-      night: {
-        file: "tvip/login-night.webp",
-        w: 1920,
-        h: 935,
-        hotspots: [
-          { x: 38, y: 68, w: 24, h: 12, goto: "home", label: "Войти" }
-        ]
-      },
-      day: {
-        file: "tvip/login-day.webp",
-        w: 1920,
-        h: 935,
-        hotspots: [
-          { x: 38, y: 68, w: 24, h: 12, goto: "home", label: "Sign in" }
-        ]
-      }
+      night: { file: "tvip/login-night.webp", w: 1920, h: 935 },
+      day: { file: "tvip/login-day.webp", w: 1920, h: 935 }
     },
     home: {
-      night: {
-        file: "tvip/home-night.webp",
-        w: 1921,
-        h: 1082,
-        hotspots: []
-      },
-      day: {
-        file: "tvip/home-day.webp",
-        w: 1920,
-        h: 935,
-        hotspots: []
-      }
+      night: { file: "tvip/home-night.webp", w: 1921, h: 1082, scroll: true },
+      day: { file: "tvip/home-day.webp", w: 1920, h: 935, scroll: true }
+    },
+    detail: {
+      night: { file: "tvip/home-night.webp", w: 1921, h: 1082, scroll: true },
+      day: { file: "tvip/home-day.webp", w: 1920, h: 935, scroll: true }
+    },
+    "t-login": {
+      night: { file: "tvip/tablet-onboarding.webp", w: 1025, h: 750 },
+      day: { file: "tvip/tablet-onboarding.webp", w: 1025, h: 750 }
+    },
+    "t-home": {
+      night: { file: "tvip/tablet-series.webp", w: 1024, h: 1122, scroll: true },
+      day: { file: "tvip/tablet-series.webp", w: 1024, h: 1122, scroll: true }
+    },
+    "t-detail": {
+      night: { file: "tvip/tablet-film.webp", w: 1024, h: 1070, scroll: true },
+      day: { file: "tvip/tablet-film.webp", w: 1024, h: 1070, scroll: true }
     },
     "m-home": {
-      night: {
-        file: "tvip/mobile-home.webp",
-        w: 360,
-        h: 926,
-        hotspots: [
-          { x: 78, y: 4, w: 18, h: 8, goto: "m-filter", label: "Фильтр" },
-          { x: 6, y: 28, w: 28, h: 18, goto: "m-filter", label: "Каталог" }
-        ]
-      },
-      day: {
-        file: "tvip/mobile-home.webp",
-        w: 360,
-        h: 926,
-        hotspots: [
-          { x: 78, y: 4, w: 18, h: 8, goto: "m-filter", label: "Filter" },
-          { x: 6, y: 28, w: 28, h: 18, goto: "m-filter", label: "Catalog" }
-        ]
-      }
+      night: { file: "tvip/mobile-home.webp", w: 360, h: 926 },
+      day: { file: "tvip/mobile-home.webp", w: 360, h: 926 }
     },
     "m-filter": {
-      night: {
-        file: "tvip/mobile-filter.webp",
-        w: 360,
-        h: 1319,
-        hotspots: [{ x: 4, y: 2, w: 14, h: 6, goto: "m-home", label: "Назад" }]
-      },
-      day: {
-        file: "tvip/mobile-filter.webp",
-        w: 360,
-        h: 1319,
-        hotspots: [{ x: 4, y: 2, w: 14, h: 6, goto: "m-home", label: "Back" }]
-      }
-    }
-  };
-
-  var COIN_SCREENS = {
-    home: {
-      file: "coin/home.webp",
-      w: 1920,
-      h: 2029,
-      scroll: true,
-      hotspots: [
-        { x: 0, y: 12, w: 11, h: 10, goto: "profile", label: "Профиль" },
-        { x: 12, y: 14, w: 8, h: 5, goto: "profile", label: "Аватар" }
-      ]
-    },
-    profile: {
-      file: "coin/profile.webp",
-      w: 1920,
-      h: 963,
-      hotspots: [
-        { x: 0, y: 4, w: 11, h: 8, goto: "home", label: "Главная" },
-        { x: 0, y: 14, w: 11, h: 8, goto: "home", label: "Лента" }
-      ]
-    }
-  };
-
-  var DOCSBIRD_SCREENS = {
-    agreement: {
-      file: "docsbird/agreement.webp",
-      w: 1371,
-      h: 826,
-      hotspots: [
-        { x: 62, y: 78, w: 22, h: 12, goto: "dashboard", label: "Продолжить" }
-      ]
-    },
-    dashboard: {
-      file: "docsbird/dashboard.webp",
-      w: 1440,
-      h: 970,
-      hotspots: [
-        { x: 0, y: 18, w: 14, h: 10, goto: "agreement", label: "Соглашения" }
-      ]
+      night: { file: "tvip/mobile-filter.webp", w: 360, h: 1319, scroll: true },
+      day: { file: "tvip/mobile-filter.webp", w: 360, h: 1319, scroll: true }
     }
   };
 
@@ -131,52 +56,151 @@
     return group[appearance] || group.night || group.day;
   }
 
-  function buildMockStage(screen, onNavigate) {
+  function bindSmartScroll(el) {
+    if (!el || el.dataset.scrollBound) return;
+    el.dataset.scrollBound = "1";
+    function sync() {
+      var needs = el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2;
+      el.classList.toggle("case-mock-scroll--active", needs);
+    }
+    sync();
+    el.addEventListener("scroll", sync);
+    if (typeof ResizeObserver !== "undefined") {
+      var ro = new ResizeObserver(sync);
+      ro.observe(el);
+    }
+    window.addEventListener("resize", sync);
+  }
+
+  function appendClouds(layer) {
+    var sky = document.createElement("div");
+    sky.className = "tvip-mock-clouds";
+    sky.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 5; i++) {
+      var c = document.createElement("span");
+      c.className = "tvip-mock-cloud";
+      c.style.setProperty("--i", String(i));
+      sky.appendChild(c);
+    }
+    layer.appendChild(sky);
+  }
+
+  function appendOverlayItems(layer, config, onNavigate, isEn) {
+    if (!config) return;
+    if (config.clouds) appendClouds(layer);
+
+    (config.items || []).forEach(function (item) {
+      if (item.type === "row") {
+        var row = document.createElement("div");
+        row.className = "tvip-mock-row case-mock-scroll";
+        row.style.left = item.x + "%";
+        row.style.top = item.y + "%";
+        row.style.width = item.w + "%";
+        row.style.height = item.h + "%";
+        var track = document.createElement("div");
+        track.className = "tvip-mock-row__track";
+        for (var n = 0; n < (item.count || 4); n++) {
+          var card = document.createElement("button");
+          card.type = "button";
+          card.className = "tvip-mock-row__card";
+          card.setAttribute("aria-label", (isEn ? "Title " : "Постер ") + (n + 1));
+          if (n === 0 && onNavigate) {
+            card.addEventListener("click", function () {
+              onNavigate("detail");
+            });
+          }
+          track.appendChild(card);
+        }
+        row.appendChild(track);
+        layer.appendChild(row);
+        bindSmartScroll(row);
+        return;
+      }
+
+      if (item.type === "chips") {
+        var wrap = document.createElement("div");
+        wrap.className = "tvip-mock-chips";
+        wrap.style.top = (item.y || 42) + "%";
+        item.items.forEach(function (chip) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "tvip-mock-chip" + (chip.active ? " is-active" : "");
+          b.textContent = chip.label;
+          b.addEventListener("click", function () {
+            wrap.querySelectorAll(".tvip-mock-chip").forEach(function (c) {
+              c.classList.remove("is-active");
+            });
+            b.classList.add("is-active");
+          });
+          wrap.appendChild(b);
+        });
+        layer.appendChild(wrap);
+        return;
+      }
+
+      if (item.type === "button") {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "tvip-mock-ui-btn tvip-mock-ui-btn--" + (item.variant || "primary");
+        btn.style.left = item.x + "%";
+        btn.style.top = item.y + "%";
+        btn.style.width = item.w + "%";
+        btn.style.height = item.h + "%";
+        btn.textContent = item.label || "";
+        if (!item.label) btn.classList.add("tvip-mock-ui-btn--icon");
+        if (item.goto && onNavigate) {
+          btn.addEventListener("click", function () {
+            onNavigate(item.goto);
+          });
+        } else if (!item.goto) {
+          btn.addEventListener("click", function () {
+            btn.classList.add("is-pressed");
+            setTimeout(function () {
+              btn.classList.remove("is-pressed");
+            }, 180);
+          });
+        }
+        layer.appendChild(btn);
+      }
+    });
+  }
+
+  function buildMockStage(screen, onNavigate, overlayConfig, isEn) {
     var stage = document.createElement("div");
     stage.className = "case-mock-svg-stage";
-    if (screen.scroll) stage.classList.add("case-mock-svg-stage--scroll");
+    if (screen.scroll || (overlayConfig && overlayConfig.scroll)) {
+      stage.classList.add("case-mock-svg-stage--scroll", "case-mock-scroll");
+    }
     stage.style.setProperty("--mock-svg-ratio", screen.w + " / " + screen.h);
 
     var img = document.createElement("img");
     img.className = "case-mock-svg-img";
     img.alt = screen.alt || "";
     img.decoding = "async";
-    img.loading = "lazy";
+    img.loading = "eager";
     img.width = screen.w;
     img.height = screen.h;
 
     var loading = document.createElement("div");
     loading.className = "case-mock-svg-loading";
     loading.setAttribute("aria-hidden", "true");
-    loading.textContent = "Загрузка макета…";
+    loading.textContent = isEn ? "Loading mock…" : "Загрузка макета…";
 
     stage.appendChild(loading);
     stage.appendChild(img);
 
     var layer = document.createElement("div");
-    layer.className = "case-mock-svg-hotspots";
-    (screen.hotspots || []).forEach(function (h) {
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "case-mock-hotspot";
-      btn.style.left = h.x + "%";
-      btn.style.top = h.y + "%";
-      btn.style.width = h.w + "%";
-      btn.style.height = h.h + "%";
-      btn.setAttribute("aria-label", h.label || "Далее");
-      btn.addEventListener("click", function () {
-        if (h.goto && onNavigate) onNavigate(h.goto);
-      });
-      layer.appendChild(btn);
-    });
+    layer.className = "case-mock-svg-overlays";
+    appendOverlayItems(layer, overlayConfig, onNavigate, isEn);
     stage.appendChild(layer);
 
     img.addEventListener("load", function () {
       stage.classList.add("is-loaded");
       loading.remove();
+      bindSmartScroll(stage);
     });
     img.addEventListener("error", function () {
-      loading.textContent = "Не удалось загрузить макет.";
+      loading.textContent = isEn ? "Failed to load mock." : "Не удалось загрузить макет.";
       stage.classList.add("is-error");
     });
 
@@ -184,71 +208,20 @@
     return stage;
   }
 
-  function mountTvipsScreen(host, screenId, appearance, onNavigate) {
+  function mountTvipsScreen(host, screenId, appearance, onNavigate, isEn) {
     var screen = resolveTvipsScreen(screenId, appearance);
     if (!screen) return;
+    var overlayConfig =
+      window.TvipMockOverlays && window.TvipMockOverlays.get(screenId, appearance);
     host.innerHTML = "";
     host.classList.add("tvip-device-screen--svg");
-    host.appendChild(buildMockStage(screen, onNavigate));
-  }
-
-  function mountSimpleMock(root, registry, initialId) {
-    if (!root || root.dataset.svgMockReady === "1") return;
-
-    var state = { screen: initialId || Object.keys(registry)[0] };
-
-    var viewport = document.createElement("div");
-    viewport.className = "case-mock-svg-viewport";
-    root.appendChild(viewport);
-    root.dataset.svgMockReady = "1";
-    root.classList.add("case-mock-svg-root");
-
-    function render() {
-      var screen = registry[state.screen];
-      if (!screen) return;
-      viewport.innerHTML = "";
-      viewport.appendChild(
-        buildMockStage(screen, function (next) {
-          if (registry[next]) {
-            state.screen = next;
-            render();
-          }
-        })
-      );
-    }
-
-    root.__caseMockSvgReset = function () {
-      state.screen = initialId || Object.keys(registry)[0];
-      render();
-    };
-
-    render();
-  }
-
-  function mountCoinMock(root) {
-    mountSimpleMock(root, COIN_SCREENS, "home");
-  }
-
-  function mountDocsbirdMock(root) {
-    mountSimpleMock(root, DOCSBIRD_SCREENS, "agreement");
-  }
-
-  function resetMock(root) {
-    if (root && typeof root.__caseMockSvgReset === "function") {
-      root.__caseMockSvgReset();
-      return;
-    }
-    if (root && root.dataset.tvipMockReady === "1" && typeof root.__tvipMockReset === "function") {
-      root.__tvipMockReset();
-    }
+    host.appendChild(buildMockStage(screen, onNavigate, overlayConfig, isEn));
   }
 
   window.CaseMockSvg = {
     assetUrl: assetUrl,
     TVIP_SCREENS: TVIP_SCREENS,
     mountTvipsScreen: mountTvipsScreen,
-    mountCoinMock: mountCoinMock,
-    mountDocsbirdMock: mountDocsbirdMock,
-    resetMock: resetMock
+    bindSmartScroll: bindSmartScroll
   };
 })();

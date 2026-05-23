@@ -54,6 +54,24 @@ const ASSETS = [
     width: 360
   },
   {
+    id: "tvip-tablet-onboarding",
+    src: "tvip styles/tablet/Первый вход.svg",
+    out: "tvip/tablet-onboarding.webp",
+    width: 1025
+  },
+  {
+    id: "tvip-tablet-series",
+    src: "tvip styles/tablet/Сериалы.svg",
+    out: "tvip/tablet-series.webp",
+    width: 1024
+  },
+  {
+    id: "tvip-tablet-film",
+    src: "tvip styles/tablet/Фильм.svg",
+    out: "tvip/tablet-film.webp",
+    width: 1024
+  },
+  {
     id: "coin-home",
     src: "coin styles/Главная страница - Фильтры - Фото.svg",
     out: "coin/home.webp",

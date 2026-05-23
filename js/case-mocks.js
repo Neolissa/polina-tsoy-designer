@@ -132,14 +132,14 @@
       btn.dataset.resetBound = "1";
       btn.addEventListener("click", function () {
         var wrap = btn.closest(".case-mock-stage-wrap, .case-mock-block");
-        var svgNode = wrap && wrap.querySelector("[data-case-mock-svg]");
+        var docsbirdNode = wrap && wrap.querySelector('[data-case-mock="docsbird"]');
         var tvipRoot = wrap && wrap.querySelector("[data-tvip-case-mock]");
         var node = wrap && wrap.querySelector("[data-mock]");
         if (btn.disabled) return;
         btn.disabled = true;
 
-        if (svgNode && window.CaseMockSvg) {
-          window.CaseMockSvg.resetMock(svgNode);
+        if (docsbirdNode && docsbirdNode.__docsbirdFlowReset) {
+          docsbirdNode.__docsbirdFlowReset();
           btn.disabled = false;
           return;
         }
@@ -165,18 +165,16 @@
     });
   }
 
-  function bootSvgMocks() {
-    if (!window.CaseMockSvg) return;
-    document.querySelectorAll('[data-case-mock-svg="coin"]').forEach(function (node) {
-      window.CaseMockSvg.mountCoinMock(node);
-    });
-    document.querySelectorAll('[data-case-mock-svg="docsbird"]').forEach(function (node) {
-      window.CaseMockSvg.mountDocsbirdMock(node);
-    });
-  }
-
   function bootMocks() {
-    bootSvgMocks();
+    if (window.mountDocsbirdCaseMock) {
+      document.querySelectorAll('[data-case-mock="docsbird"]').forEach(function (node) {
+        window.mountDocsbirdCaseMock(node).catch(function (err) {
+          console.error("DocsBird mock load failed:", err);
+          node.innerHTML =
+            '<p class="text-sm text-gray-500 p-4">Не удалось загрузить демо.</p>';
+        });
+      });
+    }
     document.querySelectorAll("[data-mock][data-demo]").forEach(function (node) {
       if (node.closest("[data-tvip-case-mock]")) return;
       loadCaseMock(node).catch(function (err) {
