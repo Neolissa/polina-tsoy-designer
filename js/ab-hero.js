@@ -26,16 +26,16 @@
 
     if (document.documentElement.lang === "en") {
       title.innerHTML =
-        'I turn UX into measurable growth<br><span class="gradient-text">for product teams and founders</span>';
+        'UX|UI Product designer<br><span class="gradient-text">hypothesis → interface → outcome</span>';
       subtitle.innerHTML =
-        "I help teams increase conversion and retention, speed up delivery, and launch scalable B2C/B2B interfaces with fewer risks.";
+        "Research, design systems, and clear logic for B2C and complex B2B — so products grow through understandable UX.";
       return;
     }
 
     title.innerHTML =
-      'Превращаю UX в рост метрик<br><span class="gradient-text">для продуктовых команд и стартапов</span>';
+      'Дизайнер интерфейсов в продукте<br><span class="gradient-text">гипотеза → интерфейс → результат</span>';
     subtitle.innerHTML =
-      "Помогаю командам повышать конверсию и удержание, ускорять релизы и строить масштабируемые B2C/B2B интерфейсы без лишнего техдолга.";
+      "Исследования, системы и ясная логика для B2C и сложных B2B — чтобы продукт рос через понятный UX.";
   }
 
   function trackExposure(variant) {
