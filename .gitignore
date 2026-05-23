@@ -263,6 +263,8 @@ coverage/
 
 # Optional: Temporary files from image optimization
 *.webp
+!images/case-mocks/
+!images/case-mocks/**/*.webp
 *.avif
 *.heic
 *.heif

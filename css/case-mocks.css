@@ -1,0 +1,844 @@
+/* Case pages — interactive device mocks (Coin, TVIP, DocsBird) */
+
+.case-mock-block {
+  margin: 2.5rem 0;
+}
+
+.case-mock-caption {
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-mock-stage-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.case-mock-reset-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  color: #475569;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.case-mock-reset-btn:hover {
+  background: #fff;
+  color: #0f172a;
+  transform: rotate(-30deg);
+}
+
+.case-mock-reset-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.case-mock-reset-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* —— TVIP interactive shell —— */
+.tvip-interactive-mock {
+  --tvip-accent: #f4511e;
+  --tvip-accent-soft: rgba(244, 81, 30, 0.18);
+  --tvip-bg: #060818;
+  --tvip-surface: #12131f;
+  --tvip-surface-2: #242634;
+  --tvip-text: rgba(255, 255, 255, 0.92);
+  --tvip-muted: rgba(255, 255, 255, 0.55);
+  --tvip-border: rgba(255, 255, 255, 0.08);
+  --tvip-hero: linear-gradient(135deg, #1a2d46 0%, #0d1524 55%, #060818 100%);
+  --tvip-stage-bg: #eef1f6;
+  --tvip-controls-bg: #ffffff;
+  --tvip-controls-border: #e5e7eb;
+  --tvip-controls-text: #374151;
+  --tvip-controls-muted: #6b7280;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--tvip-stage-bg);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.14);
+  border: 1px solid #e5e7eb;
+}
+
+.tvip-interactive-mock[data-appearance="day"] {
+  --tvip-bg: #f3f6fc;
+  --tvip-surface: #ffffff;
+  --tvip-surface-2: #e8edf5;
+  --tvip-text: #1a2332;
+  --tvip-muted: #5c6b80;
+  --tvip-border: #d8e0ec;
+  --tvip-hero: linear-gradient(135deg, #dce8f8 0%, #c5d8f0 50%, #eef3fa 100%);
+}
+
+.tvip-interactive-mock__device {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.tvip-device-frame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tvip-interactive-mock[data-device="desktop"] .tvip-device-frame {
+  max-width: 52rem;
+}
+
+.tvip-interactive-mock[data-device="tablet"] .tvip-device-frame {
+  max-width: 22rem;
+}
+
+.tvip-interactive-mock[data-device="mobile"] .tvip-device-frame {
+  max-width: 15rem;
+}
+
+.tvip-device-chrome {
+  background: #1c1c1e;
+  border-radius: 0.65rem;
+  padding: 0.45rem 0.45rem 0.65rem;
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.tvip-interactive-mock[data-device="desktop"] .tvip-device-chrome {
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.55rem 0.75rem;
+}
+
+.tvip-interactive-mock[data-device="tablet"] .tvip-device-chrome {
+  border-radius: 1.1rem;
+  padding: 0.65rem;
+}
+
+.tvip-interactive-mock[data-device="mobile"] .tvip-device-chrome {
+  border-radius: 1.75rem;
+  padding: 0.5rem 0.45rem 0.55rem;
+}
+
+.tvip-device-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.tvip-interactive-mock[data-device="desktop"] .tvip-device-bar::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #3a3a3c;
+  box-shadow: 8px 0 0 #3a3a3c, 16px 0 0 #3a3a3c;
+}
+
+.tvip-interactive-mock[data-device="tablet"] .tvip-device-bar::before {
+  content: "";
+  width: 2.5rem;
+  height: 0.25rem;
+  border-radius: 999px;
+  background: #3a3a3c;
+}
+
+.tvip-interactive-mock[data-device="mobile"] .tvip-device-bar::before {
+  content: "";
+  width: 3.5rem;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: #3a3a3c;
+}
+
+.tvip-device-screen {
+  border-radius: 0.35rem;
+  overflow: hidden;
+  background: var(--tvip-bg);
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.tvip-device-screen.tvip-device-screen--svg {
+  aspect-ratio: auto;
+  max-height: min(72vh, 52rem);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tvip-interactive-mock[data-device="tablet"] .tvip-device-screen {
+  aspect-ratio: 3 / 4;
+  border-radius: 0.5rem;
+}
+
+.tvip-interactive-mock[data-device="mobile"] .tvip-device-screen {
+  aspect-ratio: 9 / 19.5;
+  border-radius: 1.25rem;
+}
+
+.tvip-interactive-mock__controls {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: var(--tvip-controls-bg);
+  border: 1px solid var(--tvip-controls-border);
+}
+
+.tvip-mock-label {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tvip-controls-muted);
+}
+
+.tvip-mock-segmented {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tvip-mock-segment {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--tvip-controls-border);
+  background: #f9fafb;
+  color: var(--tvip-controls-text);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.15s;
+  font-family: inherit;
+  text-align: left;
+}
+
+.tvip-mock-segment:hover {
+  border-color: #c7d2fe;
+  background: #f5f3ff;
+}
+
+.tvip-mock-segment.active {
+  border-color: #6366f1;
+  background: #eef2ff;
+  color: #4338ca;
+  font-weight: 600;
+}
+
+.tvip-mock-segment__icon {
+  width: 1.1rem;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.tvip-mock-theme-toggle {
+  display: flex;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--tvip-controls-border);
+}
+
+.tvip-mock-theme-btn {
+  flex: 1;
+  padding: 0.45rem 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: none;
+  background: #f9fafb;
+  color: var(--tvip-controls-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tvip-mock-theme-btn.active {
+  background: #1e293b;
+  color: #fff;
+}
+
+.tvip-mock-theme-btn:first-child.active {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.tvip-mock-theme-notes {
+  margin-top: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tvip-mock-theme-note {
+  margin: 0;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--tvip-controls-muted);
+}
+
+.tvip-mock-theme-note__title {
+  display: block;
+  font-weight: 600;
+  color: var(--tvip-controls-text);
+  margin-bottom: 0.15rem;
+}
+
+.tvip-mock-hint {
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.45;
+  color: var(--tvip-controls-muted);
+}
+
+@media (max-width: 900px) {
+  .tvip-interactive-mock {
+    flex-direction: column;
+  }
+
+  .tvip-interactive-mock__controls {
+    flex: none;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .tvip-interactive-mock__controls > div {
+    flex: 1 1 140px;
+  }
+}
+
+/* —— TVIP app UI inside frame —— */
+.tvip-app {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  line-height: 1.35;
+  color: var(--tvip-text);
+  background: var(--tvip-bg);
+}
+
+.tvip-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.tvip-screen.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.tvip-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border-bottom: 1px solid var(--tvip-border);
+  background: color-mix(in srgb, var(--tvip-surface) 92%, transparent);
+}
+
+.tvip-logo {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--tvip-accent);
+  font-size: 11px;
+}
+
+.tvip-search {
+  flex: 1;
+  max-width: 12rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--tvip-border);
+  background: var(--tvip-surface-2);
+  color: var(--tvip-muted);
+  font-size: 9px;
+}
+
+.tvip-avatar {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: var(--tvip-accent-soft);
+  border: 1px solid var(--tvip-accent);
+  flex-shrink: 0;
+}
+
+.tvip-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.5rem;
+}
+
+.tvip-body--split {
+  display: flex;
+  min-height: 0;
+}
+
+.tvip-sidebar {
+  width: 28%;
+  min-width: 4.5rem;
+  border-right: 1px solid var(--tvip-border);
+  padding: 0.35rem;
+  background: var(--tvip-surface);
+}
+
+.tvip-nav-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.35rem 0.4rem;
+  border-radius: 0.3rem;
+  border: none;
+  background: transparent;
+  color: var(--tvip-muted);
+  font-size: 9px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tvip-nav-item:hover,
+.tvip-nav-item.active {
+  background: var(--tvip-accent-soft);
+  color: var(--tvip-accent);
+}
+
+.tvip-main {
+  flex: 1;
+  min-width: 0;
+  padding: 0.35rem;
+}
+
+.tvip-hero {
+  border-radius: 0.45rem;
+  padding: 0.65rem;
+  margin-bottom: 0.45rem;
+  background: var(--tvip-hero);
+  border: 1px solid var(--tvip-border);
+}
+
+.tvip-hero h2 {
+  margin: 0 0 0.25rem;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tvip-hero p {
+  margin: 0 0 0.45rem;
+  font-size: 8px;
+  color: var(--tvip-muted);
+}
+
+.tvip-row-title {
+  font-size: 9px;
+  font-weight: 600;
+  margin: 0.35rem 0 0.25rem;
+  color: var(--tvip-muted);
+}
+
+.tvip-cards {
+  display: flex;
+  gap: 0.3rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scroll-snap-type: x mandatory;
+}
+
+.tvip-card {
+  flex: 0 0 28%;
+  min-width: 3.2rem;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  background: var(--tvip-surface-2);
+  border: 1px solid var(--tvip-border);
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tvip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.tvip-card__thumb {
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(160deg, var(--tvip-surface-2), color-mix(in srgb, var(--tvip-accent) 35%, #000));
+}
+
+.tvip-card__meta {
+  padding: 0.25rem;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.tvip-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--tvip-accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.tvip-btn:hover {
+  filter: brightness(1.06);
+  transform: scale(1.02);
+}
+
+.tvip-btn--ghost {
+  background: transparent;
+  color: var(--tvip-text);
+  border: 1px solid var(--tvip-border);
+}
+
+.tvip-btn--block {
+  width: 100%;
+}
+
+.tvip-field {
+  width: 100%;
+  padding: 0.35rem 0.45rem;
+  margin-bottom: 0.35rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--tvip-border);
+  background: var(--tvip-surface);
+  color: var(--tvip-text);
+  font-size: 9px;
+  font-family: inherit;
+}
+
+.tvip-onb-dots {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.tvip-onb-dot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--tvip-border);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.tvip-onb-dot.active {
+  background: var(--tvip-accent);
+  transform: scale(1.15);
+}
+
+.tvip-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.35rem 0;
+}
+
+.tvip-chip {
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--tvip-border);
+  background: var(--tvip-surface);
+  color: var(--tvip-muted);
+  font-size: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.tvip-chip.active {
+  border-color: var(--tvip-accent);
+  background: var(--tvip-accent-soft);
+  color: var(--tvip-accent);
+}
+
+.tvip-mobile-nav {
+  display: flex;
+  border-top: 1px solid var(--tvip-border);
+  background: var(--tvip-surface);
+  margin-top: auto;
+}
+
+.tvip-mobile-nav button {
+  flex: 1;
+  padding: 0.4rem 0.2rem;
+  border: none;
+  background: transparent;
+  color: var(--tvip-muted);
+  font-size: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tvip-mobile-nav button.active {
+  color: var(--tvip-accent);
+}
+
+.tvip-filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+}
+
+.tvip-filter-item {
+  padding: 0.35rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--tvip-border);
+  background: var(--tvip-surface);
+  font-size: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.tvip-filter-item.active {
+  border-color: var(--tvip-accent);
+  background: var(--tvip-accent-soft);
+}
+
+.tvip-detail-poster {
+  width: 42%;
+  border-radius: 0.4rem;
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(160deg, #2a3550, var(--tvip-accent));
+  float: left;
+  margin: 0 0.45rem 0.35rem 0;
+}
+
+.tvip-progress {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--tvip-border);
+  overflow: hidden;
+  margin-top: 0.35rem;
+}
+
+.tvip-progress span {
+  display: block;
+  height: 100%;
+  background: var(--tvip-accent);
+  border-radius: inherit;
+  transition: width 0.6s ease;
+}
+
+.tvip-login-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.tvip-login-center .tvip-logo {
+  font-size: 14px;
+  margin-bottom: 0.75rem;
+}
+
+/* Coin social platform extras */
+.coin-feed-card {
+  background: var(--mock-surface);
+  border: 1px solid var(--mock-border);
+  border-radius: 0.55rem;
+  padding: 0.55rem;
+  margin-bottom: 0.4rem;
+  transition: box-shadow 0.2s;
+}
+
+.coin-feed-card:hover {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+}
+
+.coin-feed-actions {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+}
+
+.coin-coin-rain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 12;
+}
+
+.coin-coin-rain span {
+  position: absolute;
+  top: -10%;
+  font-size: 12px;
+  animation: coin-fall 1.2s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes coin-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(110%) rotate(220deg);
+  }
+}
+
+.coin-filter-chip {
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 8px;
+  border: 1px solid var(--mock-border);
+  background: var(--mock-surface);
+  color: var(--mock-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.coin-filter-chip.active {
+  background: var(--mock-accent-soft);
+  border-color: var(--mock-accent);
+  color: var(--mock-accent);
+  font-weight: 600;
+}
+
+/* —— Figma SVG mocks (pixel-perfect) —— */
+.case-mock-svg-root {
+  width: 100%;
+}
+
+.case-mock-svg-viewport {
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  box-shadow: 0 16px 32px -12px rgba(15, 23, 42, 0.12);
+}
+
+.case-mock-svg-stage {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.case-mock-svg-stage--scroll {
+  max-height: min(70vh, 40rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.case-mock-svg-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: top;
+}
+
+.case-mock-svg-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  background: rgba(248, 250, 252, 0.92);
+}
+
+.case-mock-svg-stage.is-loaded .case-mock-svg-loading {
+  display: none;
+}
+
+.case-mock-svg-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.case-mock-hotspot {
+  position: absolute;
+  pointer-events: auto;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.case-mock-hotspot:hover,
+.case-mock-hotspot:focus-visible {
+  outline: 2px solid rgba(99, 102, 241, 0.55);
+  outline-offset: 1px;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.case-mock-block .case-mock-reset-btn {
+  z-index: 30;
+}

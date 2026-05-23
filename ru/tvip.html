@@ -264,6 +264,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="stylesheet" href="../css/case-mocks.css">
     <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -725,56 +726,12 @@
     <!-- Themes Section -->
     <section id="themes" class="py-24 bg-gray-900">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">
-                    Визуальная система: День и ночь
-                </h2>
-                <p class="text-xl text-gray-300 mb-8">Учёт разных условий просмотра</p>
-                <div class="w-20 h-1 bg-indigo-400 mx-auto"></div>
+            <div class="case-mock-block fade-in mb-12">
+                <p class="case-mock-caption text-center text-xs text-gray-400 tracking-wide">интерактивный макет</p>
+                <p class="text-center text-sm text-gray-400 mb-4 max-w-2xl mx-auto">Макеты из Figma: нажмите «Войти» на экране входа, на мобилке — каталог и фильтр</p>
+                <div data-tvip-case-mock data-appearance="night" data-device="desktop" aria-label="Интерактивный макет TVIP"></div>
             </div>
-            
-            <div class="theme-split rounded-2xl overflow-hidden mb-12 fade-in">
-                <!-- Day theme -->
-                <div class="theme-day">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-2">☀️</div>
-                        <h3 class="text-2xl font-bold text-gray-800">Дневная тема</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="bg-white/50 p-4 rounded-lg">
-                            <div class="font-bold text-gray-800">Светлые тона</div>
-                            <div class="text-sm text-gray-600">Чёткость при естественном освещении</div>
-                        </div>
-                        <div class="flex gap-2 mb-4">
-                            <div class="w-8 h-8 bg-white rounded border border-gray-300"></div>
-                            <div class="w-8 h-8 bg-gray-100 rounded border border-gray-300"></div>
-                            <div class="w-8 h-8 bg-gray-200 rounded border border-gray-300"></div>
-                            <div class="w-8 h-8 bg-indigo-600 rounded"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Night theme -->
-                <div class="theme-night">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-2">🌙</div>
-                        <h3 class="text-2xl font-bold">Ночная тема</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="bg-white/10 p-4 rounded-lg">
-                            <div class="font-bold">Тёмные интерфейсы</div>
-                            <div class="text-sm text-gray-300">Сниженная яркость, акцент на контент</div>
-                        </div>
-                        <div class="flex gap-2 mb-4">
-                            <div class="w-8 h-8 bg-gray-900 rounded border border-gray-700"></div>
-                            <div class="w-8 h-8 bg-gray-800 rounded border border-gray-700"></div>
-                            <div class="w-8 h-8 bg-gray-700 rounded border border-gray-700"></div>
-                            <div class="w-8 h-8 bg-indigo-500 rounded"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+
             <div class="grid md:grid-cols-2 gap-6 mb-12 fade-in">
                 <div class="flex flex-col gap-4">
                     <figure class="bg-white/95 rounded-xl p-2 shadow-lg ring-1 ring-white/10">
@@ -803,29 +760,6 @@
                             <img src="../images/tvip/night2.jpg" alt="TVIP: ночная тёмная тема, экран 2" data-lightbox class="w-full h-auto object-contain max-h-[55vh]" width="800" height="600" loading="lazy" decoding="async">
                         </div>
                     </figure>
-                </div>
-            </div>
-            
-            <div class="bg-gray-800 p-8 rounded-2xl fade-in">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="font-bold mb-3 flex items-center gap-2">
-                            <i class="fas fa-sun text-yellow-400"></i>
-                            Автоматическое переключение
-                        </h4>
-                        <p class="text-gray-300 text-sm">
-                            Тема меняется автоматически в зависимости от времени суток или системы освещения устройства
-                        </p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold mb-3 flex items-center gap-2">
-                            <i class="fas fa-palette text-indigo-400"></i>
-                            Единая палитра
-                        </h4>
-                        <p class="text-gray-300 text-sm">
-                            Обе темы используют одинаковые базовые цвета, подобранные для контрастности
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1230,6 +1164,9 @@
         <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
     </div>
     <script src="../js/image-lightbox.js"></script>
+    <script src="../js/case-mock-svg.js"></script>
+    <script src="../js/tvip-case-mock.js"></script>
+    <script src="../js/case-mocks.js"></script>
 
     <script src="../js/site-config.js"></script>
     <script src="../js/consent-manager.js"></script>
