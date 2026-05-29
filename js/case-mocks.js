@@ -42,6 +42,16 @@
     var composePanel = root.querySelector("[data-coin-compose-panel]");
     var publishBtn = root.querySelector("[data-coin-publish]");
 
+    var pageTitles = {
+      feed: ["Corporate feed", "All departments · live updates"],
+      articles: ["Articles", "Knowledge library"],
+      growth: ["Growth plan", "IDP · Q1 2026"],
+      rating: ["Leaderboard", "Gratitude coins this month"],
+      profile: ["Profile", "Product Design · Coin HQ"]
+    };
+    var titleEl = root.querySelector("[data-coin-page-title]");
+    var subEl = root.querySelector("[data-coin-page-sub]");
+
     function showPanel(id) {
       panels.forEach(function (p) {
         p.classList.toggle("hidden", p.getAttribute("data-coin-panel") !== id);
@@ -49,6 +59,9 @@
       navItems.forEach(function (n) {
         n.classList.toggle("active", n.getAttribute("data-coin-nav") === id);
       });
+      var titles = pageTitles[id];
+      if (titles && titleEl) titleEl.textContent = titles[0];
+      if (titles && subEl) subEl.textContent = titles[1];
     }
 
     function spawnCoins() {
@@ -73,7 +86,7 @@
         return;
       }
 
-      var filter = e.target.closest("[data-coin-filter]");
+      var filter = e.target.closest("[data-coin-filter], .coin-mock__tab");
       if (filter) {
         filters.forEach(function (f) {
           f.classList.toggle("active", f === filter);
@@ -89,7 +102,7 @@
       if (e.target.closest("[data-coin-thanks]")) {
         spawnCoins();
         var label = root.querySelector("[data-coin-thanks-label]");
-        if (label) label.textContent = "🪙 +50 отправлено";
+        if (label) label.textContent = "🪙 +50 sent";
         if (thanksBtn) thanksBtn.disabled = true;
         return;
       }
@@ -105,12 +118,10 @@
         if (list) {
           var item = document.createElement("button");
           item.type = "button";
-          item.className =
-            "w-full text-left p-2 rounded-md border transition-colors";
-          item.style.borderColor = "var(--mock-border)";
+          item.className = "coin-mock__article-row";
           item.innerHTML =
-            '<div class="text-[10px] font-semibold">Черновик: UX чеклист</div>' +
-            '<div class="text-[8px]" style="color:var(--mock-muted)">Вы · только что</div>';
+            '<div class="coin-mock__article-title">Draft: UX checklist</div>' +
+            '<div class="coin-mock__meta">You · just now</div>';
           list.insertBefore(item, list.firstChild);
         }
       }

@@ -1,58 +1,63 @@
-<div class="mock-app" data-theme="coin" role="region" aria-label="Coin corporate social platform demo">
+<div class="coin-mock mock-app" data-theme="coin" role="region" aria-label="Coin corporate social platform demo">
   <div class="coin-coin-rain" data-coin-rain aria-hidden="true"></div>
-  <div class="flex min-h-[380px]" style="min-height:380px">
-    <aside class="mock-sidebar p-2 hidden sm:block" style="width:26%">
-      <div class="mock-brand">Coin</div>
-      <nav>
-        <button type="button" class="mock-nav-item active" data-coin-nav="feed">Лента</button>
-        <button type="button" class="mock-nav-item" data-coin-nav="articles">Статьи</button>
-        <button type="button" class="mock-nav-item" data-coin-nav="growth">Развитие</button>
-        <button type="button" class="mock-nav-item" data-coin-nav="rating">Рейтинг</button>
-        <button type="button" class="mock-nav-item" data-coin-nav="profile">Профиль</button>
+  <div class="coin-mock__shell">
+    <aside class="coin-mock__sidebar mock-sidebar" aria-label="Main menu">
+      <div class="coin-mock__brand-lockup">
+        <span class="coin-mock__brand-mark">coin</span>
+        <span class="coin-mock__brand-sub">Corporate</span>
+      </div>
+      <nav class="coin-mock__nav">
+        <button type="button" class="mock-nav-item active" data-coin-nav="feed">Feed</button>
+        <button type="button" class="mock-nav-item" data-coin-nav="articles">Articles</button>
+        <button type="button" class="mock-nav-item" data-coin-nav="growth">Growth</button>
+        <button type="button" class="mock-nav-item" data-coin-nav="rating">Leaderboard</button>
+        <button type="button" class="mock-nav-item" data-coin-nav="profile">Profile</button>
       </nav>
     </aside>
-    <main class="flex-1 p-2 min-w-0 relative">
-      <div class="mock-topbar border-0 pb-2 mb-2">
-        <div>
-          <div class="text-[11px] font-bold" style="color:var(--mock-accent)">Корпоративная лента</div>
-          <div class="text-[9px]" style="color:var(--mock-muted)">Все подразделения</div>
+    <main class="coin-mock__main">
+      <header class="coin-mock__page-head">
+        <div class="coin-mock__page-head-text">
+          <h1 class="coin-mock__page-title" data-coin-page-title>Corporate feed</h1>
+          <p class="coin-mock__page-sub" data-coin-page-sub>All departments · live updates</p>
         </div>
-        <div class="flex flex-wrap gap-1 sm:hidden">
-          <button type="button" class="mock-nav-item active text-[9px]!" data-coin-nav="feed">Лента</button>
-          <button type="button" class="mock-nav-item text-[9px]!" data-coin-nav="articles">Статьи</button>
-        </div>
-      </div>
+        <div class="coin-mock__search" role="search" aria-label="Search">Search…</div>
+      </header>
 
       <div data-coin-panel="feed">
-        <div class="flex flex-wrap gap-1 mb-2" data-coin-filters>
-          <button type="button" class="coin-filter-chip active" data-coin-filter="all">Все</button>
-          <button type="button" class="coin-filter-chip" data-coin-filter="photo">С фото</button>
-          <button type="button" class="coin-filter-chip" data-coin-filter="thanks">Благодарности</button>
+        <div class="coin-mock__tabs" role="tablist" aria-label="Feed filters">
+          <button type="button" class="coin-mock__tab active" data-coin-filter="all">All</button>
+          <button type="button" class="coin-mock__tab" data-coin-filter="photo">With photo</button>
+          <button type="button" class="coin-mock__tab" data-coin-filter="thanks">Thanks</button>
+        </div>
+
+        <div class="coin-mock__composer">
+          <span class="coin-mock__avatar coin-mock__avatar--blue" aria-hidden="true">YOU</span>
+          <button type="button" class="coin-mock__composer-input">Share an update with the team…</button>
         </div>
 
         <article class="coin-feed-card" data-coin-post="1">
-          <div class="flex gap-2 items-start">
-            <span class="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[10px] font-bold" style="background:var(--mock-accent-soft);color:var(--mock-accent)">АК</span>
-            <div class="min-w-0 flex-1">
-              <div class="text-[10px] font-semibold">Анна Козлова · Product</div>
-              <p class="text-[9px] mt-1" style="color:var(--mock-muted)">Запустили новый раздел статей — делимся best practices по онбордингу.</p>
+          <div class="coin-mock__post-head">
+            <span class="coin-mock__avatar coin-mock__avatar--blue">AK</span>
+            <div class="coin-mock__post-body">
+              <div class="coin-mock__author">Anna Kozlova · Product</div>
+              <p class="coin-mock__post-text">We launched the articles hub — sharing onboarding best practices from last sprint.</p>
               <div class="coin-feed-actions">
-                <button type="button" class="mock-btn-secondary text-[8px]! py-1! px-2!" data-coin-like>👍 12</button>
-                <button type="button" class="mock-btn-secondary text-[8px]! py-1! px-2!">💬 3</button>
+                <button type="button" class="mock-btn-secondary coin-mock__btn-xs" data-coin-like>👍 12</button>
+                <button type="button" class="mock-btn-secondary coin-mock__btn-xs">💬 3</button>
               </div>
             </div>
           </div>
         </article>
 
         <article class="coin-feed-card" data-coin-post="2">
-          <div class="flex gap-2 items-start">
-            <span class="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[10px] font-bold" style="background:var(--mock-gold-soft);color:#a16207">МС</span>
-            <div class="min-w-0 flex-1">
-              <div class="text-[10px] font-semibold">Михаил Соколов · Engineering</div>
-              <p class="text-[9px] mt-1" style="color:var(--mock-muted)">Спасибо команде за помощь с релизом 🙌</p>
+          <div class="coin-mock__post-head">
+            <span class="coin-mock__avatar coin-mock__avatar--gold">MS</span>
+            <div class="coin-mock__post-body">
+              <div class="coin-mock__author">Mikhail Sokolov · Engineering</div>
+              <p class="coin-mock__post-text">Huge thanks to the release crew for shipping on time.</p>
               <div class="coin-feed-actions">
-                <button type="button" class="mock-btn-primary text-[8px]! py-1! px-2!" data-coin-thanks>
-                  <span data-coin-thanks-label>🪙 Поблагодарить</span>
+                <button type="button" class="mock-btn-primary coin-mock__btn-xs coin-mock__btn-thanks" data-coin-thanks>
+                  <span data-coin-thanks-label>🪙 Thank</span>
                 </button>
               </div>
             </div>
@@ -60,74 +65,90 @@
         </article>
 
         <article class="coin-feed-card hidden" data-coin-post-filter="photo">
-          <div class="text-[10px] font-semibold mb-1">Фото с корпоратива</div>
-          <div class="rounded-md h-16 mb-1" style="background:linear-gradient(135deg,var(--mock-accent-soft),#e0e7ff)"></div>
-          <p class="text-[9px]" style="color:var(--mock-muted)">Альбом «Coin Day 2026»</p>
+          <div class="coin-mock__post-head">
+            <span class="coin-mock__avatar coin-mock__avatar--blue">HR</span>
+            <div class="coin-mock__post-body">
+              <div class="coin-mock__author">HR Team · Culture</div>
+              <div class="coin-mock__photo-thumb" aria-hidden="true"></div>
+              <p class="coin-mock__meta">Album «Coin Day 2026» · 24 photos</p>
+            </div>
+          </div>
         </article>
       </div>
 
       <div class="hidden" data-coin-panel="articles">
-        <div class="flex justify-between items-center mb-2">
-          <span class="text-[10px] font-semibold" style="color:var(--mock-muted)">Библиотека знаний</span>
-          <button type="button" class="mock-btn-primary text-[8px]! py-1! px-2!" data-coin-compose>+ Статья</button>
+        <div class="coin-mock__panel-head">
+          <span class="coin-mock__section-label">Knowledge library</span>
+          <button type="button" class="mock-btn-primary coin-mock__btn-xs" data-coin-compose>+ Article</button>
         </div>
-        <div class="mock-chart-panel space-y-2" data-coin-articles-list>
-          <button type="button" class="w-full text-left p-2 rounded-md border transition-colors hover:border-blue-300" style="border-color:var(--mock-border)">
-            <div class="text-[10px] font-semibold">Как писать посты в ленте</div>
-            <div class="text-[8px]" style="color:var(--mock-muted)">HR · 4 мин · 128 просмотров</div>
+        <div class="coin-mock__article-list mock-chart-panel" data-coin-articles-list>
+          <button type="button" class="coin-mock__article-row">
+            <div class="coin-mock__article-title">How to write feed posts</div>
+            <div class="coin-mock__meta">HR · 4 min · 128 views</div>
           </button>
-          <button type="button" class="w-full text-left p-2 rounded-md border" style="border-color:var(--mock-border)">
-            <div class="text-[10px] font-semibold">Гайд по монетам благодарности</div>
-            <div class="text-[8px]" style="color:var(--mock-muted)">Culture · 6 мин</div>
+          <button type="button" class="coin-mock__article-row">
+            <div class="coin-mock__article-title">Gratitude coins guide</div>
+            <div class="coin-mock__meta">Culture · 6 min</div>
           </button>
         </div>
-        <div class="hidden mt-2 p-2 rounded-lg border space-y-2" data-coin-compose-panel style="border-color:var(--mock-border);background:var(--mock-surface-2)">
-          <input class="mock-field w-full text-[9px]!" type="text" placeholder="Заголовок статьи" value="Черновик: UX чеклист">
-          <textarea class="mock-field w-full text-[9px]! min-h-[3rem]" placeholder="Текст…">Короткий чеклист для авторов статей…</textarea>
-          <button type="button" class="mock-btn-primary text-[8px]! py-1! px-3!" data-coin-publish>Опубликовать</button>
+        <div class="hidden coin-mock__compose" data-coin-compose-panel>
+          <input class="mock-field coin-mock__field" type="text" placeholder="Article title" value="Draft: UX checklist" />
+          <textarea class="mock-field coin-mock__field coin-mock__field--area" placeholder="Body…">Short checklist for article authors…</textarea>
+          <button type="button" class="mock-btn-primary coin-mock__btn-xs" data-coin-publish>Publish</button>
         </div>
       </div>
 
       <div class="hidden" data-coin-panel="growth">
-        <div class="mock-kpi mb-2">
-          <div class="text-[8px] uppercase" style="color:var(--mock-muted)">ИПР · Q1 2026</div>
-          <div class="text-[10px] font-semibold mt-1">Цель: Lead UX в продуктовой команде</div>
-          <div class="mock-progress-inline mt-2" style="height:6px"><span style="width:68%"></span></div>
-          <p class="text-[8px] mt-1" style="color:var(--mock-muted)">4 из 6 шагов выполнено</p>
+        <div class="mock-kpi coin-mock__kpi-block">
+          <div class="coin-mock__kpi-label">IDP · Q1 2026</div>
+          <div class="coin-mock__kpi-title">Goal: Lead UX in product squad</div>
+          <div class="mock-progress-inline coin-mock__progress"><span style="width:68%"></span></div>
+          <p class="coin-mock__meta">4 of 6 milestones completed</p>
         </div>
-        <ul class="space-y-1 text-[9px]" style="color:var(--mock-muted)">
-          <li>✓ Менторство с дизайн-лидом</li>
-          <li>✓ Воркшоп по исследованиям</li>
-          <li class="opacity-70">○ Публичный доклад</li>
+        <ul class="coin-mock__checklist">
+          <li>✓ Mentorship with design lead</li>
+          <li>✓ Research workshop</li>
+          <li class="coin-mock__checklist-item--muted">○ Public talk</li>
         </ul>
       </div>
 
-      <div class="hidden" data-coin-panel="profile">
-        <div class="flex gap-3 items-start mb-3">
-          <span class="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold shrink-0" style="background:var(--mock-accent-soft);color:var(--mock-accent)">ВЫ</span>
+      <div class="hidden" data-coin-panel="rating">
+        <div class="coin-mock__rating-row coin-mock__rating-row--lead">
+          <span class="coin-mock__rating-pos">1</span>
+          <span class="coin-mock__avatar coin-mock__avatar--gold">AK</span>
           <div>
-            <div class="text-[11px] font-bold">Ваш профиль</div>
-            <div class="text-[9px]" style="color:var(--mock-muted)">Product Design · Coin HQ</div>
+            <div class="coin-mock__author">Anna Kozlova</div>
+            <div class="coin-mock__meta">1,240 coins · Product</div>
           </div>
         </div>
-        <div class="mock-kpi mb-2">
-          <div class="text-[8px] uppercase" style="color:var(--mock-muted)">Монеты благодарности</div>
-          <div class="text-lg font-bold" style="color:var(--mock-accent)">860</div>
+        <div class="coin-mock__rating-row">
+          <span class="coin-mock__rating-pos">2</span>
+          <span class="coin-mock__avatar coin-mock__avatar--blue">MS</span>
+          <div>
+            <div class="coin-mock__author">Mikhail Sokolov</div>
+            <div class="coin-mock__meta">980 coins · Engineering</div>
+          </div>
         </div>
-        <button type="button" class="mock-btn-secondary w-full text-[9px]! mb-1">Редактировать</button>
-        <button type="button" class="mock-btn-secondary w-full text-[9px]!" data-coin-nav="feed">← К ленте</button>
       </div>
 
-      <div class="hidden" data-coin-panel="rating">
-        <table class="mock-table">
-          <thead><tr><th>#</th><th>Сотрудник</th><th>Монеты</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Анна К.</td><td class="mock-kpi-delta">1 240</td></tr>
-            <tr><td>2</td><td>Михаил С.</td><td class="mock-kpi-delta">980</td></tr>
-            <tr><td>3</td><td>Вы</td><td>860</td></tr>
-          </tbody>
-        </table>
+      <div class="hidden" data-coin-panel="profile">
+        <div class="coin-mock__profile-head">
+          <span class="coin-mock__avatar coin-mock__avatar--lg">YOU</span>
+          <div>
+            <div class="coin-mock__profile-name">Your profile</div>
+            <div class="coin-mock__meta">Product Design · Coin HQ</div>
+          </div>
+        </div>
+        <div class="mock-kpi coin-mock__kpi-block">
+          <div class="coin-mock__kpi-label">Gratitude coins</div>
+          <div class="coin-mock__coins-value">860</div>
+        </div>
+        <button type="button" class="mock-btn-secondary coin-mock__btn-block">Edit profile</button>
+        <button type="button" class="mock-btn-secondary coin-mock__btn-block" data-coin-nav="feed">← Back to feed</button>
       </div>
     </main>
   </div>
 </div>
+
+
+

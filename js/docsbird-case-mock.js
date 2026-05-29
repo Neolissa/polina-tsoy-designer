@@ -13,12 +13,12 @@
       s.classList.toggle("is-active", on);
       s.hidden = !on;
     });
-    root.querySelectorAll("[data-docsbird-goto]").forEach(function (tab) {
-      if (tab.getAttribute("data-docsbird-goto") === id && tab.classList.contains("docsbird-flow__tab")) {
-        tab.classList.add("is-active");
-      } else if (tab.classList.contains("docsbird-flow__tab")) {
-        tab.classList.remove("is-active");
-      }
+    var screen = root.querySelector('[data-docsbird-screen="' + id + '"]');
+    if (!screen) return;
+    var labels = { agreements: "Agreements", dashboard: "Dashboard", create: "Invoices" };
+    screen.querySelectorAll(".docsbird-flow__sidebar .docsbird-flow__nav").forEach(function (nav) {
+      var text = nav.textContent.replace(/▾.*/, "").trim();
+      nav.classList.toggle("is-active", text === labels[id]);
     });
   }
 

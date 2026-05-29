@@ -72,6 +72,42 @@ const ASSETS = [
     width: 1024
   },
   {
+    id: "tvip-onb-1-night",
+    src: "tvip styles/Dark Desktop onb 1.svg",
+    out: "tvip/onboarding/onb-1-night.webp",
+    width: 1920
+  },
+  {
+    id: "tvip-onb-2-night",
+    src: "tvip styles/Dark Desktop onb 2.svg",
+    out: "tvip/onboarding/onb-2-night.webp",
+    width: 1920
+  },
+  {
+    id: "tvip-onb-3-night",
+    src: "tvip styles/Dark Desktop  onb 3.svg",
+    out: "tvip/onboarding/onb-3-night.webp",
+    width: 1920
+  },
+  {
+    id: "tvip-onb-1-day",
+    src: "tvip styles/Desktop onboarding.svg",
+    out: "tvip/onboarding/onb-1-day.webp",
+    width: 1920
+  },
+  {
+    id: "tvip-onb-2-day",
+    src: "tvip styles/Desktop onboarding 2.svg",
+    out: "tvip/onboarding/onb-2-day.webp",
+    width: 1920
+  },
+  {
+    id: "tvip-onb-3-day",
+    src: "tvip styles/Desktop onboarding 3.svg",
+    out: "tvip/onboarding/onb-3-day.webp",
+    width: 1920
+  },
+  {
     id: "coin-home",
     src: "coin styles/Главная страница - Фильтры - Фото.svg",
     out: "coin/home.webp",

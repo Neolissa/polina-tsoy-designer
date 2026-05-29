@@ -644,17 +644,6 @@
         </div>
     </section>
 
-    <!-- Themes Section -->
-    <section id="themes" class="py-24 bg-gray-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="case-mock-block fade-in mb-12">
-                <p class="case-mock-caption text-center text-xs text-gray-400 tracking-wide">интерактивный макет</p>
-                <p class="text-center text-sm text-gray-400 mb-4 max-w-2xl mx-auto">Макеты из Figma: нажмите «Войти» на экране входа, на мобилке — каталог и фильтр</p>
-                <div data-tvip-case-mock data-appearance="night" data-device="desktop" aria-label="Интерактивный макет TVIP"></div>
-            </div>
-        </div>
-    </section>
-
     <!-- Onboarding Section -->
     <section id="onboarding" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -699,6 +688,20 @@
                     <div class="text-3xl mb-3">📱</div>
                     <div class="font-bold mb-2">Кроссплатформенный</div>
                     <div class="text-sm text-gray-600">Работает на всех устройствах</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive mock — above results -->
+    <section id="interactive-mock" class="py-24 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="case-mock-block fade-in">
+                <p class="case-mock-caption text-center text-xs text-gray-400 tracking-wide">интерактивный макет</p>
+                <p class="text-center text-sm text-gray-400 mb-4 max-w-2xl mx-auto">Живой прототип на вёрстке: войдите, пройдите онбординг, откройте карточку. На планшете и телефоне — отдельные экраны; переключите «День» — тема меняется везде, включая мобилку.</p>
+                <div class="case-mock-stage-wrap">
+                    <button type="button" class="case-mock-reset-btn" data-case-mock-reset aria-label="Сбросить демо"></button>
+                    <div data-tvip-case-mock data-appearance="night" data-device="desktop" aria-label="Интерактивный макет TVIP"></div>
                 </div>
             </div>
         </div>
@@ -1023,8 +1026,6 @@
         <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
     </div>
     <script src="js/image-lightbox.js"></script>
-    <script src="js/tvip-mock-overlays.js"></script>
-    <script src="js/case-mock-svg.js"></script>
     <script src="js/tvip-case-mock.js"></script>
     <script src="js/case-mocks.js"></script>
 

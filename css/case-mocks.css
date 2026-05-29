@@ -2,6 +2,8 @@
 
 .case-mock-block {
   margin: 2.5rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .case-mock-caption {
@@ -56,13 +58,13 @@
 .tvip-interactive-mock {
   --tvip-accent: #f4511e;
   --tvip-accent-soft: rgba(244, 81, 30, 0.18);
-  --tvip-bg: #060818;
+  --tvip-bg: #050E28;
   --tvip-surface: #12131f;
   --tvip-surface-2: #242634;
   --tvip-text: rgba(255, 255, 255, 0.92);
   --tvip-muted: rgba(255, 255, 255, 0.55);
   --tvip-border: rgba(255, 255, 255, 0.08);
-  --tvip-hero: linear-gradient(135deg, #1a2d46 0%, #0d1524 55%, #060818 100%);
+  --tvip-hero: linear-gradient(135deg, #1a2d46 0%, #0d1524 55%, #050E28 100%);
   --tvip-stage-bg: #eef1f6;
   --tvip-controls-bg: #ffffff;
   --tvip-controls-border: #e5e7eb;
@@ -88,6 +90,18 @@
   --tvip-muted: #5c6b80;
   --tvip-border: #d8e0ec;
   --tvip-hero: linear-gradient(135deg, #dce8f8 0%, #c5d8f0 50%, #eef3fa 100%);
+}
+
+.tvip-interactive-mock[data-appearance="day"] .tvip-device-chrome {
+  background: #e8ecf2;
+  box-shadow:
+    0 24px 48px -12px rgba(15, 23, 42, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.85);
+}
+
+.tvip-interactive-mock[data-appearance="day"] .tvip-device-bar::before {
+  background: #c5cad3;
+  box-shadow: 8px 0 0 #c5cad3, 16px 0 0 #c5cad3;
 }
 
 .tvip-interactive-mock__device {
@@ -180,8 +194,29 @@
   border-radius: 0.35rem;
   overflow: hidden;
   background: var(--tvip-bg);
-  aspect-ratio: 16 / 9;
   position: relative;
+  container-type: size;
+  container-name: tvip-frame;
+}
+
+/* Фиксированные пропорции артбордов Figma — высота не прыгает при смене экрана */
+.tvip-interactive-mock[data-device="desktop"] .tvip-device-screen.tvip-device-screen--html {
+  aspect-ratio: 1920 / 935;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: min(68vh, 42rem);
+}
+
+.tvip-interactive-mock[data-device="tablet"] .tvip-device-screen.tvip-device-screen--html {
+  aspect-ratio: 640 / 1024;
+  max-height: min(72vh, 44rem);
+}
+
+.tvip-interactive-mock[data-device="mobile"] .tvip-device-screen.tvip-device-screen--html {
+  aspect-ratio: 360 / 926;
+  max-height: min(78vh, 44rem);
+  border-radius: 1.25rem;
 }
 
 .tvip-device-screen.tvip-device-screen--svg {
@@ -191,12 +226,12 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.tvip-interactive-mock[data-device="tablet"] .tvip-device-screen {
+.tvip-interactive-mock[data-device="tablet"] .tvip-device-screen:not(.tvip-device-screen--html) {
   aspect-ratio: 3 / 4;
   border-radius: 0.5rem;
 }
 
-.tvip-interactive-mock[data-device="mobile"] .tvip-device-screen {
+.tvip-interactive-mock[data-device="mobile"] .tvip-device-screen:not(.tvip-device-screen--html) {
   aspect-ratio: 9 / 19.5;
   border-radius: 1.25rem;
 }
@@ -263,8 +298,13 @@
 
 .tvip-mock-segment__icon {
   width: 1.1rem;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0.85;
+}
+.tvip-mock-segment__icon svg {
+  display: block;
 }
 
 .tvip-mock-theme-toggle {
@@ -285,6 +325,10 @@
   cursor: pointer;
   font-family: inherit;
   transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
 .tvip-mock-theme-btn.active {
@@ -349,10 +393,11 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  font-size: 10px;
+  font-size: clamp(8px, 1.07cqh, 11px);
   line-height: 1.35;
   color: var(--tvip-text);
   background: var(--tvip-bg);
+  overflow: hidden;
 }
 
 .tvip-screen {
@@ -380,6 +425,8 @@
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0.45rem 0.55rem;
+  min-height: 2rem;
+  flex-shrink: 0;
   border-bottom: 1px solid var(--tvip-border);
   background: color-mix(in srgb, var(--tvip-surface) 92%, transparent);
 }
@@ -424,10 +471,11 @@
 }
 
 .tvip-sidebar {
-  width: 28%;
-  min-width: 4.5rem;
+  width: 14.5%;
+  min-width: 3.8rem;
+  flex-shrink: 0;
   border-right: 1px solid var(--tvip-border);
-  padding: 0.35rem;
+  padding: 0.35rem 0.25rem;
   background: var(--tvip-surface);
 }
 
@@ -539,6 +587,9 @@
   transition: transform 0.15s, filter 0.15s;
 }
 
+.tvip-btn svg {
+  flex-shrink: 0;
+}
 .tvip-btn:hover {
   filter: brightness(1.06);
   transform: scale(1.02);
@@ -683,11 +734,7 @@
 .tvip-login-center {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
   padding: 1rem;
-  text-align: center;
 }
 
 .tvip-login-center .tvip-logo {
@@ -695,14 +742,1584 @@
   margin-bottom: 0.75rem;
 }
 
+.tvip-login-scene {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background-color: var(--tvip-bg);
+  background-size: cover;
+  background-position: center top;
+}
+
+.tvip-interactive-mock[data-appearance="day"] .tvip-login-scene {
+  background-color: #c5daf2;
+  background-image: none;
+}
+
+.tvip-interactive-mock[data-appearance="night"] .tvip-login-scene {
+  background-color: #050E28;
+  background-image: none;
+}
+
+/* Скрыть «запечённые» в WebP переключатели RU/EN и темы */
+.tvip-login-scene::after {
+  content: "";
+  position: absolute;
+  top: 4.2%;
+  right: 13.5%;
+  width: 10%;
+  height: 7.5%;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.tvip-interactive-mock[data-appearance="day"] .tvip-login-scene::after {
+  background: linear-gradient(160deg, #b8d4f0 0%, #d4e6f8 55%, #e8f2fc 100%);
+}
+
+.tvip-interactive-mock[data-appearance="night"] .tvip-login-scene::after {
+  background: linear-gradient(160deg, #1e1648 0%, #261a52 50%, #120c2e 100%);
+}
+
+/* Карточка логина Figma: 500×541 @ ~(37%, 21%) */
+.tvip-login-panel {
+  position: absolute;
+  left: 37%;
+  top: 21%;
+  width: 26%;
+  min-width: 11.5rem;
+  max-width: 15.5rem;
+  padding: 1rem 0.85rem 1.1rem;
+  border-radius: 3px;
+  background: #ffffff;
+  color: #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  z-index: 3;
+}
+
+.tvip-interactive-mock[data-appearance="night"] .tvip-login-panel .tvip-field {
+  background: #fff;
+  border-color: #a1a1a1;
+  color: #333;
+}
+
+.tvip-interactive-mock[data-appearance="night"] .tvip-login-panel .tvip-field-label {
+  color: #888888;
+}
+
+.tvip-interactive-mock[data-appearance="night"] .tvip-login-panel .tvip-login-sub {
+  color: #7a7a7a;
+}
+
+.tvip-login-clouds {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.tvip-interactive-mock[data-appearance="day"] .tvip-login-clouds {
+  opacity: 0.35;
+}
+
+.tvip-interactive-mock[data-appearance="day"] .tvip-login-cloud {
+  background: rgba(255, 255, 255, 0.55);
+  filter: blur(4px);
+}
+
+.tvip-login-cloud {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  filter: blur(3px);
+  animation: tvip-cloud-drift 26s linear infinite;
+}
+
+.tvip-login-cloud:nth-child(1) {
+  width: 22%;
+  height: 9%;
+  top: 12%;
+  left: -25%;
+}
+
+.tvip-login-cloud:nth-child(2) {
+  width: 16%;
+  height: 7%;
+  top: 22%;
+  left: -18%;
+  animation-duration: 34s;
+}
+
+.tvip-login-cloud:nth-child(3) {
+  width: 28%;
+  height: 11%;
+  top: 6%;
+  left: -32%;
+  animation-duration: 40s;
+}
+
+.tvip-login-cloud:nth-child(4) {
+  width: 14%;
+  height: 6%;
+  top: 28%;
+  left: -12%;
+  animation-duration: 22s;
+}
+
+.tvip-login-cloud:nth-child(5) {
+  width: 20%;
+  height: 8%;
+  top: 14%;
+  left: -24%;
+  animation-duration: 30s;
+  animation-delay: -8s;
+}
+
+/* —— TVIP: Main page / mobile / tablet (HTML structure) —— */
+.tvip-home {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.tvip-home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.55rem 0.25rem;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--tvip-border);
+  background: color-mix(in srgb, var(--tvip-surface) 94%, transparent);
+}
+
+.tvip-home-brand {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+  color: var(--tvip-accent);
+  opacity: 0.9;
+}
+
+.tvip-profile-switch {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.tvip-profile-pill {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  line-height: 0;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.tvip-profile-pill:hover {
+  transform: scale(1.04);
+}
+
+.tvip-profile-pill.active {
+  border-color: var(--tvip-accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tvip-accent) 40%, transparent);
+}
+
+.tvip-profile-pill__img,
+.tvip-profile-rail__item img {
+  display: block;
+  width: 3.4rem;
+  height: auto;
+  aspect-ratio: 60 / 36;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.tvip-profile-pill--solo {
+  flex-shrink: 0;
+}
+
+.tvip-home-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.tvip-profile-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.45rem 0.3rem;
+  flex-shrink: 0;
+  border-right: 1px solid var(--tvip-border);
+  background: var(--tvip-surface);
+}
+
+.tvip-profile-rail__item {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.tvip-profile-rail__item.active {
+  border-color: var(--tvip-accent);
+}
+
+.tvip-profile-rail__item img {
+  width: 2.6rem;
+  aspect-ratio: 60 / 35;
+}
+
+.tvip-home-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.4rem 0.5rem 0.55rem;
+}
+
+.tvip-continue-block {
+  display: grid;
+  grid-template-columns: 1fr minmax(4.5rem, 22%);
+  gap: 0.35rem;
+  margin-bottom: 0.45rem;
+}
+
+.tvip-land-card {
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--tvip-surface-2);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tvip-land-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+.tvip-land-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 329 / 178;
+  object-fit: cover;
+}
+
+.tvip-land-card--hero .tvip-land-card__img {
+  aspect-ratio: 329 / 178;
+  min-height: 5.5rem;
+}
+
+.tvip-land-card--sm .tvip-land-card__img {
+  aspect-ratio: 329 / 178;
+  min-height: 100%;
+}
+
+.tvip-land-card__overlay {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.45rem 0.5rem 0.5rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 10, 20, 0.88) 72%);
+}
+
+.tvip-land-card__overlay .tvip-h2,
+.tvip-land-card__overlay .tvip-lead {
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.tvip-land-card__overlay .tvip-lead {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.tvip-land-card__label {
+  position: absolute;
+  left: 0.35rem;
+  bottom: 0.3rem;
+  font-size: 8px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.tvip-poster-row {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tvip-poster-row--scroll.tvip-poster-row--overflow {
+  mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+}
+
+.tvip-poster-row .tvip-land-card {
+  flex: 0 0 32%;
+  min-width: 5.5rem;
+  scroll-snap-align: start;
+}
+
+.tvip-home-panel {
+  display: none;
+}
+
+.tvip-home-panel.is-active {
+  display: block;
+}
+
+.tvip-continue-block--solo {
+  grid-template-columns: 1fr;
+}
+
+.tvip-tablet-sections {
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.3rem 0.5rem;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--tvip-border);
+  background: color-mix(in srgb, var(--tvip-surface) 94%, transparent);
+  overflow-x: auto;
+}
+
+.tvip-tablet-section {
+  flex-shrink: 0;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--tvip-border);
+  background: transparent;
+  color: var(--tvip-muted);
+  font-size: 8px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tvip-tablet-section:hover {
+  color: var(--tvip-text);
+}
+
+.tvip-tablet-section.active {
+  border-color: var(--tvip-accent);
+  background: var(--tvip-accent-soft);
+  color: var(--tvip-accent);
+  font-weight: 600;
+}
+
+.tvip-screen-announcer {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.tvip-app :is(
+  .tvip-btn,
+  .tvip-nav-item,
+  .tvip-chip,
+  .tvip-land-card,
+  .tvip-vert-card,
+  .tvip-mob-tile,
+  .tvip-filter-item,
+  .tvip-profile-pill,
+  .tvip-profile-rail__item,
+  .tvip-mob-tab,
+  .tvip-mobile-nav button,
+  .tvip-tablet-section,
+  .tvip-mob-continue
+):focus-visible {
+  outline: 2px solid var(--tvip-accent);
+  outline-offset: 2px;
+}
+
+.tvip-interactive-mock[data-appearance="day"] .tvip-mob-continue__meta,
+.tvip-interactive-mock[data-appearance="day"] .tvip-land-card__overlay {
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.75) 72%);
+}
+
+.tvip-mobile-nav button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tvip-vert-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--tvip-surface-2);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: transform 0.2s;
+}
+
+.tvip-vert-card:hover {
+  transform: scale(1.02);
+}
+
+.tvip-vert-card__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 120 / 153;
+  object-fit: cover;
+}
+
+.tvip-vert-card__meta {
+  padding: 0.3rem 0.35rem;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.tvip-onb-scene {
+  display: grid;
+  grid-template-columns: 1fr minmax(11rem, 34%);
+  flex: 1;
+  min-height: 0;
+  background: var(--tvip-bg);
+  overflow: hidden;
+}
+
+.tvip-onb-illus {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--tvip-bg);
+}
+
+.tvip-onb-illus__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.tvip-onb-panel-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-left: 1px solid var(--tvip-border);
+  background: color-mix(in srgb, var(--tvip-surface) 96%, transparent);
+}
+
+.tvip-topbar--onb {
+  border-bottom: 1px solid var(--tvip-border);
+  flex-shrink: 0;
+}
+
+.tvip-onb-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.85rem 1rem 1rem;
+  min-height: 0;
+  overflow: auto;
+}
+
+@media (max-width: 520px) {
+  .tvip-onb-scene {
+    grid-template-columns: 1fr;
+    grid-template-rows: 42% 1fr;
+  }
+
+  .tvip-onb-panel-wrap {
+    border-left: none;
+    border-top: 1px solid var(--tvip-border);
+  }
+}
+
+.tvip-chips--onb {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.tvip-detail-desktop {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.tvip-detail-poster-img {
+  width: 38%;
+  flex-shrink: 0;
+  border-radius: 6px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.tvip-detail-poster-img--tablet {
+  width: 42%;
+  margin: 0 auto 0.65rem;
+}
+
+.tvip-detail-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.tvip-mob-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.45rem;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--tvip-border);
+  background: var(--tvip-surface);
+}
+
+.tvip-mob-tabs {
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.35rem 0.45rem 0.25rem;
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.tvip-mob-tab {
+  flex-shrink: 0;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--tvip-border);
+  background: transparent;
+  color: var(--tvip-muted);
+  font-size: 8px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.tvip-mob-tab.active {
+  border-color: var(--tvip-accent);
+  background: var(--tvip-accent-soft);
+  color: var(--tvip-accent);
+  font-weight: 600;
+}
+
+.tvip-mob-continue {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.45rem;
+  cursor: pointer;
+}
+
+.tvip-mob-continue__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.tvip-mob-continue__meta {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.35rem 0.45rem;
+  background: linear-gradient(180deg, transparent, rgba(6, 10, 20, 0.9));
+  font-size: 8px;
+  color: #fff;
+}
+
+.tvip-mob-grid,
+.tvip-mob-filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+}
+
+.tvip-mob-tile {
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--tvip-surface-2);
+  line-height: 0;
+}
+
+.tvip-mob-tile img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 150 / 100;
+  object-fit: cover;
+}
+
+.tvip-progress--tile {
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+  bottom: 0.25rem;
+  margin: 0;
+  height: 2px;
+}
+
+.tvip-mob-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.tvip-mob-detail__poster {
+  width: 100%;
+  border-radius: 6px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.tvip-mobile-nav__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.15rem;
+}
+.tvip-mobile-nav__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tvip-interactive-mock[data-device="mobile"] .tvip-screen.is-active {
+  display: flex;
+  flex-direction: column;
+}
+
+.tvip-interactive-mock[data-device="mobile"] .tvip-body--mobile {
+  flex: 1;
+}
+
+.tvip-land-card:focus-visible,
+.tvip-vert-card:focus-visible,
+.tvip-mob-tile:focus-visible,
+.tvip-profile-pill:focus-visible,
+.tvip-profile-rail__item:focus-visible,
+.tvip-mob-tab:focus-visible {
+  outline: 2px solid var(--tvip-accent);
+  outline-offset: 2px;
+}
+
+.tvip-login-center {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: left;
+}
+
+.tvip-login-panel .tvip-logo {
+  color: #333;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.tvip-login-panel .tvip-btn--block {
+  border-radius: 25px;
+  min-height: 2.35rem;
+  margin-top: 0.35rem;
+}
+
+.tvip-login-sub {
+  margin: 0 0 0.65rem;
+  font-size: 8px;
+  color: var(--tvip-muted);
+  text-align: center;
+}
+
+.tvip-field-label {
+  display: block;
+  font-size: 7px;
+  font-weight: 600;
+  color: var(--tvip-muted);
+  margin-bottom: 0.15rem;
+}
+
+.tvip-link {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-size: 8px;
+  color: var(--tvip-accent);
+  text-decoration: none;
+}
+
+.tvip-link:hover {
+  text-decoration: underline;
+}
+
+.tvip-h2 {
+  margin: 0 0 0.25rem;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tvip-lead {
+  margin: 0 0 0.45rem;
+  font-size: 8px;
+  color: var(--tvip-muted);
+}
+
+.tvip-body--pad {
+  padding: 0.65rem;
+}
+
+.tvip-body--mobile {
+  padding: 0.45rem 0.45rem 0.25rem;
+}
+
+.tvip-body--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tvip-topbar--mobile {
+  padding: 0.35rem 0.45rem;
+}
+
+.tvip-topbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.tvip-search--compact {
+  max-width: 5.5rem;
+  font-size: 8px;
+}
+
+.tvip-hero--compact {
+  padding: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.tvip-btn--sm {
+  padding: 0.25rem 0.45rem;
+  font-size: 8px;
+}
+
+.tvip-btn--spaced {
+  margin-top: 0.65rem;
+}
+
+.tvip-card {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.tvip-card:focus-visible,
+.tvip-btn:focus-visible,
+.tvip-nav-item:focus-visible,
+.tvip-chip:focus-visible,
+.tvip-filter-item:focus-visible,
+.tvip-mobile-nav button:focus-visible {
+  outline: 2px solid var(--tvip-accent);
+  outline-offset: 2px;
+}
+
+.tvip-card__thumb--b {
+  background: linear-gradient(160deg, #2d4a6e, #1a2838);
+}
+
+.tvip-card__thumb--c {
+  background: linear-gradient(160deg, #3d5a4a, #1a2e24);
+}
+
+.tvip-card__thumb--d {
+  background: linear-gradient(160deg, #5a4a3d, #2e241a);
+}
+
+.tvip-card__thumb--e {
+  background: linear-gradient(160deg, #4a3d5a, #241a2e);
+}
+
+.tvip-tablet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.tvip-card--tile {
+  flex: none;
+  width: 100%;
+}
+
+.tvip-card--mobile {
+  flex: 0 0 38%;
+  min-width: 4rem;
+}
+
+.tvip-detail-layout {
+  display: flow-root;
+}
+
+.tvip-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.45rem 0;
+}
+
+.tvip-detail-desc {
+  font-size: 8px;
+  color: var(--tvip-muted);
+  line-height: 1.45;
+  clear: both;
+}
+
+.tvip-detail-poster--center {
+  float: none;
+  width: 55%;
+  margin: 0 auto 0.65rem;
+}
+
+.tvip-detail-poster--full {
+  float: none;
+  width: 100%;
+  margin: 0 0 0.65rem;
+}
+
+.tvip-detail-links {
+  margin: 0.45rem 0 0;
+  font-size: 8px;
+  text-align: center;
+}
+
+.tvip-detail-meta {
+  font-size: 8px;
+  color: var(--tvip-muted);
+  margin: 0.15rem 0;
+}
+
+.tvip-detail-meta--mob {
+  text-align: center;
+}
+
+.tvip-detail-seasons {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0.45rem 0;
+  flex-wrap: wrap;
+}
+
+/* —— TVIP: Start / splash screen —— */
+.tvip-start-scene {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tvip-bg);
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/case-mocks/tvip/bg/start-bg-night.svg");
+}
+.tvip-interactive-mock[data-appearance="day"] .tvip-start-scene {
+  background-image: url("../images/case-mocks/tvip/bg/start-bg-day.svg");
+}
+
+.tvip-start-bg {
+  display: none;
+}
+
+.tvip-start-bg__img {
+  display: none;
+}
+
+.tvip-start-panel {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.tvip-start-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tvip-start-illus {
+  display: none;
+}
+
+.tvip-logo--start {
+  font-size: 16px;
+  margin-bottom: 0.25rem;
+}
+
+.tvip-start-toggles {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.65rem;
+}
+
+.tvip-chip--sm {
+  font-size: 7px;
+  padding: 0.15rem 0.35rem;
+}
+
+/* —— TVIP: Login background (replaces clouds for bg-image variant) —— */
+.tvip-login-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.tvip-login-bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* —— TVIP: Logged-in success screen —— */
+.tvip-loggedin-scene {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tvip-bg);
+  background-size: cover;
+  background-position: center top;
+}
+.tvip-interactive-mock[data-appearance="day"] .tvip-loggedin-scene {
+  background-image: none;
+}
+.tvip-interactive-mock[data-appearance="night"] .tvip-loggedin-scene {
+  background-image: none;
+}
+
+.tvip-loggedin-panel {
+  position: relative;
+  z-index: 2;
+  width: 26%;
+  min-width: 11.5rem;
+  max-width: 15.5rem;
+  padding: 1.2rem 0.85rem;
+  border-radius: 3px;
+  background: #ffffff;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.tvip-loggedin-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tvip-loggedin-check {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--tvip-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.tvip-loggedin-panel .tvip-h2 {
+  color: #333;
+}
+
+.tvip-loggedin-panel .tvip-lead {
+  color: #666;
+}
+
+.tvip-loggedin-panel .tvip-link {
+  color: var(--tvip-accent);
+}
+
+/* —— TVIP: Profile creation screen —— */
+.tvip-profile-scene {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tvip-bg);
+  background-size: cover;
+  background-position: center top;
+}
+.tvip-interactive-mock[data-appearance="day"] .tvip-profile-scene {
+  background-image: none;
+}
+.tvip-interactive-mock[data-appearance="night"] .tvip-profile-scene {
+  background-image: none;
+}
+
+.tvip-profile-create-panel {
+  position: relative;
+  z-index: 2;
+  width: 28%;
+  min-width: 12rem;
+  max-width: 16rem;
+  padding: 1rem 0.85rem 1.1rem;
+  border-radius: 3px;
+  background: #ffffff;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.tvip-profile-create-panel .tvip-h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 0.65rem;
+}
+
+.tvip-profile-create-panel .tvip-field-label {
+  color: #888;
+}
+
+.tvip-profile-create-panel .tvip-field {
+  background: #fff;
+  border-color: #ccc;
+  color: #333;
+}
+
+.tvip-avatar-picker {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.tvip-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #bdbdbd;
+  cursor: pointer;
+  padding: 0;
+  background: #E0E0E0;
+  transition: border-color 0.15s, transform 0.15s, background 0.15s;
+}
+
+.tvip-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.tvip-avatar:hover {
+  transform: scale(1.08);
+}
+
+.tvip-avatar.active {
+  background: #F4511E;
+  border-color: #F4511E;
+  box-shadow: 0 0 0 2px rgba(244, 81, 30, 0.25);
+}
+
+.tvip-avatar-picker--tablet {
+  margin-bottom: 1rem;
+}
+
+.tvip-avatar-picker--tablet .tvip-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.tvip-pin-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.25rem 0 0.65rem;
+}
+
+.tvip-pin-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: transparent;
+}
+
+.tvip-pin-dot.filled {
+  background: #333;
+  border-color: #333;
+}
+
+.tvip-field--centered {
+  text-align: center;
+  max-width: 10rem;
+}
+
+/* —— TVIP: Channel card list (desktop TV section) —— */
+.tvip-channel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: auto;
+}
+
+.tvip-channel-card {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 0.35rem 0.4rem;
+  border-radius: 6px;
+  background: var(--tvip-surface-2);
+  border: 1px solid var(--tvip-border);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+}
+
+.tvip-channel-card:hover {
+  background: var(--tvip-accent-soft);
+  transform: translateX(2px);
+}
+
+.tvip-channel-card__thumb {
+  width: 3.5rem;
+  height: 2rem;
+  border-radius: 3px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--tvip-surface);
+}
+
+.tvip-channel-card__info {
+  min-width: 0;
+}
+
+.tvip-channel-card__name {
+  margin: 0;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--tvip-text);
+}
+
+.tvip-channel-card__now {
+  margin: 0.1rem 0 0;
+  font-size: 7px;
+  color: var(--tvip-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tvip-tv-controls {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.45rem;
+}
+
+.tvip-tv-dropdown .tvip-chip {
+  font-size: 8px;
+}
+
+/* —— TVIP: CCTV grid —— */
+.tvip-cctv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.tvip-cctv-card {
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--tvip-surface-2);
+  border: 1px solid var(--tvip-border);
+}
+
+.tvip-cctv-card__preview {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+}
+
+.tvip-cctv-card__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tvip-cctv-card__label {
+  display: block;
+  padding: 0.25rem 0.35rem;
+  font-size: 8px;
+  font-weight: 500;
+  color: var(--tvip-muted);
+}
+
+/* —— TVIP: Survey / genre selection —— */
+.tvip-survey-scene {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tvip-survey-banner {
+  background: var(--tvip-accent);
+  padding: 0.65rem 0.85rem;
+  flex-shrink: 0;
+}
+
+.tvip-h2--light,
+.tvip-lead--light {
+  color: #fff;
+}
+
+.tvip-lead--light {
+  opacity: 0.85;
+}
+
+.tvip-survey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(3.5rem, 1fr));
+  gap: 0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.tvip-survey-card {
+  position: relative;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--tvip-surface-2);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.tvip-survey-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.tvip-survey-card__label {
+  display: block;
+  padding: 0.2rem 0.25rem;
+  font-size: 7px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tvip-survey-check {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--tvip-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.tvip-survey-card.active {
+  border-color: var(--tvip-accent);
+}
+
+.tvip-survey-card.active .tvip-survey-check {
+  opacity: 1;
+  transform: scale(1);
+}
+.tvip-survey-check svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* —— TVIP: Hero carousel (tablet movies home) —— */
+.tvip-hero-carousel {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+}
+
+.tvip-hero-slide {
+  position: relative;
+  cursor: pointer;
+}
+
+.tvip-hero-slide__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
+.tvip-hero-slide__overlay {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.65rem;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+}
+
+.tvip-hero-slide__overlay .tvip-h2 {
+  color: #fff;
+  font-size: 12px;
+}
+
+.tvip-hero-slide__overlay .tvip-lead {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* —— TVIP: Tablet player area —— */
+.tvip-tablet-player-area {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.45rem;
+}
+
+.tvip-tablet-player__poster {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.tvip-tablet-player__controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tvip-tablet-player-area:hover .tvip-tablet-player__controls {
+  opacity: 1;
+}
+
+.tvip-detail-actions--tablet {
+  justify-content: center;
+  margin: 0 0 0.45rem;
+}
+
+.tvip-body--detail {
+  display: flex;
+  flex-direction: column;
+}
+
+/* —— TVIP: Episode thumbnails —— */
+.tvip-episode-row {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  overflow-x: auto;
+}
+
+.tvip-episode-thumb {
+  flex: 0 0 40%;
+  min-width: 4rem;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--tvip-surface-2);
+}
+
+.tvip-episode-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* —— TVIP: Player screen —— */
+.tvip-player {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  background: #050E28;
+}
+
+.tvip-player__topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.55rem;
+  flex-shrink: 0;
+  background: rgba(10, 10, 10, 0.92);
+  z-index: 2;
+}
+
+.tvip-player__topbar .tvip-btn--ghost {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.tvip-player__title {
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.tvip-player__video-area {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.tvip-player__poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tvip-player__play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.tvip-player__play-overlay:hover {
+  opacity: 1;
+}
+
+.tvip-player__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.65rem;
+  flex-shrink: 0;
+  background: rgba(10, 10, 10, 0.92);
+}
+
+.tvip-player__time {
+  font-size: 7px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.tvip-player__timeline {
+  flex: 1;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.tvip-player__progress {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--tvip-accent);
+  transition: width 0.3s ease;
+}
+
+.tvip-player--mobile .tvip-player__play-overlay svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* —— TVIP: Topbar extras —— */
+.tvip-topbar-menu,
+.tvip-topbar-icon {
+  padding: 0.2rem 0.4rem;
+  border: none;
+  background: transparent;
+  color: var(--tvip-text);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tvip-topbar-menu svg,
+.tvip-topbar-icon svg {
+  display: block;
+}
+
+.tvip-home-logo {
+  height: 1.2rem;
+  width: auto;
+  display: block;
+}
+
 /* Coin social platform extras */
 .coin-feed-card {
-  background: var(--mock-surface);
-  border: 1px solid var(--mock-border);
-  border-radius: 0.55rem;
-  padding: 0.55rem;
-  margin-bottom: 0.4rem;
-  transition: box-shadow 0.2s;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 0.6rem 0.65rem;
+  margin-bottom: 0.45rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .coin-feed-card:hover {
@@ -841,11 +2458,6 @@
 
 .case-mock-block .case-mock-reset-btn {
   z-index: 30;
-}
-
-.case-mock-block {
-  position: relative;
-  z-index: 2;
 }
 
 /* Smart scroll: hide bar when content fits */
@@ -1063,9 +2675,20 @@
 .docsbird-flow {
   border-radius: 0.75rem;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
-  background: #fff;
+  border: 1px solid #dce8e0;
+  background: #f8f6f4;
   box-shadow: 0 16px 32px -12px rgba(15, 23, 42, 0.12);
+  aspect-ratio: 1371 / 826;
+  max-height: min(70vh, 42rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.docsbird-flow__stage {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .docsbird-flow__tabs {
@@ -1073,8 +2696,9 @@
   flex-wrap: wrap;
   gap: 0.25rem;
   padding: 0.5rem;
-  background: #f8fafc;
-  border-bottom: 1px solid #e5e7eb;
+  background: #f1f5f3;
+  border-bottom: 1px solid #dce8e0;
+  flex-shrink: 0;
 }
 
 .docsbird-flow__tab {
@@ -1106,22 +2730,27 @@
 
 .docsbird-flow__layout {
   display: flex;
-  min-height: 380px;
+  height: 100%;
+  min-height: 0;
 }
 
 .docsbird-flow__sidebar {
-  width: 26%;
-  min-width: 7rem;
+  width: 21.5%;
+  min-width: 6.5rem;
   padding: 0.75rem 0.5rem;
   background: #f1f5f3;
   border-right: 1px solid #dce8e0;
   position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
 .docsbird-flow__brand {
   font-weight: 800;
   font-size: 0.75rem;
-  color: #15803d;
+  color: #30735d;
   margin-bottom: 0.75rem;
   padding: 0 0.35rem;
 }
@@ -1196,16 +2825,81 @@
 
 .docsbird-flow__main {
   flex: 1;
-  padding: 0.75rem;
+  padding: 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.docsbird-flow__page-head {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-bottom: 1px solid #e8ece9;
+}
+
+.docsbird-flow__page-head .docsbird-flow__title {
+  color: #161417;
+}
+
+.docsbird-flow__subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 8px;
+  color: #858586;
+}
+
+.docsbird-flow__page-head .mock-btn-primary {
+  flex-shrink: 0;
+  font-size: 9px;
+  padding: 0.35rem 0.7rem;
+}
+
+.docsbird-flow__main-header {
+  flex-shrink: 0;
+  padding: 0 1rem;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  background: #30735d;
+  color: #fff;
+}
+
+.docsbird-flow__main-header .docsbird-flow__title {
+  color: #fff;
+  margin: 0;
+}
+
+.docsbird-flow__main-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.75rem 1rem;
+}
+
+.docsbird-flow__main--dash .docsbird-flow__main-body {
+  padding-top: 0.65rem;
 }
 
 .docsbird-flow__toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
   gap: 0.5rem;
+  width: 100%;
+}
+
+.docsbird-flow__main-header .mock-btn-primary {
+  background: #fff;
+  color: #30735d;
+  font-size: 9px;
+  padding: 0.3rem 0.65rem;
+  margin-left: auto;
 }
 
 .docsbird-flow__title {
@@ -1216,7 +2910,14 @@
 
 .docsbird-flow__cards {
   display: grid;
-  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+@media (max-width: 640px) {
+  .docsbird-flow__cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .docsbird-flow__cards--compact .docsbird-flow__card {
@@ -1225,13 +2926,14 @@
 
 .docsbird-flow__card {
   text-align: left;
-  padding: 0.65rem;
-  border-radius: 0.5rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 12px;
   border: 1px solid #e5e7eb;
   background: #fff;
   cursor: pointer;
   font-family: inherit;
   transition: border-color 0.15s, box-shadow 0.15s;
+  box-shadow: 0 1px 2px rgba(22, 20, 23, 0.05);
 }
 
 .docsbird-flow__card:hover,
@@ -1294,6 +2996,15 @@
   color: #15803d;
 }
 
+.docsbird-form__app-bar {
+  background: #30735d;
+  color: #fff;
+  padding: 0.55rem 0.75rem;
+  font-weight: 600;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
 .docsbird-flow__success {
   text-align: center;
   padding: 2.5rem 1.5rem;
@@ -1320,4 +3031,746 @@
   margin: 0 0 1rem;
   font-size: 0.8rem;
   color: #64748b;
+}
+
+.docsbird-flow__section-note {
+  margin: 0 0 0.5rem;
+  font-size: 9px;
+  color: #5c6f63;
+}
+
+.docsbird-flow__btn {
+  font-size: 9px;
+  padding: 0.35rem 0.75rem;
+}
+
+.docsbird-flow__btn--spaced {
+  margin-top: 0.75rem;
+}
+
+.docsbird-flow__btn--lg {
+  font-size: 9px;
+  padding: 0.5rem 1rem;
+}
+
+.docsbird-flow__btn--stack {
+  margin-top: 0.5rem;
+}
+
+/* DocsBird invoice form (inside flow) */
+.docsbird-form__layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+
+@media (min-width: 640px) {
+  .docsbird-form__layout {
+    flex-direction: row;
+  }
+}
+
+.docsbird-form__preview-col {
+  display: none;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--mock-border);
+}
+
+@media (min-width: 640px) {
+  .docsbird-form__preview-col {
+    display: block;
+    width: 28%;
+    border-bottom: none;
+    border-right: 1px solid var(--mock-border);
+  }
+}
+
+.docsbird-form__preview-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--mock-text);
+  font-size: 10px;
+}
+
+.docsbird-form__preview-gap {
+  margin-top: 0.35rem;
+}
+
+.docsbird-form__preview-meta {
+  margin-top: 0.65rem;
+  font-size: 8px;
+}
+
+.docsbird-form__preview-status {
+  margin-top: 0.35rem;
+  font-size: 8px;
+  font-weight: 500;
+  color: var(--mock-muted);
+}
+
+.docsbird-form__main {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.docsbird-form__main-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.docsbird-form__section-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--mock-muted);
+}
+
+.docsbird-form__badge {
+  font-size: 9px;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  background: var(--mock-accent-soft);
+  color: var(--mock-success);
+}
+
+.docsbird-form__label {
+  font-size: 9px;
+  color: var(--mock-muted);
+}
+
+.docsbird-form__field {
+  width: 100%;
+}
+
+.docsbird-form__error {
+  margin-top: 0.15rem;
+  font-size: 8px;
+  color: var(--mock-danger);
+}
+
+.docsbird-form__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  padding-top: 0.25rem;
+}
+
+.docsbird-form__tool-btn {
+  font-size: 9px;
+  height: 2rem;
+  padding: 0 0.75rem;
+}
+
+.docsbird-form__check-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.docsbird-form__split {
+  height: 2rem;
+}
+
+.docsbird-form__split-main {
+  font-size: 9px;
+}
+
+.docsbird-form__aside {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid var(--mock-border);
+}
+
+@media (min-width: 640px) {
+  .docsbird-form__aside {
+    width: 30%;
+    border-top: none;
+    border-left: 1px solid var(--mock-border);
+  }
+}
+
+.docsbird-form__ai-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mock-accent);
+}
+
+.docsbird-form__ai-hint {
+  margin: 0;
+  font-size: 9px;
+  color: var(--mock-muted);
+  line-height: 1.45;
+}
+
+.docsbird-form__aside-btn {
+  width: 100%;
+  font-size: 9px;
+  padding: 0.35rem 0.5rem;
+}
+
+/* —— Coin social mock (product-specific, no Tailwind) —— */
+.coin-mock {
+  font-size: 10px;
+  line-height: 1.4;
+  aspect-ratio: 1920 / 963;
+  max-height: min(70vh, 42rem);
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 16px 32px -12px rgba(15, 23, 42, 0.14);
+}
+
+.coin-mock__shell {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+}
+
+.coin-mock__sidebar {
+  width: 16.1%;
+  min-width: 6.5rem;
+  max-width: 9.5rem;
+  padding: 0.65rem 0.4rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border-right: 1px solid #e8e8e8;
+  background: #fff;
+}
+
+.coin-mock__brand-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0 0.25rem 0.35rem;
+}
+
+.coin-mock__brand-mark {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--mock-accent);
+  text-transform: lowercase;
+}
+
+.coin-mock__brand-sub {
+  font-size: 8px;
+  color: var(--mock-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.coin-mock__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.coin-mock__sidebar .mock-nav-item {
+  text-align: left;
+  border-radius: 0.35rem;
+  padding: 0.38rem 0.45rem;
+  font-size: 9px;
+  border: none;
+  background: transparent;
+  color: var(--mock-text);
+}
+
+.coin-mock__sidebar .mock-nav-item.active {
+  background: var(--mock-accent-soft);
+  color: var(--mock-accent);
+  font-weight: 600;
+  border-left: none;
+}
+
+.coin-mock__main {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  position: relative;
+  overflow: auto;
+  min-height: 0;
+  background: #f3f3f3;
+}
+
+.coin-mock__page-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.coin-mock__page-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--mock-accent);
+}
+
+.coin-mock__page-sub {
+  margin: 0.15rem 0 0;
+  font-size: 8px;
+  color: var(--mock-muted);
+}
+
+.coin-mock__search {
+  flex-shrink: 0;
+  min-width: 5.5rem;
+  padding: 0.32rem 0.55rem;
+  border-radius: 18px;
+  border: 1px solid #bcbcbc;
+  background: #fff;
+  color: var(--mock-muted);
+  font-size: 8px;
+}
+
+.coin-mock__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.45rem;
+}
+
+.coin-mock__tab {
+  padding: 0.32rem 0.7rem;
+  border-radius: 18px;
+  border: 1px solid #bcbcbc;
+  background: #fff;
+  color: var(--mock-muted);
+  font-size: 8px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.coin-mock__tab.active {
+  background: var(--mock-accent-soft);
+  border-color: var(--mock-accent);
+  color: var(--mock-accent);
+  font-weight: 600;
+}
+
+.coin-mock__composer {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.55rem;
+  margin-bottom: 0.45rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.coin-mock__composer-input {
+  flex: 1;
+  text-align: left;
+  padding: 0.35rem 0.45rem;
+  border-radius: 18px;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  color: var(--mock-muted);
+  font-size: 8px;
+  font-family: inherit;
+  cursor: text;
+}
+
+.coin-mock__rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.55rem;
+  margin-bottom: 0.35rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+}
+
+.coin-mock__rating-row--lead {
+  border-color: color-mix(in srgb, var(--mock-gold) 45%, #e8e8e8);
+  background: color-mix(in srgb, var(--mock-gold-soft) 40%, #fff);
+}
+
+.coin-mock__rating-pos {
+  width: 1.1rem;
+  font-weight: 700;
+  color: var(--mock-muted);
+  font-size: 9px;
+}
+
+.coin-mock__btn-thanks {
+  background: var(--mock-gold) !important;
+  border-color: var(--mock-gold) !important;
+  color: #212121 !important;
+}
+
+.coin-mock__post-head {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.coin-mock__avatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.coin-mock__avatar--lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 14px;
+}
+
+.coin-mock__avatar--blue {
+  background: var(--mock-accent-soft);
+  color: var(--mock-accent);
+}
+
+.coin-mock__avatar--gold {
+  background: var(--mock-gold-soft);
+  color: #a16207;
+}
+
+.coin-mock__post-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.coin-mock__author {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--mock-text);
+}
+
+.coin-mock__post-text {
+  margin: 0.25rem 0 0;
+  font-size: 9px;
+  color: var(--mock-muted);
+}
+
+.coin-mock__meta {
+  font-size: 8px;
+  color: var(--mock-muted);
+}
+
+.coin-mock__photo-thumb {
+  height: 4rem;
+  border-radius: 0.35rem;
+  margin: 0.25rem 0;
+  background: linear-gradient(135deg, var(--mock-accent-soft), #e0e7ff);
+}
+
+.coin-mock__btn-xs,
+.coin-mock .mock-btn-primary,
+.coin-mock .mock-btn-secondary {
+  border-radius: 18px;
+}
+
+.coin-mock__btn-xs {
+  font-size: 8px;
+  padding: 0.2rem 0.45rem;
+}
+
+.coin-mock__btn-block {
+  width: 100%;
+  font-size: 9px;
+  margin-bottom: 0.25rem;
+}
+
+.coin-mock__panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.coin-mock__section-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--mock-muted);
+}
+
+.coin-mock__article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.coin-mock__article-row {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--mock-border);
+  background: var(--mock-surface);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.coin-mock__article-row:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+.coin-mock__article-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--mock-text);
+}
+
+.coin-mock__compose {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--mock-border);
+  background: var(--mock-surface-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.coin-mock__field {
+  width: 100%;
+  font-size: 9px;
+}
+
+.coin-mock__field--area {
+  min-height: 3rem;
+  resize: vertical;
+}
+
+.coin-mock__kpi-block {
+  margin-bottom: 0.5rem;
+}
+
+.coin-mock__kpi-label {
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--mock-muted);
+  letter-spacing: 0.04em;
+}
+
+.coin-mock__kpi-title {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.coin-mock__progress {
+  height: 6px;
+  margin-top: 0.35rem;
+}
+
+.coin-mock__checklist {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 9px;
+  color: var(--mock-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.coin-mock__checklist-item--muted {
+  opacity: 0.7;
+}
+
+.coin-mock__profile-head {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.coin-mock__profile-name {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.coin-mock__coins-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--mock-accent);
+}
+
+/* —— TVIP: Toast notifications —— */
+.tvip-toast-container {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+.tvip-toast {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  font-size: 8px;
+  font-family: inherit;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+}
+.tvip-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* —— TVIP: Mobile profile screen —— */
+.tvip-profile-mob-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.8rem;
+}
+.tvip-profile-mob-card {
+  text-align: center;
+}
+.tvip-profile-mob-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.3rem;
+  border: 2px solid var(--tvip-accent);
+}
+.tvip-profile-mob-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tvip-profile-mob-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--tvip-text);
+  margin: 0;
+}
+.tvip-profile-mob-sub {
+  font-size: 7px;
+  color: var(--tvip-muted);
+  margin: 0;
+}
+.tvip-profile-mob-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.tvip-profile-mob-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: none;
+  background: var(--tvip-card, var(--tvip-surface-2));
+  color: var(--tvip-text);
+  font-size: 8px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.tvip-profile-mob-item:hover {
+  background: var(--tvip-card-hover, rgba(255,255,255,0.1));
+}
+.tvip-profile-mob-item--danger {
+  color: #ef4444;
+}
+
+/* —— TVIP: Desktop settings screen —— */
+.tvip-settings-body {
+  display: flex;
+  gap: 1rem;
+}
+.tvip-settings-sidebar {
+  width: 30%;
+  max-width: 8rem;
+  text-align: center;
+}
+.tvip-settings-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.3rem;
+  border: 2px solid var(--tvip-accent);
+}
+.tvip-settings-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tvip-settings-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--tvip-text);
+  margin: 0 0 0.1rem;
+}
+.tvip-settings-email {
+  font-size: 7px;
+  color: var(--tvip-muted);
+  margin: 0 0 0.5rem;
+}
+.tvip-settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tvip-settings-nav-item {
+  display: block;
+  width: 100%;
+  padding: 0.3rem 0.4rem;
+  border: none;
+  background: transparent;
+  color: var(--tvip-muted);
+  font-size: 8px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.tvip-settings-nav-item.active {
+  background: var(--tvip-accent);
+  color: #fff;
+}
+.tvip-settings-main {
+  flex: 1;
+}
+.tvip-settings-field {
+  margin-bottom: 0.5rem;
+}
+.tvip-settings-ages {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
 }

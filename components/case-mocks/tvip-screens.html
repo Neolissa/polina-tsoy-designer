@@ -1,185 +1,752 @@
 <div class="tvip-app" data-tvip-app role="application" aria-label="TVIP demo">
-  <!-- Desktop / tablet: login -->
-  <div class="tvip-screen is-active" data-tvip-screen="login" data-tvip-devices="desktop,tablet">
-    <div class="tvip-login-center">
-      <div class="tvip-logo">TVIP</div>
-      <p style="color:var(--tvip-muted);font-size:9px;margin:0 0 0.65rem">Войдите в персональный медиакаталог</p>
-      <input class="tvip-field" type="text" placeholder="Email" aria-label="Email" value="family@home.tv" readonly>
-      <input class="tvip-field" type="password" placeholder="Пароль" aria-label="Пароль" value="••••••" readonly>
-      <button type="button" class="tvip-btn tvip-btn--block" data-tvip-goto="onboarding">Войти</button>
-    </div>
-  </div>
+  <div class="tvip-toast-container" data-tvip-toast-container></div>
+  <div class="tvip-screen-announcer" data-tvip-announcer aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Desktop / tablet: onboarding -->
-  <div class="tvip-screen" data-tvip-screen="onboarding" data-tvip-devices="desktop,tablet">
-    <div class="tvip-topbar">
-      <span class="tvip-logo">Настройка профиля</span>
-      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-goto="home" style="font-size:8px;padding:0.25rem 0.5rem">Пропустить</button>
-    </div>
-    <div class="tvip-body" style="padding:0.75rem">
-      <p style="margin:0 0 0.35rem;font-weight:600;font-size:10px" data-tvip-onb-title>Кого смотрим чаще?</p>
-      <p style="margin:0 0 0.5rem;font-size:8px;color:var(--tvip-muted)" data-tvip-onb-desc>Рекомендации подстроятся под выбор</p>
-      <div class="tvip-chips" data-tvip-onb-chips>
-        <button type="button" class="tvip-chip active" data-tvip-chip>Семья</button>
-        <button type="button" class="tvip-chip" data-tvip-chip>Дети</button>
-        <button type="button" class="tvip-chip" data-tvip-chip>Кино</button>
-        <button type="button" class="tvip-chip" data-tvip-chip>Сериалы</button>
+  <!-- Desktop: start / splash -->
+  <div class="tvip-screen is-active" data-tvip-screen="start" data-tvip-devices="desktop" hidden="false">
+    <div class="tvip-start-scene">
+      <div class="tvip-start-bg" aria-hidden="true">
+        <img class="tvip-start-bg__img" alt="" data-tvip-src="bg/start-bg.webp" />
       </div>
-      <div class="tvip-onb-dots" data-tvip-onb-dots>
-        <span class="tvip-onb-dot active"></span>
-        <span class="tvip-onb-dot"></span>
-        <span class="tvip-onb-dot"></span>
-      </div>
-      <button type="button" class="tvip-btn tvip-btn--block" data-tvip-onb-next>Далее</button>
-    </div>
-  </div>
-
-  <!-- Desktop: home -->
-  <div class="tvip-screen" data-tvip-screen="home" data-tvip-devices="desktop">
-    <div class="tvip-topbar">
-      <span class="tvip-logo">TVIP</span>
-      <span class="tvip-search">Поиск фильмов и сериалов…</span>
-      <span class="tvip-avatar" title="Профиль семьи"></span>
-    </div>
-    <div class="tvip-body tvip-body--split">
-      <aside class="tvip-sidebar">
-        <button type="button" class="tvip-nav-item active">Главная</button>
-        <button type="button" class="tvip-nav-item">Фильмы</button>
-        <button type="button" class="tvip-nav-item">Сериалы</button>
-        <button type="button" class="tvip-nav-item">ТВ-шоу</button>
-        <button type="button" class="tvip-nav-item">Продолжить</button>
-      </aside>
-      <div class="tvip-main">
-        <div class="tvip-hero">
-          <h2>Продолжить «Северный ветер»</h2>
-          <p>Серия 4 · осталось 18 мин</p>
-          <div class="tvip-progress"><span style="width:62%"></span></div>
-          <button type="button" class="tvip-btn" style="margin-top:0.45rem" data-tvip-goto="detail">Смотреть</button>
-        </div>
-        <p class="tvip-row-title">Рекомендуем для вас</p>
-        <div class="tvip-cards">
-          <button type="button" class="tvip-card" data-tvip-goto="detail"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Арктика</div></button>
-          <button type="button" class="tvip-card"><div class="tvip-card__thumb" style="background:linear-gradient(160deg,#2d3a52,#6366f1)"></div><div class="tvip-card__meta">Орбита</div></button>
-          <button type="button" class="tvip-card"><div class="tvip-card__thumb" style="background:linear-gradient(160deg,#1e3a2f,#10b981)"></div><div class="tvip-card__meta">Сад</div></button>
-          <button type="button" class="tvip-card"><div class="tvip-card__thumb" style="background:linear-gradient(160deg,#422006,#f59e0b)"></div><div class="tvip-card__meta">Закат</div></button>
-        </div>
-        <p class="tvip-row-title">Сериалы в тренде</p>
-        <div class="tvip-cards">
-          <button type="button" class="tvip-card"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">S02</div></button>
-          <button type="button" class="tvip-card"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">S01</div></button>
-          <button type="button" class="tvip-card"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Новинка</div></button>
+      <div class="tvip-start-panel">
+        <div class="tvip-start-center">
+          <div class="tvip-logo tvip-logo--start">TMS Player</div>
+          <h2 class="tvip-h2">Добро пожаловать!</h2>
+          <p class="tvip-lead">Персональный медиакаталог для всей семьи</p>
+          <button type="button" class="tvip-btn tvip-btn--block" data-tvip-goto="login">Войти в аккаунт</button>
+          <div class="tvip-start-toggles">
+            <button type="button" class="tvip-chip tvip-chip--sm active" data-tvip-lang-toggle="ru">Ру</button>
+            <button type="button" class="tvip-chip tvip-chip--sm" data-tvip-lang-toggle="en">En</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Tablet: catalog -->
-  <div class="tvip-screen" data-tvip-screen="home-tablet" data-tvip-devices="tablet">
-    <div class="tvip-topbar">
-      <span class="tvip-logo">Фильмы</span>
-      <span class="tvip-search">Жанр, год…</span>
-    </div>
-    <div class="tvip-body">
-      <div class="tvip-chips" style="margin-bottom:0.45rem">
-        <span class="tvip-chip active">Все</span>
-        <span class="tvip-chip">Драма</span>
-        <span class="tvip-chip">Комедия</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.35rem">
-        <button type="button" class="tvip-card" style="flex:none;width:100%" data-tvip-goto="detail-tablet"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Арктика</div></button>
-        <button type="button" class="tvip-card" style="flex:none;width:100%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Орбита</div></button>
-        <button type="button" class="tvip-card" style="flex:none;width:100%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Полночь</div></button>
-        <button type="button" class="tvip-card" style="flex:none;width:100%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Каникулы</div></button>
+  <!-- Desktop: login -->
+  <div class="tvip-screen" data-tvip-screen="login" data-tvip-devices="desktop" hidden>
+    <div class="tvip-login-scene">
+      <div class="tvip-login-panel">
+        <div class="tvip-login-center">
+          <div class="tvip-logo">TMS Player</div>
+          <h2 class="tvip-h2">Вход в аккаунт</h2>
+          <label class="tvip-field-label" for="tvip-login">Логин</label>
+          <input class="tvip-field" id="tvip-login" type="text" value="family@home.tv" autocomplete="username" />
+          <label class="tvip-field-label" for="tvip-pass">Пароль</label>
+          <input class="tvip-field" id="tvip-pass" type="password" value="••••••" autocomplete="current-password" />
+          <button type="button" class="tvip-btn tvip-btn--block" data-tvip-goto="logged-in">Войти</button>
+          <a href="#" class="tvip-link" onclick="return false">Забыли пароль?</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Desktop / tablet: detail -->
-  <div class="tvip-screen" data-tvip-screen="detail" data-tvip-devices="desktop,tablet">
-    <div class="tvip-topbar">
-      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-back style="font-size:8px;padding:0.2rem 0.45rem">← Назад</button>
-      <span style="font-weight:600;font-size:9px">Арктика</span>
-      <span class="tvip-avatar"></span>
-    </div>
-    <div class="tvip-body">
-      <div class="tvip-detail-poster" aria-hidden="true"></div>
-      <h2 style="margin:0 0 0.25rem;font-size:11px">Арктика · 2024</h2>
-      <p style="margin:0 0 0.45rem;font-size:8px;color:var(--tvip-muted)">Драма · 1ч 52м · 12+</p>
-      <button type="button" class="tvip-btn">▶ Смотреть</button>
-      <button type="button" class="tvip-btn tvip-btn--ghost" style="margin-left:0.25rem">+ В список</button>
-      <p style="margin-top:0.5rem;font-size:8px;color:var(--tvip-muted);clear:both">Семейная драма о путешествии на север — в вашей подборке «Семья».</p>
+  <!-- Desktop: logged in (success) -->
+  <div class="tvip-screen" data-tvip-screen="logged-in" data-tvip-devices="desktop" hidden>
+    <div class="tvip-loggedin-scene">
+      <div class="tvip-loggedin-panel">
+        <div class="tvip-loggedin-center">
+          <div class="tvip-loggedin-check" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><path d="M12 20l6 6 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h2 class="tvip-h2">Поздравляем!</h2>
+          <p class="tvip-lead">Вы успешно вошли в аккаунт</p>
+          <button type="button" class="tvip-btn tvip-btn--block" data-tvip-goto="onboarding">Зачем мне профиль?</button>
+          <a href="#" class="tvip-link" data-tvip-goto="profile" onclick="return false">Пропустить — создать профиль</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="tvip-screen" data-tvip-screen="detail-tablet" data-tvip-devices="tablet">
-    <div class="tvip-topbar">
-      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-back data-tvip-back-target="home-tablet" style="font-size:8px;padding:0.2rem 0.45rem">←</button>
-      <span style="font-weight:600;font-size:9px">Арктика</span>
+  <!-- Desktop: new profile -->
+  <div class="tvip-screen" data-tvip-screen="profile" data-tvip-devices="desktop" hidden>
+    <div class="tvip-profile-scene">
+      <div class="tvip-profile-create-panel">
+        <h2 class="tvip-h2">Новый профиль</h2>
+        <div class="tvip-avatar-picker" data-tvip-avatar-picker>
+          <button type="button" class="tvip-avatar active" data-tvip-avatar>
+            <img alt="Аватар 1" data-tvip-src="avatars/avatar-3.svg" />
+          </button>
+          <button type="button" class="tvip-avatar" data-tvip-avatar>
+            <img alt="Аватар 2" data-tvip-src="avatars/avatar-1.svg" />
+          </button>
+          <button type="button" class="tvip-avatar" data-tvip-avatar>
+            <img alt="Аватар 3" data-tvip-src="avatars/avatar-2.svg" />
+          </button>
+          <button type="button" class="tvip-avatar" data-tvip-avatar>
+            <img alt="Аватар 4" data-tvip-src="avatars/avatar-4.svg" />
+          </button>
+        </div>
+        <label class="tvip-field-label">Имя профиля</label>
+        <input class="tvip-field" type="text" value="Мама" readonly />
+        <label class="tvip-field-label">Имя</label>
+        <input class="tvip-field" type="text" value="Анастасия" readonly />
+        <label class="tvip-field-label">Пин-код</label>
+        <div class="tvip-pin-dots" aria-label="PIN code">
+          <span class="tvip-pin-dot filled"></span>
+          <span class="tvip-pin-dot filled"></span>
+          <span class="tvip-pin-dot filled"></span>
+          <span class="tvip-pin-dot filled"></span>
+        </div>
+        <button type="button" class="tvip-btn tvip-btn--block" data-tvip-goto="home">Продолжить</button>
+      </div>
     </div>
-    <div class="tvip-body" style="text-align:center">
-      <div class="tvip-detail-poster" style="float:none;width:55%;margin:0 auto 0.45rem"></div>
-      <button type="button" class="tvip-btn tvip-btn--block">▶ Смотреть</button>
+  </div>
+
+  <!-- Desktop + tablet: onboarding -->
+  <div class="tvip-screen" data-tvip-screen="onboarding" data-tvip-devices="desktop,tablet" hidden>
+    <div class="tvip-onb-scene">
+      <div class="tvip-onb-illus" aria-hidden="true">
+        <img class="tvip-onb-illus__img" alt="" data-tvip-onb-img data-tvip-src="onboarding/onb-1-night.webp" />
+      </div>
+      <div class="tvip-onb-panel-wrap">
+        <header class="tvip-topbar tvip-topbar--onb">
+          <span class="tvip-logo">Зачем нужен профиль</span>
+          <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-goto="profile">Пропустить</button>
+        </header>
+        <div class="tvip-onb-card">
+          <h2 class="tvip-h2" data-tvip-onb-title>Разные профили для разных людей</h2>
+          <p class="tvip-lead" data-tvip-onb-desc>Каждый член семьи получает персональные рекомендации</p>
+          <div class="tvip-onb-dots" data-tvip-onb-dots aria-hidden="true">
+            <span class="tvip-onb-dot active"></span>
+            <span class="tvip-onb-dot"></span>
+            <span class="tvip-onb-dot"></span>
+          </div>
+          <button type="button" class="tvip-btn tvip-btn--block" data-tvip-onb-next>Далее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop: home (Main page — Телевидение / Кино / Видеонаблюдение) -->
+  <div class="tvip-screen" data-tvip-screen="home" data-tvip-devices="desktop" hidden>
+    <div class="tvip-home">
+      <header class="tvip-home-header">
+        <div class="tvip-home-brand" aria-hidden="true">
+          <img class="tvip-home-logo" alt="TVIP" data-tvip-src="logo/tvip-logo.webp" />
+        </div>
+        <div class="tvip-profile-switch" role="tablist" aria-label="Профили семьи">
+          <button type="button" class="tvip-profile-pill active" aria-label="Мама">
+            <img class="tvip-profile-pill__img" alt="" data-tvip-src="profiles/profile-top-1.webp" width="60" height="36" />
+          </button>
+          <button type="button" class="tvip-profile-pill" aria-label="Папа">
+            <img class="tvip-profile-pill__img" alt="" data-tvip-src="profiles/profile-top-2.webp" width="60" height="36" />
+          </button>
+          <button type="button" class="tvip-profile-pill" aria-label="Дети">
+            <img class="tvip-profile-pill__img" alt="" data-tvip-src="profiles/profile-top-3.webp" width="60" height="36" />
+          </button>
+        </div>
+      </header>
+      <div class="tvip-home-body">
+        <nav class="tvip-sidebar" aria-label="Разделы">
+          <button type="button" class="tvip-nav-item active" data-tvip-nav="tv">Телевидение</button>
+          <button type="button" class="tvip-nav-item" data-tvip-nav="cinema">Кино</button>
+          <button type="button" class="tvip-nav-item" data-tvip-nav="cctv">Видеонаблюдение</button>
+        </nav>
+        <main class="tvip-home-main">
+          <!-- Телевидение panel -->
+          <div class="tvip-home-panel is-active" data-tvip-home-panel="tv">
+            <div class="tvip-tv-controls">
+              <div class="tvip-tv-dropdown">
+                <button type="button" class="tvip-chip active">Все каналы <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="vertical-align:middle"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </div>
+            </div>
+            <div class="tvip-channel-list">
+              <article class="tvip-channel-card" data-tvip-goto="detail" aria-label="Первый канал">
+                <img class="tvip-channel-card__thumb" alt="" data-tvip-src="channels/ch-1.webp" />
+                <div class="tvip-channel-card__info">
+                  <h3 class="tvip-channel-card__name">Первый канал</h3>
+                  <p class="tvip-channel-card__now">Новости с субтитрами</p>
+                </div>
+              </article>
+              <article class="tvip-channel-card" data-tvip-goto="detail" aria-label="Россия 1">
+                <img class="tvip-channel-card__thumb" alt="" data-tvip-src="channels/ch-2.webp" />
+                <div class="tvip-channel-card__info">
+                  <h3 class="tvip-channel-card__name">Россия 1</h3>
+                  <p class="tvip-channel-card__now">Кто против?</p>
+                </div>
+              </article>
+              <article class="tvip-channel-card" data-tvip-goto="detail" aria-label="Матч ТВ">
+                <img class="tvip-channel-card__thumb" alt="" data-tvip-src="channels/ch-3.webp" />
+                <div class="tvip-channel-card__info">
+                  <h3 class="tvip-channel-card__name">Матч ТВ</h3>
+                  <p class="tvip-channel-card__now">Хоккей. Чемпионат мира</p>
+                </div>
+              </article>
+              <article class="tvip-channel-card" data-tvip-goto="detail" aria-label="НТВ">
+                <img class="tvip-channel-card__thumb" alt="" data-tvip-src="channels/ch-4.webp" />
+                <div class="tvip-channel-card__info">
+                  <h3 class="tvip-channel-card__name">НТВ</h3>
+                  <p class="tvip-channel-card__now">Дела судебные</p>
+                </div>
+              </article>
+              <article class="tvip-channel-card" data-tvip-goto="detail" aria-label="Пятый канал">
+                <img class="tvip-channel-card__thumb" alt="" data-tvip-src="channels/ch-5.webp" />
+                <div class="tvip-channel-card__info">
+                  <h3 class="tvip-channel-card__name">Пятый канал</h3>
+                  <p class="tvip-channel-card__now">Известия</p>
+                </div>
+              </article>
+              <article class="tvip-channel-card" data-tvip-goto="detail" aria-label="Карусель">
+                <img class="tvip-channel-card__thumb" alt="" data-tvip-src="channels/ch-6.webp" />
+                <div class="tvip-channel-card__info">
+                  <h3 class="tvip-channel-card__name">Карусель</h3>
+                  <p class="tvip-channel-card__now">Мультфильмы</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Кино panel -->
+          <div class="tvip-home-panel" data-tvip-home-panel="cinema" hidden>
+            <h3 class="tvip-row-title">Популярное</h3>
+            <div class="tvip-poster-row tvip-poster-row--scroll" tabindex="0" aria-label="Фильмы">
+              <button type="button" class="tvip-land-card" data-tvip-goto="detail" aria-label="Сигнал">
+                <img class="tvip-land-card__img" alt="Сигнал" data-tvip-src="posters/bloodshot.webp" />
+                <span class="tvip-land-card__label">Сигнал</span>
+              </button>
+              <button type="button" class="tvip-land-card" data-tvip-goto="detail" aria-label="Право голоса">
+                <img class="tvip-land-card__img" alt="Право голоса" data-tvip-src="posters/marathon.webp" />
+                <span class="tvip-land-card__label">Право голоса</span>
+              </button>
+              <button type="button" class="tvip-land-card" data-tvip-goto="detail" aria-label="Место встречи">
+                <img class="tvip-land-card__img" alt="Место встречи" data-tvip-src="posters/odin-vdoh.webp" />
+                <span class="tvip-land-card__label">Место встречи</span>
+              </button>
+              <button type="button" class="tvip-land-card" data-tvip-goto="detail" aria-label="Том и Джерри">
+                <img class="tvip-land-card__img" alt="Том и Джерри" data-tvip-src="posters/quiet-place.webp" />
+                <span class="tvip-land-card__label">Том и Джерри</span>
+              </button>
+            </div>
+            <h3 class="tvip-row-title">Сериалы</h3>
+            <div class="tvip-poster-row tvip-poster-row--scroll" tabindex="0" aria-label="Сериалы">
+              <button type="button" class="tvip-land-card" data-tvip-goto="detail" aria-label="Мистические истории">
+                <img class="tvip-land-card__img" alt="Мистические истории" data-tvip-src="posters/khmurov.webp" />
+                <span class="tvip-land-card__label">Мистические истории</span>
+              </button>
+              <button type="button" class="tvip-land-card" data-tvip-goto="detail" aria-label="Том и Джерри">
+                <img class="tvip-land-card__img" alt="Том и Джерри" data-tvip-src="posters/pushki.webp" />
+                <span class="tvip-land-card__label">Том и Джерри</span>
+              </button>
+              <button type="button" class="tvip-land-card" data-tvip-goto="detail" aria-label="Мистические истории">
+                <img class="tvip-land-card__img" alt="Мистические истории" data-tvip-src="posters/bogatyr.webp" />
+                <span class="tvip-land-card__label">Мистические истории</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Видеонаблюдение panel -->
+          <div class="tvip-home-panel" data-tvip-home-panel="cctv" hidden>
+            <h3 class="tvip-row-title">Камеры</h3>
+            <div class="tvip-cctv-grid">
+              <div class="tvip-cctv-card">
+                <div class="tvip-cctv-card__preview">
+                  <img alt="Камера 1" data-tvip-src="cctv/cam-1.webp" />
+                </div>
+                <span class="tvip-cctv-card__label">Входная дверь</span>
+              </div>
+              <div class="tvip-cctv-card">
+                <div class="tvip-cctv-card__preview">
+                  <img alt="Камера 2" data-tvip-src="cctv/cam-2.webp" />
+                </div>
+                <span class="tvip-cctv-card__label">Двор</span>
+              </div>
+              <div class="tvip-cctv-card">
+                <div class="tvip-cctv-card__preview">
+                  <img alt="Камера 3" data-tvip-src="cctv/cam-3.webp" />
+                </div>
+                <span class="tvip-cctv-card__label">Гараж</span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop: detail -->
+  <div class="tvip-screen" data-tvip-screen="detail" data-tvip-devices="desktop" hidden>
+    <header class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Назад</button>
+      <span class="tvip-topbar-title" data-tvip-detail-title>Бладшот</span>
+      <button type="button" class="tvip-profile-pill tvip-profile-pill--solo active" aria-label="Профиль" data-tvip-goto="settings">
+        <img class="tvip-profile-pill__img" alt="" data-tvip-src="profiles/profile-top-1.webp" />
+      </button>
+    </header>
+    <div class="tvip-body tvip-body--pad tvip-detail-desktop">
+      <img class="tvip-detail-poster-img" alt="" data-tvip-src="posters/detail-khmurov.webp" />
+      <div class="tvip-detail-copy">
+        <h2 class="tvip-h2">Бладшот</h2>
+        <p class="tvip-detail-meta">16+ · 2020 · США · Боевик, Фантастика</p>
+        <div class="tvip-detail-actions">
+          <button type="button" class="tvip-btn" data-tvip-watch><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1l10 6-10 6V1z" fill="currentColor"/></svg> Смотреть</button>
+          <button type="button" class="tvip-btn tvip-btn--ghost"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> В плейлист</button>
+        </div>
+        <p class="tvip-detail-desc">Солдат Рэй Гаррисон погибает в бою и возвращается к жизни благодаря нанотехнологиям. Ему предстоит выяснить, кто стоит за его превращением в супероружие.</p>
+        <div class="tvip-detail-seasons">
+          <button type="button" class="tvip-chip active">Сезон 1</button>
+          <button type="button" class="tvip-chip">Сезон 2</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet: first login / profile -->
+  <div class="tvip-screen" data-tvip-screen="tablet-profile" data-tvip-devices="tablet" hidden>
+    <header class="tvip-topbar">
+      <span class="tvip-logo">Первый вход</span>
+    </header>
+    <div class="tvip-body tvip-body--pad tvip-body--center">
+      <div class="tvip-avatar-picker tvip-avatar-picker--tablet" data-tvip-avatar-picker>
+        <button type="button" class="tvip-avatar active" data-tvip-avatar>
+          <img alt="Аватар 1" data-tvip-src="avatars/avatar-3.svg" />
+        </button>
+        <button type="button" class="tvip-avatar" data-tvip-avatar>
+          <img alt="Аватар 2" data-tvip-src="avatars/avatar-1.svg" />
+        </button>
+        <button type="button" class="tvip-avatar" data-tvip-avatar>
+          <img alt="Аватар 3" data-tvip-src="avatars/avatar-2.svg" />
+        </button>
+      </div>
+      <input class="tvip-field tvip-field--centered" type="text" value="Мама" readonly />
+      <button type="button" class="tvip-btn tvip-btn--block" data-tvip-goto="tablet-survey">Продолжить</button>
+    </div>
+  </div>
+
+  <!-- Tablet: survey -->
+  <div class="tvip-screen" data-tvip-screen="tablet-survey" data-tvip-devices="tablet" hidden>
+    <div class="tvip-survey-scene">
+      <div class="tvip-survey-banner">
+        <h2 class="tvip-h2 tvip-h2--light">Выберите ваши любимые фильмы и жанры</h2>
+        <p class="tvip-lead tvip-lead--light">Чтобы выбрать жанр, кликните по заголовку</p>
+      </div>
+      <div class="tvip-body tvip-body--pad">
+        <h3 class="tvip-row-title">Комедии</h3>
+        <div class="tvip-survey-grid">
+          <button type="button" class="tvip-survey-card active" data-tvip-survey-card>
+            <img alt="Место встречи" data-tvip-src="posters/odin-vdoh.webp" />
+            <span class="tvip-survey-check"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="tvip-survey-card__label">Место встречи</span>
+          </button>
+          <button type="button" class="tvip-survey-card" data-tvip-survey-card>
+            <img alt="Право голоса" data-tvip-src="posters/marathon.webp" />
+            <span class="tvip-survey-check"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="tvip-survey-card__label">Право голоса</span>
+          </button>
+          <button type="button" class="tvip-survey-card" data-tvip-survey-card>
+            <img alt="Том и Джерри" data-tvip-src="posters/quiet-place.webp" />
+            <span class="tvip-survey-check"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="tvip-survey-card__label">Том и Джерри</span>
+          </button>
+          <button type="button" class="tvip-survey-card" data-tvip-survey-card>
+            <img alt="Том и Джерри" data-tvip-src="posters/pushki.webp" />
+            <span class="tvip-survey-check"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="tvip-survey-card__label">Том и Джерри</span>
+          </button>
+          <button type="button" class="tvip-survey-card" data-tvip-survey-card>
+            <img alt="Мистические истории" data-tvip-src="posters/bogatyr.webp" />
+            <span class="tvip-survey-check"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="tvip-survey-card__label">Мистические истории</span>
+          </button>
+        </div>
+        <h3 class="tvip-row-title">Детективы</h3>
+        <div class="tvip-survey-grid">
+          <button type="button" class="tvip-survey-card active" data-tvip-survey-card>
+            <img alt="Мистические истории" data-tvip-src="posters/khmurov.webp" />
+            <span class="tvip-survey-check"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="tvip-survey-card__label">Мистические истории</span>
+          </button>
+          <button type="button" class="tvip-survey-card" data-tvip-survey-card>
+            <img alt="Вся правда о медведях" data-tvip-src="posters/invisible.webp" />
+            <span class="tvip-survey-check"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="tvip-survey-card__label">Вся правда о медведях</span>
+          </button>
+        </div>
+        <button type="button" class="tvip-btn tvip-btn--block tvip-btn--spaced" data-tvip-goto="home-tablet">Продолжить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet: Фильмы главная -->
+  <div class="tvip-screen" data-tvip-screen="home-tablet" data-tvip-devices="tablet" hidden>
+    <header class="tvip-topbar">
+      <button type="button" class="tvip-topbar-menu" aria-label="Меню"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <span class="tvip-logo" data-tvip-tablet-title>Фильмы</span>
+      <button type="button" class="tvip-topbar-icon" aria-label="Поиск"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 12l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </header>
+    <div class="tvip-body tvip-body--pad">
+      <div class="tvip-hero-carousel">
+        <article class="tvip-hero-slide" data-tvip-goto="detail-tablet" aria-label="Премьера">
+          <img class="tvip-hero-slide__img" alt="Премьера" data-tvip-src="posters/bloodshot-hero.webp" />
+          <div class="tvip-hero-slide__overlay">
+            <h2 class="tvip-h2">Премьера</h2>
+            <p class="tvip-lead">Лучшее кино этой недели</p>
+          </div>
+        </article>
+      </div>
+      <h3 class="tvip-row-title">Новинки</h3>
+      <div class="tvip-tablet-grid">
+        <button type="button" class="tvip-vert-card" data-tvip-goto="detail-tablet" aria-label="Бладшот">
+          <img class="tvip-vert-card__img" alt="Бладшот" data-tvip-src="posters/marathon-vert.webp" />
+          <span class="tvip-vert-card__meta">Бладшот</span>
+        </button>
+        <button type="button" class="tvip-vert-card" data-tvip-goto="detail-tablet" aria-label="Нулевой пациент">
+          <img class="tvip-vert-card__img" alt="Нулевой пациент" data-tvip-src="posters/odin-vdoh-vert.webp" />
+          <span class="tvip-vert-card__meta">Нулевой пациент</span>
+        </button>
+        <button type="button" class="tvip-vert-card" data-tvip-goto="detail-tablet" aria-label="Лёд 2">
+          <img class="tvip-vert-card__img" alt="Лёд 2" data-tvip-src="posters/quiet-place-vert.webp" />
+          <span class="tvip-vert-card__meta">Лёд 2</span>
+        </button>
+        <button type="button" class="tvip-vert-card" data-tvip-goto="detail-tablet" aria-label="Лёд 2">
+          <img class="tvip-vert-card__img" alt="Лёд 2" data-tvip-src="posters/pushki-vert.webp" />
+          <span class="tvip-vert-card__meta">Лёд 2</span>
+        </button>
+        <button type="button" class="tvip-vert-card" data-tvip-goto="detail-tablet" aria-label="Весёлое привидение">
+          <img class="tvip-vert-card__img" alt="Весёлое привидение" data-tvip-src="posters/bogatyr-vert.webp" />
+          <span class="tvip-vert-card__meta">Весёлое привидение</span>
+        </button>
+        <button type="button" class="tvip-vert-card" data-tvip-goto="detail-tablet" aria-label="Весёлое привидение">
+          <img class="tvip-vert-card__img" alt="Весёлое привидение" data-tvip-src="posters/invisible-vert.webp" />
+          <span class="tvip-vert-card__meta">Весёлое привидение</span>
+        </button>
+      </div>
+      <nav class="tvip-tablet-sections" aria-label="Разделы каталога">
+        <button type="button" class="tvip-tablet-section active" data-tvip-goto="home-tablet" data-tvip-goto-replace>Фильмы</button>
+        <button type="button" class="tvip-tablet-section" data-tvip-goto="series-tablet" data-tvip-goto-replace>Сериалы</button>
+        <button type="button" class="tvip-tablet-section" data-tvip-goto="tv-tablet" data-tvip-goto-replace>ТВ шоу</button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Tablet: Сериалы (detail — Инспектор Купер) -->
+  <div class="tvip-screen" data-tvip-screen="series-tablet" data-tvip-devices="tablet" hidden>
+    <header class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back data-tvip-back-target="home-tablet"><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="tvip-topbar-title">Инспектор Купер</span>
+    </header>
+    <div class="tvip-body tvip-body--pad tvip-body--detail">
+      <div class="tvip-tablet-player-area">
+        <img class="tvip-tablet-player__poster" alt="Инспектор Купер" data-tvip-src="posters/khmurov-wide.webp" />
+        <div class="tvip-tablet-player__controls" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M10 6l16 10-16 10V6z" fill="currentColor"/></svg>
+        </div>
+      </div>
+      <div class="tvip-detail-actions tvip-detail-actions--tablet">
+        <button type="button" class="tvip-btn tvip-btn--ghost"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> В плейлист</button>
+        <button type="button" class="tvip-btn" data-tvip-watch><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1l10 6-10 6V1z" fill="currentColor"/></svg> Смотреть</button>
+      </div>
+      <p class="tvip-detail-desc">Отважный инспектор уголовного розыска берётся за самые запутанные дела и добивается справедливости.</p>
+      <p class="tvip-detail-meta">16+ · Россия · Детективы, Криминал</p>
+      <div class="tvip-detail-seasons">
+        <button type="button" class="tvip-chip active">Сезон 1</button>
+        <button type="button" class="tvip-chip">Сезон 2</button>
+      </div>
+      <div class="tvip-episode-row">
+        <div class="tvip-episode-thumb">
+          <img alt="Эпизод 1" data-tvip-src="episodes/ep-1.webp" />
+        </div>
+        <div class="tvip-episode-thumb">
+          <img alt="Эпизод 2" data-tvip-src="episodes/ep-2.webp" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet: ТВ шоу (detail — По ту сторону) -->
+  <div class="tvip-screen" data-tvip-screen="tv-tablet" data-tvip-devices="tablet" hidden>
+    <header class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back data-tvip-back-target="home-tablet"><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="tvip-topbar-title">По ту сторону</span>
+    </header>
+    <div class="tvip-body tvip-body--pad tvip-body--detail">
+      <div class="tvip-tablet-player-area">
+        <img class="tvip-tablet-player__poster" alt="По ту сторону" data-tvip-src="posters/dance-wide.webp" />
+        <div class="tvip-tablet-player__controls" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M10 6l16 10-16 10V6z" fill="currentColor"/></svg>
+        </div>
+      </div>
+      <div class="tvip-detail-actions tvip-detail-actions--tablet">
+        <button type="button" class="tvip-btn" data-tvip-watch><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1l10 6-10 6V1z" fill="currentColor"/></svg> Смотреть</button>
+      </div>
+      <p class="tvip-detail-desc">Напряжённый детектив, где каждый свидетель хранит свои тайны, а следователю предстоит раскрыть правду.</p>
+      <p class="tvip-detail-meta">16+ · Россия · Детективы, Драма</p>
+      <div class="tvip-detail-seasons">
+        <button type="button" class="tvip-chip active">Сезон 1</button>
+        <button type="button" class="tvip-chip">Сезон 2</button>
+        <button type="button" class="tvip-chip">Сезон 3</button>
+        <button type="button" class="tvip-chip">Сезон 4</button>
+        <button type="button" class="tvip-chip">Сезон 5</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet: Фильм (detail — Дом 2) -->
+  <div class="tvip-screen" data-tvip-screen="detail-tablet" data-tvip-devices="tablet" hidden>
+    <header class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back data-tvip-back-target="home-tablet"><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="tvip-topbar-title">Дом 2</span>
+    </header>
+    <div class="tvip-body tvip-body--pad tvip-body--detail">
+      <div class="tvip-tablet-player-area">
+        <img class="tvip-tablet-player__poster" alt="Дом 2" data-tvip-src="posters/marathon-wide.webp" />
+        <div class="tvip-tablet-player__controls" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M10 6l16 10-16 10V6z" fill="currentColor"/></svg>
+        </div>
+      </div>
+      <div class="tvip-detail-actions tvip-detail-actions--tablet">
+        <button type="button" class="tvip-btn tvip-btn--ghost"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> В плейлист</button>
+        <button type="button" class="tvip-btn" data-tvip-watch><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1l10 6-10 6V1z" fill="currentColor"/></svg> Смотреть</button>
+      </div>
+      <p class="tvip-detail-desc">Популярное реалити-шоу, участники которого строят отношения и борются за приз.</p>
+      <p class="tvip-detail-meta">16+ · Россия · Реалити, Развлекательное</p>
     </div>
   </div>
 
   <!-- Mobile: home -->
-  <div class="tvip-screen is-active" data-tvip-screen="m-home" data-tvip-devices="mobile">
-    <div class="tvip-topbar">
+  <div class="tvip-screen" data-tvip-screen="m-home" data-tvip-devices="mobile" hidden>
+    <header class="tvip-mob-header">
       <span class="tvip-logo">TVIP</span>
-      <span class="tvip-search" style="max-width:7rem">Поиск…</span>
+      <input class="tvip-search tvip-search--compact" type="search" placeholder="Поиск…" aria-label="Поиск" />
+    </header>
+    <div class="tvip-mob-tabs" role="tablist">
+      <button type="button" class="tvip-mob-tab active">Телевидение</button>
+      <button type="button" class="tvip-mob-tab">Кино</button>
     </div>
-    <div class="tvip-body">
-      <div class="tvip-hero" style="padding:0.5rem">
-        <h2 style="font-size:10px">Продолжить просмотр</h2>
-        <div class="tvip-progress"><span style="width:45%"></span></div>
-      </div>
-      <p class="tvip-row-title">Для вас</p>
-      <div class="tvip-cards">
-        <button type="button" class="tvip-card" style="flex:0 0 38%" data-tvip-goto="m-detail"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Арктика</div></button>
-        <button type="button" class="tvip-card" style="flex:0 0 38%"><div class="tvip-card__thumb"></div><div class="tvip-card__meta">Орбита</div></button>
+    <div class="tvip-body tvip-body--mobile">
+      <div class="tvip-mob-grid">
+        <button type="button" class="tvip-mob-tile" data-tvip-goto="m-detail" aria-label="Первый канал">
+          <img alt="Первый канал" data-tvip-src="channels/mob-ch-1.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile" data-tvip-goto="m-detail" aria-label="Россия 1">
+          <img alt="Россия 1" data-tvip-src="channels/mob-ch-2.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile" data-tvip-goto="m-detail" aria-label="Матч ТВ">
+          <img alt="Матч ТВ" data-tvip-src="channels/mob-ch-3.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile" data-tvip-goto="m-detail" aria-label="НТВ">
+          <img alt="НТВ" data-tvip-src="channels/mob-ch-4.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile" data-tvip-goto="m-detail" aria-label="Пятый канал">
+          <img alt="Пятый канал" data-tvip-src="channels/mob-ch-5.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile" data-tvip-goto="m-detail" aria-label="Карусель">
+          <img alt="Карусель" data-tvip-src="channels/mob-ch-6.webp" />
+        </button>
       </div>
     </div>
-    <nav class="tvip-mobile-nav">
-      <button type="button" class="active">Главная</button>
-      <button type="button" data-tvip-goto="m-filter">Каталог</button>
-      <button type="button">Профиль</button>
+    <nav class="tvip-mobile-nav" aria-label="Навигация" data-tvip-mobile-nav>
+      <button type="button" class="active" data-tvip-goto="m-home" data-tvip-goto-replace data-tvip-mobile-tab="home"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10l7-7 7 7M5 8.5V16a1 1 0 001 1h3v-4h2v4h3a1 1 0 001-1V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Главная</button>
+      <button type="button" data-tvip-goto="m-filter" data-tvip-goto-replace data-tvip-mobile-tab="catalog"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Поиск</button>
+      <button type="button" data-tvip-mobile-tab="tv" data-tvip-toast="Телевидение"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>ТВ</button>
+      <button type="button" data-tvip-mobile-tab="downloads" data-tvip-toast="Загрузки пусты"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v10M6 9l4 4 4-4M4 15h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Загрузки</button>
+      <button type="button" data-tvip-goto="m-profile" data-tvip-goto-replace data-tvip-mobile-tab="profile"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 17c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>Профиль</button>
     </nav>
   </div>
 
   <!-- Mobile: filter -->
-  <div class="tvip-screen" data-tvip-screen="m-filter" data-tvip-devices="mobile">
-    <div class="tvip-topbar">
-      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-goto="m-home" style="font-size:8px;padding:0.2rem 0.4rem">←</button>
-      <span style="font-weight:600">Фильтры</span>
-    </div>
-    <div class="tvip-body">
-      <p class="tvip-row-title">Жанр</p>
+  <div class="tvip-screen" data-tvip-screen="m-filter" data-tvip-devices="mobile" hidden>
+    <header class="tvip-mob-header">
+      <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back data-tvip-back-target="m-home" aria-label="Назад"><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="tvip-topbar-title">Фильтры</span>
+    </header>
+    <div class="tvip-body tvip-body--mobile tvip-mob-filter-body">
+      <h3 class="tvip-row-title">Жанр</h3>
       <div class="tvip-filter-grid" data-tvip-filter-grid>
         <button type="button" class="tvip-filter-item active">Все</button>
-        <button type="button" class="tvip-filter-item">Драма</button>
-        <button type="button" class="tvip-filter-item">Комедия</button>
-        <button type="button" class="tvip-filter-item">Детям</button>
+        <button type="button" class="tvip-filter-item">Комедии</button>
+        <button type="button" class="tvip-filter-item">Детективы</button>
+        <button type="button" class="tvip-filter-item">Мелодрамы</button>
       </div>
-      <p class="tvip-row-title">Год</p>
-      <div class="tvip-chips">
-        <button type="button" class="tvip-chip active" data-tvip-chip>2024</button>
-        <button type="button" class="tvip-chip" data-tvip-chip>2023</button>
-        <button type="button" class="tvip-chip" data-tvip-chip>Архив</button>
+      <div class="tvip-mob-filter-grid">
+        <button type="button" class="tvip-mob-tile tvip-mob-tile--filter" data-tvip-goto="m-detail">
+          <img alt="Право голоса" data-tvip-src="posters/marathon-mob.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile tvip-mob-tile--filter" data-tvip-goto="m-detail">
+          <img alt="Место встречи" data-tvip-src="posters/odin-vdoh-mob.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile tvip-mob-tile--filter" data-tvip-goto="m-detail">
+          <img alt="Том и Джерри" data-tvip-src="posters/quiet-place-mob.webp" />
+        </button>
+        <button type="button" class="tvip-mob-tile tvip-mob-tile--filter" data-tvip-goto="m-detail">
+          <img alt="Том и Джерри" data-tvip-src="posters/pushki-mob.webp" />
+        </button>
       </div>
-      <button type="button" class="tvip-btn tvip-btn--block" style="margin-top:0.5rem" data-tvip-goto="m-detail">Показать 24 тайтла</button>
+      <button type="button" class="tvip-btn tvip-btn--block tvip-btn--spaced" data-tvip-goto="m-detail">Показать</button>
+    </div>
+    <nav class="tvip-mobile-nav" aria-label="Навигация" data-tvip-mobile-nav>
+      <button type="button" data-tvip-goto="m-home" data-tvip-goto-replace data-tvip-mobile-tab="home"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10l7-7 7 7M5 8.5V16a1 1 0 001 1h3v-4h2v4h3a1 1 0 001-1V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Главная</button>
+      <button type="button" class="active" data-tvip-goto="m-filter" data-tvip-goto-replace data-tvip-mobile-tab="catalog"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Поиск</button>
+      <button type="button" data-tvip-mobile-tab="tv" data-tvip-toast="Телевидение"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>ТВ</button>
+      <button type="button" data-tvip-mobile-tab="downloads" data-tvip-toast="Загрузки пусты"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v10M6 9l4 4 4-4M4 15h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Загрузки</button>
+      <button type="button" data-tvip-goto="m-profile" data-tvip-goto-replace data-tvip-mobile-tab="profile"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 17c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>Профиль</button>
+    </nav>
+  </div>
+
+  <!-- Mobile: detail (Гемини) -->
+  <div class="tvip-screen" data-tvip-screen="m-detail" data-tvip-devices="mobile" hidden>
+    <header class="tvip-mob-header">
+      <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back aria-label="Назад"><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="tvip-topbar-title">Гемини</span>
+    </header>
+    <div class="tvip-body tvip-body--mobile tvip-mob-detail-body">
+      <img class="tvip-mob-detail__poster" alt="Гемини" data-tvip-src="posters/marathon-detail-mob.webp" />
+      <p class="tvip-detail-meta tvip-detail-meta--mob">12+ · 2019 · 117 мин</p>
+      <p class="tvip-detail-meta tvip-detail-meta--mob">США · Боевик · Фантастика</p>
+      <button type="button" class="tvip-btn tvip-btn--block" data-tvip-watch><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1l10 6-10 6V1z" fill="currentColor"/></svg> Смотреть</button>
+      <p class="tvip-detail-links"><a href="#" class="tvip-link" onclick="return false">Скачать</a> · <a href="#" class="tvip-link" onclick="return false">Трейлер</a> · <a href="#" class="tvip-link" onclick="return false">В плейлист</a></p>
+    </div>
+    <nav class="tvip-mobile-nav" aria-label="Навигация" data-tvip-mobile-nav>
+      <button type="button" data-tvip-goto="m-home" data-tvip-goto-replace data-tvip-mobile-tab="home"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10l7-7 7 7M5 8.5V16a1 1 0 001 1h3v-4h2v4h3a1 1 0 001-1V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Главная</button>
+      <button type="button" class="active" data-tvip-goto="m-filter" data-tvip-goto-replace data-tvip-mobile-tab="catalog"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Поиск</button>
+      <button type="button" data-tvip-mobile-tab="tv" data-tvip-toast="Телевидение"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>ТВ</button>
+      <button type="button" data-tvip-mobile-tab="downloads" data-tvip-toast="Загрузки пусты"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v10M6 9l4 4 4-4M4 15h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Загрузки</button>
+      <button type="button" data-tvip-goto="m-profile" data-tvip-goto-replace data-tvip-mobile-tab="profile"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 17c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>Профиль</button>
+    </nav>
+  </div>
+
+  <!-- Mobile: profile -->
+  <div class="tvip-screen" data-tvip-screen="m-profile" data-tvip-devices="mobile" hidden>
+    <header class="tvip-mob-header">
+      <span class="tvip-logo">Профиль</span>
+    </header>
+    <div class="tvip-body tvip-body--mobile tvip-profile-mob-body">
+      <div class="tvip-profile-mob-card">
+        <div class="tvip-profile-mob-avatar">
+          <img alt="Аватар" data-tvip-src="avatars/avatar-3.svg" />
+        </div>
+        <h3 class="tvip-profile-mob-name">Мама</h3>
+        <p class="tvip-profile-mob-sub">family@home.tv</p>
+      </div>
+      <div class="tvip-profile-mob-menu">
+        <button type="button" class="tvip-profile-mob-item" data-tvip-toast="Настройки открыты"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 10a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="1.3"/><path d="M13.5 8a5.5 5.5 0 01-.3 1.8l1.3 1-1.2 2-1.5-.6a5.5 5.5 0 01-1.5.9L10 14.5H7.8l-.3-1.4a5.5 5.5 0 01-1.5-.9l-1.5.6-1.2-2 1.3-1A5.5 5.5 0 014.3 8c0-.6.1-1.2.3-1.8l-1.3-1 1.2-2 1.5.6A5.5 5.5 0 017.5 3L7.8 1.5H10l.3 1.4c.6.2 1.1.5 1.5.9l1.5-.6 1.2 2-1.3 1c.2.6.3 1.2.3 1.8z" stroke="currentColor" stroke-width="1.2"/></svg> Настройки</button>
+        <button type="button" class="tvip-profile-mob-item" data-tvip-toast="Подписка активна до 01.07.2026"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 6h12" stroke="currentColor" stroke-width="1.3"/></svg> Подписка</button>
+        <button type="button" class="tvip-profile-mob-item" data-tvip-toast="История просмотров"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> История</button>
+        <button type="button" class="tvip-profile-mob-item" data-tvip-toast="Загрузки пусты"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg> Загрузки</button>
+        <button type="button" class="tvip-profile-mob-item tvip-profile-mob-item--danger" data-tvip-toast="Выход из аккаунта"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 2H4a2 2 0 00-2 2v8a2 2 0 002 2h2M10 11l3-3-3-3M6 8h7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg> Выйти</button>
+      </div>
+    </div>
+    <nav class="tvip-mobile-nav" aria-label="Навигация" data-tvip-mobile-nav>
+      <button type="button" data-tvip-goto="m-home" data-tvip-goto-replace data-tvip-mobile-tab="home"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10l7-7 7 7M5 8.5V16a1 1 0 001 1h3v-4h2v4h3a1 1 0 001-1V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Главная</button>
+      <button type="button" data-tvip-goto="m-filter" data-tvip-goto-replace data-tvip-mobile-tab="catalog"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Поиск</button>
+      <button type="button" data-tvip-mobile-tab="tv" data-tvip-toast="Телевидение"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>ТВ</button>
+      <button type="button" data-tvip-mobile-tab="downloads" data-tvip-toast="Загрузки пусты"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v10M6 9l4 4 4-4M4 15h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Загрузки</button>
+      <button type="button" class="active" data-tvip-goto="m-profile" data-tvip-goto-replace data-tvip-mobile-tab="profile"><span class="tvip-mobile-nav__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 17c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>Профиль</button>
+    </nav>
+  </div>
+
+  <!-- Desktop: settings -->
+  <div class="tvip-screen" data-tvip-screen="settings" data-tvip-devices="desktop" hidden>
+    <header class="tvip-topbar">
+      <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Назад</button>
+      <span class="tvip-topbar-title">Настройки профиля</span>
+    </header>
+    <div class="tvip-body tvip-body--pad tvip-settings-body">
+      <div class="tvip-settings-sidebar">
+        <div class="tvip-settings-avatar">
+          <img alt="Аватар" data-tvip-src="avatars/avatar-3.svg" />
+        </div>
+        <h3 class="tvip-settings-name">Мама</h3>
+        <p class="tvip-settings-email">family@home.tv</p>
+        <nav class="tvip-settings-nav">
+          <button type="button" class="tvip-settings-nav-item active">Профиль</button>
+          <button type="button" class="tvip-settings-nav-item" data-tvip-toast="Раздел подписки">Подписка</button>
+          <button type="button" class="tvip-settings-nav-item" data-tvip-toast="Раздел устройств">Устройства</button>
+          <button type="button" class="tvip-settings-nav-item" data-tvip-toast="Родительский контроль">Контроль</button>
+        </nav>
+      </div>
+      <div class="tvip-settings-main">
+        <h2 class="tvip-h2">Профиль</h2>
+        <div class="tvip-settings-field">
+          <label class="tvip-field-label">Имя профиля</label>
+          <input class="tvip-field" type="text" value="Мама" readonly />
+        </div>
+        <div class="tvip-settings-field">
+          <label class="tvip-field-label">Имя</label>
+          <input class="tvip-field" type="text" value="Анастасия" readonly />
+        </div>
+        <div class="tvip-settings-field">
+          <label class="tvip-field-label">Email</label>
+          <input class="tvip-field" type="email" value="family@home.tv" readonly />
+        </div>
+        <div class="tvip-settings-field">
+          <label class="tvip-field-label">Возрастное ограничение</label>
+          <div class="tvip-settings-ages">
+            <button type="button" class="tvip-chip active">Без ограничений</button>
+            <button type="button" class="tvip-chip">12+</button>
+            <button type="button" class="tvip-chip">16+</button>
+            <button type="button" class="tvip-chip">18+</button>
+          </div>
+        </div>
+        <button type="button" class="tvip-btn" data-tvip-toast="Настройки сохранены">Сохранить</button>
+      </div>
     </div>
   </div>
 
-  <!-- Mobile: detail -->
-  <div class="tvip-screen" data-tvip-screen="m-detail" data-tvip-devices="mobile">
-    <div class="tvip-topbar">
-      <button type="button" class="tvip-btn tvip-btn--ghost" data-tvip-goto="m-home" style="font-size:8px;padding:0.2rem 0.4rem">←</button>
-      <span style="font-weight:600">Арктика</span>
+  <!-- Desktop: player -->
+  <div class="tvip-screen" data-tvip-screen="player" data-tvip-devices="desktop" hidden>
+    <div class="tvip-player">
+      <header class="tvip-player__topbar">
+        <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Назад</button>
+        <span class="tvip-player__title">Бладшот</span>
+      </header>
+      <div class="tvip-player__video-area">
+        <img class="tvip-player__poster" alt="" data-tvip-src="posters/detail-khmurov.webp" />
+        <div class="tvip-player__play-overlay" aria-label="Пауза">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="rgba(0,0,0,0.45)"/><path d="M19 14l16 10-16 10V14z" fill="#fff"/></svg>
+        </div>
+      </div>
+      <div class="tvip-player__controls">
+        <span class="tvip-player__time">12:34</span>
+        <div class="tvip-player__timeline">
+          <div class="tvip-player__progress" style="width:40%"></div>
+        </div>
+        <span class="tvip-player__time">1:42:10</span>
+      </div>
     </div>
-    <div class="tvip-body">
-      <div class="tvip-detail-poster" style="width:100%;float:none;margin:0 0 0.45rem"></div>
-      <button type="button" class="tvip-btn tvip-btn--block">▶ Смотреть</button>
-      <p style="font-size:8px;color:var(--tvip-muted);margin-top:0.35rem">Скачать · Трейлер · В список</p>
+  </div>
+
+  <!-- Tablet: player -->
+  <div class="tvip-screen" data-tvip-screen="player-tablet" data-tvip-devices="tablet" hidden>
+    <div class="tvip-player">
+      <header class="tvip-player__topbar">
+        <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <span class="tvip-player__title">Инспектор Купер</span>
+      </header>
+      <div class="tvip-player__video-area">
+        <img class="tvip-player__poster" alt="" data-tvip-src="posters/khmurov-wide.webp" />
+        <div class="tvip-player__play-overlay" aria-label="Пауза">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="rgba(0,0,0,0.45)"/><path d="M19 14l16 10-16 10V14z" fill="#fff"/></svg>
+        </div>
+      </div>
+      <div class="tvip-player__controls">
+        <span class="tvip-player__time">08:15</span>
+        <div class="tvip-player__timeline">
+          <div class="tvip-player__progress" style="width:40%"></div>
+        </div>
+        <span class="tvip-player__time">0:45:30</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile: player -->
+  <div class="tvip-screen" data-tvip-screen="m-player" data-tvip-devices="mobile" hidden>
+    <div class="tvip-player tvip-player--mobile">
+      <header class="tvip-player__topbar">
+        <button type="button" class="tvip-btn tvip-btn--ghost tvip-btn--sm" data-tvip-back><svg class="tvip-icon-back" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <span class="tvip-player__title">Гемини</span>
+      </header>
+      <div class="tvip-player__video-area">
+        <img class="tvip-player__poster" alt="" data-tvip-src="posters/marathon-detail-mob.webp" />
+        <div class="tvip-player__play-overlay" aria-label="Пауза">
+          <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="rgba(0,0,0,0.45)"/><path d="M19 14l16 10-16 10V14z" fill="#fff"/></svg>
+        </div>
+      </div>
+      <div class="tvip-player__controls">
+        <span class="tvip-player__time">05:20</span>
+        <div class="tvip-player__timeline">
+          <div class="tvip-player__progress" style="width:40%"></div>
+        </div>
+        <span class="tvip-player__time">1:57:00</span>
+      </div>
     </div>
   </div>
 </div>

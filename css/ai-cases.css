@@ -53,6 +53,14 @@
   height: 14px;
 }
 
+/* Visibility inside interactive mocks — no Tailwind required */
+.mock-app .hidden,
+.docsbird-flow .hidden,
+.coin-mock .hidden,
+.tvip-app .hidden {
+  display: none !important;
+}
+
 .mock-app {
   background: var(--mock-bg);
   color: var(--mock-text);
@@ -85,39 +93,40 @@
 
 /* DocsBird — light green DS */
 .mock-app[data-theme="docsbird"] {
-  --mock-bg: #f8faf9;
+  --mock-bg: #f8f6f4;
   --mock-surface: #ffffff;
   --mock-surface-2: #f1f5f3;
-  --mock-sidebar-bg: #ffffff;
+  --mock-sidebar-bg: #f1f5f3;
   --mock-border: #d1e0d6;
-  --mock-text: #1a2e1f;
-  --mock-muted: #5c6f63;
-  --mock-accent: #2d6a4f;
+  --mock-text: #161417;
+  --mock-muted: #858586;
+  --mock-accent: #30735d;
   --mock-accent-soft: #d8f3dc;
-  --mock-accent-2: #40916c;
-  --mock-success: #2d6a4f;
-  --mock-header: #1b4332;
-  --mock-chart: #2d6a4f;
+  --mock-accent-2: #3c9074;
+  --mock-success: #30735d;
+  --mock-header: #30735d;
+  --mock-chart: #3c9074;
+  --mock-danger: #c2410c;
 }
 
 /* Coin — corporate blue + gold */
 .mock-app[data-theme="coin"] {
-  --mock-bg: #f4f7fb;
+  --mock-bg: #ffffff;
   --mock-surface: #ffffff;
-  --mock-surface-2: #eef2f8;
+  --mock-surface-2: #eaf1fc;
   --mock-sidebar-bg: #ffffff;
-  --mock-border: #e2e8f0;
-  --mock-text: #0f172a;
-  --mock-muted: #64748b;
-  --mock-accent: #2563eb;
-  --mock-accent-soft: #dbeafe;
-  --mock-accent-2: #3b82f6;
-  --mock-gold: #eab308;
+  --mock-border: #bcbcbc;
+  --mock-text: #212121;
+  --mock-muted: #909090;
+  --mock-accent: #3273e1;
+  --mock-accent-soft: #eaf1fc;
+  --mock-accent-2: #3273e1;
+  --mock-gold: #f1b31c;
   --mock-gold-soft: #fef9c3;
   --mock-warning: #d97706;
   --mock-success: #059669;
-  --mock-chart: #2563eb;
-  --mock-chart-fill: rgba(37, 99, 235, 0.12);
+  --mock-chart: #3273e1;
+  --mock-chart-fill: rgba(50, 115, 225, 0.12);
 }
 
 .mock-sidebar {
