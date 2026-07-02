@@ -1,183 +1,46 @@
-<div class="docsbird-flow" data-docsbird-flow role="application" aria-label="DocsBird interactive demo">
-  <div class="docsbird-flow__stage" data-docsbird-stage>
-    <!-- Agreements list -->
+<div class="docsbird-flow" data-docsbird-flow role="application" aria-label="DocsBird single-screen demo">
+  <div class="docsbird-flow__stage">
     <section class="docsbird-flow__screen is-active" data-docsbird-screen="agreements">
       <div class="docsbird-flow__layout">
         <aside class="docsbird-flow__sidebar" aria-label="Main navigation">
           <div class="docsbird-flow__brand">DocsBird</div>
           <button type="button" class="docsbird-flow__nav is-active">Agreements</button>
-          <button type="button" class="docsbird-flow__nav" data-docsbird-goto="dashboard">Dashboard</button>
-          <button type="button" class="docsbird-flow__nav" data-docsbird-goto="create">Invoices</button>
-          <button type="button" class="docsbird-flow__nav">Archive</button>
-          <div class="docsbird-flow__flyout" data-docsbird-flyout>
-            <button type="button" class="docsbird-flow__nav docsbird-flow__nav--has-menu" data-docsbird-menu-trigger aria-expanded="false">
-              Create ▾
-            </button>
-            <div class="docsbird-flow__menu" data-docsbird-menu role="menu">
-              <button type="button" role="menuitem" data-docsbird-goto="create">New invoice</button>
-              <button type="button" role="menuitem">From template</button>
-              <button type="button" role="menuitem">Import PDF</button>
-            </div>
-          </div>
+          <button type="button" class="docsbird-flow__nav">Dashboard</button>
+          <button type="button" class="docsbird-flow__nav">Invoices</button>
         </aside>
         <main class="docsbird-flow__main">
           <header class="docsbird-flow__page-head">
             <div class="docsbird-flow__page-head-copy">
               <h2 class="docsbird-flow__title">Agreements</h2>
-              <p class="docsbird-flow__subtitle">Framework contracts for Baltic &amp; EU clients</p>
+              <p class="docsbird-flow__subtitle">Framework contracts for Baltic and EU clients</p>
             </div>
-            <button type="button" class="mock-btn-primary docsbird-flow__btn" data-docsbird-goto="create">+ New agreement</button>
-          </header>
-          <div class="docsbird-flow__main-body">
-            <div class="docsbird-flow__cards">
-              <button type="button" class="docsbird-flow__card is-selected" data-docsbird-goto="dashboard">
-                <span class="docsbird-flow__card-status docsbird-flow__card-status--ok">Active</span>
-                <strong>Baltic Trade Ltd</strong>
-                <span>Framework · LV · until 2027</span>
-              </button>
-              <button type="button" class="docsbird-flow__card">
-                <span class="docsbird-flow__card-status">Draft</span>
-                <strong>Nord Logistics</strong>
-                <span>NDA · in review</span>
-              </button>
-              <button type="button" class="docsbird-flow__card">
-                <span class="docsbird-flow__card-status docsbird-flow__card-status--warn">Expiring</span>
-                <strong>Eesti Solutions</strong>
-                <span>Service · 14 days left</span>
-              </button>
-            </div>
-          </div>
-        </main>
-      </div>
-    </section>
-
-    <!-- Dashboard -->
-    <section class="docsbird-flow__screen" data-docsbird-screen="dashboard" hidden>
-      <div class="docsbird-flow__layout">
-        <aside class="docsbird-flow__sidebar">
-          <div class="docsbird-flow__brand">DocsBird</div>
-          <button type="button" class="docsbird-flow__nav" data-docsbird-goto="agreements">Agreements</button>
-          <button type="button" class="docsbird-flow__nav is-active">Dashboard</button>
-          <button type="button" class="docsbird-flow__nav" data-docsbird-goto="create">Invoices</button>
-        </aside>
-        <main class="docsbird-flow__main docsbird-flow__main--dash">
-          <header class="docsbird-flow__page-head">
-            <div class="docsbird-flow__page-head-copy">
-              <h2 class="docsbird-flow__title">Dashboard</h2>
-              <p class="docsbird-flow__subtitle">Documents waiting for your action</p>
-            </div>
+            <button type="button" class="mock-btn-primary docsbird-flow__btn">+ New agreement</button>
           </header>
           <div class="docsbird-flow__main-body">
             <div class="docsbird-flow__kpis">
-              <div class="docsbird-flow__kpi"><span>To sign</span><strong>3</strong></div>
-              <div class="docsbird-flow__kpi"><span>Drafts</span><strong>7</strong></div>
-              <div class="docsbird-flow__kpi"><span>Paid this month</span><strong>€ 42k</strong></div>
+              <div class="docsbird-flow__kpi"><span>Active</span><strong>26</strong></div>
+              <div class="docsbird-flow__kpi"><span>In review</span><strong>4</strong></div>
+              <div class="docsbird-flow__kpi"><span>Expiring</span><strong>2</strong></div>
             </div>
-            <p class="docsbird-flow__section-note">Recent documents</p>
-            <div class="docsbird-flow__cards docsbird-flow__cards--compact">
-              <button type="button" class="docsbird-flow__card" data-docsbird-goto="create">
-                <strong>INV-2026-0142</strong>
-                <span>Baltic Trade · € 2,400</span>
-              </button>
-              <button type="button" class="docsbird-flow__card">
-                <strong>INV-2026-0138</strong>
-                <span>Nord Logistics · sent</span>
-              </button>
+            <div class="docsbird-flow__cards">
+              <div class="docsbird-flow__card is-selected">
+                <span class="docsbird-flow__card-status docsbird-flow__card-status--ok">Active</span>
+                <strong>Baltic Trade Ltd</strong>
+                <span>Framework · LV · until 2027</span>
+              </div>
+              <div class="docsbird-flow__card">
+                <span class="docsbird-flow__card-status">Draft</span>
+                <strong>Nord Logistics</strong>
+                <span>NDA · in review</span>
+              </div>
+              <div class="docsbird-flow__card">
+                <span class="docsbird-flow__card-status docsbird-flow__card-status--warn">Expiring</span>
+                <strong>Eesti Solutions</strong>
+                <span>Service · 14 days left</span>
+              </div>
             </div>
-            <button type="button" class="mock-btn-primary docsbird-flow__btn docsbird-flow__btn--spaced" data-docsbird-goto="create">Create invoice</button>
           </div>
         </main>
-      </div>
-    </section>
-
-    <!-- Create invoice -->
-    <section class="docsbird-flow__screen" data-docsbird-screen="create" hidden>
-      <div data-docsbird-form-host>
-        <div class="mock-app docsbird-form" data-theme="docsbird" role="region" aria-label="DocsBird invoice form">
-          <header class="docsbird-form__app-bar">New agreement · Invoice · LV</header>
-          <div class="mock-toast" data-draft-toast role="status" aria-live="polite">Draft saved</div>
-          <div class="docsbird-form__layout">
-            <div class="docsbird-form__preview-col">
-              <div class="mock-doc-preview">
-                <div class="docsbird-form__preview-title">Preview</div>
-                <p data-preview-id>Invoice #INV-2026-0142</p>
-                <p class="docsbird-form__preview-gap" data-preview-counterparty>—</p>
-                <p data-preview-amount>—</p>
-                <p class="docsbird-form__preview-meta" data-preview-term>—</p>
-                <p class="docsbird-form__preview-status" data-preview-status>Draft</p>
-              </div>
-            </div>
-            <main class="docsbird-form__main">
-              <div class="docsbird-form__main-head">
-                <span class="docsbird-form__section-label">Invoice fields</span>
-                <span class="docsbird-form__badge hidden" data-compliance-badge>Compliance OK</span>
-              </div>
-              <div class="mock-field-block">
-                <label class="docsbird-form__label" for="db-cp-flow">Counterparty</label>
-                <select id="db-cp-flow" class="mock-field mock-select docsbird-form__field" data-field="counterparty">
-                  <option value="">Select company</option>
-                  <option value="SIA Baltic Trade Ltd">SIA Baltic Trade Ltd</option>
-                  <option value="UAB Nord Logistics">UAB Nord Logistics</option>
-                  <option value="AS Eesti Solutions">AS Eesti Solutions</option>
-                </select>
-                <p class="docsbird-form__error hidden" data-field-error="counterparty"></p>
-              </div>
-              <div class="mock-field-block">
-                <div class="mock-field-label-row">
-                  <label class="docsbird-form__label" for="db-am-flow">Amount (EUR)</label>
-                  <div class="mock-field-actions">
-                    <button type="button" class="mock-accept-btn" data-suggest="amount">AI</button>
-                    <button type="button" class="mock-accept-btn hidden" data-accept="amount">Accept</button>
-                  </div>
-                </div>
-                <input id="db-am-flow" class="mock-field docsbird-form__field" type="text" value="" placeholder="0.00" data-field="amount" />
-              </div>
-              <div class="mock-field-block">
-                <div class="mock-field-label-row">
-                  <label class="docsbird-form__label" for="db-pu-flow">Payment purpose</label>
-                  <button type="button" class="mock-accept-btn" data-suggest="purpose">AI</button>
-                </div>
-                <input id="db-pu-flow" class="mock-field docsbird-form__field" type="text" value="" placeholder="Payment reference" data-field="purpose" />
-              </div>
-              <div class="mock-field-block">
-                <label class="docsbird-form__label" for="db-te-flow">Payment term</label>
-                <input id="db-te-flow" class="mock-field docsbird-form__field" type="text" value="" placeholder="14 days" data-field="term" />
-              </div>
-              <div class="docsbird-form__toolbar" data-docsbird-toolbar>
-                <button type="button" class="mock-btn-secondary docsbird-form__tool-btn" data-docsbird-save-draft>Save draft</button>
-                <button type="button" class="mock-btn-primary docsbird-form__tool-btn docsbird-form__check-btn" data-docsbird-check>
-                  <span class="mock-loading hidden" data-check-spinner></span>
-                  <span data-check-label>Check</span>
-                </button>
-                <div class="mock-split-btn docsbird-form__split hidden" data-docsbird-send-wrap>
-                  <button type="button" class="mock-split-main mock-btn-primary docsbird-form__split-main" data-docsbird-send-toggle>Send</button>
-                  <button type="button" class="mock-split-caret mock-btn-primary" data-docsbird-send-caret aria-label="Send options">▾</button>
-                  <div class="mock-split-menu hidden" data-docsbird-send-menu role="menu">
-                    <button type="button" class="mock-split-menu-item" data-send-action="send" role="menuitem">Send</button>
-                    <button type="button" class="mock-split-menu-item" data-send-action="sign-send" role="menuitem" data-docsbird-goto="sent">Sign &amp; send</button>
-                  </div>
-                </div>
-              </div>
-            </main>
-            <aside class="docsbird-form__aside">
-              <div class="docsbird-form__ai-title">AI Assistant</div>
-              <p class="docsbird-form__ai-hint" data-ai-hint>Fill fields manually or use AI suggestions, then run compliance check.</p>
-              <button type="button" class="mock-btn-secondary docsbird-form__aside-btn" data-ai-action="template">From template</button>
-              <button type="button" class="mock-btn-secondary docsbird-form__aside-btn" data-gdpr-btn>GDPR check</button>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sent -->
-    <section class="docsbird-flow__screen" data-docsbird-screen="sent" hidden>
-      <div class="docsbird-flow__success">
-        <div class="docsbird-flow__success-icon" aria-hidden="true">✓</div>
-        <h3>Document sent</h3>
-        <p>Invoice INV-2026-0142 was signed with Smart-ID and delivered to the counterparty.</p>
-        <button type="button" class="mock-btn-primary docsbird-flow__btn docsbird-flow__btn--lg" data-docsbird-goto="dashboard">Back to dashboard</button>
-        <button type="button" class="mock-btn-secondary docsbird-flow__btn docsbird-flow__btn--lg docsbird-flow__btn--stack" data-docsbird-goto="agreements">View agreements</button>
       </div>
     </section>
   </div>

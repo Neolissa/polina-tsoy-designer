@@ -231,16 +231,16 @@
             <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full blur-3xl"></div>
         </div>
         
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in pt-8 md:pt-10">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in pt-8 md:pt-10 pb-24 sm:pb-20">
             <!-- MAIN TITLE -->
-            <h1 data-hero-title class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 data-hero-title class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-[1.2] md:leading-[1.18]">
                 Дизайнер интерфейсов в продукте: 
                 <span class="gradient-text">от гипотезы — к интерфейсу,</span><br>
                 <span class="gradient-text">от интерфейса — к результату.</span>
             </h1>
             
             <!-- SUBTITLE -->
-            <p data-hero-subtitle class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p data-hero-subtitle class="text-lg sm:text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
                 Помогаю продуктам расти через глубокие исследования, 
                 продуманные системы и ясную логику. Фокус на 
                 <strong>B2C</strong> и сложных <strong>B2B-интерфейсах</strong>.
@@ -248,7 +248,7 @@
             
             <!-- CTA Button + Secondary Text -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#cases" data-track="hero-cta" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900">
+                <a href="#cases" data-track="hero-cta" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-gray-900 w-full sm:w-auto max-w-[18rem]">
                     Посмотреть кейсы
                 </a>
                 <span class="text-gray-900 text-sm">
@@ -256,13 +256,13 @@
                 </span>
             </div>
             
-            <a href="#cases" class="mt-10 inline-flex flex-col items-center gap-1 text-gray-900 hover:text-gray-700 transition-colors animate-bounce" aria-label="Перейти к кейсам">
-                <span class="text-xs uppercase tracking-wider">Кейсы</span>
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-            </a>
         </div>
+        <a href="#cases" class="absolute bottom-5 sm:bottom-7 left-1/2 -translate-x-1/2 inline-flex flex-col items-center gap-1 text-gray-900 hover:text-gray-700 transition-colors animate-bounce z-20" aria-label="Смотреть кейсы">
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider">Смотреть кейсы</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </a>
     </section>
 
     <!-- About Section (Moved to second position) -->
@@ -589,6 +589,49 @@
             </div>
             
             <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+                <!-- AI Cases — на всю ширину сетки (2 колонки) -->
+                <a href="../ai-cases.html" class="block group relative overflow-hidden lg:col-span-2">
+                    <article class="card-hover fade-in relative overflow-hidden rounded-2xl border border-indigo-200/80 bg-gradient-to-br from-slate-900 via-indigo-950 to-violet-950 text-white min-h-[220px]">
+                        <div class="absolute inset-0 opacity-35 pointer-events-none" aria-hidden="true">
+                            <div class="absolute -top-8 right-8 w-56 h-56 bg-indigo-500 rounded-full blur-3xl"></div>
+                            <div class="absolute bottom-0 left-8 w-44 h-44 bg-violet-600 rounded-full blur-3xl"></div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/55 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                            <span class="text-white font-semibold text-lg uppercase tracking-wider">Смотреть кейсы</span>
+                        </div>
+                        <div class="relative z-[1] grid md:grid-cols-2 gap-6 md:gap-10 p-6 md:p-10 items-center">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <span class="bg-indigo-500/25 text-indigo-100 px-3 py-1 rounded-full text-xs font-medium border border-indigo-400/30">
+                                        ИИ · Аналитика
+                                    </span>
+                                    <span class="text-slate-400 text-sm">интерактивные макеты</span>
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-bold mb-4">Кейсы с ИИ</h3>
+                                <p class="text-slate-300 leading-relaxed">
+                                    Как я проектирую дашборды для решений и встраиваю умные сценарии в интерфейс — с контролем пользователя и без перегруза.
+                                </p>
+                            </div>
+                            <div class="space-y-4">
+                                <ul class="grid sm:grid-cols-3 md:grid-cols-1 gap-3 text-sm">
+                                    <li class="rounded-xl bg-white/10 border border-white/15 px-4 py-3">
+                                        <span class="block text-indigo-200 text-xs font-medium mb-1">Coin</span>
+                                        <span class="text-slate-200">Аналитика вовлечённости</span>
+                                    </li>
+                                    <li class="rounded-xl bg-white/10 border border-white/15 px-4 py-3">
+                                        <span class="block text-indigo-200 text-xs font-medium mb-1">WUW</span>
+                                        <span class="text-slate-200">Дашборд продукта и WL</span>
+                                    </li>
+                                    <li class="rounded-xl bg-white/10 border border-white/15 px-4 py-3">
+                                        <span class="block text-indigo-200 text-xs font-medium mb-1">DocsBird</span>
+                                        <span class="text-slate-200">ИИ в документообороте</span>
+                                    </li>
+                                </ul>
+                                <p class="text-indigo-200 font-semibold text-sm">Три демо на одной странице →</p>
+                            </div>
+                        </div>
+                    </article>
+                </a>
                 <!-- Case 1 -->
                 <a href="wuw.html" class="block group relative overflow-hidden h-full min-h-0">
                     <article class="card-hover bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 fade-in relative h-full flex flex-col min-h-0">
@@ -789,50 +832,6 @@
                     </article>
                 </a>
 
-                <!-- AI Cases — на всю ширину сетки (2 колонки) -->
-                <a href="../ai-cases.html" class="block group relative overflow-hidden lg:col-span-2">
-                    <article class="card-hover fade-in relative overflow-hidden rounded-2xl border border-indigo-200/80 bg-gradient-to-br from-slate-900 via-indigo-950 to-violet-950 text-white min-h-[220px]">
-                        <div class="absolute inset-0 opacity-35 pointer-events-none" aria-hidden="true">
-                            <div class="absolute -top-8 right-8 w-56 h-56 bg-indigo-500 rounded-full blur-3xl"></div>
-                            <div class="absolute bottom-0 left-8 w-44 h-44 bg-violet-600 rounded-full blur-3xl"></div>
-                        </div>
-                        <div class="absolute inset-0 bg-black/55 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                            <span class="text-white font-semibold text-lg uppercase tracking-wider">Смотреть кейсы</span>
-                        </div>
-                        <div class="relative z-[1] grid md:grid-cols-2 gap-8 md:gap-10 p-8 md:p-10 items-center">
-                            <div>
-                                <div class="flex flex-wrap items-center gap-3 mb-4">
-                                    <span class="bg-indigo-500/25 text-indigo-100 px-3 py-1 rounded-full text-xs font-medium border border-indigo-400/30">
-                                        ИИ · Аналитика
-                                    </span>
-                                    <span class="text-slate-400 text-sm">интерактивные макеты</span>
-                                </div>
-                                <h3 class="text-2xl md:text-3xl font-bold mb-4">Кейсы с ИИ</h3>
-                                <p class="text-slate-300 leading-relaxed">
-                                    Как я проектирую дашборды для решений и встраиваю умные сценарии в интерфейс — с контролем пользователя и без перегруза.
-                                </p>
-                            </div>
-                            <div class="space-y-4">
-                                <ul class="grid sm:grid-cols-3 md:grid-cols-1 gap-3 text-sm">
-                                    <li class="rounded-xl bg-white/10 border border-white/15 px-4 py-3">
-                                        <span class="block text-indigo-200 text-xs font-medium mb-1">Coin</span>
-                                        <span class="text-slate-200">Аналитика вовлечённости</span>
-                                    </li>
-                                    <li class="rounded-xl bg-white/10 border border-white/15 px-4 py-3">
-                                        <span class="block text-indigo-200 text-xs font-medium mb-1">WUW</span>
-                                        <span class="text-slate-200">Дашборд продукта и WL</span>
-                                    </li>
-                                    <li class="rounded-xl bg-white/10 border border-white/15 px-4 py-3">
-                                        <span class="block text-indigo-200 text-xs font-medium mb-1">DocsBird</span>
-                                        <span class="text-slate-200">ИИ в документообороте</span>
-                                    </li>
-                                </ul>
-                                <p class="text-indigo-200 font-semibold text-sm">Три демо на одной странице →</p>
-                            </div>
-                        </div>
-                    </article>
-                </a>
-                
             </div>
         </div>
     </section>
@@ -919,6 +918,7 @@
     <script src="../js/telegram-cta.js"></script>
     <script src="../js/consent-manager.js"></script>
     <script src="../js/analytics.js"></script>
+    <script src="../js/lang-switcher.js"></script>
     <script src="../js/ab-hero.js"></script>
     <!-- JavaScript for fade-in animations -->
     <script>

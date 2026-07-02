@@ -899,6 +899,43 @@
   background: color-mix(in srgb, var(--tvip-surface) 94%, transparent);
 }
 
+.tvip-content-tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+  background: var(--tvip-surface-2);
+  border: 1px solid var(--tvip-border);
+  border-radius: 999px;
+  padding: 0.15rem;
+}
+
+.tvip-content-tab {
+  padding: 0.2rem 0.55rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--tvip-muted);
+  font-size: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.tvip-content-tab.active {
+  background: var(--tvip-accent-soft);
+  color: var(--tvip-accent);
+}
+
+@media (max-width: 640px) {
+  .tvip-content-tabs {
+    gap: 0.2rem;
+  }
+  .tvip-content-tab {
+    padding: 0.18rem 0.45rem;
+    font-size: 7px;
+  }
+}
+
 .tvip-home-brand {
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -2850,7 +2887,7 @@
 .docsbird-flow__subtitle {
   margin: 0.2rem 0 0;
   font-size: 8px;
-  color: #858586;
+  color: #5f6368;
 }
 
 .docsbird-flow__page-head .mock-btn-primary {
@@ -2950,7 +2987,7 @@
 
 .docsbird-flow__card span {
   font-size: 0.65rem;
-  color: #64748b;
+  color: #5f6368;
 }
 
 .docsbird-flow__card-status {
@@ -2960,7 +2997,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 0.25rem;
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .docsbird-flow__card-status--ok {
@@ -2968,7 +3005,7 @@
 }
 
 .docsbird-flow__card-status--warn {
-  color: #d97706;
+  color: #b45309;
 }
 
 .docsbird-flow__kpis {
