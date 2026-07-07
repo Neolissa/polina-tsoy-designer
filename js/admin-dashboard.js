@@ -31,10 +31,9 @@
   function toScrollMap(events) {
     var map = { 25: 0, 50: 0, 75: 0, 90: 0 };
     events.forEach(function (event) {
-      if (event.name === "scroll_depth_reached" && event.props && event.props.depth_percent) {
-        var depth = String(event.props.depth_percent);
-        if (map.hasOwnProperty(depth)) map[depth] += 1;
-      }
+      if (event.name !== "scroll_depth_reached" || !event.props) return;
+      var depth = Number(event.props.depth_percent);
+      if (map[depth] !== undefined) map[depth] += 1;
     });
     return map;
   }
@@ -68,7 +67,7 @@
 
   function getViewEvents(events) {
     return events.filter(function (event) {
-      return event.name === "page_viewed" || event.name === "case_page_viewed";
+      return event.name === "page_viewed";
     });
   }
 

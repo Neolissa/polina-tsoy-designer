@@ -3,9 +3,12 @@
   var LOCAL_EVENTS_KEY = "portfolioAnalyticsEvents";
   var MAX_LOCAL_EVENTS = 500;
   var VISITOR_ID_KEY = "portfolioVisitorId";
+  var POSTHOG_SCRIPT = "https://cdn.jsdelivr.net/npm/posthog-js@1.257.2/dist/array.full.js";
   var reachedMarks = {};
   var loaded = false;
   var posthogReady = false;
+  var pendingEvents = [];
+  var posthogOutboundQueue = [];
 
   function getLang() {
     return document.documentElement.lang || "ru";
@@ -21,35 +24,72 @@
     return cfg.analytics || {};
   }
 
-  function loadScript(src, id, onLoad) {
-    if (id && document.getElementById(id)) {
-      if (typeof onLoad === "function") onLoad();
-      return;
+  function loadScript(src, id, onLoad, onError) {
+    var existing = id ? document.getElementById(id) : null;
+    if (existing) {
+      if (existing.getAttribute("src") !== src) {
+        existing.remove();
+      } else if (existing.getAttribute("data-loaded") === "true") {
+        if (typeof onLoad === "function") onLoad();
+        return;
+      } else {
+        existing.addEventListener("load", function () {
+          if (typeof onLoad === "function") onLoad();
+        });
+        existing.addEventListener("error", function () {
+          if (typeof onError === "function") onError();
+        });
+        return;
+      }
     }
+
     var script = document.createElement("script");
     script.src = src;
     script.async = true;
     if (id) script.id = id;
-    if (typeof onLoad === "function") script.onload = onLoad;
+    script.onload = function () {
+      script.setAttribute("data-loaded", "true");
+      if (typeof onLoad === "function") onLoad();
+    };
+    if (typeof onError === "function") script.onerror = onError;
     document.head.appendChild(script);
+  }
+
+  function flushPosthogOutboundQueue() {
+    if (!posthogReady || !window.posthog || typeof window.posthog.capture !== "function") return;
+    if (!posthogOutboundQueue.length) return;
+    var queue = posthogOutboundQueue.slice();
+    posthogOutboundQueue = [];
+    queue.forEach(function (item) {
+      window.posthog.capture(item.name, item.props);
+    });
   }
 
   function initPosthog() {
     var cfg = getConfig();
     if (!cfg.posthogApiKey || !cfg.posthogHost || posthogReady) return;
-    loadScript("https://cdn.jsdelivr.net/npm/posthog-js@1.154.0/dist/module.no-external.js", "posthog-sdk", function () {
-      if (!window.posthog || posthogReady) return;
-      window.posthog.init(cfg.posthogApiKey, {
-        api_host: cfg.posthogHost,
-        person_profiles: "identified_only",
-        capture_pageview: true,
-        persistence: "localStorage+cookie"
-      });
-      posthogReady = true;
-      captureEvent("case_page_viewed", {
-        page: window.location.pathname
-      });
-    });
+    loadScript(
+      POSTHOG_SCRIPT,
+      "posthog-sdk",
+      function () {
+        if (posthogReady) return;
+        if (!window.posthog || typeof window.posthog.init !== "function") {
+          console.warn("[portfolioAnalytics] PostHog SDK loaded but global is unavailable");
+          return;
+        }
+        window.posthog.init(cfg.posthogApiKey, {
+          api_host: cfg.posthogHost,
+          person_profiles: "identified_only",
+          capture_pageview: false,
+          persistence: "localStorage+cookie"
+        });
+        posthogReady = true;
+        flushPosthogOutboundQueue();
+      },
+      function () {
+        console.warn("[portfolioAnalytics] PostHog SDK failed to load");
+      }
+    );
   }
 
   function initClarity() {
@@ -70,19 +110,46 @@
   }
 
   function loadTrackersIfAllowed() {
-    if (loaded) return;
     if (getConsentState() !== "accepted") return;
-    initPosthog();
-    initClarity();
-    loaded = true;
+    if (!loaded) {
+      initPosthog();
+      initClarity();
+      loaded = true;
+    }
+    flushPendingEvents();
+  }
+
+  function sendToPosthog(name, props) {
+    if (posthogReady && window.posthog && typeof window.posthog.capture === "function") {
+      window.posthog.capture(name, props || {});
+      return;
+    }
+    posthogOutboundQueue.push({ name: name, props: props || {} });
+  }
+
+  function sendEvent(name, props) {
+    persistLocalEvent(name, props || {});
+    if (getConsentState() === "accepted") {
+      sendToPosthog(name, props);
+    }
   }
 
   function captureEvent(name, props) {
-    if (getConsentState() !== "accepted") return;
-    persistLocalEvent(name, props || {});
-    if (window.posthog && typeof window.posthog.capture === "function") {
-      window.posthog.capture(name, props || {});
+    var payload = addBaseProps(props);
+    if (getConsentState() !== "accepted") {
+      pendingEvents.push({ name: name, props: payload });
+      return;
     }
+    sendEvent(name, payload);
+  }
+
+  function flushPendingEvents() {
+    if (getConsentState() !== "accepted" || !pendingEvents.length) return;
+    var queue = pendingEvents.slice();
+    pendingEvents = [];
+    queue.forEach(function (item) {
+      sendEvent(item.name, item.props);
+    });
   }
 
   function persistLocalEvent(name, props) {
@@ -125,31 +192,36 @@
     }
   }
 
+  function extractCaseSlug(href) {
+    if (!href) return "";
+    var file = href.split("/").pop() || "";
+    return file.replace(".html", "");
+  }
+
   function wireClicks() {
     document.body.addEventListener("click", function (event) {
       var heroButton = event.target.closest('a[href="#cases"], a[data-track="hero-cta"]');
       if (heroButton) {
-        captureEvent(
-          "hero_cta_clicked",
-          addBaseProps({
-            location: "hero",
-            variant: document.documentElement.getAttribute("data-hero-variant") || "A"
-          })
-        );
+        captureEvent("hero_cta_clicked", {
+          location: "hero",
+          variant: document.documentElement.getAttribute("data-hero-variant") || "A"
+        });
       }
 
-      var caseCard = event.target.closest('a[href$="wuw.html"],a[href$="tvip.html"],a[href$="relaunch.html"],a[href$="docsbird.html"]');
+      var caseCard = event.target.closest(
+        'a[href*="wuw.html"],a[href*="tvip.html"],a[href*="relaunch.html"],a[href*="docsbird.html"],a[href*="ai-cases.html"]'
+      );
       if (caseCard) {
-        var href = caseCard.getAttribute("href") || "";
-        var slug = href.replace(".html", "").split("/").pop();
-        captureEvent("case_card_clicked", addBaseProps({ case_slug: slug }));
+        captureEvent("case_card_clicked", {
+          case_slug: extractCaseSlug(caseCard.getAttribute("href") || "")
+        });
       }
 
       var tg = event.target.closest('a[href*="t.me/"]');
-      if (tg) captureEvent("contact_click_telegram", addBaseProps());
+      if (tg) captureEvent("contact_click_telegram", {});
 
       var mail = event.target.closest('a[href^="mailto:"]');
-      if (mail) captureEvent("contact_click_email", addBaseProps());
+      if (mail) captureEvent("contact_click_email", {});
     });
   }
 
@@ -166,7 +238,7 @@
         SCROLL_MARKS.forEach(function (mark) {
           if (depth >= mark && !reachedMarks[mark]) {
             reachedMarks[mark] = true;
-            captureEvent("scroll_depth_reached", addBaseProps({ depth_percent: mark }));
+            captureEvent("scroll_depth_reached", { depth_percent: mark });
           }
         });
       },
@@ -175,17 +247,21 @@
   }
 
   function capturePageView() {
-    captureEvent(
-      "page_viewed",
-      addBaseProps({
-        page: window.location.pathname
-      })
-    );
+    captureEvent("page_viewed", {
+      page: window.location.pathname
+    });
+  }
+
+  function onConsentChange() {
+    loadTrackersIfAllowed();
+    if (getConsentState() === "accepted") {
+      capturePageView();
+    }
   }
 
   window.portfolioAnalytics = {
     capture: function (name, props) {
-      captureEvent(name, addBaseProps(props));
+      captureEvent(name, props);
     },
     getLocalEvents: function () {
       try {
@@ -193,6 +269,9 @@
       } catch (error) {
         return [];
       }
+    },
+    getPendingCount: function () {
+      return pendingEvents.length;
     }
   };
 
@@ -201,9 +280,6 @@
     wireScrollDepth();
     loadTrackersIfAllowed();
     if (getConsentState() === "accepted") capturePageView();
-    window.addEventListener("portfolio:consent-change", loadTrackersIfAllowed);
-    window.addEventListener("portfolio:consent-change", function () {
-      if (getConsentState() === "accepted") capturePageView();
-    });
+    window.addEventListener("portfolio:consent-change", onConsentChange);
   });
 })();
