@@ -17,7 +17,7 @@
                     colors: {
                         primary: '#1a1a1a',
                         secondary: '#4a4a4a',
-                        accent: '#6366f1',
+                        accent: 'var(--color-accent)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -26,6 +26,8 @@
             }
         }
     </script>
+    
+    <link rel="stylesheet" href="css/site-tokens.css">
     
     <style>
         /* Custom smooth scrolling */
@@ -44,28 +46,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Smooth underline for links */
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #6366f1;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        /* List styling */
+/* List styling */
         .content-list {
             list-style-type: disc;
             padding-left: 1.5rem;

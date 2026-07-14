@@ -1,0 +1,49 @@
+/* Единые токены цвета сайта */
+:root {
+    --color-accent: #6366f1;        /* индиго — ссылки, подчёркивания, старт градиента */
+    --color-accent-purple: #8b5cf6; /* фиолетовый — конец фирменного градиента */
+    --color-navy: #284d89;          /* тёмно-синий из анимации — подпись под hero */
+    --color-accent-rgb: 99, 102, 241;
+    --gradient-brand: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-purple) 100%);
+    --gradient-hero: linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
+}
+
+/* Общие компоненты, использующие токены */
+.gradient-text {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-grid {
+    background: var(--gradient-hero);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.3);
+}

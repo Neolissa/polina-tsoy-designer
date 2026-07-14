@@ -11,13 +11,14 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { accent: '#6366f1' },
+                    colors: { accent: 'var(--color-accent)' },
                     fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
                 }
             }
         }
     </script>
 
+    <link rel="stylesheet" href="css/site-tokens.css">
     <link rel="stylesheet" href="css/ai-cases.css">
     <style>
         html { scroll-behavior: smooth; }

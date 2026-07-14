@@ -17,7 +17,7 @@
                     colors: {
                         primary: '#1a1a1a',
                         secondary: '#4a4a4a',
-                        accent: '#6366f1',
+                        accent: 'var(--color-accent)',
                         success: '#10b981',
                         warning: '#f59e0b',
                         danger: '#ef4444'
@@ -29,6 +29,8 @@
             }
         }
     </script>
+    
+    <link rel="stylesheet" href="../css/site-tokens.css">
     
     <style>
         /* Custom smooth scrolling */
@@ -84,9 +86,9 @@
         }
         
         .architecture-step:hover {
-            border-color: #6366f1;
+            border-color: var(--color-accent);
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+            box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.15);
         }
         
         /* Metrics table */
@@ -117,20 +119,9 @@
             border-color: #f59e0b;
             background: #fffbeb;
         }
-        
-        /* Button hover */
-        .btn-primary {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-        
-        /* Stat card */
+/* Stat card */
         .stat-card {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: var(--gradient-brand);
             color: white;
             border-radius: 12px;
             padding: 1.25rem 1rem;

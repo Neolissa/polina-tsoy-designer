@@ -17,7 +17,7 @@
                     colors: {
                         primary: '#1a1a1a',
                         secondary: '#4a4a4a',
-                        accent: '#6366f1',
+                        accent: 'var(--color-accent)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -26,6 +26,8 @@
             }
         }
     </script>
+    
+    <link rel="stylesheet" href="css/site-tokens.css">
     
     <style>
         /* Custom smooth scrolling */
@@ -52,14 +54,14 @@
         
         /* Card with border-left */
         .card-border-left {
-            border-left: 4px solid #6366f1;
+            border-left: 4px solid var(--color-accent);
         }
         
         /* Icon box */
         .icon-box {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: var(--gradient-brand);
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -80,7 +82,7 @@
         }
         
         .process-step:hover {
-            border-color: #6366f1;
+            border-color: var(--color-accent);
             transform: translateX(4px);
         }
         
@@ -90,7 +92,7 @@
             top: 20px;
             width: 32px;
             height: 32px;
-            background: #6366f1;
+            background: var(--color-accent);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -142,13 +144,13 @@
             font-size: 14px;
             font-weight: 600;
             background: white;
-            border: 2px solid #6366f1;
+            border: 2px solid var(--color-accent);
             color: #4f46e5;
         }
         
         /* Gradient badge */
         .gradient-badge {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: var(--gradient-brand);
             color: white;
             border: none;
         }
@@ -160,7 +162,7 @@
             border-radius: 12px;
             padding: 24px;
             font-style: italic;
-            border-left: 4px solid #6366f1;
+            border-left: 4px solid var(--color-accent);
         }
         
         /* Mini palette */
@@ -186,18 +188,7 @@
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Button hover */
-        .btn-primary {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-        
-        /* Background pattern */
+/* Background pattern */
         .bg-grid {
             background-image: 
                 linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
@@ -211,7 +202,7 @@
             top: 0;
             left: 0;
             height: 3px;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            background: linear-gradient(90deg, var(--color-accent), var(--color-accent-purple));
             z-index: 9999;
             transition: width 0.1s ease;
         }
@@ -227,7 +218,6 @@
     <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="css/ai-cases.css">
-    <link rel="stylesheet" href="css/case-mocks.css">
     <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -606,20 +596,6 @@
         </div>
     </section>
 
-    <!-- Interactive mock — above results -->
-    <section id="interactive-mock" class="py-20 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="case-mock-block fade-in max-w-4xl mx-auto">
-                <p class="case-mock-caption text-center text-xs text-gray-400 tracking-wide">interactive mockup</p>
-                <p class="text-center text-sm text-gray-500 mb-4 max-w-xl mx-auto">Invoice creation with AI assist: template, compliance check, send &amp; sign</p>
-                <div class="case-mock-stage-wrap mock-stage-wrap">
-                    <button type="button" class="case-mock-reset-btn" data-case-mock-reset aria-label="Reset demo"></button>
-                    <div class="w-full" data-case-mock="docsbird" aria-label="DocsBird interactive mockup"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Results Section -->
     <section id="results" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -958,8 +934,6 @@
     </div>
     <script src="js/image-lightbox.js"></script>
     <script src="js/ai-cases-demos.js"></script>
-    <script src="js/docsbird-case-mock.js"></script>
-    <script src="js/case-mocks.js"></script>
     <script src="js/telegram-cta.js"></script>
 
     <!-- JavaScript for fade-in animations -->

@@ -290,7 +290,7 @@
 }
 
 .tvip-mock-segment.active {
-  border-color: #6366f1;
+  border-color: var(--color-accent);
   background: #eef2ff;
   color: #4338ca;
   font-weight: 600;

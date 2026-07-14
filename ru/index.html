@@ -17,7 +17,7 @@
                     colors: {
                         primary: '#1a1a1a',
                         secondary: '#4a4a4a',
-                        accent: '#6366f1',
+                        accent: 'var(--color-accent)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -26,6 +26,8 @@
             }
         }
     </script>
+    
+    <link rel="stylesheet" href="../css/site-tokens.css">
     
     <style>
         /* Custom smooth scrolling */
@@ -44,15 +46,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
+
         /* Card hover effect */
         .card-hover {
             transition: all 0.3s ease;
@@ -62,23 +56,6 @@
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Button hover */
-        .btn-primary {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-        
-        /* Hero background */
-        .bg-grid {
-            background: -webkit-linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
-            background: -moz-linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
-            background: linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
-        }
 
         .problem-accent-text {
             color: #111827;
@@ -87,26 +64,6 @@
         .problem-card {
             border: 2px solid #111827;
             background: #fff;
-        }
-        
-        /* Smooth underline for links */
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #6366f1;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
         }
 
         .lang-dropdown { position: relative; }
@@ -246,7 +203,7 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-start gap-4">
-                        <a href="#cases" data-track="hero-cta" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-gray-900 w-full sm:w-auto max-w-[18rem]">
+                        <a href="#cases" data-track="hero-cta" class="btn-primary bg-black text-white px-8 py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-gray-900 w-full sm:w-auto max-w-[18rem] text-center inline-flex items-center justify-center">
                             Посмотреть кейсы
                         </a>
                         <span class="text-gray-900 text-sm">
@@ -263,18 +220,20 @@
                         class="w-full max-w-md md:max-w-lg"
                         loading="lazy"
                     >
-                    <p class="text-sm text-[#284d89] mt-4 text-center max-w-sm leading-relaxed">
+                    <p class="text-sm text-[color:var(--color-navy)] mt-4 text-center max-w-sm leading-relaxed">
                         от гипотезы — к интерфейсу, от интерфейса — к результату.
                     </p>
                 </div>
             </div>
         </div>
-        <a href="#cases" class="absolute bottom-5 sm:bottom-7 left-1/2 -translate-x-1/2 inline-flex flex-col items-center gap-1 text-gray-900 hover:text-gray-700 transition-colors animate-bounce z-20" aria-label="Смотреть кейсы">
-            <span class="text-[10px] sm:text-xs uppercase tracking-wider">Смотреть кейсы</span>
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </a>
+        <div class="absolute bottom-5 sm:bottom-7 left-1/2 -translate-x-1/2 z-20">
+            <a href="#cases" class="inline-flex flex-col items-center gap-1 text-gray-900 hover:text-gray-700 transition-colors animate-bounce" aria-label="Смотреть кейсы">
+                <span class="text-[10px] sm:text-xs uppercase tracking-wider">Смотреть кейсы</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
     </section>
 
     <!-- About Section (Moved to second position) -->
@@ -285,7 +244,7 @@
                     Обо мне
                 </h2>
                 <p class="text-xl text-gray-600 mb-8">Не просто дизайнер. Партнёр по продукту.</p>
-                <div class="w-20 h-1 bg-[#8b5cf6] mx-auto"></div>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-12 items-start">
@@ -385,8 +344,8 @@
                     <div class="mb-4 flex flex-col items-center">
                         <svg viewBox="0 0 100 100" class="w-28 h-28 shrink-0" role="img" aria-hidden="true">
                             <circle cx="50" cy="50" r="38" fill="none" stroke="rgb(246, 247, 227)" stroke-width="10"/>
-                            <path d="M50 50 L50 12 A38 38 0 0 1 88.2 62 Z" fill="#8b5cf6"/>
-                            <path d="M50 50 L88.2 62 A38 38 0 1 1 50 12 Z" fill="#8b5cf6" opacity="0.7"/>
+                            <path d="M50 50 L50 12 A38 38 0 0 1 88.2 62 Z" fill="var(--color-accent-purple)"/>
+                            <path d="M50 50 L88.2 62 A38 38 0 1 1 50 12 Z" fill="var(--color-accent-purple)" opacity="0.7"/>
                         </svg>
                         <p class="text-xs text-center text-gray-500 mt-3 max-w-[12rem] leading-snug">20% стратегия · 80% пиксели</p>
                     </div>
@@ -404,7 +363,7 @@
                             <line x1="8" y1="12" x2="92" y2="12" stroke="#e5e7eb" stroke-width="0.8"/>
                             <line x1="8" y1="24" x2="92" y2="24" stroke="#e5e7eb" stroke-width="0.8"/>
                             <line x1="8" y1="36" x2="92" y2="36" stroke="#e5e7eb" stroke-width="0.8"/>
-                            <polyline points="8,34 24,14 40,28 56,18 72,32 88,20 92,34" fill="none" stroke="#8b5cf6" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+                            <polyline points="8,34 24,14 40,28 56,18 72,32 88,20 92,34" fill="none" stroke="var(--color-accent-purple)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
                         </svg>
                         <p class="text-xs text-center text-gray-500 mt-2">Волны технического долга</p>
                         <p class="text-[11px] text-center text-gray-400 mt-1">пики · спад · снова пики</p>
@@ -427,7 +386,7 @@
                             <line x1="50" y1="50" x2="86" y2="68" stroke="#d1d5db" stroke-width="0.8"/>
                             <line x1="50" y1="50" x2="14" y2="68" stroke="#d1d5db" stroke-width="0.8"/>
                             <path d="M50 50 L50 8 A42 42 0 0 1 86 68 Z" fill="rgb(246, 247, 227)" opacity="0.85"/>
-                            <path d="M50 50 L86 68 A42 42 0 0 1 14 68 Z" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4 3"/>
+                            <path d="M50 50 L86 68 A42 42 0 0 1 14 68 Z" fill="none" stroke="var(--color-accent-purple)" stroke-width="2" stroke-dasharray="4 3"/>
                         </svg>
                         <p class="text-xs text-center text-gray-500 mt-3">Неполная картина данных</p>
                     </div>
@@ -442,20 +401,20 @@
                     <!-- Оргсхема: ступенька + три роли, пунктир без наложения текста на линии -->
                     <div class="mb-4">
                         <svg viewBox="0 0 100 72" class="w-full max-w-xs h-24 mx-auto" role="img" aria-hidden="true">
-                            <rect x="36" y="6" width="28" height="14" fill="#8b5cf6" rx="3"/>
+                            <rect x="36" y="6" width="28" height="14" fill="var(--color-accent-purple)" rx="3"/>
                             <text x="50" y="16.5" text-anchor="middle" font-size="7" fill="white" font-family="system-ui,sans-serif">PM</text>
                             <line x1="50" y1="20" x2="50" y2="30" stroke="#9ca3af" stroke-width="1.2"/>
                             <line x1="18" y1="30" x2="82" y2="30" stroke="#9ca3af" stroke-width="1.2"/>
-                            <line x1="24" y1="30" x2="24" y2="38" stroke="#8b5cf6" stroke-width="1.2" stroke-dasharray="3 2"/>
-                            <line x1="50" y1="30" x2="50" y2="38" stroke="#8b5cf6" stroke-width="1.2" stroke-dasharray="3 2"/>
-                            <line x1="76" y1="30" x2="76" y2="38" stroke="#8b5cf6" stroke-width="1.2" stroke-dasharray="3 2"/>
+                            <line x1="24" y1="30" x2="24" y2="38" stroke="var(--color-accent-purple)" stroke-width="1.2" stroke-dasharray="3 2"/>
+                            <line x1="50" y1="30" x2="50" y2="38" stroke="var(--color-accent-purple)" stroke-width="1.2" stroke-dasharray="3 2"/>
+                            <line x1="76" y1="30" x2="76" y2="38" stroke="var(--color-accent-purple)" stroke-width="1.2" stroke-dasharray="3 2"/>
                             <rect x="12" y="38" width="24" height="12" fill="#f3f4f6" stroke="#e5e7eb" rx="2"/>
                             <rect x="38" y="38" width="24" height="12" fill="#f3f4f6" stroke="#e5e7eb" rx="2"/>
                             <rect x="64" y="38" width="24" height="12" fill="#f3f4f6" stroke="#e5e7eb" rx="2"/>
                             <text x="24" y="46.5" text-anchor="middle" font-size="6" fill="#374151" font-family="system-ui,sans-serif">Dev</text>
                             <text x="50" y="46.5" text-anchor="middle" font-size="6" fill="#374151" font-family="system-ui,sans-serif">Design</text>
                             <text x="76" y="46.5" text-anchor="middle" font-size="6" fill="#374151" font-family="system-ui,sans-serif">Data</text>
-                            <text x="50" y="64" text-anchor="middle" font-size="6" fill="#8b5cf6" font-family="system-ui,sans-serif">связи рвутся</text>
+                            <text x="50" y="64" text-anchor="middle" font-size="6" fill="var(--color-accent-purple)" font-family="system-ui,sans-serif">связи рвутся</text>
                         </svg>
                         <p class="text-xs text-center text-gray-500 mt-1">Разорванные связи между командами</p>
                     </div>
@@ -536,7 +495,7 @@
             <div class="space-y-8">
                 <!-- Step 1 -->
                 <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
-                    <div class="flex-shrink-0 w-12 h-12 bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] text-white rounded-full flex items-center justify-center font-bold text-xl">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                         1
                     </div>
                     <div>
@@ -549,7 +508,7 @@
                 
                 <!-- Step 2 -->
                 <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
-                    <div class="flex-shrink-0 w-12 h-12 bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] text-white rounded-full flex items-center justify-center font-bold text-xl">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                         2
                     </div>
                     <div>
@@ -562,7 +521,7 @@
                 
                 <!-- Step 3 -->
                 <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
-                    <div class="flex-shrink-0 w-12 h-12 bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] text-white rounded-full flex items-center justify-center font-bold text-xl">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                         3
                     </div>
                     <div>
@@ -575,7 +534,7 @@
                 
                 <!-- Step 4 -->
                 <div class="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-in">
-                    <div class="flex-shrink-0 w-12 h-12 bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] text-white rounded-full flex items-center justify-center font-bold text-xl">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                         4
                     </div>
                     <div>

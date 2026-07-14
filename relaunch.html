@@ -17,7 +17,7 @@
                     colors: {
                         primary: '#1a1a1a',
                         secondary: '#4a4a4a',
-                        accent: '#6366f1',
+                        accent: 'var(--color-accent)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -27,6 +27,8 @@
         }
     </script>
     
+    <link rel="stylesheet" href="css/site-tokens.css">
+    
     <!-- Google Fonts for better typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +36,6 @@
     <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="css/ai-cases.css">
-    <link rel="stylesheet" href="css/case-mocks.css">
     <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -600,20 +601,6 @@
         </div>
     </section>
 
-    <!-- Interactive mock — above results -->
-    <section id="interactive-mock" class="py-20 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="case-mock-block fade-in max-w-4xl mx-auto">
-                <p class="case-mock-caption text-center text-xs text-gray-400 tracking-wide">интерактивный макет</p>
-                <p class="text-center text-sm text-gray-500 mb-4 max-w-xl mx-auto">Лента, статьи, благодарности и ИПР — ключевые сценарии платформы Coin</p>
-                <div class="case-mock-stage-wrap mock-stage-wrap">
-                    <button type="button" class="case-mock-reset-btn" data-case-mock-reset aria-label="Сбросить демо"></button>
-                    <div class="w-full" data-mock="components/case-mocks/coin-social.html" data-demo="coin-social" aria-label="Интерактивный макет Coin"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Results Section -->
     <section id="results" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
@@ -983,7 +970,6 @@
         <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
     </div>
     <script src="js/image-lightbox.js"></script>
-    <script src="js/case-mocks.js"></script>
     <script src="js/telegram-cta.js"></script>
 
     <!-- JavaScript for fade-in animations -->
