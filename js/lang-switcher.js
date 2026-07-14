@@ -2,7 +2,8 @@
   function toLangUrl(lang) {
     var p = window.location.pathname;
     var file = p.substring(p.lastIndexOf("/") + 1) || "index.html";
-    return "../" + lang + "/" + file;
+    var nested = p.indexOf("/en/") !== -1 || p.indexOf("/ru/") !== -1;
+    return nested ? "../" + lang + "/" + file : lang + "/" + file;
   }
 
   function currentLangFromPath() {

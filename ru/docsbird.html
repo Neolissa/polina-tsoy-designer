@@ -298,41 +298,9 @@
     <!-- Progress Bar -->
     <div id="progress-bar"></div>
     
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
-                    Polina Tsoy
-                    <span class="text-gray-400 font-normal text-xs sm:text-sm ml-1.5 sm:ml-2 hidden sm:inline">Дизайнер интерфейсов в продукте</span>
-                </a>
-                <div class="hidden md:flex space-x-8">
-                        <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
-                        <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
-                        <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
-                    </div>
-                <div class="flex items-center gap-1 sm:gap-3">
-                    <div class="lang-dropdown" data-lang-dropdown>
-                        <button type="button" class="lang-trigger" data-lang-trigger aria-haspopup="listbox" aria-expanded="false">
-                            <span data-lang-current>ru</span>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="lang-menu hidden" data-lang-menu role="listbox" aria-label="Language">
-                            <button type="button" class="lang-option" data-lang-option="ru" role="option">ru</button>
-                            <button type="button" class="lang-option" data-lang-option="en" role="option">en</button>
-                        </div>
-                    </div>
-                    <a href="index.html#cta" class="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors min-w-[108px] sm:min-w-[132px] text-center">
-                    Написать
-                </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
+        <!-- Navigation -->
+    <div id="nav-container"></div>
+<!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] relative overflow-hidden pt-20 pb-16 md:pb-24">
         
         <!-- Decorative elements -->
@@ -1127,5 +1095,6 @@
             });
         })();
     </script>
+    <script src="../loadComponent.js"></script>
 </body>
 </html>

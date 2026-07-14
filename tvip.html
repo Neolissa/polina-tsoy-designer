@@ -198,27 +198,9 @@
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased">
     
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-xl font-bold text-gray-900">
-                    Polina Tsoy
-                    <span class="text-gray-400 font-normal text-sm ml-2">Дизайнер интерфейсов в продукте</span>
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
-                    <a href="index.html#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
-                    <a href="index.html#cta" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
-                </div>
-                <a href="index.html#cta" class="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
-                    Написать
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
+        <!-- Navigation -->
+    <div id="nav-container"></div>
+<!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] relative overflow-hidden pt-20 pb-16 md:pb-24">
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10 fade-in">
             <!-- Badge -->
@@ -1116,5 +1098,7 @@
             });
         });
     </script>
+    <script src="loadComponent.js"></script>
+    <script src="js/lang-switcher.js"></script>
 </body>
 </html>
