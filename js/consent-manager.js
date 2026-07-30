@@ -55,9 +55,9 @@
     var banner = document.createElement("div");
     banner.id = "consent-banner";
     banner.className =
-      "fixed bottom-4 left-1/2 z-[120] w-[min(960px,calc(100%-2rem))] -translate-x-1/2 rounded-2xl border border-gray-200 bg-white p-4 shadow-2xl";
+      "fixed bottom-4 right-4 z-[120] w-[min(460px,calc(100%-2rem))] rounded-2xl border border-gray-200 bg-white p-4 shadow-2xl";
     banner.innerHTML =
-      '<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">' +
+      '<div class="flex flex-col gap-3">' +
       '<p class="text-sm text-gray-700">' + copy.description + "</p>" +
       '<div class="flex shrink-0 gap-2">' +
       '<button type="button" data-consent-action="rejected" class="rounded-full border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">' + copy.onlyNecessary + "</button>" +

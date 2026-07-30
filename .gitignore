@@ -66,6 +66,7 @@ coverage/
 # Optional: Large media files
 *.mp4
 !images/wuw/whitelabel.mp4
+!images/docsbird/Docsbird-2createagreement.mp4
 *.avi
 *.mov
 *.mkv
