@@ -34,18 +34,16 @@
     var isEn = document.documentElement.lang === "en";
     if (isEn) {
       return {
-        description:
-          "We use cookies and analytics (PostHog + Clarity) to improve the portfolio and validate hypotheses. Choose whether to allow analytics cookies.",
-        onlyNecessary: "Only necessary",
+        description: "Optional analytics help improve this portfolio.",
+        onlyNecessary: "Necessary only",
         allowAnalytics: "Allow analytics",
         settingsLabel: "Cookie settings"
       };
     }
     return {
-      description:
-        "Мы используем cookies и аналитику (PostHog + Clarity), чтобы улучшать сайт и проверять продуктовые гипотезы. Выберите, разрешить ли аналитические cookies.",
-      onlyNecessary: "Только необходимые",
-      allowAnalytics: "Разрешить аналитику",
+      description: "Аналитика — только с вашего согласия.",
+      onlyNecessary: "Без аналитики",
+      allowAnalytics: "Разрешить",
       settingsLabel: "Настройки cookies"
     };
   }
@@ -55,13 +53,13 @@
     var banner = document.createElement("div");
     banner.id = "consent-banner";
     banner.className =
-      "fixed bottom-4 right-4 z-[120] w-[min(460px,calc(100%-2rem))] rounded-2xl border border-gray-200 bg-white p-4 shadow-2xl";
+      "fixed bottom-3 right-3 z-[120] w-[min(360px,calc(100%-1.5rem))] rounded-xl border border-gray-200 bg-white p-3 shadow-xl";
     banner.innerHTML =
-      '<div class="flex flex-col gap-3">' +
-      '<p class="text-sm text-gray-700">' + copy.description + "</p>" +
-      '<div class="flex shrink-0 gap-2">' +
-      '<button type="button" data-consent-action="rejected" class="rounded-full border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">' + copy.onlyNecessary + "</button>" +
-      '<button type="button" data-consent-action="accepted" class="rounded-full bg-black px-4 py-2 text-sm font-semibold text-white">' + copy.allowAnalytics + "</button>" +
+      '<div class="flex flex-col gap-2.5">' +
+      '<p class="text-xs leading-relaxed text-gray-600">' + copy.description + "</p>" +
+      '<div class="flex flex-wrap shrink-0 gap-2">' +
+      '<button type="button" data-consent-action="rejected" class="rounded-full border border-gray-300 px-3 py-1.5 text-xs font-semibold text-gray-700">' + copy.onlyNecessary + "</button>" +
+      '<button type="button" data-consent-action="accepted" class="rounded-full bg-black px-3 py-1.5 text-xs font-semibold text-white">' + copy.allowAnalytics + "</button>" +
       "</div>" +
       "</div>";
     document.body.appendChild(banner);
