@@ -1,0 +1,45 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — small town near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Staff UI/UX Product Designer",
+    "company": "Hospitable",
+    "city": "Remote · USA/EMEA timezones",
+    "date": "20 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Hospitable builds software so short-term rentals can run themselves — and the Staff Product Designer mandate is to destroy complexity as an art form. That is how I already work: multi-persona systems, consistent design languages, and interfaces operators can trust under pressure.",
+    "profile_intro": "I am a Senior Product Designer with 10+ years in product and 6+ years fully remote across time zones. English C1. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "TVIP (multi-platform systems)",
+        "impact": "designed admin + consumer surfaces across 5 platforms with 4 personas and day/night themes — power-user workflows, not marketing pages."
+      },
+      {
+        "lead": "WakeupWarrior (design language)",
+        "impact": "led an evolutionary design system: tokens, components, constructor covering ~80% of UI — −90% styles, ×3 delivery speed."
+      },
+      {
+        "lead": "Relaunch (platform clarity)",
+        "impact": "unified a fragmented internal ecosystem into one habit loop — ×4 session time, +40% engagement, 100% adoption."
+      }
+    ],
+    "problems_section": "I partner closely with product and engineering, defend craft without slowing shipping, and work async with overlap for Europe and Americas East Coast. Based in Argentina (ART UTC-3).",
+    "closing": "Happy to share portfolio cases that map to complexity reduction and design-language leadership.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Selected cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  }
+}

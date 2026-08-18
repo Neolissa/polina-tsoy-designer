@@ -1,0 +1,18 @@
+
+── Greenhouse · remotecom · job 7500346003 ────────────────────
+
+  first_name    Polina
+  last_name     Tsoy
+  email         neolissa@gmail.com
+  phone         +79525364225
+  resume        cv-polina-tsoy-remotecom-staff-pay-2026-07-13.pdf  ← attach this file
+  cover_letter  203 words — Dear Hiring Team,  Paying people correctly across borders is a high-stakes UX pr…
+  website       https://neolissa.github.io/polina-tsoy-designer/en/
+
+  PDF     cv-polina-tsoy-remotecom-staff-pay-2026-07-13.pdf (57.0 KB)
+  Cover   output/applications/remotecom-staff-pay/cover.txt (203 words)
+
+── Next step ──────────────────────────────────────
+  Open:   https://boards.greenhouse.io/remotecom/jobs/7500346003
+  Fill the form using the values above, attach the PDF, then submit.
+

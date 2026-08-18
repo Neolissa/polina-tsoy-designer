@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Lead Product Designer, Marketplace",
+    "company": "Circle",
+    "city": "Remote worldwide",
+    "date": "20 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Discover is a two-sided problem: creators need visibility and trust; members need signal through noise. I am applying for Lead Product Designer, Marketplace because I enjoy exactly this tension — multi-audience flows where trust and clarity decide conversion.",
+    "profile_intro": "Senior Product Designer, 10+ years, remote 6+ years, English C1. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "TVIP (two surfaces)",
+        "impact": "admin + consumer across 5 platforms — personas, themes, coherent system."
+      },
+      {
+        "lead": "DocsBird (trust + conversion)",
+        "impact": "international B2B onboarding clarity — registration 7→3, +45% conversion."
+      },
+      {
+        "lead": "Systems that scale discovery UX",
+        "impact": "WUW reusable components/tokens so patterns stay consistent as surfaces grow."
+      }
+    ],
+    "problems_section": "Honest stretch: marketplace ranking at consumer scale is newer for me than B2B/admin+consumer products. I transfer multi-audience IA, trust UX, and AI-assisted prototyping speed. Comp ask $75–90K geo-adjusted.",
+    "closing": "Happy to discuss Discover tradeoffs and show relevant multi-audience cases.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/circle-lead-pd-marketplace/cover-polina-tsoy-circle-lead-pd-marketplace.pdf"
+}

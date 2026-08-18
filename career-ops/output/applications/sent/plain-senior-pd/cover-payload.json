@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Senior Product Designer",
+    "company": "Plain",
+    "city": "Remote · UK",
+    "date": "21 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Plain is redefining B2B support — unified channels, AI-assisted workflows, and craft that earns trust in complex products. I am applying because that matches how I work: senior IC ownership, systems thinking, and shipping outcomes with engineering, not handoffs.",
+    "profile_intro": "Senior Product Designer, 10+ years, English C1, remote 6+ years. Based in Argentina (EU/UK overlap). Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "B2B trust & activation",
+        "impact": "DocsBird international onboarding — 7→3 steps, +45% conversion, 4-country launch."
+      },
+      {
+        "lead": "Systems at speed",
+        "impact": "WUW design system — 35 components, −90% styles, ×3 delivery speed."
+      },
+      {
+        "lead": "Complex multi-surface UX",
+        "impact": "TVIP admin + consumer across 5 platforms — coherent IA and patterns."
+      }
+    ],
+    "problems_section": "Comfortable collaborating in the open, prototyping with AI-assisted tools, and partnering on buildable UI (HTML/CSS literacy). Comp ask $75K USD geo-adjusted.",
+    "closing": "Happy to walk through B2B case studies and discuss support/workflow UX.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/plain-senior-pd/cover-polina-tsoy-plain-senior-pd.pdf"
+}

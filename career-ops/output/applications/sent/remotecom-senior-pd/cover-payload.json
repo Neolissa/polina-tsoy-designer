@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — small town near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Senior Product Designer",
+    "company": "Remote",
+    "city": "Remote · Anywhere",
+    "date": "13 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Remote is building the infrastructure for hiring and paying people anywhere — and that ambition needs designers who treat complexity as a product problem, not a UI polish task. I am applying for the Senior Product Designer role because my work sits exactly there: research, systems, and measurable outcomes across international B2B products.",
+    "profile_intro": "I am a Senior Product Designer with 10+ years in product development and 6+ years fully remote. English C1. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "On DocsBird",
+        "impact": "I led design from planning to MVP for an international document product — 4-country launch, registration cut from 7 to 3 steps, +45% conversion."
+      },
+      {
+        "lead": "On Relaunch",
+        "impact": "I unified a fragmented employee platform (25+ functions, 50+ component system) and helped drive ×4 session time, +40% engagement, and 100% adoption."
+      },
+      {
+        "lead": "On WakeupWarrior",
+        "impact": "I rebuilt the interface as a system (35 components, tokens) — −90% styles, ×3 development speed, White Label unlocked."
+      }
+    ],
+    "problems_section": "Remote customers need clarity under regulatory and operational complexity. I would bring the same approach I used on DocsBird and financial/reporting UIs: map the real jobs-to-be-done, reduce step friction, and keep a design system that lets product teams ship without reinventing patterns.",
+    "closing": "I am available fully remote worldwide from Argentina (small town near Buenos Aires, ART UTC-3) and can start on a short notice period. Happy to walk through case studies or a working session with your team.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Selected cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/remotecom-senior-pd/cover-polina-tsoy-remotecom-senior-pd.pdf"
+}

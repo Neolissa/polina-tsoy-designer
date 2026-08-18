@@ -1,0 +1,45 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Senior UX/UI Designer",
+    "company": "Nortal",
+    "city": "Remote · Latin America",
+    "date": "20 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Nortal's LATAM remote team needs designers who can turn complex digital experiences into clear, polished products for global audiences — partnering with studio, product, and engineering without losing craft. That is how I already work.",
+    "profile_intro": "I am a Senior Product Designer with 10+ years in product and 6+ years fully remote. English C1. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "WakeupWarrior (systems + craft)",
+        "impact": "led an evolutionary design system — tokens, components, constructor covering ~80% of UI — −90% styles, ×3 delivery speed."
+      },
+      {
+        "lead": "DocsBird (end-to-end delivery)",
+        "impact": "owned flows from research to production UI — 4-country launch, registration 7→3 steps, +45% conversion."
+      },
+      {
+        "lead": "TVIP (multi-device)",
+        "impact": "designed admin + consumer surfaces across 5 platforms with personas and day/night themes."
+      }
+    ],
+    "problems_section": "I present design rationale to leadership, collaborate closely with developers on fit-and-finish, and help evolve design systems that keep large sites coherent. Based in Argentina; available 100% remote LATAM with USD compensation.",
+    "closing": "Happy to share portfolio cases that map to large-scale web craft and systems thinking.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Selected cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Senior Product Designer",
+    "company": "CodePath",
+    "city": "Remote · US / Europe / Canada / LATAM",
+    "date": "20 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "CodePath is scaling how the next generation of technical talent learns — and you need a first Senior Product Designer to own platform experience and build the design system from the ground up. That is the seat I want: end-to-end ownership, ambiguity, and durable craft.",
+    "profile_intro": "I am a Senior Product Designer with 10+ years in product and 6+ years fully remote. English C1. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "DocsBird (0→1 ownership)",
+        "impact": "independently led planning to MVP — scenarios, UI, hypothesis testing — launch in 4 countries, registration 7→3 steps, +45% conversion."
+      },
+      {
+        "lead": "WakeupWarrior (design system backbone)",
+        "impact": "built the system that unlocked speed and White Label — −90% styles, ×3 development speed, constructor covering ~80% of UI."
+      },
+      {
+        "lead": "Complex platform UX",
+        "impact": "designed multi-platform and admin workflows for technical operators (TVIP) and data-dense B2B surfaces — structure under ambiguity."
+      }
+    ],
+    "problems_section": "I am comfortable being the design backbone of a small team: discovery with users and stakeholders, flows and IA, polished UI, engineer-ready specs, and a living design system. Based in Argentina (ART UTC-3), within your LATAM eligibility.",
+    "closing": "Happy to walk through DocsBird and WakeupWarrior as proof of 0→1 ownership plus systems craft — and to discuss how I use AI tools to move faster without losing judgment.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Selected cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  }
+}

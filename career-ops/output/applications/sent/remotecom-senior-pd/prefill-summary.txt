@@ -1,0 +1,18 @@
+
+── Greenhouse · remotecom · job 7762220003 ────────────────────
+
+  first_name    Polina
+  last_name     Tsoy
+  email         neolissa@gmail.com
+  phone         +79525364225
+  resume        cv-polina-tsoy-remotecom-senior-pd-2026-07-13.pdf  ← attach this file
+  cover_letter  229 words — Dear Hiring Team,  Remote is building the infrastructure for hiring and paying p…
+  website       https://neolissa.github.io/polina-tsoy-designer/en/
+
+  PDF     cv-polina-tsoy-remotecom-senior-pd-2026-07-13.pdf (56.6 KB)
+  Cover   output/applications/remotecom-senior-pd/cover.txt (229 words)
+
+── Next step ──────────────────────────────────────
+  Open:   https://boards.greenhouse.io/remotecom/jobs/7762220003
+  Fill the form using the values above, attach the PDF, then submit.
+

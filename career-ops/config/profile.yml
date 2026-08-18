@@ -1,0 +1,137 @@
+# Career-Ops Profile Configuration
+# Single source of truth for personal data across all modes.
+
+candidate:
+  full_name: "Polina Tsoy"
+  email: "neolissa@gmail.com"
+  phone: "+79525364225"
+  wechat: ""
+  location: "Argentina — small town near Buenos Aires (remote)"
+  linkedin: ""  # coming soon per portfolio
+  portfolio_url: "https://neolissa.github.io/polina-tsoy-designer/en/"
+  github: ""
+  twitter: ""
+  telegram: "@ewersawers"
+  photo: ""
+
+target_roles:
+  primary:
+    - "Senior Product Designer"
+    - "Lead Product Designer"
+    - "Senior UX/UI Designer"
+  archetypes:
+    - name: "Senior / Lead Product Designer (UX/UI)"
+      level: "Senior / Lead"
+      fit: "primary"
+    - name: "Product Designer — Design Systems"
+      level: "Senior"
+      fit: "primary"
+    - name: "Product Designer — Complex B2B / Admin / Fintech / Health"
+      level: "Senior"
+      fit: "primary"
+    - name: "Head of Design / Design Lead (small team)"
+      level: "Lead"
+      fit: "secondary"
+    - name: "UX Researcher + Designer hybrid"
+      level: "Senior"
+      fit: "adjacent"
+
+narrative:
+  headline: "Product designer who turns complexity into clear systems — research, design systems, B2B/B2C"
+  exit_story: >
+    After 10+ years building product interfaces (fintech, healthcare, media, coaching platforms),
+    I want a remote international team where design is part of the product cycle — not a handoff stage.
+    Based in Argentina (small town near Buenos Aires); targeting English-speaking (or RU+EN) international companies.
+    Not interested in Russia-only employers that restrict working from abroad.
+  superpowers:
+    - "End-to-end product design: hypothesis → research → system → launch → metrics"
+    - "Design systems / White Label that unlock speed and consistency"
+    - "Complex data-heavy UIs: admins, dashboards, personal accounts"
+    - "Bridge between PM, engineering, and design (Jira, reviews, Agile)"
+    - "6+ years fully remote collaboration"
+    - "AI-assisted personal product workflow: uses Hermes and code-assisted tools in QuickLand to turn briefs into product structure and UX copy, explore flows, prototype interfaces, and validate working browser demos across frontend/backend implementation"
+  proof_points:
+    - name: "WakeupWarrior design system"
+      url: "https://neolissa.github.io/polina-tsoy-designer/en/wuw.html"
+      hero_metric: "−90% styles, ×3 development speed, White Label enabled"
+    - name: "DocsBird international launch"
+      url: "https://neolissa.github.io/polina-tsoy-designer/en/docsbird.html"
+      hero_metric: "4 countries, registration 7→3 steps, +45% conversion"
+    - name: "Relaunch internal platform"
+      url: "https://neolissa.github.io/polina-tsoy-designer/en/relaunch.html"
+      hero_metric: "×4 session time, +40% engagement, 100% adoption"
+    - name: "TVIP cross-platform media"
+      url: "https://neolissa.github.io/polina-tsoy-designer/en/tvip.html"
+      hero_metric: "5 platforms, 4 personas, day/night themes"
+    - name: "VC.ru case study"
+      url: "https://vc.ru/design/717548"
+      hero_metric: "Published UX/UI optimization case"
+
+compensation:
+  # Agreed with candidate 2026-07-13:
+  # Floor $24K USD/year (~150k RUB/month); target $60–90K USD/year for international roles.
+  target_range: "$60K–90K USD/year"
+  currency: "USD"
+  minimum: "$24K USD/year"
+  minimum_rub_monthly: 150000
+  location_flexibility: "Remote only. Any timezone with reasonable overlap OK. No on-site requirement."
+
+location:
+  country: "Argentina"
+  city: "Small town near Buenos Aires (Greater Buenos Aires area)"
+  timezone: "ART (UTC-3)"
+  visa_status: "Based in Argentina (near Buenos Aires); Russian citizenship; current Argentina status is tourist (no citizenship/PМЖ/work visa yet). Form preference: Yes on work eligibility from Argentina (remote for international employer); if forced status pick → Require Sponsorship (least-wrong; not Citizen/PR or Work VISA). Path: foreign remote income → Argentine residency. Prefer EOR/contractor worldwide. Spanish weak — skip Argentina-local Spanish-only roles."
+  onsite_availability: "Remote only. Business trips possible if rare and agreed."
+
+# Deal-breakers (enforced in evaluations via _profile.md)
+constraints:
+  work_format: "remote_only"
+  remote_experience_years: 6
+  languages_work:
+    - "English"
+    - "Russian + English"
+  avoid:
+    - "Russian companies that restrict working from outside Russia / exit"
+    - "On-site or hybrid as primary format"
+    - "Argentina-local Spanish-only roles (Spanish not strong enough yet)"
+  ok_domains:
+    - "crypto / Web3 / fintech exchanges (confirmed 2026-07-13)"
+  practical:
+    - "Owns personal laptop"
+    - "No children / no parental leave needs"
+    - "Quiet dedicated workspace"
+
+cover_letter:
+  notice_period_days: 14
+  primary_domain: "product design / UX-UI — fintech, healthcare, media, B2B platforms"
+  language_learning:
+    - language: Spanish
+      current_level: A2
+      target_level: B1
+      target_date: "end of 2026"
+      sentence: "Estoy aprendiendo español; mi nivel aún es básico, pero trabajo con fluidez en inglés."
+      countries: [Argentina, Spain, Mexico, Colombia, Chile]
+
+contact_preferences:
+  preferred_channel: "email"
+  note: "Prefer email (neolissa@gmail.com); Telegram @ewersawers also OK"
+
+cv:
+  output_format: "html"
+  # Confirmed 2026-07-17: keep full company + role title in CV content/filenames;
+  # omit creation/generation dates from filenames and CV headers (work history dates stay).
+  naming:
+    use_full_company_and_role: true
+    omit_creation_dates_in_filename: true
+
+form_defaults:
+  pronouns: "she/her"
+  gender: "Female"
+  race_ethnicity: "White (Not Hispanic or Latino)"
+  lgbtqia: "No"
+  disability: "No"
+  eeo_consent: "Yes"
+
+# Prefer English modes for EN international roles (default).
+# language:
+#   modes_dir: modes

@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Director of Product Design (SaaS)",
+    "company": "Rwazi",
+    "city": "Global Remote",
+    "date": "21 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Rwazi turns consumer intelligence into enterprise habit — dashboards, workflows, and a design system that must drive repeat usage and expansion. I am applying for Director of Product Design (hands-on IC) because that matches how I already work: systems thinking, data-dense UX, and metrics-tied outcomes.",
+    "profile_intro": "Senior Product Designer, 10+ years, English C1, remote 6+ years. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "Systems ownership",
+        "impact": "WUW design system — −90% styles, ×3 speed, White Label as growth unlock."
+      },
+      {
+        "lead": "Adoption / habit",
+        "impact": "Relaunch employee platform — ×4 session time, +40% engagement, 100% adoption."
+      },
+      {
+        "lead": "Complex B2B clarity",
+        "impact": "DocsBird international flows — +45% conversion; TVIP multi-audience IA."
+      }
+    ],
+    "problems_section": "I previously applied to Senior Product Designer at Rwazi — this Director role is the IC systems/strategy track I want. Comp ask $75–90K USD.",
+    "closing": "Happy to discuss enterprise dashboard UX and design-as-growth.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/rwazi-director-pd/cover-polina-tsoy-rwazi-director-pd.pdf"
+}

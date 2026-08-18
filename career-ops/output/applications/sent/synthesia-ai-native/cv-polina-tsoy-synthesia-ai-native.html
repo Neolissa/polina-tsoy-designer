@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polina Tsoy — CV</title>
+<style>
+  /* ATS-safe typography (#font-extraction fix):
+     The bundled variable woff2 fonts (Space Grotesk / DM Sans) render with
+     glyph advances that make PDF text extractors inject spurious spaces inside
+     words (e.g. "SUM M ARY", "Germ any") — which corrupts ATS keyword parsing.
+     This template's job is clean machine-readable parsing, so we use a standard
+     static system sans stack instead. Verified clean via pypdf text extraction.
+     The lang="ja" rules reuse this Latin base stack (with a CJK fallback added);
+     the lang="ar" rules below intentionally define their own Arabic stack. */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Disable fi/fl/ffi ligatures. Headless Chromium substitutes these letter
+       pairs with the Unicode glyphs U+FB01/FB02/FB03 at PDF layout time, and PDF
+       text extractors (what ATS systems read) decode them back to those
+       codepoints, so "verification" becomes "veriﬁcation" and a literal keyword
+       search misses it. Setting this on every element covers headings and
+       competency tags too. Required ligatures (rlig) stay on, so Arabic shaping
+       is unaffected. */
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #1a1a2e;
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+    /* Disable ligatures here as well; see the * rule above. */
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 2px 0;
+  }
+
+  /* === HEADER === */
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .header-gradient {
+    height: 2px;
+    background: linear-gradient(to right, hsl(187, 74%, 32%), hsl(270, 70%, 45%));
+    border-radius: 1px;
+    margin-bottom: 10px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #555;
+  }
+
+  .contact-row a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .contact-row .separator {
+    color: #ccc;
+  }
+
+  /* === OPTIONAL PROFILE PHOTO (opt-in, DACH/European markets — #264) ===
+     Off by default: with no candidate.photo the  slot is empty, no
+     <img> is emitted, and the layout is byte-identical to a photoless CV.
+     When opted in (candidate.photo in config/profile.yml) the photo floats into
+     the top corner and the header/summary text wraps beside it. Photos are
+     penalized by US/UK/many-market ATS, so this is never on by default. */
+  .cv-photo {
+    float: right;
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0 0 8px 14px;
+    border-radius: 3px;
+    border: 1px solid #e2e2e2;
+  }
+
+  /* === SECTIONS === */
+  .section {
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: hsl(187, 74%, 32%);
+    border-bottom: 1.5px solid #e2e2e2;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  /* === PROFESSIONAL SUMMARY === */
+  .summary-text {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #2f2f2f;
+  }
+
+  /* Links must never break across lines */
+  a {
+    white-space: nowrap;
+  }
+
+  /* === CORE COMPETENCIES === */
+  .competencies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .competency-tag {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: hsl(187, 74%, 28%);
+    background: hsl(187, 40%, 95%);
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid hsl(187, 40%, 88%);
+  }
+
+  /* === WORK EXPERIENCE === */
+  .job {
+    margin-bottom: 14px;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .job-company {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+
+  .job-period {
+    font-size: 10.5px;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .job-role {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .job-location {
+    font-size: 10px;
+    color: #888;
+  }
+
+  .job ul {
+    padding-left: 18px;
+    margin-top: 6px;
+  }
+
+  .job li {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 4px;
+  }
+
+  .job li strong {
+    font-weight: 600;
+  }
+
+  /* === PROJECTS === */
+  .project {
+    margin-bottom: 12px;
+  }
+
+  .project-title {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+
+  .project-badge {
+    font-size: 9px;
+    font-weight: 500;
+    color: hsl(187, 74%, 32%);
+    background: hsl(187, 40%, 95%);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 6px;
+  }
+
+  .project-desc {
+    font-size: 10.5px;
+    color: #444;
+    margin-top: 3px;
+    line-height: 1.55;
+  }
+
+  .project-tech {
+    font-size: 9.5px;
+    color: #888;
+    margin-top: 3px;
+  }
+
+  /* === EDUCATION === */
+  .edu-item {
+    margin-bottom: 8px;
+  }
+
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .edu-title {
+    font-weight: 600;
+    font-size: 11px;
+    color: #333;
+  }
+
+  .edu-org {
+    color: hsl(270, 70%, 45%);
+    font-weight: 500;
+  }
+
+  .edu-year {
+    font-size: 10px;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .edu-desc {
+    font-size: 10px;
+    color: #666;
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  /* === CERTIFICATIONS === */
+  .cert-table {
+    display: table;
+    width: 100%;
+  }
+
+  .cert-item {
+    display: table-row;
+  }
+
+  .cert-item > * {
+    display: table-cell;
+    vertical-align: baseline;
+    padding-bottom: 6px;
+  }
+
+  .cert-title {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .cert-org {
+    color: hsl(270, 70%, 45%);
+    white-space: nowrap;
+  }
+
+  .cert-year {
+    font-size: 10px;
+    color: #777;
+    white-space: nowrap;
+    text-align: right;
+    width: 44px;
+  }
+
+  /* === SKILLS === */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+
+  .skill-item {
+    font-size: 10.5px;
+    color: #444;
+  }
+
+  .skill-category {
+    font-weight: 600;
+    color: #333;
+    font-size: 10.5px;
+  }
+
+  /* === PRINT === */
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Keep a small right gutter for the print box. Right-aligned content
+       (job periods, education years) right-aligns to the content-box edge,
+       and the rightmost glyph's side bearing can spill ~1px past it and get
+       clipped by Chromium's print clip. A plain `.page` padding is reset to 0
+       here for print, which is why padding set outside @media print has no
+       effect; restoring a right gutter inside the print rule fixes it without
+       re-centering the page or hard-coding a per-format max-width. See #1341. */
+    .page {
+      padding: 0 0.18in 0 0;
+    }
+  }
+
+  /* === PAGE BREAK CONTROL === */
+  /* Only avoid breaking small atomic units (a cert row, an education line, the
+     header, a single competency or skill).  Sections and multi-bullet roles are
+     allowed to flow across a page boundary so content packs tight instead of
+     jumping wholesale and leaving large bottom gaps. */
+  .header,
+  .edu-item,
+  .cert-item,
+  .competency-tag,
+  .skill-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Keep a heading attached to the content that follows it, so headings are not
+     orphaned at the bottom of a page. */
+  .section-title,
+  .job-company,
+  .job-role,
+  .project-title {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* === RTL (Arabic) Support === */
+  html[lang="ar"] body {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  }
+
+  html[lang="ar"] .header h1,
+  html[lang="ar"] .section-title,
+  html[lang="ar"] .job-company,
+  html[lang="ar"] .project-title,
+  html[lang="ar"] .competency-tag,
+  html[lang="ar"] .skill-category {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  }
+
+  html[lang="ar"] .header-gradient {
+    background: linear-gradient(to left, hsl(187, 74%, 32%), hsl(270, 70%, 45%));
+  }
+
+  html[lang="ar"] .job ul {
+    padding-right: 18px;
+    padding-left: 0;
+  }
+
+  html[lang="ar"] .project-badge {
+    margin-right: 6px;
+    margin-left: 0;
+  }
+
+  html[lang="ar"] .cert-year {
+    text-align: left;
+  }
+
+  html[lang="ar"] .cert-table {
+    direction: rtl;
+  }
+
+  html[lang="ar"] .cv-photo {
+    float: left;
+    margin: 0 14px 8px 0;
+  }
+
+  /* === CJK (Japanese) font fallback === */
+  /* The bundled webfonts are Latin-only (see #951). Without a CJK fallback,
+     Japanese text renders as tofu (□) in headless Chromium on any system
+     without a CJK system font (Linux/CI, minimal containers). The Latin brand
+     fonts are kept first so ASCII still uses Space Grotesk / DM Sans, then the
+     browser's per-glyph fallback picks the first installed CJK face for kana
+     and kanji. Mirrors the lang="ar" precedent above. */
+  html[lang="ja"] body {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+      'Yu Gothic', 'YuGothic', 'Noto Sans CJK JP', 'Noto Sans JP',
+      Meiryo, 'MS PGothic', sans-serif;
+  }
+
+  html[lang="ja"] .header h1,
+  html[lang="ja"] .section-title,
+  html[lang="ja"] .job-company,
+  html[lang="ja"] .project-title,
+  html[lang="ja"] .competency-tag,
+  html[lang="ja"] .skill-category {
+    font-family: 'Liberation Sans', 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+      'Yu Gothic', 'YuGothic', 'Noto Sans CJK JP', 'Noto Sans JP',
+      Meiryo, 'MS PGothic', sans-serif;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Polina Tsoy</h1>
+    <div class="header-gradient"></div>
+    <div class="contact-row">
+      <a href="tel:+79525364225">+79525364225</a>
+      <span class="separator">|</span>
+      <a href="mailto:neolissa@gmail.com">neolissa@gmail.com</a>
+      <span class="separator">|</span>
+      <a href="https://neolissa.github.io/polina-tsoy-designer/en/">Portfolio</a>
+      <span class="separator">|</span>
+      <a href="https://neolissa.github.io/polina-tsoy-designer/en/">neolissa.github.io/polina-tsoy-designer</a>
+      <span class="separator">|</span>
+      <span>Argentina — near Buenos Aires (remote, ART UTC-3)</span>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">Senior Product Designer for AI-native product surfaces — research-led UX, systems thinking, and comfort designing under ambiguity. 10+ years product design; 6+ years remote. Actively expanding AI-assisted prototyping. Soft-geo Europe role: based in Argentina, available async with EU overlap.</div>
+  </div>
+
+  <!-- CORE COMPETENCIES -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="competencies-grid">
+      <span class="competency-tag">End-to-end product design</span>
+      <span class="competency-tag">Design systems</span>
+      <span class="competency-tag">Information architecture</span>
+      <span class="competency-tag">0→1 ownership</span>
+      <span class="competency-tag">Discovery & research</span>
+      <span class="competency-tag">Education / learning UX</span>
+      <span class="competency-tag">Async remote</span>
+      <span class="competency-tag">HTML/CSS literacy</span>
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+    <div class="job"><div class="job-header"><span class="job-company">Ediweb</span><span class="job-period">Feb 2024 — Jan 2026</span></div><div class="job-role">Product Designer — International Products</div><div class="job-location">Remote · International B2B</div><ul><li>Owned end-to-end product design for international B2B flows — from hypothesis and research to staging validation and handoff.</li>
+<li>Built and evolved a shared international UI kit across multiple products, improving consistency and speeding feature delivery.</li>
+<li>Led DocsBird from planning to MVP: scenarios, UI, hypothesis tests, stakeholder demos — launch in 4 countries; registration 7→3 steps; +45% conversion.</li>
+<li>Partnered with distributed PMs, analysts, and engineers in Agile/Jira; defended design decisions with evidence, not taste.</li></ul></div>
+<div class="job"><div class="job-header"><span class="job-company">Ruxsoft</span><span class="job-period">Dec 2021 — Feb 2024</span></div><div class="job-role">Product Designer</div><div class="job-location">Remote</div><ul><li>Ran full-cycle product design: research (corridor, qualitative, quantitative), CJM/User Flows, roadmaps, UI, and design reviews.</li>
+<li>Scaled design systems and White Label kits — enabling commercialization and faster client instances.</li>
+<li>Mentored junior designers; optimized handoff so design sits inside the delivery loop, not beside it.</li>
+<li>Key outcomes: −90% styles / ×3 delivery speed (WakeupWarrior); ×4 session time / +40% engagement / 100% adoption (Relaunch).</li></ul></div>
+<div class="job"><div class="job-header"><span class="job-company">TVIP</span><span class="job-period">Apr 2020 — Nov 2021</span></div><div class="job-role">UX/UI Designer</div><div class="job-location">Saint Petersburg</div><ul><li>Designed complex multi-platform media product UX: admin, desktop, and mobile — logic, navigation, and visual system.</li>
+<li>Profile system for 4 personas, day/night themes, UI kit for 5 platforms; close collaboration with engineering through implementation QA.</li></ul></div>
+<div class="job"><div class="job-header"><span class="job-company">Earlier roles (Tizbi, Finnplay, Corex, Fenice)</span><span class="job-period">2015 — 2020</span></div><div class="job-role">UX/UI & Web Designer</div><ul><li>Built English-language web/mobile products, White Label UI kits, Agile delivery, and data-informed site optimization.</li></ul></div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Selected Case Studies</div>
+    <div class="project"><div class="project-header"><span class="project-title">DocsBird</span><span class="project-badge">0→1 / B2B</span></div><div class="project-desc">Lead Product Designer — document management for Europe & Baltics. Registration 7→3 steps; +45% conversion; launch in 4 countries; design system + brand.</div></div>
+<div class="project"><div class="project-header"><span class="project-title">WakeupWarrior</span><span class="project-badge">Design system</span></div><div class="project-desc">Lead PD — evolutionary refactor: 35 components, tokens, constructor covering ~80% of UI; −90% styles, ×3 development speed, White Label enabled.</div></div>
+<div class="project"><div class="project-header"><span class="project-title">Relaunch</span><span class="project-badge">Platform clarity</span></div><div class="project-desc">Lead PD — unified ecosystem replacing 5+ tools; DS 50+ components; ×4 session time, +40% engagement, 100% adoption.</div></div>
+<div class="project"><div class="project-header"><span class="project-title">TVIP</span><span class="project-badge">Multi-platform</span></div><div class="project-desc">Product Designer — IP/TV across 5 platforms with personas and day/night themes; admin + consumer surfaces.</div></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-item"><div class="edu-header"><span class="edu-school">Orel State Institute of Economics and Trade</span><span class="edu-year">2018</span></div><div class="edu-degree">Higher education — Faculty of Business and Advertising (Advertising &amp; PR)</div></div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <div class="cert-table"><div class="cert-row"><span class="cert-name">Erickson Coaching International — Coaching</span><span class="cert-year">2023</span></div><div class="cert-row"><span class="cert-name">Skill Factory — Agile facilitation</span><span class="cert-year">2018</span></div><div class="cert-row"><span class="cert-name">ScrumTrek / Finnplay — Certified Agile Team Facilitator</span><span class="cert-year">2018</span></div><div class="cert-row"><span class="cert-name">Skillbox — UI/UX Designer</span><span class="cert-year">2018</span></div></div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <div class="skill-row"><span class="skill-category">Research</span> UX research, CustDev, interviews, corridor testing, CJM, User Flow, JTBD, metrics &amp; click maps, A/B testing</div><div class="skill-row"><span class="skill-category">Design</span> Figma, UI kits / design systems, tokens, interactive prototyping, product design, web &amp; mobile, motion</div><div class="skill-row"><span class="skill-category">Process</span> End-to-end ownership, Jira, design review, mentoring, Agile/Scrum, MVP, cross-functional delivery</div><div class="skill-row"><span class="skill-category">Tech literacy</span> HTML/CSS; comfortable partnering with engineering on buildable UI</div><div class="skill-row"><span class="skill-category">Languages</span> Russian (native), English (C1)</div>
+  </div>
+
+</div>
+</body>
+</html>

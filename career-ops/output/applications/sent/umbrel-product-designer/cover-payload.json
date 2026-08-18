@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Product Designer",
+    "company": "Umbrel",
+    "city": "Remote",
+    "date": "21 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Umbrel is building personal server experiences that need craft, clarity, and delight — umbrelOS, first-party apps, and the website. I am applying as Product Designer because that is how I work: high craft in Figma, willingness to throw away weak ideas, and shipping with engineering.",
+    "profile_intro": "Senior Product Designer, 10+ years, English C1, remote 6+ years. Based in Argentina. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "Craft + multi-surface",
+        "impact": "TVIP across 5 platforms — personas, day/night themes, coherent UI kit."
+      },
+      {
+        "lead": "Systems that speed polish",
+        "impact": "WUW design system — −90% styles, ×3 delivery, White Label unlocked."
+      },
+      {
+        "lead": "Clarity under complexity",
+        "impact": "DocsBird onboarding — 7→3 steps, +45% conversion."
+      }
+    ],
+    "problems_section": "I obsess over details and micro-interactions, collaborate openly with engineers, and know when to ship. Comp ask $75K USD.",
+    "closing": "Happy to walk through craft-heavy cases and discuss umbrelOS design challenges.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/umbrel-product-designer/cover-polina-tsoy-umbrel-product-designer.pdf"
+}

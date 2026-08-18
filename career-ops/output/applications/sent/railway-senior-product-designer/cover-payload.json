@@ -1,0 +1,45 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — small town near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Senior Product Designer",
+    "company": "Railway",
+    "city": "Remote · Anywhere",
+    "date": "17 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Railway makes deploying logic feel like an operating system for builders — and that product needs designers who treat infrastructure complexity as a UX problem, not a theme polish task. I am applying for Senior Product Designer because I want to own workflows with engineers in a high-ownership, globally distributed team.",
+    "profile_intro": "I am a Senior Product Designer with 10+ years in product and 6+ years fully remote. English C1. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "WakeupWarrior",
+        "impact": "rebuilt a product UI as a reusable system (35 components, tokens) — −90% styles, ×3 development speed, White Label unlocked."
+      },
+      {
+        "lead": "TVIP",
+        "impact": "designed multi-platform power-user UX across 5 surfaces (admin + consumer) with personas and a shared kit — structure for technical operators, not marketing pages."
+      },
+      {
+        "lead": "DocsBird",
+        "impact": "led 0→1 under ambiguity — 4-country launch, registration 7→3 steps, +45% conversion."
+      }
+    ],
+    "problems_section": "I am not a career DX designer — I am honest about that. What I transfer is systems for complex tools, design-system leverage, and designer+engineer delivery under ambiguity. HTML/CSS literacy helps me ship with engineering constraints instead of against them.",
+    "closing": "Based in Argentina (near Buenos Aires, ART UTC-3), available fully remote anywhere with overlap. Happy to tackle your design exercise and walk through WUW / TVIP / DocsBird with the team.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Selected cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  }
+}

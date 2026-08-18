@@ -1,0 +1,45 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — small town near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Product Designer",
+    "company": "Software Mind (Nicoya Health)",
+    "city": "Remote · Costa Rica / LATAM-friendly",
+    "date": "20 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Nicoya Health is turning dense health data into clear, proactive intelligence across web dashboards and a consumer mobile companion. That is the kind of product problem I want to own: complex workflows made calm, trustworthy, and shippable.",
+    "profile_intro": "I am a Senior Product Designer with 10+ years in product and 6+ years fully remote. English C1. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "WakeupWarrior (design system)",
+        "impact": "rebuilt UI as a reusable system so web and product surfaces stay consistent while shipping faster — −90% styles, ×3 development speed, White Label enabled."
+      },
+      {
+        "lead": "DocsBird (0→1 activation)",
+        "impact": "led planning to MVP: registration 7→3 steps, +45% conversion, launch in 4 countries."
+      },
+      {
+        "lead": "Healthcare / data-dense UX",
+        "impact": "designed Medica+ doctor/patient scenarios and financial personal accounts with large data volumes — clarity under clinical and ops constraint."
+      }
+    ],
+    "problems_section": "I am comfortable designing dashboards, onboarding, settings, and mobile companions end to end, partnering with Product and Engineering, and evolving a design system as the product scales. Based in Argentina (near Buenos Aires, ART UTC-3), seeking fully remote international work.",
+    "closing": "Happy to walk through DocsBird, WakeupWarrior, and healthcare-adjacent cases with your team.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Selected cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  }
+}

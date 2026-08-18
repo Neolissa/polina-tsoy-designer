@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — small town near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Staff Product Designer, Pay Ecosystem",
+    "company": "Remote",
+    "city": "Remote · Anywhere",
+    "date": "13 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Paying people correctly across borders is a high-stakes UX problem: dense data, trust, and edge cases that break naive flows. I am applying for Staff Product Designer, Pay Ecosystem because my strongest work is exactly this class of product — financial reporting UIs, international B2B launches, and systems that keep teams shipping.",
+    "profile_intro": "Senior/Staff Product Designer with measurable ownership on complex platforms. English C1. Fully remote for 6+ years. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "Financial / employee money surfaces",
+        "impact": "On Relaunch (Relax.coin) I designed a data-heavy personal account and ecosystem that reached ×4 session time and 100% adoption."
+      },
+      {
+        "lead": "International trust & conversion",
+        "impact": "DocsBird: 4-country launch under constraints; registration 7→3 steps; +45% conversion."
+      },
+      {
+        "lead": "Systems leverage",
+        "impact": "WUW design system: −90% styles, ×3 speed, White Label — the kind of leverage a pay ecosystem needs to stay consistent."
+      }
+    ],
+    "problems_section": "I would focus on making payroll and pay journeys legible for customers under ambiguity: progressive disclosure for dense data, reusable patterns in the design system, and research loops that catch failure modes before they hit support.",
+    "closing": "Open to Staff-scope ownership as an IC. Fully remote worldwide; short notice period. Glad to share deep dives on the financial and international cases.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/remotecom-staff-pay/cover-polina-tsoy-remotecom-staff-pay.pdf"
+}

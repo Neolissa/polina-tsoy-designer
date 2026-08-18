@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — small town near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Senior Product Designer — Sena",
+    "company": "Rwazi",
+    "city": "Global Remote",
+    "date": "13 July 2026",
+    "greeting": "Dear Rwazi Hiring Team,",
+    "opening": "Sena sits at the hard part of product design: turning dense, multi-dimensional consumer intelligence into something enterprise users can trust and act on. I am applying because that is the work I do best — data-heavy B2B interfaces, research, and systems that scale.",
+    "profile_intro": "Senior Product Designer, 10+ years, English C1, fully remote 6+ years. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "Dense data → clarity",
+        "impact": "Financial reporting and admin-scale products (Relaunch, Medica+, TVIP admin) where hierarchy and progressive disclosure matter."
+      },
+      {
+        "lead": "Adoption metrics",
+        "impact": "Relaunch: ×4 session time, +40% engagement, 100% adoption after unifying fragmented tools."
+      },
+      {
+        "lead": "0→1 under constraints",
+        "impact": "DocsBird international launch with +45% conversion after simplifying critical flows."
+      }
+    ],
+    "problems_section": "Honest note on AI-assisted build: I am fluent in Figma and HTML/CSS and already partner tightly with engineering; I am actively building daily muscle with AI coding tools rather than claiming years of Claude Code production history. I learn tools fast when they are core to how the team ships.",
+    "closing": "Excited about a small senior design team with direct product/eng collaboration. Available worldwide remote.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/rwazi-senior-pd/cover-polina-tsoy-rwazi-senior-pd.pdf"
+}

@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — small town near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Lead Product Designer (Crypto Exchange)",
+    "company": "Hyphen Connect / Client",
+    "city": "Remote · Anywhere",
+    "date": "13 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "I am interested in the Lead Product Designer role for your decentralised exchange client. High-trust trading UX needs the same foundations I have shipped before: a coherent design language system, pixel-disciplined multi-platform UI, and research that keeps complexity usable.",
+    "profile_intro": "Lead/Senior Product Designer, 10+ years, design systems specialist, English C1, worldwide remote. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "Design Language System at scale",
+        "impact": "WUW: 35 reusable components + tokens; constructor covering ~80% of UI; −90% styles; ×3 speed; White Label opened."
+      },
+      {
+        "lead": "Cross-platform systems",
+        "impact": "TVIP: UI kit and coherent experience across 5 platforms with personas and themes."
+      },
+      {
+        "lead": "Fintech-adjacent complexity",
+        "impact": "Financial reporting accounts and international B2B launches (Relaunch, DocsBird) where clarity and trust matter."
+      }
+    ],
+    "problems_section": "I am comfortable with crypto as a domain. Please share the client company name and compensation band when possible — I apply carefully and prefer a direct line to the product team once screening clears.",
+    "closing": "Available fully remote worldwide. Happy to present a design-system case and a multi-platform walkthrough.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "WUW / TVIP / DocsBird",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/hyphen-lead-pd-crypto/cover-polina-tsoy-hyphen-lead-pd-crypto.pdf"
+}

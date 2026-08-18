@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "name": "Polina Tsoy",
+    "email": "neolissa@gmail.com",
+    "phone": "+79525364225",
+    "location": "Argentina — near Buenos Aires (remote, ART UTC-3)",
+    "credentials": [
+      "Senior Product Designer",
+      "English C1",
+      "10+ years"
+    ]
+  },
+  "letter": {
+    "role_title": "Product Designer, AI-Native Products",
+    "company": "Synthesia",
+    "city": "Remote · Europe (soft geo)",
+    "date": "20 July 2026",
+    "greeting": "Dear Hiring Team,",
+    "opening": "Synthesia is shaping AI-native creation experiences — where interaction design must make powerful models feel simple and trustworthy. I am applying for the AI-Native Product Designer role to bring senior end-to-end craft to that problem space.",
+    "profile_intro": "Senior Product Designer, 10+ years, English C1, fully remote 6+ years. Portfolio: https://neolissa.github.io/polina-tsoy-designer/en/",
+    "achievements": [
+      {
+        "lead": "Ambiguity → shipped",
+        "impact": "DocsBird 0→1 under unclear mandate — 4-country launch, +45% conversion."
+      },
+      {
+        "lead": "Systems for evolving products",
+        "impact": "WUW design system — −90% styles, ×3 speed as the product surface grew."
+      },
+      {
+        "lead": "Complex multi-surface UX",
+        "impact": "TVIP across 5 platforms with coherent personas and themes."
+      }
+    ],
+    "problems_section": "Note: I previously applied to Product Designer, Growth at Synthesia — this AI-Native track is a different problem space I want specifically. Based in Argentina; can overlap EU hours. Comp ask $75K USD.",
+    "closing": "Happy to share AI-tooling practice and relevant case studies.",
+    "footnotes": [
+      {
+        "marker": "Portfolio:",
+        "text": "Cases",
+        "url": "https://neolissa.github.io/polina-tsoy-designer/en/"
+      }
+    ]
+  },
+  "output_path": "/home/polina/hobby/career-ops/career-ops/output/applications/synthesia-ai-native/cover-polina-tsoy-synthesia-ai-native.pdf"
+}

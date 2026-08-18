@@ -1,0 +1,17 @@
+
+── Ashby · rwazi · job 4fa4cdca-8c88-4aab-ab58-97c836f29038 ────────────────────
+
+  firstName    Polina
+  lastName     Tsoy
+  email        neolissa@gmail.com
+  phone        +79525364225
+  resume       cv-polina-tsoy-rwazi-senior-pd-2026-07-13.pdf  ← attach this file
+  coverLetter  (179 words — paste from cover file)
+
+  PDF     cv-polina-tsoy-rwazi-senior-pd-2026-07-13.pdf (57.6 KB)
+  Cover   /home/polina/hobby/career-ops/career-ops/output/applications/rwazi-senior-pd/cover.txt (179 words)
+
+── Next step ──────────────────────────────────────
+  Open:   https://jobs.ashbyhq.com/rwazi/4fa4cdca-8c88-4aab-ab58-97c836f29038/application
+  Fill the form using the values above, attach the PDF, then submit.
+
