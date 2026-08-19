@@ -1,1042 +1,129 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Кейс Relaunch внутренней платформы для сотрудников — полный редизайн и перезапуск корпоративной платформы с геймификацией">
-    <title>Relaunch внутренней платформы — Кейс | Polina Tsoy</title>
-    
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1a1a1a',
-                        secondary: '#4a4a4a',
-                        accent: 'var(--color-accent)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <link rel="stylesheet" href="../css/site-tokens.css">
-    
-    <!-- Google Fonts for better typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
-    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
-    <link rel="stylesheet" href="../css/ai-cases.css">
-    <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Кейс Relaunch: как объединить рабочие процессы, коммуникацию, развитие и признание в одной внутренней платформе.">
+  <title>Relaunch — внутренняя платформа | Polina Tsoy</title>
+  <link rel="canonical" href="https://neolissa.github.io/polina-tsoy-designer/ru/relaunch.html">
+  <link rel="alternate" hreflang="ru" href="https://neolissa.github.io/polina-tsoy-designer/ru/relaunch.html">
+  <link rel="alternate" hreflang="en" href="https://neolissa.github.io/polina-tsoy-designer/en/relaunch.html">
+  <link rel="alternate" hreflang="es" href="https://neolissa.github.io/polina-tsoy-designer/es/relaunch.html">
+  <link rel="alternate" hreflang="x-default" href="https://neolissa.github.io/polina-tsoy-designer/ru/relaunch.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Relaunch — внутренняя платформа | Polina Tsoy">
+  <meta property="og:description" content="Кейс Relaunch: как объединить рабочие процессы, коммуникацию, развитие и признание в одной внутренней платформе.">
+  <meta property="og:url" content="https://neolissa.github.io/polina-tsoy-designer/ru/relaunch.html">
+  <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#1a1a1a', secondary: '#4a4a4a', accent: 'var(--color-accent)' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+  </script>
+  <link rel="stylesheet" href="../css/site-tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+  </style>
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased">
-    
-        <!-- Navigation -->
-    <div id="nav-container"></div>
-<!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] relative overflow-hidden pt-20 pb-16 md:pb-24">
-        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-            <!-- Badge -->
-            <div class="inline-block mb-6">
-                <span class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium">
-                    Case Study
-                </span>
-            </div>
-            
-            <!-- MAIN TITLE -->
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Relaunch внутренней платформы
-            </h1>
-            
-            <!-- SUBTITLE -->
-            <p class="text-2xl md:text-3xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                Полный редизайн и перезапуск корпоративной платформы, превращающей рабочие процессы в социальную экосистему с геймификацией
-            </p>
-            
-            <!-- Hero Image -->
-            <div class="max-w-2xl mx-auto mb-10 fade-in">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                    <img src="../images/hero-coin.png" alt="Relaunch Hero Image" data-lightbox class="w-full h-auto" style="aspect-ratio: 16/9; object-fit: cover;">
-                </div>
-            </div>
-            
-            <!-- Context -->
-            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left mb-10">
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <div class="text-2xl mb-2">🏢</div>
-                    <div class="text-sm font-semibold text-gray-900">Контекст</div>
-                    <div class="text-gray-600 text-sm">Корпоративная платформа</div>
-                    <div class="text-gray-900 font-bold">100% сотрудников компании</div>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <div class="text-2xl mb-2">💼</div>
-                    <div class="text-sm font-semibold text-gray-900">Роль</div>
-                    <div class="text-gray-600 text-sm">Product Designer (ведущий)</div>
-                    <div class="text-gray-900 font-bold">Исследования → Разработка</div>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <div class="text-2xl mb-2">📊</div>
-                    <div class="text-sm font-semibold text-gray-900">Результат</div>
-                    <div class="text-gray-600 text-sm">25+ функций</div>
-                    <div class="text-gray-900 font-bold">Единая экосистема</div>
-                </div>
-            </div>
-            
-            <!-- CTA -->
-            <a href="#results" class="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 inline-flex items-center gap-2">
-                Смотреть результаты
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-            </a>
+  <div id="nav-container"></div>
+  <main>
+    <section class="bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] pt-28 pb-20 md:pt-36 md:pb-28">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-4xl mb-10 fade-in">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-700 mb-4">Внутренняя платформа · UX/UI · дизайн-система</p>
+          <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">Relaunch</h1>
+          <p class="text-2xl md:text-3xl text-gray-700 leading-relaxed">Как объединить рабочие функции, коммуникацию, развитие и признание в одном продукте.</p>
         </div>
+        <div class="grid lg:grid-cols-[1.45fr_1fr] gap-4 mb-10 fade-in">
+          <figure class="bg-gray-950 rounded-3xl p-5 md:p-8 min-h-[320px] flex items-center shadow-xl"><img src="../images/hero-coin.png" alt="Relaunch на компьютере и телефонах: профиль, достижения и рейтинг" data-lightbox class="w-full h-auto" loading="eager" fetchpriority="high"></figure>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
+            <figure class="bg-white rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5 h-56 lg:h-[220px]"><img src="../images/coin/coin%207%20social%20functions.png" alt="Социальные функции внутренней платформы Relaunch" data-lightbox class="w-full h-full object-cover object-top"></figure>
+            <figure class="bg-white rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5 h-56 lg:h-[220px]"><img src="../images/coin/coin%205%20UI%20kit.png" alt="Типографика и цвета дизайн-системы Relaunch" data-lightbox class="w-full h-full object-cover object-top"></figure>
+          </div>
+        </div>
+        <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-white/50 border border-white/60 fade-in">
+          <div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Роль</dt><dd class="font-semibold">Продуктовый дизайнер · ведущая роль в проекте</dd></div>
+          <div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Зона ответственности</dt><dd class="font-semibold">Исследование, UX/UI, дизайн-система, сопровождение разработки</dd></div>
+          <div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Контекст</dt><dd class="font-semibold">Внутренняя платформа для всей компании</dd></div>
+          <div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Ограничение</dt><dd class="font-semibold">Объединить 5+ систем, не потеряв рабочие сценарии</dd></div>
+        </dl>
+      </div>
     </section>
 
-    <!-- Context Section -->
-    <section id="context" class="py-24 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    1. Контекст: Когда интранет устарел
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Problem -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <span class="text-2xl">⚠️</span> Проблема
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Существующая корпоративная платформа не отвечала современным потребностям сотрудников — разрозненные инструменты, отсутствие социального взаимодействия, устаревший интерфейс.
-                    </p>
-                </div>
-                
-                <!-- Goal -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <span class="text-2xl">🎯</span> Цель
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Создать единую экосистему, которая объединит административные функции, социальные инструменты, систему развития и геймификацию. Превратить обязательный инструмент в платформу, которую сотрудники используют добровольно.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Повторяется ниже в разделе о продуктовых решениях; оставлено в исходнике для справки. -->
-            <div class="hidden" aria-hidden="true">
-                <h3 class="text-2xl font-bold mb-8 text-center">Что нужно было объединить</h3>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-4xl mb-4">🔐</div>
-                        <div class="font-bold mb-2">Административные функции</div>
-                        <p class="text-sm text-gray-600">Доступы, управление</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-4xl mb-4">💬</div>
-                        <div class="font-bold mb-2">Социальные инструменты</div>
-                        <p class="text-sm text-gray-600">Мессенджер, мероприятия, группы</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-4xl mb-4">📈</div>
-                        <div class="font-bold mb-2">Система развития</div>
-                        <p class="text-sm text-gray-600">Планы роста, библиотека знаний</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                        <div class="text-4xl mb-4">🏆</div>
-                        <div class="font-bold mb-2">Геймификация</div>
-                        <p class="text-sm text-gray-600">Монеты, награды, рейтинги</p>
-                    </div>
-                </div>
-            </div>
+    <section id="context" class="py-20 md:py-24 bg-white">
+      <div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
+        <div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Контекст</p><h2 class="text-3xl md:text-4xl font-bold">Пять систем решали отдельные задачи, но не складывались в единый опыт</h2></div>
+        <div class="fade-in text-lg text-gray-700 leading-relaxed space-y-5">
+          <p>Сотрудники переключались между административными инструментами, коммуникацией, базой знаний и программами развития. Интервью, опросы, проверки удобства и быстрые исследования помогли выделить три приоритета: единая точка входа, мобильный доступ и понятная система признания.</p>
+          <p><strong class="text-gray-900">Ключевой вывод:</strong> социальные функции не могли заменить ежедневные рабочие задачи. Платформа должна была сначала сохранять полезность, а уже затем усиливать связи между сотрудниками.</p>
+          <div class="border-l-4 border-indigo-500 pl-5 text-base text-gray-600"><strong class="text-gray-900">Проверка направления:</strong> решения обсуждались с сотрудниками, заинтересованными сторонами и разработчиками до детализации интерфейсов.</div>
         </div>
+      </div>
     </section>
 
-    <!-- Research Section -->
-    <section id="research" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    2. Исследование: Понимание реальных рабочих сценариев
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <div class="space-y-8">
-                <!-- Methods -->
-                <div class="bg-gray-50 p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="text-2xl">🔬</span> Методы
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Интервью с сотрудниками и стейкхолдерами</span>
-                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Опросы по всей компании</span>
-                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Юзабилити-тестирование</span>
-                        <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 border">Коридорные исследования</span>
-                    </div>
-                </div>
-                
-                <!-- Insights -->
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100 h-full min-h-0 flex flex-col">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 flex-shrink-0">
-                            <span class="text-2xl">💡</span> Ключевые инсайты
-                        </h3>
-                        <div class="flex-1 flex flex-col justify-between gap-4 min-h-0">
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl flex-shrink-0">👥</span>
-                                <div>
-                                    <div class="font-bold text-gray-900">Социальный дефицит</div>
-                                    <div class="text-gray-600 text-sm">Сотрудникам не хватает неформального общения между отделами</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl flex-shrink-0">🎯</span>
-                                <div>
-                                    <div class="font-bold text-gray-900">Признание как мотиватор</div>
-                                    <div class="text-gray-600 text-sm">Отсутствие системы благодарностей снижало вовлечённость</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl flex-shrink-0">🧩</span>
-                                <div>
-                                    <div class="font-bold text-gray-900">Разрозненность инструментов</div>
-                                    <div class="text-gray-600 text-sm">5+ разных систем для рабочих задач</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl flex-shrink-0">📱</span>
-                                <div>
-                                    <div class="font-bold text-gray-900">Мобильность</div>
-                                    <div class="text-gray-600 text-sm">Мобильный доступ регулярно возникал как потребность для ключевых сценариев</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl flex-shrink-0">⚖️</span>
-                                <div>
-                                    <div class="font-bold text-gray-900">Социальность не отменяет админку</div>
-                                    <div class="text-gray-600 text-sm">Сотрудники хотели общения и признания, но не готовы были жертвовать рабочими процессами — нужен был баланс в одной экосистеме</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl flex-shrink-0">🎮</span>
-                                <div>
-                                    <div class="font-bold text-gray-900">Геймификация работает, если есть смысл</div>
-                                    <div class="text-gray-600 text-sm">Монеты и рейтинги зашли туда, где были привязаны к реальным действиям и прозрачной логике начисления</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-2xl flex-shrink-0">🔍</span>
-                                <div>
-                                    <div class="font-bold text-gray-900">Интервью — не формальность, а фильтр решений</div>
-                                    <div class="text-gray-600 text-sm">Интервью и опросы помогли сузить приоритеты до коммуникации, мобильного доступа и единой точки входа</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- User Flow Visualization -->
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                        <h3 class="text-xl font-bold mb-4">Пользовательский путь</h3>
-                        <div class="space-y-4">
-                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                <div class="font-bold text-gray-900 mb-1">ДО</div>
-                                <div class="text-sm text-gray-600">Сложный путь с возвратами, сложность поиска информации</div>
-                            </div>
-                            <div class="flex justify-center text-2xl text-gray-400">↓</div>
-                            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                                <div class="font-bold text-gray-900 mb-1">ПОСЛЕ</div>
-                                <div class="text-sm text-gray-600">Линейный, понятный путь. Единая точка входа для всех задач</div>
-                            </div>
-                        </div>
-                        <div class="mt-6">
-                            <p class="text-sm font-medium text-gray-700 mb-2">Упрощённый user flow <span class="text-gray-400 font-normal">(нажмите для увеличения)</span></p>
-                            <div class="rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden bg-white">
-                                <img src="../images/coin/coin%202%20user%20flow.jpg" alt="Схема упрощённого пользовательского пути по платформе после редизайна" data-lightbox class="w-full h-auto object-contain max-h-[min(70vh,520px)]" width="1200" height="700" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="decisions" class="py-20 md:py-24 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-3xl mb-14 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Три решения</p><h2 class="text-4xl md:text-5xl font-bold mb-5">Связать обязательные и мотивирующие сценарии</h2><p class="text-lg text-gray-600">Каждое решение отвечает на конкретную причину разрозненности продукта.</p></div>
+        <div class="space-y-16">
+          <article class="grid lg:grid-cols-2 gap-10 items-center fade-in">
+            <div><p class="text-sm font-semibold text-indigo-600 mb-3">01 · Единая точка входа</p><h3 class="text-3xl font-bold mb-4">Собрать рабочие задачи в одном понятном пути</h3><p class="text-gray-700 leading-relaxed mb-5">Навигация и основные действия были перестроены вокруг задач сотрудника, а не структуры отдельных систем. Это сократило возвраты и упростило поиск нужной функции.</p><div class="grid grid-cols-2 gap-3 text-sm"><div class="border-t border-gray-300 pt-3"><strong class="block">До</strong><span class="text-gray-600">5+ отдельных инструментов</span></div><div class="border-t border-indigo-300 pt-3"><strong class="block">После</strong><span class="text-gray-600">одна точка входа</span></div></div></div>
+            <figure class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm"><img src="../images/coin/coin%202%20user%20flow.jpg" alt="Путь пользователя Relaunch после объединения рабочих сценариев" data-lightbox class="w-full h-auto rounded-xl"><figcaption class="text-sm text-gray-500 mt-4">Упрощённый путь пользователя после объединения ключевых задач.</figcaption></figure>
+          </article>
+
+          <article class="grid lg:grid-cols-2 gap-10 items-center fade-in">
+            <div class="lg:order-2"><p class="text-sm font-semibold text-indigo-600 mb-3">02 · Признание и развитие</p><h3 class="text-3xl font-bold mb-4">Связать вклад сотрудника с понятной обратной связью</h3><p class="text-gray-700 leading-relaxed mb-5">Благодарности, достижения, планы развития и база знаний стали частями одной системы. Игровые механики использовались только там, где действие и награда были прозрачны.</p><ul class="space-y-2 text-sm text-gray-600"><li><strong class="text-gray-900">Признание:</strong> благодарности и видимый вклад.</li><li><strong class="text-gray-900">Развитие:</strong> цели, материалы и наставничество.</li><li><strong class="text-gray-900">Правила:</strong> понятная связь между действием и вознаграждением.</li></ul></div>
+            <div class="lg:order-1 grid grid-cols-2 gap-3"><figure class="col-span-2"><img src="../images/coin/coin%2011%20personal%20growth.png" alt="План личного развития в Relaunch" data-lightbox class="w-full h-64 object-cover object-top rounded-xl border border-gray-200"></figure><figure><img src="../images/coin/coin%209%20employees%20rating.png" alt="Рейтинг сотрудников в Relaunch" data-lightbox class="w-full h-52 object-cover object-top rounded-xl border border-gray-200"></figure><figure><img src="../images/coin/coin%2010%20thanksgiving.png" alt="Благодарности и награды в Relaunch" data-lightbox class="w-full h-52 object-cover object-top rounded-xl border border-gray-200"></figure></div>
+          </article>
+
+          <article class="grid lg:grid-cols-2 gap-10 items-center fade-in">
+            <div><p class="text-sm font-semibold text-indigo-600 mb-3">03 · Система и реализация</p><h3 class="text-3xl font-bold mb-4">Сделать интерфейс расширяемым и упростить работу с разработкой</h3><p class="text-gray-700 leading-relaxed mb-5">Общие токены, компоненты и шаблоны заменили локальные правила. Ежемесячные встречи по качеству интерфейса позволяли исправлять очевидные проблемы сразу, а крупные изменения объединять до попадания в очередь задач.</p><div class="border-l-4 border-gray-900 pl-5 text-sm text-gray-600"><strong class="text-gray-900">Компромисс:</strong> переход происходил постепенно, поэтому старые и новые решения некоторое время существовали параллельно. Зато продукт продолжал развиваться без отдельной остановки.</div></div>
+            <figure class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm"><img src="../images/coin/coin%205%20UI%20kit.png" alt="Типографика, цвета и структура дизайн-системы Relaunch" data-lightbox class="w-full h-auto rounded-xl"><figcaption class="text-sm text-gray-500 mt-4">Типографика, цвета и структура библиотеки компонентов.</figcaption></figure>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Innovation Section -->
-    <section id="innovation" class="py-24 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    3. Инновация в процессе: Дизайн-груминг
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-start">
-                <!-- Problem -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <span class="text-2xl">🚫</span> Проблема
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Классический процесс ревью создавал бюрократию — каждый мелкий баг превращался в отдельную задачу, замедляя работу команды.
-                    </p>
-                </div>
-                
-                <!-- Solution -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <span class="text-2xl">✨</span> Решение
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Внедрила ежемесячный дизайн-груминг с разработчиками. Небольшие UI-проблемы разбирали вместе, очевидные исправления принимали сразу, а крупные изменения группировали до попадания в backlog.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Results -->
-            <div class="mt-12 grid md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                    <div class="text-3xl mb-2">↓</div>
-                    <div class="font-bold mb-2">Объём задач в бэклоге снизился</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                    <div class="text-3xl mb-2">🗣️</div>
-                    <div class="font-bold mb-2">Дизайнеры и разработчики говорят на одном языке</div>
-                </div>
-            </div>
-            
-            <div class="mt-8 bg-indigo-50 p-6 rounded-xl border border-indigo-100">
-                <p class="text-lg font-bold text-center text-indigo-900">
-                    Изменение культуры взаимодействия между дизайном и разработкой
-                </p>
-            </div>
-        </div>
+    <section id="results" class="py-20 md:py-24 bg-gray-950 text-white">
+      <div class="max-w-6xl mx-auto px-6"><div class="max-w-3xl mb-12 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300 mb-3">Внутренние данные после запуска</p><h2 class="text-4xl md:text-5xl font-bold">Результат команды</h2></div><dl class="grid md:grid-cols-3 gap-px bg-gray-700 border border-gray-700 rounded-2xl overflow-hidden fade-in"><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">5+ → 1</dt><dd class="text-gray-400">рабочие системы объединены в одной платформе</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">4×</dt><dd class="text-gray-400">время сессии: с 3 до 12 минут</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">+40%</dt><dd class="text-gray-400">вовлечённость по внутренним опросам</dd></div></dl><p class="text-sm text-gray-400 mt-5 max-w-3xl">Платформа была внедрена во всей компании. Показатели описывают общий результат команды и не изолируют вклад отдельного дизайн-решения.</p></div>
     </section>
 
-    <!-- Core Platform Section -->
-    <section id="core" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    4. Ядро платформы: Социальность + Развитие
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
+    <section id="reflection" class="py-20 bg-white"><div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-2 gap-10"><div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Рефлексия</p><h2 class="text-3xl md:text-4xl font-bold">Что было важно удержать</h2></div><div class="fade-in text-lg text-gray-700 leading-relaxed space-y-5"><p>Самый сложный баланс — не превратить обязательный рабочий инструмент в набор развлекательных функций. Сначала сохранялась ясность административных задач, затем к ним добавлялись коммуникация и признание.</p><p>Совместные встречи с разработчиками стали не отдельным ритуалом, а способом поддерживать качество интерфейса после запуска.</p></div></div></section>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Social -->
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border border-blue-100 flex flex-col">
-                    <div class="text-3xl mb-3">👥</div>
-                    <h3 class="text-xl font-bold mb-4">Социальные функции</h3>
-                    <div class="flex flex-wrap gap-2 mb-4" aria-hidden="true">
-                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Чаты">💬</span>
-                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Группы">👥</span>
-                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Календарь">📅</span>
-                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-blue-100" title="Монеты">🪙</span>
-                    </div>
-                    <ul class="text-gray-600 space-y-2.5 text-sm flex-1">
-                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Мессенджер и группы — коммуникация без границ</span></li>
-                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Мероприятия и встречи — календарь корпоративной жизни</span></li>
-                        <li class="flex gap-2"><span class="text-blue-500 shrink-0" aria-hidden="true">↳</span><span>Монеты благодарности — визуальный дождь из монет</span></li>
-                    </ul>
-                    <div class="mt-5 rounded-xl overflow-hidden ring-1 ring-blue-200/60 bg-white/80 flex justify-center">
-                        <img src="../images/coin/coin%207%20social%20functions.png" alt="Интерфейс социальных функций корпоративной платформы" data-lightbox class="w-full max-w-lg h-auto object-contain max-h-[min(90vh,900px)] mx-auto" width="800" height="500" loading="lazy" decoding="async">
-                    </div>
-                </div>
-                
-                <!-- Development -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border border-green-100 flex flex-col">
-                    <div class="text-3xl mb-4">🌱</div>
-                    <h3 class="text-xl font-bold mb-3">Развитие сотрудников</h3>
-                    <ul class="text-gray-600 space-y-2 text-sm">
-                        <li>• Индивидуальные планы роста — от целей до достижений</li>
-                        <li>• Библиотека знаний — централизованная база материалов</li>
-                        <li>• Программы менторства — связь опытных и новых сотрудников</li>
-                    </ul>
-                    <div class="mt-6 space-y-4">
-                        <div>
-                            <p class="text-xs font-medium text-gray-600 mb-1">Личный рост</p>
-                            <div class="rounded-xl overflow-hidden ring-1 ring-emerald-200/60 bg-white/80">
-                                <img src="../images/coin/coin%2011%20personal%20growth.png" alt="Экран развития и целей сотрудника" data-lightbox class="w-full h-auto object-contain max-h-48" width="800" height="500" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <div>
-                            <p class="text-xs font-medium text-gray-600 mb-1">Статьи и база знаний</p>
-                            <div class="rounded-xl overflow-hidden ring-1 ring-emerald-200/60 bg-white/80">
-                                <img src="../images/coin/coin%208%20articles%20writing.png" alt="Раздел статей и написания материалов в библиотеке знаний" data-lightbox class="w-full h-auto object-contain max-h-48" width="800" height="500" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gamification -->
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-100 flex flex-col">
-                    <div class="text-3xl mb-4">🎮</div>
-                    <h3 class="text-xl font-bold mb-3">Геймификация</h3>
-                    <ul class="text-gray-600 space-y-2 text-sm">
-                        <li>• Рейтинги и достижения — прозрачный прогресс</li>
-                        <li>• Магазин монет — обмен на реальные бонусы</li>
-                        <li>• Награды и статусы — визуализация вклада</li>
-                    </ul>
-                    <div class="mt-6 space-y-4">
-                        <div>
-                            <p class="text-xs font-medium text-gray-600 mb-1">Рейтинг сотрудников</p>
-                            <div class="rounded-xl overflow-hidden ring-1 ring-purple-200/60 bg-white/80">
-                                <img src="../images/coin/coin%209%20employees%20rating.png" alt="Экран рейтинга и оценки сотрудников" data-lightbox class="w-full h-auto object-contain max-h-44" width="800" height="500" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <div>
-                            <p class="text-xs font-medium text-gray-600 mb-1">Благодарности</p>
-                            <div class="rounded-xl overflow-hidden ring-1 ring-purple-200/60 bg-white/80">
-                                <img src="../images/coin/coin%2010%20thanksgiving.png" alt="Интерфейс монет благодарности и наград" data-lightbox class="w-full h-auto object-contain max-h-44" width="800" height="500" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Visualization Block -->
-            <div class="mt-12 bg-gray-50 p-8 rounded-2xl">
-                <h3 class="text-2xl font-bold mb-6 text-center">Визуализация геймификации</h3>
-                <div class="space-y-6">
-                    <div class="flex flex-col md:flex-row items-center gap-4">
-                        <div class="bg-white p-4 rounded-lg border-2 border-gray-200 w-full md:w-1/4 text-center">
-                            <div class="text-2xl mb-2">🎯</div>
-                            <div class="font-bold">Действие</div>
-                            <div class="text-sm text-gray-600">Сотрудник выполняет задачу</div>
-                        </div>
-                        <div class="text-3xl text-gray-400 hidden md:block">→</div>
-                        <div class="bg-green-50 p-4 rounded-lg border-2 border-green-200 w-full md:w-1/4 text-center">
-                            <div class="text-2xl mb-2">💰</div>
-                            <div class="font-bold">Монеты</div>
-                            <div class="text-sm text-gray-600">Начисление очков/монет</div>
-                        </div>
-                        <div class="text-3xl text-gray-400 hidden md:block">→</div>
-                        <div class="bg-purple-50 p-4 rounded-lg border-2 border-purple-200 w-full md:w-1/4 text-center">
-                            <div class="text-2xl mb-2">🏆</div>
-                            <div class="font-bold">Достижения</div>
-                            <div class="text-sm text-gray-600">Unlock статусов</div>
-                        </div>
-                        <div class="text-3xl text-gray-400 hidden md:block">→</div>
-                        <div class="bg-pink-50 p-4 rounded-lg border-2 border-pink-200 w-full md:w-1/4 text-center">
-                            <div class="text-2xl mb-2">🎁</div>
-                            <div class="font-bold">Вознаграждение</div>
-                            <div class="text-sm text-gray-600">Реальные бонусы</div>
-                        </div>
-                    </div>
-                    <p class="text-center text-gray-600 mt-4">
-                        Геймификация как механика удержания, а не украшение
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="related" class="py-20 md:py-24 bg-slate-50"><div class="max-w-5xl mx-auto px-6"><div class="mb-10 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Продолжить просмотр</p><h2 class="text-3xl md:text-4xl font-bold">Другие кейсы</h2></div><div class="grid md:grid-cols-2 gap-5"><a href="docsbird.html" class="block rounded-2xl bg-white border border-gray-200 p-7 hover:border-gray-400"><p class="text-sm text-gray-500 mb-2">Международный B2B-продукт</p><h3 class="text-2xl font-bold mb-2">DocsBird</h3><p class="text-gray-600">Документы, электронная подпись и общая продуктовая основа для четырёх рынков.</p></a><a href="wuw.html" class="block rounded-2xl bg-white border border-gray-200 p-7 hover:border-gray-400"><p class="text-sm text-gray-500 mb-2">Дизайн-система</p><h3 class="text-2xl font-bold mb-2">WUW</h3><p class="text-gray-600">Постепенный системный рефакторинг без остановки развития продукта.</p></a></div></div></section>
 
-    <!-- Implementation Section -->
-    <section id="implementation" class="py-24 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    5. Техническая реализация: Дизайн-система как основа масштабирования
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <div class="flex flex-col gap-12 max-w-5xl mx-auto">
-                <!-- Architecture -->
-                <div class="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="text-2xl">🏗️</span> Архитектура дизайн-системы
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <div class="font-bold">1. Токены</div>
-                            <div class="text-sm text-gray-600">Цвета, типографика, отступы (единые переменные)</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <div class="font-bold">2. Компоненты</div>
-                            <div class="text-sm text-gray-600">Библиотека из 50+ переиспользуемых элементов</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <div class="font-bold">3. Шаблоны</div>
-                            <div class="text-sm text-gray-600">Готовые экранные шаблоны для типовых страниц</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <div class="font-bold">4. Готовые экраны</div>
-                            <div class="text-sm text-gray-600">100+ экранов с консистентным дизайном</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Key Decisions -->
-                <div class="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="text-2xl">⚡</span> Ключевые решения
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <div class="font-bold mb-2">Единая система токенов</div>
-                            <p class="text-gray-600 text-sm">Изменение одного токена обновляет все экраны</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <div class="font-bold mb-2">Библиотека из 50+ компонентов</div>
-                            <p class="text-gray-600 text-sm">Охватывает веб и мобильные приложения</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <div class="font-bold mb-2">Готовые шаблоны</div>
-                            <p class="text-gray-600 text-sm">Для типовых страниц и форм</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <div class="font-bold mb-2">Чёткие правила адаптивности</div>
-                            <p class="text-gray-600 text-sm">Поддержка всех устройств</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-14 max-w-4xl mx-auto fade-in">
-                <h3 class="text-xl font-bold mb-2 text-center">UI-kit в интерфейсе</h3>
-                <p class="text-gray-600 text-sm text-center mb-6">Компоненты библиотеки на реальных экранах платформы</p>
-                <div class="rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden bg-white">
-                    <img src="../images/coin/coin%205%20UI%20kit.png" alt="Фрагменты интерфейса с компонентами единого UI-kit" data-lightbox class="w-full h-auto object-contain max-h-[70vh]" width="1200" height="800" loading="lazy" decoding="async">
-                </div>
-            </div>
-            
-            <!-- Before/After Visualization -->
-            <div class="mt-12 bg-gray-900 text-white p-8 rounded-2xl">
-                <h3 class="text-xl font-bold mb-6 text-center">До/После системного подхода</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-red-800/30 p-6 rounded-xl border border-red-600/50">
-                        <div class="text-center mb-4">
-                            <span class="text-red-400 font-bold text-lg">ДО</span>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="bg-gray-800 p-3 rounded border-2 border-red-400">
-                                <div class="flex gap-1 mb-2">
-                                    <div class="w-16 h-8 bg-gray-500 rounded"></div>
-                                    <div class="w-12 h-8 bg-gray-600 rounded"></div>
-                                    <div class="w-14 h-8 bg-gray-700 rounded"></div>
-                                </div>
-                                <div class="text-xs text-gray-300">200+ разрозненных кнопок</div>
-                            </div>
-                            <div class="bg-gray-800 p-3 rounded border-2 border-yellow-400">
-                                <div class="flex gap-3 mb-2">
-                                    <div class="w-full h-2 bg-red-500 rounded"></div>
-                                    <div class="w-full h-2 bg-blue-500 rounded"></div>
-                                </div>
-                                <div class="text-xs text-gray-300">Несколько цветовых схем</div>
-                            </div>
-                            <div class="bg-gray-800 p-3 rounded border-2 border-orange-400">
-                                <div class="text-xs text-gray-300">Хаос в отступах и типографике</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-800/30 p-6 rounded-xl border border-green-600/50">
-                        <div class="text-center mb-4">
-                            <span class="text-green-400 font-bold text-lg">ПОСЛЕ</span>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="bg-gray-800 p-3 rounded border-2 border-green-400">
-                                <div class="flex gap-2 mb-2">
-                                    <div class="w-20 h-8 bg-indigo-600 rounded"></div>
-                                    <div class="w-20 h-8 bg-indigo-600 rounded"></div>
-                                    <div class="w-20 h-8 bg-indigo-600 rounded"></div>
-                                </div>
-                                <div class="text-xs text-gray-300">35 универсальных компонентов</div>
-                            </div>
-                            <div class="bg-gray-800 p-3 rounded border-2 border-green-400">
-                                <div class="flex gap-3 mb-2">
-                                    <div class="w-full h-2 bg-indigo-500 rounded"></div>
-                                    <div class="w-full h-2 bg-purple-500 rounded"></div>
-                                </div>
-                                <div class="text-xs text-gray-300">24 стиля через токены</div>
-                            </div>
-                            <div class="bg-gray-800 p-3 rounded border-2 border-green-400">
-                                <div class="text-xs text-gray-300">Сетка 8px, консистентная типографика</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-center text-gray-300 mt-4">
-                    200+ разрозненных элементов → 35 переиспользуемых компонентов
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section id="results" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    6. Результаты: От инструмента к экосистеме
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <!-- For Employees -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
-                    <span class="text-3xl">😊</span> Для сотрудников
-                </h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">🚪 Единая точка входа</div>
-                        <p class="text-gray-600 text-sm">Для всех рабочих задач</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">📈 Повышение вовлечённости</div>
-                        <p class="text-gray-600 text-sm">Через социальные функции</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">🌱 Прозрачный рост</div>
-                        <p class="text-gray-600 text-sm">От стажёра до руководителя</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">🙌 Культура признания</div>
-                        <p class="text-gray-600 text-sm">Вместо формальных оценок</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- For Business -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
-                    <span class="text-3xl">💼</span> Для бизнеса
-                </h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">🔗 Сокращение систем</div>
-                        <p class="text-gray-600 text-sm">С 5+ до 1 единой платформы</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">📊 Увеличение вовлечённости</div>
-                        <p class="text-gray-600 text-sm">+40% по внутренним опросам</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">⚡ Ускорение адаптации</div>
-                        <p class="text-gray-600 text-sm">Новых сотрудников</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <div class="font-bold mb-2">🏢 Формирование культуры</div>
-                        <p class="text-gray-600 text-sm">Через цифровую среду</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Metrics -->
-            <div class="bg-gray-900 text-white p-8 rounded-2xl">
-                <h3 class="text-xl font-bold mb-8 text-center">Цифры</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold mb-2">25+</div>
-                        <div class="text-gray-300">Функций в единой экосистеме</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold mb-2">100%</div>
-                        <div class="text-gray-300">Внедрение внутри компании</div>
-                    </div>
-
-                    <div class="text-center">
-                        <div class="text-4xl font-bold mb-2">12 мин</div>
-                        <div class="text-gray-300">Среднее время сессии (было 3 мин)</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Impact Section -->
-    <section id="business" class="hidden" aria-hidden="true">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    Business Impact Slide
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <div class="overflow-x-auto">
-                <table class="w-full min-w-[800px] bg-white rounded-xl overflow-hidden shadow-sm">
-                    <thead>
-                        <tr class="bg-gray-900 text-white">
-                            <th class="p-4 text-left">Метрика</th>
-                            <th class="p-4 text-center">Было</th>
-                            <th class="p-4 text-center">Стало</th>
-                            <th class="p-4 text-center">Эффект</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-gray-100">
-                            <td class="p-4 font-semibold flex items-center gap-2">
-                                <span>⏱️</span> Время сессии
-                            </td>
-                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">3 минуты</td>
-                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">12 минут</td>
-                            <td class="p-4 text-center font-bold">×4</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="p-4 font-semibold flex items-center gap-2">
-                                <span>😊</span> Вовлечённость
-                            </td>
-                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">Низкая</td>
-                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">+40%</td>
-                            <td class="p-4 text-center font-bold">Выросла на 40%</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="p-4 font-semibold flex items-center gap-2">
-                                <span>📱</span> Мобильная активность
-                            </td>
-                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">Нет</td>
-                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">60%</td>
-                            <td class="p-4 text-center font-bold">Доступ с телефона</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-semibold flex items-center gap-2">
-                                <span>🔄</span> Количество систем
-                            </td>
-                            <td class="p-4 text-center bg-red-100 text-red-700 font-bold">5+</td>
-                            <td class="p-4 text-center bg-green-100 text-green-700 font-bold">1</td>
-                            <td class="p-4 text-center font-bold">Упрощение</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Conclusions Section -->
-    <section id="conclusions" class="hidden" aria-hidden="true">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    7. Выводы: Когда дизайн меняет культуру компании
-                </h2>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Success -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="text-2xl">✅</span> Что удалось
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
-                            <div class="font-bold mb-2">Создала экосистему</div>
-                            <p class="text-gray-600 text-sm">От администрирования до социального взаимодействия</p>
-                        </div>
-                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
-                            <div class="font-bold mb-2">Внедрила дизайн-груминг</div>
-                            <p class="text-gray-600 text-sm">Новая методология работы с разработкой</p>
-                        </div>
-                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
-                            <div class="font-bold mb-2">Доказала геймификацию</div>
-                            <p class="text-gray-600 text-sm">Работает в B2E-сегменте</p>
-                        </div>
-                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
-                            <div class="font-bold mb-2">Объединила инструменты</div>
-                            <p class="text-gray-600 text-sm">В единый пользовательский опыт</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Challenges -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="text-2xl">⚠️</span> Что было сложно
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-200">
-                            <div class="font-bold mb-2">Баланс администрирования и социальности</div>
-                            <p class="text-gray-600 text-sm">Не потерять функциональность ради социальных фич</p>
-                        </div>
-                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-200">
-                            <div class="font-bold mb-2">Адаптация desktop-функций для мобильных</div>
-                            <p class="text-gray-600 text-sm">60% активности с телефона требовали особого подхода</p>
-                        </div>
-                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-200">
-                            <div class="font-bold mb-2">Внедрение культуры благодарности</div>
-                            <p class="text-gray-600 text-sm">В компаниях с жёсткой иерархией</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Future -->
-            <div class="mt-12 bg-indigo-50 p-8 rounded-xl border border-indigo-100">
-                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                    <span class="text-2xl">🚀</span> На будущее
-                </h3>
-                <ul class="text-gray-600 space-y-2">
-                    <li>• Расширение аналитики для измерения влияния на бизнес-метрики</li>
-                    <li>• Интеграция с внешними HR-системами</li>
-                    <li>• Развитие AI-рекомендаций для персонализированного опыта</li>
-                </ul>
-            </div>
-            
-            <!-- Unique -->
-            <div class="mt-8 bg-gray-900 text-white p-8 rounded-2xl text-center">
-                <h3 class="text-xl font-bold mb-4">Почему этот кейс уникален</h3>
-                <div class="grid md:grid-cols-3 gap-6 text-left">
-                    <div>
-                        <div class="font-bold mb-2">Масштаб</div>
-                        <div class="text-gray-300 text-sm">25+ функций в единой экосистеме</div>
-                    </div>
-                    <div>
-                        <div class="font-bold mb-2">Инновация процесса</div>
-                        <div class="text-gray-300 text-sm">Дизайн-груминг как новая методология</div>
-                    </div>
-                    <div>
-                        <div class="font-bold mb-2">Глубина влияния</div>
-                        <div class="text-gray-300 text-sm">Дизайн изменил корпоративную культуру</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Final Thought -->
-            <div class="mt-12 bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-                <p class="text-xl font-bold text-gray-900">
-                    Это не просто редизайн интранета. Это трансформация рабочего опыта через дизайн — от обязательного инструмента к экосистеме, которую сотрудники выбирают сами.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Related Cases Section -->
-    <section id="related" class="py-24 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    Другие кейсы
-                </h2>
-                <p class="text-xl text-gray-600 mb-8">Глубокий разбор вместо галереи картинок</p>
-                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- WUW Case -->
-                <a href="wuw.html" class="block">
-                    <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-                        <div class="p-8">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
-                                    Case Study
-                                </span>
-                                <span class="text-gray-400 text-sm">WUW</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Эволюция продукта через системный подход к дизайну</h3>
-                            <p class="text-gray-600 text-sm">
-                                Платформа личностного развития с B2C- и партнёрскими сценариями.
-                            </p>
-                        </div>
-                    </article>
-                </a>
-                
-                <!-- DocsBird Case -->
-                <a href="docsbird.html" class="block">
-                    <article class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-                        <div class="p-8">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
-                                    Case Study
-                                </span>
-                                <span class="text-gray-400 text-sm">DocsBird</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Запуск международного продукта в условиях жёстких ограничений</h3>
-                            <p class="text-gray-600 text-sm">
-                                Международный продукт для управления документами. Европа и Балтия.
-                            </p>
-                        </div>
-                    </article>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="cta" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                Есть сложный продукт, который нуждается в ясности?
-            </h2>
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Давайте обсудим, как мои навыки исследований, системного мышления и работы в команде могут помочь вашему проекту. Ищу долгосрочный вызов.
-            </p>
-            
-            <!-- Contact Options -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-                <div data-telegram-cta data-telegram-lang="ru"></div>
-            </div>
-            
-            <div class="bg-gray-50 p-6 rounded-xl inline-block">
-                <p class="text-gray-500 text-sm">✉️ neolissa@gmail.com</p>
-            </div>
-            
-            <p class="text-gray-400 text-sm mt-6">
-                Обсуждение — конфиденциально. Любые детали проекта останутся между нами.
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 bg-gray-900 text-gray-400">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
-                <!-- Brand -->
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">
-                        Polina Tsoy
-                    </h3>
-                    <p class="text-gray-400 mb-4">Senior Product Designer</p>
-                    <p class="text-gray-300 italic">
-                        «Превращаю сложность в ясность»
-                    </p>
-                </div>
-                
-                <!-- Contact -->
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Контакты</h4>
-                    <ul class="space-y-2">
-                        <li>📧 neolissa@gmail.com</li>
-                        <li>💬 <a href="https://t.me/ewersawers" target="_blank" class="hover:text-white transition-colors">@ewersawers</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Links -->
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Портфолио и мысли</h4>
-                  <ul class="space-y-2">
-                        <li><a href="https://www.behance.net/polinatra" target="_blank" class="hover:text-white transition-colors">Behance (Избранные работы)</a></li>
-                        <li><a href="https://vc.ru/design/717548-ekonomim-dengi-klienta-vremya-razrabotchika-i-nervy-polzovatelya-optimizaciya-ux-ui-pri-produktovom-podhode" target="_blank" class="hover:text-white transition-colors">VC.ru (Статьи о подходе)</a></li>
-
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex gap-6">
-                    <a href="privacy.html" class="hover:text-white transition-colors text-sm">Политика конфиденциальности</a>
-
-                </div>
-                <p class="text-sm text-gray-500">
-                    © 2026 Polina Tsoy. Всё продумано.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <div id="image-lightbox-overlay" class="fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
-        <button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Закрыть">×</button>
-        <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
-    </div>
-    <script src="../js/image-lightbox.js"></script>
-
-    <script src="../js/site-config.js"></script>
-    <script src="../js/telegram-cta.js"></script>
-    <script src="../js/consent-manager.js"></script>
-    <script src="../js/analytics.js"></script>
-    <script src="../js/lang-switcher.js"></script>
-    <!-- JavaScript for fade-in animations -->
-    <script>
-        // Fade-in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        fadeElements.forEach(el => observer.observe(el));
-        
-        // Smooth scroll for navigation links (fallback)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
-        <script>
-        (function(){
-            var pathName = window.location.pathname;
-            var currentLang = pathName.indexOf('/en/') !== -1 ? 'en' : 'ru';
-            var trigger = document.querySelector('[data-lang-trigger]');
-            var menu = document.querySelector('[data-lang-menu]');
-            var current = document.querySelector('[data-lang-current]');
-            var options = Array.from(document.querySelectorAll('[data-lang-option]'));
-
-            if (current) current.textContent = currentLang === 'en' ? 'en' : 'ru';
-            options.forEach(function(opt){
-                opt.classList.toggle('active', opt.getAttribute('data-lang-option') === currentLang);
-            });
-
-            function toLangUrl(lang){
-                var p = window.location.pathname;
-                var file = p.substring(p.lastIndexOf('/') + 1) || 'index.html';
-                return '../' + lang + '/' + file;
-            }
-
-            function closeMenu(){
-                if (!menu || !trigger) return;
-                menu.classList.add('hidden');
-                trigger.setAttribute('aria-expanded', 'false');
-            }
-
-            if (trigger && menu) {
-                trigger.addEventListener('click', function(){
-                    var isHidden = menu.classList.contains('hidden');
-                    menu.classList.toggle('hidden');
-                    trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-                });
-            }
-
-            options.forEach(function(opt){
-                opt.addEventListener('click', function(){
-                    var next = opt.getAttribute('data-lang-option');
-                    window.location.href = toLangUrl(next);
-                });
-            });
-
-            document.addEventListener('click', function(e){
-                var box = document.querySelector('[data-lang-dropdown]');
-                if (!box) return;
-                if (!box.contains(e.target)) closeMenu();
-            });
-
-            document.addEventListener('keydown', function(e){
-                if (e.key === 'Escape') closeMenu();
-            });
-        })();
-    </script>
-    <script src="../loadComponent.js"></script>
+    <section id="cta" class="py-24 bg-white"><div class="max-w-4xl mx-auto px-6 text-center fade-in"><h2 class="text-4xl md:text-5xl font-bold mb-6">Есть сложный продукт, которому нужна ясность?</h2><p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Давайте обсудим задачу, ограничения и подход к реализации.</p><div class="flex justify-center" data-telegram-cta data-telegram-lang="ru"></div><p class="text-gray-500 text-sm mt-8">✉️ neolissa@gmail.com</p></div></section>
+  </main>
+  <div id="footer-container"></div>
+  <div id="image-lightbox-overlay" class="fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
+    <button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Закрыть">×</button>
+    <img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">
+  </div>
+  <script src="../js/image-lightbox.js"></script>
+  <script src="../js/site-config.js"></script>
+  <script src="../js/telegram-cta.js"></script>
+  <script src="../js/consent-manager.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/lang-switcher.js"></script>
+  <script src="../loadComponent.js"></script>
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-in');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      }), { threshold: 0.08 });
+      fadeElements.forEach((element) => observer.observe(element));
+    } else {
+      fadeElements.forEach((element) => element.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>

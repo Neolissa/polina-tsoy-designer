@@ -1,13 +1,24 @@
 ;(function () {
-  function toLangUrl(lang) {
-    var p = window.location.pathname;
-    var file = p.substring(p.lastIndexOf("/") + 1) || "index.html";
-    var nested = p.indexOf("/en/") !== -1 || p.indexOf("/ru/") !== -1;
-    return nested ? "../" + lang + "/" + file : lang + "/" + file;
-  }
+  var LOCALES = ["ru", "en", "es"];
+  var PUBLIC_PAGES = ["index.html", "docsbird.html", "wuw.html", "relaunch.html", "tvip.html", "privacy.html", "404.html"];
 
   function currentLangFromPath() {
-    return window.location.pathname.indexOf("/en/") !== -1 ? "en" : "ru";
+    var match = window.location.pathname.match(/\/(ru|en|es)\//);
+    return match ? match[1] : "ru";
+  }
+
+  function toLangUrl(lang) {
+    var path = window.location.pathname;
+    var file = path.substring(path.lastIndexOf("/") + 1) || "index.html";
+    var target = PUBLIC_PAGES.indexOf(file) === -1 ? "index.html" : file;
+    var nested = /\/(ru|en|es)\//.test(path);
+    return (nested ? "../" : "") + lang + "/" + target;
+  }
+
+  function ariaLabel(lang) {
+    if (lang === "ru") return "Выбор языка";
+    if (lang === "es") return "Seleccionar idioma";
+    return "Select language";
   }
 
   function ensureStyles() {
@@ -16,9 +27,10 @@
     style.id = "portfolio-lang-switch-style";
     style.textContent =
       ".lang-switch{display:inline-flex;align-items:center;border:1px solid #e5e7eb;background:#f3f4f6;border-radius:999px;padding:2px;gap:2px}" +
-      ".lang-switch__btn{border:0;background:transparent;color:#6b7280;font-size:.72rem;font-weight:700;letter-spacing:.03em;padding:.28rem .6rem;border-radius:999px;cursor:pointer;line-height:1}" +
+      ".lang-switch__btn{display:inline-flex;text-decoration:none;background:transparent;color:#6b7280;font-size:.72rem;font-weight:700;letter-spacing:.03em;padding:.28rem .55rem;border-radius:999px;line-height:1}" +
       ".lang-switch__btn.is-active{background:#fff;color:#111827;box-shadow:0 1px 2px rgba(0,0,0,.08)}" +
-      "@media (max-width:640px){.lang-switch__btn{font-size:.58rem;padding:.16rem .42rem}}";
+      ".lang-switch__btn:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}" +
+      "@media (max-width:640px){.lang-switch__btn{font-size:.56rem;padding:.16rem .34rem}}";
     document.head.appendChild(style);
   }
 
@@ -28,21 +40,25 @@
     ensureStyles();
 
     var lang = currentLangFromPath();
-    dropdown.innerHTML =
-      '<div class="lang-switch" role="group" aria-label="Language">' +
-      '<button type="button" class="lang-switch__btn" data-lang-switch="ru">RU</button>' +
-      '<button type="button" class="lang-switch__btn" data-lang-switch="en">EN</button>' +
-      "</div>";
+    var switcher = document.createElement("nav");
+    switcher.className = "lang-switch";
+    switcher.setAttribute("aria-label", ariaLabel(lang));
+    dropdown.replaceChildren(switcher);
+
+    LOCALES.forEach(function (btnLang) {
+      var link = document.createElement("a");
+      link.className = "lang-switch__btn";
+      link.href = toLangUrl(btnLang);
+      link.dataset.langSwitch = btnLang;
+      link.textContent = btnLang.toUpperCase();
+      switcher.appendChild(link);
+    });
 
     dropdown.querySelectorAll("[data-lang-switch]").forEach(function (btn) {
       var btnLang = btn.getAttribute("data-lang-switch");
       var isActive = btnLang === lang;
       btn.classList.toggle("is-active", isActive);
-      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-      btn.addEventListener("click", function () {
-        if (btnLang === lang) return;
-        window.location.href = toLangUrl(btnLang);
-      });
+      if (isActive) btn.setAttribute("aria-current", "page");
     });
   }
 

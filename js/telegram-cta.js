@@ -1,12 +1,17 @@
 (function () {
   function getLabel(lang) {
-    return lang === "en" ? "Write to Telegram" : "Написать в Telegram";
+    if (lang === "en") return "Write to Telegram";
+    if (lang === "es") return "Escribir por Telegram";
+    return "Написать в Telegram";
   }
 
   function resolveLang(container) {
     var explicit = container.getAttribute("data-telegram-lang");
-    if (explicit === "en" || explicit === "ru") return explicit;
-    return (document.documentElement.lang || "ru").toLowerCase().indexOf("en") === 0 ? "en" : "ru";
+    if (explicit === "en" || explicit === "ru" || explicit === "es") return explicit;
+    var documentLang = (document.documentElement.lang || "ru").toLowerCase();
+    if (documentLang.indexOf("en") === 0) return "en";
+    if (documentLang.indexOf("es") === 0) return "es";
+    return "ru";
   }
 
   function createMarkup(lang) {

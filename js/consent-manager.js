@@ -31,8 +31,8 @@
   }
 
   function getCopy() {
-    var isEn = document.documentElement.lang === "en";
-    if (isEn) {
+    var lang = document.documentElement.lang;
+    if (lang === "en") {
       return {
         description: "Optional analytics help improve this portfolio.",
         onlyNecessary: "Necessary only",
@@ -40,11 +40,19 @@
         settingsLabel: "Cookie settings"
       };
     }
+    if (lang === "es") {
+      return {
+        description: "La analítica opcional ayuda a mejorar este portafolio.",
+        onlyNecessary: "Solo necesarias",
+        allowAnalytics: "Permitir analítica",
+        settingsLabel: "Configurar cookies"
+      };
+    }
     return {
       description: "Аналитика — только с вашего согласия.",
       onlyNecessary: "Без аналитики",
       allowAnalytics: "Разрешить",
-      settingsLabel: "Настройки cookies"
+      settingsLabel: "Настройки файлов cookie"
     };
   }
 

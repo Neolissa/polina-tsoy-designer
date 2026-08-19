@@ -13,8 +13,10 @@
         overlay.setAttribute('role', 'dialog');
         overlay.setAttribute('aria-modal', 'true');
         overlay.setAttribute('aria-hidden', 'true');
+        var lang = document.documentElement.lang;
+        var closeLabel = lang === 'ru' ? 'Закрыть' : (lang === 'es' ? 'Cerrar' : 'Close');
         overlay.innerHTML =
-            '<button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="Close">×</button>' +
+            '<button type="button" data-lightbox-close class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20" aria-label="' + closeLabel + '">×</button>' +
             '<img src="" alt="" class="max-h-[min(90vh,920px)] max-w-full w-auto rounded-lg shadow-2xl" width="1200" height="800">';
         document.body.appendChild(overlay);
         return overlay;
@@ -45,12 +47,13 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        var isEn = window.location.pathname.indexOf('/en/') !== -1;
+        var lang = document.documentElement.lang;
         document.querySelectorAll('img[data-lightbox]').forEach(function (el) {
             el.classList.add('cursor-zoom-in');
-            var label = isEn
-                ? (el.alt ? 'Zoom: ' + el.alt : 'Zoom image')
-                : (el.alt ? 'Увеличить: ' + el.alt : 'Увеличить изображение');
+            var label;
+            if (lang === 'ru') label = el.alt ? 'Увеличить: ' + el.alt : 'Увеличить изображение';
+            else if (lang === 'es') label = el.alt ? 'Ampliar: ' + el.alt : 'Ampliar imagen';
+            else label = el.alt ? 'Zoom: ' + el.alt : 'Zoom image';
             el.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
