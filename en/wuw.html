@@ -11,7 +11,7 @@
 <title>WUW – Case | Polina Tsoy</title>
     
     <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/vendor/tailwind-play-cdn.js"></script>
     
     <!-- Custom Tailwind Config -->
     <script>
@@ -203,7 +203,7 @@
     <!-- Google Fonts for better typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
     <link rel="stylesheet" href="../css/wuw-whitelabel-mock.css">
@@ -218,10 +218,10 @@
         <!-- Navigation -->
     <div id="nav-container"></div>
 <!-- Hero Section -->
-    <section class="bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] pt-28 pb-20 md:pt-36 md:pb-28"><div class="max-w-6xl mx-auto px-6"><div class="max-w-4xl mb-10 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-700 mb-4">Product design · Design system · White Label</p><h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">WUW</h1><p class="text-2xl md:text-3xl text-gray-700 leading-relaxed">Evolutionary refactoring that connected visual quality, delivery speed, and a White Label model.</p></div><figure class="bg-white rounded-3xl p-4 md:p-6 shadow-xl mb-10 fade-in"><img src="../images/wuw/before-after.png" alt="WUW interface before and after system refactoring" data-lightbox class="w-full h-auto rounded-2xl" loading="eager" fetchpriority="high"><figcaption class="text-sm text-gray-500 mt-4">The same product context before and after introducing a shared system.</figcaption></figure><dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-white/50 border border-white/60 fade-in"><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Context</dt><dd class="font-semibold">B2C and partner workflows</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Role</dt><dd class="font-semibold">Product Designer · project design lead</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Scope</dt><dd class="font-semibold">Audit, UX/UI, system, implementation</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Constraint</dt><dd class="font-semibold">Change the system without stopping delivery</dd></div></dl></div></section>
+    <section class="bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] pt-28 pb-20 md:pt-36 md:pb-28"><div class="max-w-6xl mx-auto px-6"><div class="max-w-4xl mb-10 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-700 mb-4">Product design · Design system · White Label</p><h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">WUW</h1><p class="text-2xl md:text-3xl text-gray-700 leading-relaxed">Evolutionary refactoring that connected visual quality, delivery speed, and a White Label model.</p></div><figure class="bg-white rounded-3xl p-4 md:p-6 shadow-xl mb-10 fade-in"><img src="../images/en/wuw/before-after.png" alt="WUW interface before and after system refactoring" data-lightbox class="w-full h-auto rounded-2xl" loading="eager" fetchpriority="high"><figcaption class="text-sm text-gray-500 mt-4"><strong>Before (left):</strong> legacy interface. <strong>After (right):</strong> the same product context after introducing a shared system.</figcaption></figure><dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-white/50 border border-white/60 fade-in"><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Context</dt><dd class="font-semibold">B2C and partner workflows</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Role</dt><dd class="font-semibold">Product Designer · project design lead</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Scope</dt><dd class="font-semibold">Audit, UX/UI, system, implementation</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Constraint</dt><dd class="font-semibold">Change the system without stopping delivery</dd></div></dl></div></section>
     <section id="context" class="py-20 md:py-24 bg-white"><div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10"><div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Problem and evidence</p><h2 class="text-3xl md:text-4xl font-bold">Interface debt was already affecting delivery</h2></div><div class="fade-in text-lg text-gray-700 leading-relaxed space-y-5"><p>The product had accumulated more than 200 styles and repeated patterns. Familiar elements were rebuilt from scratch, while White Label support required manual interface rework.</p><p><strong class="text-gray-900">What I checked:</strong> an interface audit exposed competing rules; developer interviews confirmed repeated layout decisions and style conflicts.</p><p><strong class="text-gray-900">Key insight:</strong> a full redesign would have interrupted product work. The system needed to ship incrementally and become useful inside current feature delivery.</p></div></div></section>
     <section id="decisions" class="py-20 md:py-24 bg-slate-50"><div class="max-w-6xl mx-auto px-6"><div class="max-w-3xl mb-14 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Three decisions</p><h2 class="text-4xl md:text-5xl font-bold">A system the team could adopt incrementally</h2></div><div class="space-y-14">
-        <article class="grid lg:grid-cols-2 gap-10 items-center fade-in"><div><p class="text-sm font-semibold text-indigo-600 mb-3">01 · Migration</p><h3 class="text-3xl font-bold mb-4">Evolutionary refactoring instead of a large redesign</h3><p class="text-gray-700 leading-relaxed mb-5">I updated components as product work created a real need. New screens used shared rules immediately, while existing surfaces moved onto the system without a separate roadmap freeze.</p><div class="border-l-4 border-gray-900 pl-5 text-sm text-gray-600"><strong class="text-gray-900">Trade-off:</strong> old and new rules coexisted for a period, but the team continued shipping product changes.</div></div><img src="../images/wuw/before-after.png" alt="WUW before and after incremental refactoring" data-lightbox class="w-full rounded-2xl border border-gray-200 shadow-sm"></article>
+        <article class="grid lg:grid-cols-2 gap-10 items-center fade-in"><div><p class="text-sm font-semibold text-indigo-600 mb-3">01 · Migration</p><h3 class="text-3xl font-bold mb-4">Evolutionary refactoring instead of a large redesign</h3><p class="text-gray-700 leading-relaxed mb-5">I updated components as product work created a real need. New screens used shared rules immediately, while existing surfaces moved onto the system without a separate roadmap freeze.</p><div class="border-l-4 border-gray-900 pl-5 text-sm text-gray-600"><strong class="text-gray-900">Trade-off:</strong> old and new rules coexisted for a period, but the team continued shipping product changes.</div></div><img src="../images/en/wuw/before-after.png" alt="WUW before and after incremental refactoring" data-lightbox class="w-full rounded-2xl border border-gray-200 shadow-sm"></article>
         <article class="grid lg:grid-cols-2 gap-10 items-start fade-in"><div class="lg:order-2"><p class="text-sm font-semibold text-indigo-600 mb-3">02 · Architecture</p><h3 class="text-3xl font-bold mb-4">From 200+ styles to tokens and 35 components</h3><p class="text-gray-700 leading-relaxed mb-5">Components received shared states and semantic tokens. Visual language, interaction logic, and implementation no longer diverged across product areas.</p><dl class="space-y-3 text-sm"><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Tokens</dt><dd class="text-gray-600">Separate the purpose of a color or spacing value from a specific brand.</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Components</dt><dd class="text-gray-600">Reuse states and rules instead of local layout decisions.</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Coverage</dt><dd class="text-gray-600">The builder covered ≈80% of the interface; complex workflows remained custom.</dd></div></dl></div><div class="lg:order-1 bg-gray-950 rounded-2xl p-7 text-white"><p class="text-xs uppercase tracking-[0.18em] text-indigo-300 mb-5">System rules</p><ul class="space-y-5"><li><strong class="block mb-1">Semantic roles first</strong><span class="text-gray-400 text-sm">A component consumes a role token rather than a local hex value.</span></li><li><strong class="block mb-1">One state model</strong><span class="text-gray-400 text-sm">Shared component states are defined once and reused across the product.</span></li><li><strong class="block mb-1">Exceptions stay explicit</strong><span class="text-gray-400 text-sm">Unique assessment workflows are not forced into a generic pattern.</span></li></ul></div></article>
         <article class="fade-in"><div class="max-w-3xl mb-8"><p class="text-sm font-semibold text-indigo-600 mb-3">03 · White Label</p><h3 class="text-3xl font-bold mb-4">Change the brand through tokens, not copied screens</h3><p class="text-gray-700 leading-relaxed">A theme changes accents, surfaces, and states inside one component structure. The interactive proof below shows that a brand change does not alter information architecture or behavior.</p></div><div class="wuw-mock-stage-block max-w-5xl mx-auto"><p class="wuw-mock-caption text-center text-xs text-gray-400 tracking-wide">interactive prototype</p><p class="text-center text-sm text-gray-500 mb-4">WUW White Label dashboard</p><div class="wuw-whitelabel-stage"><div class="wuw-whitelabel-mock" data-wuw-whitelabel-mock data-appearance="night" data-svg-base="../images/wuw/" style="--wuw-accent: #0788FF" aria-label="Interactive WUW dashboard prototype"></div></div></div></article>
     </div></div></section>
@@ -275,28 +275,14 @@
         </div>
     </section>
 
+
     <!-- CTA Section -->
     <section id="cta" class="py-24 bg-gray-50">
         <div class="max-w-4xl mx-auto px-6 text-center fade-in">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                Have a complex product that needs clarity?
-            </h2>
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Let's discuss how my research, systems thinking, and teamwork skills can help your project. Looking for a long term challenge.
-            </p>
-            
-            <!-- Contact Options -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-                <div data-telegram-cta data-telegram-lang="en"></div>
-            </div>
-            
-            <div class="bg-white p-6 rounded-xl inline-block shadow-sm">
-                <p class="text-gray-500 text-sm">✉️ neolissa@gmail.com</p>
-            </div>
-            
-            <p class="text-gray-400 text-sm mt-6">
-                Discussion is confidential. Any details of the project will remain between us.
-            </p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Have a complex product that needs clarity?</h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">I’m available for remote product-design roles and scoped projects involving complex workflows, design systems, and implementation quality.</p>
+            <div class="flex justify-center" data-telegram-cta data-telegram-lang="en"></div>
+            <p class="text-gray-500 text-sm mt-8">✉️ neolissa@gmail.com</p>
         </div>
     </section>
 

@@ -16,14 +16,14 @@
   <meta property="og:url" content="https://neolissa.github.io/polina-tsoy-designer/ru/relaunch.html">
   <meta property="og:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
   <meta name="twitter:card" content="summary_large_image">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/vendor/tailwind-play-cdn.js"></script>
   <script>
     tailwind.config = { theme: { extend: { colors: { primary: '#1a1a1a', secondary: '#4a4a4a', accent: 'var(--color-accent)' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
   </script>
   <link rel="stylesheet" href="../css/site-tokens.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
   <style>
@@ -32,6 +32,7 @@
     .fade-in.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
   </style>
+  <style>#image-lightbox-overlay img { background: #fff; padding: 1rem; }</style>
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased">
   <div id="nav-container"></div>
@@ -43,11 +44,11 @@
           <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">Relaunch</h1>
           <p class="text-2xl md:text-3xl text-gray-700 leading-relaxed">Как объединить рабочие функции, коммуникацию, развитие и признание в одном продукте.</p>
         </div>
-        <div class="grid lg:grid-cols-[1.45fr_1fr] gap-4 mb-10 fade-in">
-          <figure class="bg-gray-950 rounded-3xl p-5 md:p-8 min-h-[320px] flex items-center shadow-xl"><img src="../images/hero-coin.png" alt="Relaunch на компьютере и телефонах: профиль, достижения и рейтинг" data-lightbox class="w-full h-auto" loading="eager" fetchpriority="high"></figure>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            <figure class="bg-white rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5 h-56 lg:h-[220px]"><img src="../images/coin/coin%207%20social%20functions.png" alt="Социальные функции внутренней платформы Relaunch" data-lightbox class="w-full h-full object-cover object-top"></figure>
-            <figure class="bg-white rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5 h-56 lg:h-[220px]"><img src="../images/coin/coin%205%20UI%20kit.png" alt="Типографика и цвета дизайн-системы Relaunch" data-lightbox class="w-full h-full object-cover object-top"></figure>
+        <div class="grid lg:grid-cols-[645fr_446fr] gap-3 mb-10 fade-in items-start">
+          <figure class="bg-white rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5"><img src="../images/coin/hero/desktop.jpg" alt="Профиль Relaunch на компьютере: достижения и награды" width="645" height="457" data-lightbox class="block w-full h-auto" loading="eager" fetchpriority="high"></figure>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-3">
+            <figure class="bg-white rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5"><img src="../images/coin/hero/tablet-smartphone.jpg" alt="Профили и достижения Relaunch на смартфонах и планшете" width="446" height="222" data-lightbox class="block w-full h-auto"></figure>
+            <figure class="bg-white rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5"><img src="../images/coin/hero/styles.jpg" alt="Дизайн-система Relaunch: поля ввода, кнопки, чипы и элементы выбора" width="446" height="223" data-lightbox class="block w-full h-auto"></figure>
           </div>
         </div>
         <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-white/50 border border-white/60 fade-in">
@@ -100,7 +101,7 @@
 
     <section id="related" class="py-20 md:py-24 bg-slate-50"><div class="max-w-5xl mx-auto px-6"><div class="mb-10 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Продолжить просмотр</p><h2 class="text-3xl md:text-4xl font-bold">Другие кейсы</h2></div><div class="grid md:grid-cols-2 gap-5"><a href="docsbird.html" class="block rounded-2xl bg-white border border-gray-200 p-7 hover:border-gray-400"><p class="text-sm text-gray-500 mb-2">Международный B2B-продукт</p><h3 class="text-2xl font-bold mb-2">DocsBird</h3><p class="text-gray-600">Документы, электронная подпись и общая продуктовая основа для четырёх рынков.</p></a><a href="wuw.html" class="block rounded-2xl bg-white border border-gray-200 p-7 hover:border-gray-400"><p class="text-sm text-gray-500 mb-2">Дизайн-система</p><h3 class="text-2xl font-bold mb-2">WUW</h3><p class="text-gray-600">Постепенный системный рефакторинг без остановки развития продукта.</p></a></div></div></section>
 
-    <section id="cta" class="py-24 bg-white"><div class="max-w-4xl mx-auto px-6 text-center fade-in"><h2 class="text-4xl md:text-5xl font-bold mb-6">Есть сложный продукт, которому нужна ясность?</h2><p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Давайте обсудим задачу, ограничения и подход к реализации.</p><div class="flex justify-center" data-telegram-cta data-telegram-lang="ru"></div><p class="text-gray-500 text-sm mt-8">✉️ neolissa@gmail.com</p></div></section>
+    <section id="cta" class="py-24 bg-white"><div class="max-w-4xl mx-auto px-6 text-center fade-in"><h2 class="text-4xl md:text-5xl font-bold mb-6">Есть сложный продукт, которому нужна ясность?</h2><p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Рассматриваю удалённую работу продуктовым дизайнером и проекты с согласованным объёмом: сложные интерфейсы, дизайн-системы и сопровождение реализации.</p><div class="flex justify-center" data-telegram-cta data-telegram-lang="ru"></div><p class="text-gray-500 text-sm mt-8">✉️ neolissa@gmail.com</p></div></section>
   </main>
   <div id="footer-container"></div>
   <div id="image-lightbox-overlay" class="fixed inset-0 z-[200] hidden bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
