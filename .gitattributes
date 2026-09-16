@@ -1,0 +1,2 @@
+# Preserve document bytes; PDF streams are not text or line-ending normalized.
+*.pdf binary

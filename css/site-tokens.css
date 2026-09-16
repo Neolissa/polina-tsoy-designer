@@ -47,3 +47,26 @@
     transform: scale(1.02);
     box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.3);
 }
+
+/* Case covers are 535 x 192: preserve their ratio instead of enlarging and
+   cropping them into a fixed-height box. Reserve space before lazy loading. */
+#cases a > img,
+#related .case-preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 535 / 192;
+    object-fit: contain;
+}
+
+#related a {
+    overflow: hidden;
+}
+
+/* Existing related cards have either a padded text wrapper or padding on the
+   link itself. Let the cover span the latter without changing text spacing. */
+#related a.p-7 > .case-preview {
+    width: calc(100% + 3.5rem);
+    max-width: none;
+    margin: -1.75rem -1.75rem 1.75rem;
+}
