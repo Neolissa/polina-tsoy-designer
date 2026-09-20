@@ -1,4 +1,8 @@
 (function () {
+  var english = /^en(?:-|$)/i.test(document.documentElement.lang);
+  function label(ru, en) {
+    return english ? en : ru;
+  }
   var PALETTE = [
     { id: "wuw-blue", hex: "#0788FF", label: "WUW Blue" },
     { id: "brand-blue", hex: "#2971DC", label: "Brand Blue" },
@@ -47,7 +51,7 @@
     var viewport = document.createElement("div");
     viewport.className = "wuw-whitelabel-mock__viewport";
     viewport.setAttribute("data-wuw-dashboard", "");
-    viewport.textContent = "Загрузка макета…";
+    viewport.textContent = label("Загрузка макета…", "Loading preview…");
     board.appendChild(viewport);
 
     var controls = buildControls(root);
@@ -68,7 +72,7 @@
       })
       .catch(function () {
         viewport.innerHTML =
-          '<p style="padding:1.5rem;text-align:center;color:#6b7280;font-size:0.85rem">Не удалось загрузить макет дашборда.</p>';
+          '<p style="padding:1.5rem;text-align:center;color:#6b7280;font-size:0.85rem">' + label("Не удалось загрузить макет дашборда.", "Could not load the dashboard preview.") + '</p>';
         root.classList.remove("is-loading");
       });
   }
@@ -109,16 +113,16 @@
   function buildControls(root) {
     var controls = document.createElement("aside");
     controls.className = "wuw-whitelabel-mock__controls";
-    controls.setAttribute("aria-label", "Настройки White Label");
+    controls.setAttribute("aria-label", label("Настройки White Label", "White-label settings"));
 
     var paletteTitle = document.createElement("p");
     paletteTitle.className = "wuw-whitelabel-mock__label";
-    paletteTitle.textContent = "Акцентный цвет";
+    paletteTitle.textContent = label("Акцентный цвет", "Accent color");
 
     var palette = document.createElement("div");
     palette.className = "wuw-whitelabel-mock__palette";
     palette.setAttribute("role", "list");
-    palette.setAttribute("aria-label", "Палитра бренда");
+    palette.setAttribute("aria-label", label("Палитра бренда", "Brand colors"));
 
     var hexOut = document.createElement("p");
     hexOut.className = "wuw-whitelabel-mock__hex";
@@ -142,24 +146,24 @@
 
     var themeTitle = document.createElement("p");
     themeTitle.className = "wuw-whitelabel-mock__label";
-    themeTitle.textContent = "Тема";
+    themeTitle.textContent = label("Тема", "Theme");
 
     var theme = document.createElement("div");
     theme.className = "wuw-whitelabel-mock__theme";
     theme.setAttribute("role", "group");
-    theme.setAttribute("aria-label", "Дневная или ночная тема");
+    theme.setAttribute("aria-label", label("Дневная или ночная тема", "Light or dark theme"));
 
     var nightBtn = document.createElement("button");
     nightBtn.type = "button";
     nightBtn.className = "wuw-whitelabel-mock__theme-btn is-active";
     nightBtn.setAttribute("data-appearance", "night");
-    nightBtn.textContent = "Ночная";
+    nightBtn.textContent = label("Ночная", "Dark");
 
     var dayBtn = document.createElement("button");
     dayBtn.type = "button";
     dayBtn.className = "wuw-whitelabel-mock__theme-btn";
     dayBtn.setAttribute("data-appearance", "day");
-    dayBtn.textContent = "Дневная";
+    dayBtn.textContent = label("Дневная", "Light");
 
     function setTheme(mode) {
       root.dataset.appearance = mode;
@@ -184,7 +188,7 @@
     var hint = document.createElement("p");
     hint.className = "wuw-whitelabel-mock__hint";
     hint.textContent =
-      "Один токен акцента перекрашивает кнопки, графики, активные вкладки и подсветку в дашборде — как в White Label.";
+      label("Один токен акцента перекрашивает кнопки, графики, активные вкладки и подсветку в дашборде — как в White Label.", "One accent token updates buttons, charts, active tabs, and highlights across the dashboard for each brand.");
 
     controls.appendChild(paletteTitle);
     controls.appendChild(palette);

@@ -8,16 +8,23 @@
 | --- | --- |
 | docsbird/docsbird-hero-visual.png | docsbird/docsbird-hero-visual.jpg |
 | docsbird/ui-kit-before.png | docsbird/ui-kit-before.png |
-| wuw/before-after.png | wuw/before-after.png |
+| docsbird/ui-kit-after.png | docsbird/ui-kit-after.png |
+| docsbird/docsbird-guest-email-access.png | docsbird/docsbird-guest-email-access.jpg |
+| tvip/hero-devices.png | tvip/hero-devices.jpg |
+| coin/case-coin.png | case-coin.png |
 | tvip/case-TVIP.png | case-TVIP.png |
-| tvip/hero-tvip.png | hero-tvip.png |
 | tvip/day1.png | tvip/day1.jpg |
 | tvip/night1.png | tvip/night1.jpg |
 | tvip/tvip-tablet-vertical.png | tvip/tvip tablet vertical.png |
-| coin/social-functions.png | coin/coin 7 social functions.png |
 | coin/ui-kit.png | coin/coin 5 UI kit.png |
 | coin/user-flow.png | coin/coin 2 user flow.jpg |
 | coin/recognition.png | coin/coin 10 thanksgiving.png |
+
+## Дополнительно проверенные исправления
+
+- Старый DocsBird UI-kit: заголовок реальной upload-модали, `Add to document package`, Number/Date/Partner, Add/Cancel, видимые статусы и badges, Archive status/Not archived, `Saving machine-readable power of attorney`. Контуры полей, кнопок и alpha сохранены.
+- В миниатюрах DocsBird остаются неразборчивые данные/имена файлов, значения фильтров (`x≈1425–1618, y≈400–525`), строки таблицы (`x≈920–1105, y≈1190–1305`), descriptions статусов (`x≈650–850, y≈1225–1260`), notification/sidebar/document-preview. Читаемые заголовки в этих областях не следует путать с сохранёнными микроданными.
+- Новый TVIP hero: основные заголовки, пояснения и существующие кнопки на трёх устройствах; на ноутбуке Live TV/Movies/Video collections. В каталоге ноутбука (`x≈0–528, y≈520–852`) сохранены названия каналов/передач и постерный арт, компактные фильтры и метаданные. Декоративные подписи телефонной иллюстрации (`x≈1285–1405, y≈647–728`) не реконструировались.
 
 ## Что переведено
 
@@ -25,7 +32,7 @@
 - DocsBird UI-kit before: ссылки Page in Figma, отдельные заголовки и кнопки, заголовки carousel и подписи, пункты dropdown, требования к паролю, подписи загрузки и части статусов, сводка выбранных документов, toast, tooltip, образцы типографики и основной текст письма. Непереведённые фрагменты внутри миниатюр явно перечислены ниже.
 - WUW: До / После → Before / After.
 - TVIP: читаемые заголовки мокапов, формы профиля в двух темах, основные действия/навигация/описание на планшете. Постеры не изменены.
-- Relaunch: четыре статуса «Приём работ» → Submissions open; русские заголовки/навигация UI-kit; подписи узлов схемы; благодарности, действия и читаемые имена/роли в списке получателей.
+- Coin: четыре статуса «Приём работ» → Submissions open; русские заголовки/навигация UI-kit; подписи узлов схемы; благодарности, действия и читаемые имена/роли в списке получателей.
 
 ## Оставшиеся исходные фрагменты — ограничения перевода
 
@@ -47,13 +54,13 @@
 - Названия, логотипы и текст на постерах/кадрах сохранены как artwork, а не выдаются за переведённый UI.
 - Переключатели языков и миниатюрные пользовательские данные не перерисовывались целиком.
 
-### Relaunch
+### Coin
 
-- Микротекст на исходной обложке case-coin и hero-coin оставлен; отдельные копии для них не подключались.
+- Обложка `coin/case-coin.png`: переведены заголовки Profile/Employee leaderboard, поля Department/Role/City и читаемые значения; имя транслитерировано. Мелкий текст роли (`x≈315–390, y≈164–173`), описание/метаданные карточек и компактные данные desktop (`x≈88–264, y≈94–173`) оставлены без догадок. Размер исходника — 535×192.
 - Мелкие данные и подписи внутри уже английских экранов не переводились повторно. Посторонние собственные имена/бренды не переписывались без уверенного чтения.
 
 ## Уже английские материалы
 
-Новый UI-kit DocsBird, гостевое письмо, альтернативный hero B, основные WUW-экраны, план развития и рейтинг Relaunch оставлены без повторного перевода. Отдельные неиспользуемые временные копии этих файлов в репозиторий не переносились.
+Альтернативный hero B, основные WUW-экраны, план развития и рейтинг Coin не переводились повторно. В новом UI-kit DocsBird исправлена грамматика трёх alerts; в гостевом письме и EN hero исправлено `a invoice` → `an invoice`. Для них используются проверенные EN PNG-копии. Текущая WUW before/after-композиция — уже английский `images/wuw/before-after.jpg`; старый EN PNG больше не подключён.
 
 Для полного перевода оставшегося микротекста нужны экспорты большего разрешения или исходники с текстовыми слоями. Список ограничений не является обещанием, что любой оставшийся пиксель принципиально нечитаем.
