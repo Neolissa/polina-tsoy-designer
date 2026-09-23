@@ -1,6 +1,6 @@
 ;(function () {
   var LOCALES = ["ru", "en", "es"];
-  var PUBLIC_PAGES = ["index.html", "docsbird.html", "wuw.html", "relaunch.html", "tvip.html", "privacy.html", "404.html"];
+  var PUBLIC_PAGES = ["index.html", "docsbird.html", "wuw.html", "relaunch.html", "tvip.html", "privacy.html", "404.html", "project-work.html"];
 
   function currentLangFromPath() {
     var match = window.location.pathname.match(/\/(ru|en|es)\//);
@@ -45,7 +45,9 @@
     switcher.setAttribute("aria-label", ariaLabel(lang));
     dropdown.replaceChildren(switcher);
 
-    LOCALES.forEach(function (btnLang) {
+    // Only offer translations that exist for this landing page.
+    var locales = document.documentElement.getAttribute("data-page") === "project-work" ? ["ru", "en"] : LOCALES;
+    locales.forEach(function (btnLang) {
       var link = document.createElement("a");
       link.className = "lang-switch__btn";
       link.href = toLangUrl(btnLang);

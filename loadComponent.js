@@ -54,9 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadInto('nav-container', navPath, navFallback).then(function() {
         if (isProjectWork) {
             var nav = document.getElementById('nav-container');
-            var languageSwitch = nav && nav.querySelector('[data-lang-dropdown]');
-            // This page currently exists only in Russian; do not imply translations.
-            if (languageSwitch) languageSwitch.remove();
             var projectLink = nav && nav.querySelector('[data-project-work-link]');
             if (projectLink) projectLink.setAttribute('aria-current', 'page');
         }
