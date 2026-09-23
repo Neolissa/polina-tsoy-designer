@@ -1,13 +1,14 @@
-<nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+<nav aria-label="Основная навигация" class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-        <div class="flex justify-between items-center">
+        <div class="flex flex-wrap justify-between items-center gap-y-1">
             <a href="{{HOME}}" class="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
                 Polina Tsoy
             </a>
-            <div class="hidden md:flex space-x-8">
-                <a href="{{HOME}}#cases" class="nav-link text-gray-600 hover:text-gray-900">Кейсы</a>
-                <a href="{{HOME}}#about" class="nav-link text-gray-600 hover:text-gray-900">Обо мне</a>
-                <a href="{{HOME}}#cta" class="nav-link text-gray-600 hover:text-gray-900">Контакты</a>
+            <div class="order-last md:order-none w-full md:w-auto flex items-center gap-4 lg:gap-8 overflow-x-auto overflow-y-hidden whitespace-nowrap text-sm md:text-base">
+                <a href="{{HOME}}#cases" class="nav-link inline-flex items-center min-h-[44px] text-gray-600 hover:text-gray-900">Кейсы</a>
+                <a href="{{PROJECT_WORK}}" data-project-work-link class="nav-link inline-flex items-center min-h-[44px] text-gray-600 hover:text-gray-900">Проектная работа</a>
+                <a href="{{HOME}}#about" class="nav-link inline-flex items-center min-h-[44px] text-gray-600 hover:text-gray-900">Обо мне</a>
+                <a href="{{CONTACT}}" class="nav-link inline-flex items-center min-h-[44px] text-gray-600 hover:text-gray-900">Контакты</a>
             </div>
             <div class="flex items-center gap-1 sm:gap-3">
                 <div class="lang-dropdown" data-lang-dropdown>
@@ -23,7 +24,7 @@
                         <button type="button" class="lang-option" data-lang-option="es" role="option">es</button>
                     </div>
                 </div>
-                <a href="{{HOME}}#cta" class="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors min-w-[108px] sm:min-w-[132px] text-center">
+                <a href="{{CONTACT}}" class="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors min-w-[108px] sm:min-w-[132px] text-center">
                     Написать
                 </a>
             </div>

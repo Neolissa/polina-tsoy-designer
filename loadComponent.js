@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var locale = localeMatch ? localeMatch[1] : 'ru';
     var isNestedLocale = Boolean(localeMatch);
     var basePrefix = isNestedLocale ? '../' : '';
+    var isProjectWork = document.documentElement.getAttribute('data-page') === 'project-work';
 
     function homeHref() {
         if (isNestedLocale) return 'index.html';
@@ -11,7 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function applyHome(html) {
-        return html.split('{{HOME}}').join(homeHref());
+        var projectHref = isNestedLocale ? 'project-work.html' : 'ru/project-work.html';
+        var contactHref = isProjectWork ? '#cta' : homeHref() + '#cta';
+        return html.split('{{HOME}}').join(homeHref())
+            .split('{{PROJECT_WORK}}').join(projectHref)
+            .split('{{CONTACT}}').join(contactHref);
     }
 
     function loadInto(containerId, relativePath, fallbackHtml) {
@@ -47,6 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var footerFallback = '<footer class="py-12 bg-gray-900 text-gray-400"><div class="max-w-6xl mx-auto px-6 text-center"><p>' + footerCopy[locale] + '</p></div></footer>';
 
     loadInto('nav-container', navPath, navFallback).then(function() {
+        if (isProjectWork) {
+            var nav = document.getElementById('nav-container');
+            var languageSwitch = nav && nav.querySelector('[data-lang-dropdown]');
+            // This page currently exists only in Russian; do not imply translations.
+            if (languageSwitch) languageSwitch.remove();
+            var projectLink = nav && nav.querySelector('[data-project-work-link]');
+            if (projectLink) projectLink.setAttribute('aria-current', 'page');
+        }
         if (typeof window.initPortfolioLangSwitch === 'function') {
             window.initPortfolioLangSwitch();
         }
