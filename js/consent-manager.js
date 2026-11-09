@@ -34,24 +34,24 @@
     var lang = document.documentElement.lang;
     if (lang === "en") {
       return {
-        description: "Optional analytics help improve this portfolio.",
+        description: "We use cookies to operate the site and analyze visits. You can accept all cookies or keep only necessary ones.",
         onlyNecessary: "Necessary only",
-        allowAnalytics: "Allow analytics",
+        allowAnalytics: "Accept all",
         settingsLabel: "Cookie settings"
       };
     }
     if (lang === "es") {
       return {
-        description: "La analítica opcional ayuda a mejorar este portafolio.",
+        description: "Usamos cookies para el funcionamiento del sitio y analizar las visitas. Puedes aceptarlas todas o mantener solo las necesarias.",
         onlyNecessary: "Solo necesarias",
-        allowAnalytics: "Permitir analítica",
+        allowAnalytics: "Aceptar todas",
         settingsLabel: "Configurar cookies"
       };
     }
     return {
-      description: "Аналитика — только с вашего согласия.",
-      onlyNecessary: "Без аналитики",
-      allowAnalytics: "Разрешить",
+      description: "Используем cookie для работы сайта и анализа посещений. Вы можете принять все или оставить только необходимые.",
+      onlyNecessary: "Только необходимые",
+      allowAnalytics: "Принять все",
       settingsLabel: "Настройки файлов cookie"
     };
   }
