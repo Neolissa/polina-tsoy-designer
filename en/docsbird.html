@@ -13,25 +13,9 @@
     <!-- Tailwind CSS via CDN -->
     <script src="../js/vendor/tailwind-play-cdn.js"></script>
     
-    <!-- Custom Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1a1a1a',
-                        secondary: '#4a4a4a',
-                        accent: 'var(--color-accent)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <link rel="stylesheet" href="../css/site-tokens.css">
+
+    <script src="../js/site-tailwind-config.js?v=067ead41165e"></script>
+    <link rel="stylesheet" href="../css/site-tokens.css?v=067ead41165e">
     
     <style>
         /* Custom smooth scrolling */
@@ -39,18 +23,7 @@
             scroll-behavior: smooth;
         }
         
-        /* Fade-in animation for sections */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
+
         /* Hero gradient */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -66,7 +39,7 @@
             width: 80px;
             height: 80px;
             background: var(--gradient-brand);
-            border-radius: 16px;
+            border-radius: var(--radius-card);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -77,10 +50,10 @@
         
         /* Process step */
         .process-step {
-            background: white;
+            background: var(--surface-raised);
             border-radius: 12px;
-            padding: 24px;
-            border: 2px solid #e5e7eb;
+            padding: var(--space-panel-inset);
+            border: 2px solid var(--border-subtle);
             position: relative;
             transition: all 0.3s ease;
         }
@@ -96,9 +69,7 @@
             top: 20px;
             width: 32px;
             height: 32px;
-            background: -webkit-linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
-            background: -moz-linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
-            background: linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
+
             color: white;
             border-radius: 50%;
             display: flex;
@@ -110,9 +81,9 @@
         
         /* Case card */
         .case-card {
-            background: #f9fafb;
+            background: var(--surface-subtle);
             border-radius: 12px;
-            padding: 24px;
+            padding: var(--space-panel-inset);
             border-left: 4px solid #10b981;
             position: relative;
         }
@@ -127,10 +98,10 @@
         
         .timeline-step {
             flex: 1;
-            background: white;
+            background: var(--surface-raised);
             border-radius: 8px;
             padding: 16px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid var(--border-subtle);
             text-align: center;
             font-weight: 600;
             color: #374151;
@@ -149,7 +120,7 @@
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            background: white;
+            background: var(--surface-raised);
             border: 2px solid var(--color-accent);
             color: #4f46e5;
         }
@@ -182,18 +153,10 @@
             width: 40px;
             height: 40px;
             border-radius: 8px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid var(--border-subtle);
         }
         
-        /* Card hover */
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
+
 /* Background pattern */
         .bg-grid {
             background-image: 
@@ -213,69 +176,6 @@
             transition: width 0.1s ease;
         }
 
-        .lang-dropdown { position: relative; }
-        .lang-trigger {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.35rem 0.65rem;
-            border: 1px solid #e5e7eb;
-            background: #f3f4f6;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #4b5563;
-            letter-spacing: 0.03em;
-            min-width: 70px;
-            justify-content: center;
-        }
-        .lang-trigger svg { width: 12px; height: 12px; color: #6b7280; }
-        .lang-menu {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 8px);
-            min-width: 112px;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            background: #ffffff;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-            padding: 0.3rem;
-            z-index: 80;
-        }
-        .lang-option {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.45rem 0.55rem;
-            border-radius: 8px;
-            font-size: 0.78rem;
-            color: #374151;
-            text-align: center; justify-content: center;
-            background: transparent;
-        }
-        .lang-option:hover { background: #f3f4f6; }
-        .lang-option.active { background: #eef2ff; color: #4338ca; font-weight: 700; }
-
-        @media (max-width: 640px) {
-            .lang-trigger {
-                padding: 0.06rem 0.16rem;
-                min-width: 44px;
-                font-size: 0.58rem;
-            }
-            .lang-trigger svg { width: 10px; height: 10px; }
-            .lang-dropdown { margin: 0 0.25rem; }
-            .lang-menu {
-                min-width: 98px;
-                top: calc(100% + 6px);
-                padding: 0.22rem;
-            }
-            .lang-option {
-                font-size: 0.7rem;
-                padding: 0.36rem 0.45rem;
-                gap: 0.3rem;
-            }
-        }
 
     </style>
     
@@ -295,7 +195,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
 </head>
-<body class="font-sans text-gray-800 bg-white antialiased">
+<body class="site-page font-sans text-site-ink bg-site-page antialiased">
     
     <!-- Progress Bar -->
     <div id="progress-bar"></div>
@@ -303,8 +203,8 @@
         <!-- Navigation -->
     <div id="nav-container"></div>
 <!-- Hero Section -->
-    <section class="bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] pt-28 pb-20 md:pt-36 md:pb-28">
-        <div class="max-w-6xl mx-auto px-6">
+    <section class="bg-site-hero pt-28 pb-20 md:pt-36 md:pb-28">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="max-w-5xl mb-10 fade-in">
                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-700 mb-4">Product design · B2B · four-market launch</p>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-900">DocsBird</h1>
@@ -322,8 +222,8 @@
         </div>
     </section>
 
-    <section id="context" class="py-20 md:py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
+    <section id="context" class="py-20 md:py-24 bg-white site-section">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 mb-12">
                 <div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Context</p><h2 class="text-3xl md:text-4xl font-bold leading-tight">A distinct product experience on an established technical foundation</h2></div>
                 <div class="fade-in text-lg text-gray-700 leading-relaxed space-y-5"><p>DocsBird was preparing to enter four markets as a standalone product. Its established backend processes and component structure already supported complex document workflows, so the technical foundation remained in place for launch.</p><p>I built a distinct product identity on that foundation: a new logo, color palette, and redesigned versions of every component type and state.</p><p>I also redesigned the main entry points: self-registration, a shorter onboarding path, and email-link document access for invited counterparties before account creation.</p></div>
@@ -336,13 +236,13 @@
         </div>
     </section>
 
-    <section id="decisions" class="py-20 md:py-24 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-6">
+    <section id="decisions" class="py-20 md:py-24 bg-slate-50 site-section">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="max-w-4xl mb-14 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Two directions · three decisions</p><h2 class="text-4xl md:text-5xl font-bold mb-5">A product-specific visual system and clearer entry points</h2><p class="text-lg text-gray-600">The work established an independent product identity and shortened access for new users and invitees.</p></div>
             <div class="space-y-14">
                 <article class="grid lg:grid-cols-2 gap-10 items-center fade-in"><div><p class="text-sm font-semibold text-indigo-600 mb-3">01 · Product layer</p><h3 class="text-3xl font-bold mb-4">Give the retained component architecture a product-specific visual language</h3><p class="text-gray-700 leading-relaxed mb-5">I retained each component’s structure and purpose while redesigning its presentation: the logo, palette, typography, states, and composition rules.</p><div class="border-l-4 border-gray-900 pl-5 text-sm text-gray-600"><strong class="text-gray-900">Trade-off:</strong> stable technical connections remained intact while the product gained an independent visual system.</div></div><div class="grid grid-cols-2 gap-3"><figure><img src="../images/en/docsbird/ui-kit-before.png" alt="Component library before the DocsBird redesign" data-lightbox class="w-full h-72 object-contain object-top bg-white rounded-xl border border-gray-200"><figcaption class="text-xs text-gray-500 mt-2">Existing component structure and interaction states.</figcaption></figure><figure><img src="../images/en/docsbird/ui-kit-after.png" alt="DocsBird components in the new visual language" data-lightbox class="w-full h-72 object-contain object-top bg-white rounded-xl border border-gray-200"><figcaption class="text-xs text-gray-500 mt-2">Redesigned components, typography, and interaction states for DocsBird.</figcaption></figure></div></article>
 
-                <article class="grid lg:grid-cols-2 gap-10 items-center fade-in"><div class="lg:order-2"><p class="text-sm font-semibold text-indigo-600 mb-3">02 · Self-serve entry</p><h3 class="text-3xl font-bold mb-4">Reduce registration to three steps before first sign-in</h3><p class="text-gray-700 leading-relaxed mb-5">I introduced self-registration and reduced the sequence from seven steps to three. Required actions stayed explicit, and users could reach the product sooner.</p><div class="grid grid-cols-2 gap-3 text-sm"><div class="border-t border-gray-300 pt-3"><strong class="block text-gray-900">Before</strong><span class="text-gray-600">7 sequential steps</span></div><div class="border-t border-indigo-300 pt-3"><strong class="block text-gray-900">After</strong><span class="text-gray-600">3 steps to first sign-in</span></div></div></div><figure class="lg:order-1 bg-white p-5 rounded-2xl shadow-sm border border-gray-200"><img src="../images/docsbird/3android.png" alt="DocsBird sign-in and document access on smaller screens" data-lightbox class="w-full max-h-[520px] object-contain"><figcaption class="text-sm text-gray-500 mt-4">Sign-in and document access on smaller screens.</figcaption></figure></article>
+                <article class="grid lg:grid-cols-2 gap-10 items-center fade-in"><div class="lg:order-2"><p class="text-sm font-semibold text-indigo-600 mb-3">02 · Self-serve entry</p><h3 class="text-3xl font-bold mb-4">Reduce registration to three steps before first sign-in</h3><p class="text-gray-700 leading-relaxed mb-5">I introduced self-registration and reduced the sequence from seven steps to three. Required actions stayed explicit, and users could reach the product sooner.</p><div class="grid grid-cols-2 gap-3 text-sm"><div class="border-t border-gray-300 pt-3"><strong class="block text-gray-900">Before</strong><span class="text-gray-600">7 sequential steps</span></div><div class="border-t border-indigo-300 pt-3"><strong class="block text-gray-900">After</strong><span class="text-gray-600">3 steps to first sign-in</span></div></div></div><figure class="lg:order-1 bg-white p-5 rounded-2xl shadow-sm border border-gray-200 site-panel site-panel--compact"><img src="../images/docsbird/3android.png" alt="DocsBird sign-in and document access on smaller screens" data-lightbox class="w-full max-h-[520px] object-contain"><figcaption class="text-sm text-gray-500 mt-4">Sign-in and document access on smaller screens.</figcaption></figure></article>
 
                 <article class="grid lg:grid-cols-2 gap-10 items-center fade-in"><div><p class="text-sm font-semibold text-indigo-600 mb-3">03 · Invited counterparty</p><h3 class="text-3xl font-bold mb-4">Give invitees document access before registration</h3><p class="text-gray-700 leading-relaxed mb-5">An invited counterparty opens a document from an email link and sees what is expected of them in context. Account creation follows when it is required for the next action.</p><ul class="space-y-2 text-sm text-gray-600"><li><strong class="text-gray-900">Entry:</strong> a personal link in the invitation.</li><li><strong class="text-gray-900">Access:</strong> the document is available before registration.</li><li><strong class="text-gray-900">Next step:</strong> the required action is explained in context.</li></ul></div><figure class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"><img src="../images/en/docsbird/docsbird-guest-email-access.png" width="1600" height="1000" alt="DocsBird email with a link to view a document without mandatory registration" data-lightbox class="block w-full h-auto"></figure></article>
 
@@ -351,13 +251,13 @@
         </div>
     </section>
 
-    <section id="results" class="py-20 md:py-24 bg-gray-950 text-white"><div class="max-w-6xl mx-auto px-6"><div class="max-w-3xl mb-12 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300 mb-3">Team-reported post-launch outcome</p><h2 class="text-4xl md:text-5xl font-bold">Launch outcome reported by the team</h2></div><dl class="grid md:grid-cols-3 gap-px bg-gray-700 border border-gray-700 rounded-2xl overflow-hidden fade-in"><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">7 → 3</dt><dd class="text-gray-400">registration steps</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">+45%</dt><dd class="text-gray-400">reported increase in registration conversion after the redesigned flow launched</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">4 markets</dt><dd class="text-gray-400">on a shared product foundation</dd></div></dl></div></section>
+    <section id="results" class="py-20 md:py-24 bg-gray-950 text-white site-section"><div class="max-w-6xl mx-auto px-6 site-container"><div class="max-w-3xl mb-12 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300 mb-3">Team-reported post-launch outcome</p><h2 class="text-4xl md:text-5xl font-bold">Launch outcome reported by the team</h2></div><dl class="grid md:grid-cols-3 gap-px bg-gray-700 border border-gray-700 rounded-2xl overflow-hidden fade-in"><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">7 → 3</dt><dd class="text-gray-400">registration steps</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">+45%</dt><dd class="text-gray-400">reported increase in registration conversion after the redesigned flow launched</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">4 markets</dt><dd class="text-gray-400">on a shared product foundation</dd></div></dl></div></section>
 
     <section id="reflection" class="py-20 bg-white"><div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-2 gap-10"><div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Reflection</p><h2 class="text-3xl md:text-4xl font-bold">Shared rules with local requirements</h2></div><div class="fade-in text-lg text-gray-700 leading-relaxed"><p class="mb-5">The four markets needed local copy, required steps, and details while sharing one product foundation. I separated those market-specific elements from stable interaction rules.</p><p>That boundary kept the product consistent while leaving room for local adaptation.</p></div></div></section>
 
     <!-- Related Cases Section -->
     <section id="related" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
                     More case studies
@@ -429,7 +329,7 @@
 
     <!-- Footer -->
   <footer class="py-16 bg-gray-900 text-gray-400">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <!-- Brand -->
                 <div>

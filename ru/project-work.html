@@ -18,22 +18,14 @@
     <link rel="icon" href="../images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
     <script src="../js/vendor/tailwind-play-cdn.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { primary: '#1a1a1a', secondary: '#4a4a4a', accent: 'var(--color-accent)' },
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-                }
-            }
-        };
-    </script>
-    <link rel="stylesheet" href="../css/site-tokens.css">
+
+    <script src="../js/site-tailwind-config.js?v=067ead41165e"></script>
+    <link rel="stylesheet" href="../css/site-tokens.css?v=067ead41165e">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <style>
-        html { scroll-behavior: smooth; scroll-padding-top: 8rem; }
+        html { scroll-padding-top: 8rem; }
         a:focus-visible, button:focus-visible, summary:focus-visible {
             outline: 3px solid #4f46e5;
             outline-offset: 5px;
@@ -53,14 +45,14 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-white antialiased">
+<body class="site-page font-sans text-site-ink bg-site-page antialiased">
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[150] focus:rounded-lg focus:bg-white focus:p-4">Перейти к содержанию</a>
     <div id="nav-container"></div>
 
     <main id="main">
         <!-- 1. Offer -->
         <section aria-labelledby="hero-title" class="bg-grid pt-36 pb-14 md:pt-40 md:pb-20">
-            <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-6xl mx-auto px-6 site-container">
                 <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                     <div>
                         <p class="project-kicker text-gray-700 mb-5">Полина Цой · Проектная работа</p>
@@ -84,7 +76,7 @@
 
         <!-- 2. Customer tasks -->
         <section id="tasks" aria-labelledby="tasks-title" class="project-section">
-            <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-6xl mx-auto px-6 site-container">
                 <div class="max-w-3xl mb-10">
                     <p class="project-kicker text-indigo-700 mb-4">Задачи</p>
                     <h2 id="tasks-title" class="project-heading font-bold text-gray-950 mb-5">С чем можно прийти</h2>
@@ -125,7 +117,7 @@
 
         <!-- 3. Evidence -->
         <section id="cases" aria-labelledby="cases-title" class="project-section bg-gray-50 border-y border-gray-100">
-            <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-6xl mx-auto px-6 site-container">
                 <div class="max-w-3xl mb-10">
                     <p class="project-kicker text-indigo-700 mb-4">Опыт в похожих задачах</p>
                     <h2 id="cases-title" class="project-heading font-bold text-gray-950">Решения в реальных продуктах</h2>
@@ -171,7 +163,7 @@
 
         <!-- 4. Deliverables -->
         <section id="deliverables" aria-labelledby="deliverables-title" class="project-section bg-gray-900 text-white">
-            <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-20">
+            <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-20 site-container">
                 <div>
                     <p class="project-kicker text-indigo-300 mb-4">Результат работы</p>
                     <h2 id="deliverables-title" class="project-heading font-bold mb-6">Что останется у вашей команды</h2>
@@ -189,7 +181,7 @@
 
         <!-- 5. Process -->
         <section id="process" aria-labelledby="process-title" class="project-section">
-            <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-6xl mx-auto px-6 site-container">
                 <p class="project-kicker text-indigo-700 mb-4">Сотрудничество</p>
                 <h2 id="process-title" class="project-heading font-bold text-gray-950 mb-10">Как проходит работа</h2>
                 <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -204,7 +196,7 @@
 
         <!-- 6. Engagement models and questions -->
         <section id="formats" aria-labelledby="formats-title" class="project-section bg-gray-50 border-y border-gray-100">
-            <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-6xl mx-auto px-6 site-container">
                 <div class="max-w-3xl mb-10">
                     <p class="project-kicker text-indigo-700 mb-4">Формат и условия</p>
                     <h2 id="formats-title" class="project-heading font-bold text-gray-950 mb-5">На отдельный проект или в вашу команду</h2>
@@ -250,7 +242,7 @@
     </main>
 
     <footer class="py-10 bg-gray-900 text-gray-300">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="flex flex-col sm:flex-row justify-between gap-6 mb-8">
                 <div><a href="index.html" class="text-xl font-bold text-white">Polina Tsoy</a><p class="text-sm mt-2">Продуктовый дизайнер</p></div>
                 <a href="index.html#cases" class="project-link underline self-start text-sm py-2 hover:text-white">Все кейсы в портфолио <span aria-hidden="true">↗</span></a>

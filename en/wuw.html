@@ -13,28 +13,9 @@
     <!-- Tailwind CSS via CDN -->
     <script src="../js/vendor/tailwind-play-cdn.js"></script>
     
-    <!-- Custom Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1a1a1a',
-                        secondary: '#4a4a4a',
-                        accent: 'var(--color-accent)',
-                        success: '#10b981',
-                        warning: '#f59e0b',
-                        danger: '#ef4444'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <link rel="stylesheet" href="../css/site-tokens.css">
+
+    <script src="../js/site-tailwind-config.js?v=067ead41165e"></script>
+    <link rel="stylesheet" href="../css/site-tokens.css?v=067ead41165e">
     
     <style>
         /* Custom smooth scrolling */
@@ -42,18 +23,7 @@
             scroll-behavior: smooth;
         }
         
-        /* Fade-in animation for sections */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
+
         /* Before/After comparison */
         .comparison-container {
             display: grid;
@@ -81,8 +51,6 @@
         
         /* Architecture diagram */
         .architecture-step {
-            background: white;
-            border: 2px solid #e5e7eb;
             border-radius: 8px;
             padding: 16px;
             text-align: center;
@@ -90,27 +58,22 @@
         }
         
         .architecture-step:hover {
-            border-color: var(--color-accent);
             transform: translateY(-4px);
             box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.15);
         }
         
         /* Metrics table */
         .metric-row {
-            background: #f9fafb;
             transition: background 0.3s ease;
         }
         
         .metric-row:hover {
-            background: #f3f4f6;
         }
         
         /* Gamification flow */
         .gamification-node {
-            background: white;
             border-radius: 8px;
             padding: 12px;
-            border: 2px solid #e5e7eb;
             position: relative;
         }
         
@@ -134,69 +97,6 @@
             flex-direction: column;
         }
 
-        .lang-dropdown { position: relative; }
-        .lang-trigger {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.35rem 0.65rem;
-            border: 1px solid #e5e7eb;
-            background: #f3f4f6;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #4b5563;
-            letter-spacing: 0.03em;
-            min-width: 70px;
-            justify-content: center;
-        }
-        .lang-trigger svg { width: 12px; height: 12px; color: #6b7280; }
-        .lang-menu {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 8px);
-            min-width: 112px;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            background: #ffffff;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-            padding: 0.3rem;
-            z-index: 80;
-        }
-        .lang-option {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.45rem 0.55rem;
-            border-radius: 8px;
-            font-size: 0.78rem;
-            color: #374151;
-            text-align: center; justify-content: center;
-            background: transparent;
-        }
-        .lang-option:hover { background: #f3f4f6; }
-        .lang-option.active { background: #eef2ff; color: #4338ca; font-weight: 700; }
-
-        @media (max-width: 640px) {
-            .lang-trigger {
-                padding: 0.06rem 0.16rem;
-                min-width: 44px;
-                font-size: 0.58rem;
-            }
-            .lang-trigger svg { width: 10px; height: 10px; }
-            .lang-dropdown { margin: 0 0.25rem; }
-            .lang-menu {
-                min-width: 98px;
-                top: calc(100% + 6px);
-                padding: 0.22rem;
-            }
-            .lang-option {
-                font-size: 0.7rem;
-                padding: 0.36rem 0.45rem;
-                gap: 0.3rem;
-            }
-        }
 
     </style>
     
@@ -213,24 +113,24 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://neolissa.github.io/polina-tsoy-designer/images/og-portfolio.png?v=3">
 </head>
-<body class="font-sans text-gray-800 bg-white antialiased">
+<body class="site-page font-sans text-site-ink bg-site-page antialiased">
     
         <!-- Navigation -->
     <div id="nav-container"></div>
 <!-- Hero Section -->
-    <section class="bg-[linear-gradient(45deg,rgb(237,244,201),rgb(232,164,224))] pt-28 pb-20 md:pt-36 md:pb-28"><div class="max-w-6xl mx-auto px-6"><div class="max-w-4xl mb-10 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-700 mb-4">Product design · Design system · White-label support</p><h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">WUW</h1><p class="text-2xl md:text-3xl text-gray-700 leading-relaxed">Refactoring a product interface into a reusable system for consistent delivery and multiple brands.</p></div><figure class="mb-10 fade-in"><img src="../images/wuw/hero-devices.jpg" alt="WUW interface on a laptop and smartphone" width="1104" height="598" data-lightbox class="block w-full h-auto rounded-3xl" loading="eager" fetchpriority="high"></figure><dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-white/50 border border-white/60 fade-in"><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Context</dt><dd class="font-semibold">B2C and partner workflows</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Role</dt><dd class="font-semibold">Product Designer · project design lead</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Scope</dt><dd class="font-semibold">Audit, UX/UI, system, implementation</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Constraint</dt><dd class="font-semibold">Change the system without stopping delivery</dd></div></dl></div></section>
-    <section id="context" class="py-20 md:py-24 bg-white"><div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10"><div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Problem and evidence</p><h2 class="text-3xl md:text-4xl font-bold">Interface debt was already affecting delivery</h2></div><div class="fade-in text-lg text-gray-700 leading-relaxed space-y-5"><p>The product had accumulated more than 200 styles and repeated patterns. Familiar elements were rebuilt from scratch, while white-label support required manual interface rework.</p><p><strong class="text-gray-900">What I checked:</strong> an interface audit exposed competing rules; developer interviews confirmed repeated layout decisions and style conflicts.</p><p><strong class="text-gray-900">Key insight:</strong> I planned the system to migrate through current feature work, so shared rules became useful as the product continued to evolve.</p></div></div></section>
-    <section id="decisions" class="py-20 md:py-24 bg-slate-50"><div class="max-w-6xl mx-auto px-6"><div class="max-w-3xl mb-14 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Three decisions</p><h2 class="text-4xl md:text-5xl font-bold">A system built through live product work</h2></div><div class="space-y-14">
+    <section class="bg-site-hero pt-28 pb-20 md:pt-36 md:pb-28"><div class="max-w-6xl mx-auto px-6 site-container"><div class="max-w-4xl mb-10 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-700 mb-4">Product design · Design system · White-label support</p><h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">WUW</h1><p class="text-2xl md:text-3xl text-gray-700 leading-relaxed">Refactoring a product interface into a reusable system for consistent delivery and multiple brands.</p></div><figure class="mb-10 fade-in"><img src="../images/wuw/hero-devices.jpg" alt="WUW interface on a laptop and smartphone" width="1104" height="598" data-lightbox class="block w-full h-auto rounded-3xl" loading="eager" fetchpriority="high"></figure><dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-white/50 border border-white/60 fade-in"><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Context</dt><dd class="font-semibold">B2C and partner workflows</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Role</dt><dd class="font-semibold">Product Designer · project design lead</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Scope</dt><dd class="font-semibold">Audit, UX/UI, system, implementation</dd></div><div class="bg-white/80 p-5"><dt class="text-xs uppercase tracking-wider text-gray-500 mb-2">Constraint</dt><dd class="font-semibold">Change the system without stopping delivery</dd></div></dl></div></section>
+    <section id="context" class="py-20 md:py-24 bg-white site-section"><div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10"><div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Problem and evidence</p><h2 class="text-3xl md:text-4xl font-bold">Interface debt was already affecting delivery</h2></div><div class="fade-in text-lg text-gray-700 leading-relaxed space-y-5"><p>The product had accumulated more than 200 styles and repeated patterns. Familiar elements were rebuilt from scratch, while white-label support required manual interface rework.</p><p><strong class="text-gray-900">What I checked:</strong> an interface audit exposed competing rules; developer interviews confirmed repeated layout decisions and style conflicts.</p><p><strong class="text-gray-900">Key insight:</strong> I planned the system to migrate through current feature work, so shared rules became useful as the product continued to evolve.</p></div></div></section>
+    <section id="decisions" class="py-20 md:py-24 bg-slate-50 site-section"><div class="max-w-6xl mx-auto px-6 site-container"><div class="max-w-3xl mb-14 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Three decisions</p><h2 class="text-4xl md:text-5xl font-bold">A system built through live product work</h2></div><div class="space-y-14">
         <article class="grid lg:grid-cols-2 gap-10 items-center fade-in"><div><p class="text-sm font-semibold text-indigo-600 mb-3">01 · Migration</p><h3 class="text-3xl font-bold mb-4">Migrate components through active feature work</h3><p class="text-gray-700 leading-relaxed mb-5">I updated components as product work created a real need. New screens used shared rules immediately, while existing surfaces moved onto the system through ongoing feature delivery.</p><div class="border-l-4 border-gray-900 pl-5 text-sm text-gray-600"><strong class="text-gray-900">Trade-off:</strong> old and new rules coexisted for a period while the team continued shipping product changes.</div></div><img src="../images/wuw/before-after.jpg" width="1235" height="647" alt="WUW before and after incremental refactoring" data-lightbox class="w-full rounded-2xl border border-gray-200 shadow-sm"></article>
         <article class="grid lg:grid-cols-2 gap-10 items-start fade-in"><div class="lg:order-2"><p class="text-sm font-semibold text-indigo-600 mb-3">02 · Architecture</p><h3 class="text-3xl font-bold mb-4">From 200+ styles to tokens and 35 components</h3><p class="text-gray-700 leading-relaxed mb-5">I defined shared component states and semantic tokens, giving product areas consistent visual language, interaction logic, and implementation rules.</p><dl class="space-y-3 text-sm"><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Tokens</dt><dd class="text-gray-600">Separate the purpose of a color or spacing value from a specific brand.</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Components</dt><dd class="text-gray-600">Reuse shared states and rules across interface patterns.</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Coverage</dt><dd class="text-gray-600">The UI builder covered ≈80% of the interface; complex workflows remained custom.</dd></div></dl></div><div class="lg:order-1 bg-gray-950 rounded-2xl p-7 text-white"><p class="text-xs uppercase tracking-[0.18em] text-indigo-300 mb-5">System rules</p><ul class="space-y-5"><li><strong class="block mb-1">Semantic roles first</strong><span class="text-gray-400 text-sm">A component uses a semantic role token for color and spacing values.</span></li><li><strong class="block mb-1">One state model</strong><span class="text-gray-400 text-sm">Shared component states are defined once and reused across the product.</span></li><li><strong class="block mb-1">Exceptions stay explicit</strong><span class="text-gray-400 text-sm">Unique assessment workflows retain explicit custom patterns.</span></li></ul></div></article>
         <article class="fade-in"><div class="max-w-3xl mb-8"><p class="text-sm font-semibold text-indigo-600 mb-3">03 · Brand customization</p><h3 class="text-3xl font-bold mb-4">Apply each brand through shared tokens</h3><p class="text-gray-700 leading-relaxed">A theme changes accents, surfaces, and states within one component structure. The interactive demo shows how colors and states change while layout and navigation remain consistent.</p></div><div class="wuw-mock-stage-block max-w-5xl mx-auto"><p class="wuw-mock-caption text-center text-xs text-gray-400 tracking-wide">interactive prototype</p><p class="text-center text-sm text-gray-500 mb-4">WUW white-label dashboard</p><div class="wuw-whitelabel-stage"><div class="wuw-whitelabel-mock" data-wuw-whitelabel-mock data-appearance="night" data-svg-base="../images/wuw/" style="--wuw-accent: #0788FF" aria-label="Interactive WUW dashboard prototype"></div></div></div></article>
     </div></div></section>
-    <section id="result" class="py-20 md:py-24 bg-gray-950 text-white"><div class="max-w-6xl mx-auto px-6"><div class="max-w-3xl mb-12 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300 mb-3">Team estimate</p><h2 class="text-4xl md:text-5xl font-bold">Team outcome</h2></div><dl class="grid md:grid-cols-3 gap-px bg-gray-700 border border-gray-700 rounded-2xl overflow-hidden fade-in"><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">≈90%</dt><dd class="text-gray-400">fewer styles</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">3×</dt><dd class="text-gray-400">faster typical UI delivery</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">White-label support</dt><dd class="text-gray-400">on one system foundation</dd></div></dl><p class="text-sm text-gray-400 mt-5 max-w-3xl">The team’s estimate after adoption, not a controlled experiment.</p></div></section>
+    <section id="result" class="py-20 md:py-24 bg-gray-950 text-white site-section"><div class="max-w-6xl mx-auto px-6 site-container"><div class="max-w-3xl mb-12 fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300 mb-3">Team estimate</p><h2 class="text-4xl md:text-5xl font-bold">Team outcome</h2></div><dl class="grid md:grid-cols-3 gap-px bg-gray-700 border border-gray-700 rounded-2xl overflow-hidden fade-in"><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">≈90%</dt><dd class="text-gray-400">fewer styles</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">3×</dt><dd class="text-gray-400">faster typical UI delivery</dd></div><div class="bg-gray-900 p-7"><dt class="text-4xl font-bold mb-2">White-label support</dt><dd class="text-gray-400">on one system foundation</dd></div></dl><p class="text-sm text-gray-400 mt-5 max-w-3xl">The team’s estimate after adoption, not a controlled experiment.</p></div></section>
     <section id="reflection" class="py-20 bg-white"><div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-2 gap-10"><div class="fade-in"><p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 mb-3">Reflection</p><h2 class="text-3xl md:text-4xl font-bold">What I would introduce earlier</h2></div><div class="fade-in space-y-5 text-lg text-gray-700 leading-relaxed"><p><strong class="text-gray-900">Variables:</strong> I would define semantic tokens and brand values separately from the start.</p><p><strong class="text-gray-900">Documentation:</strong> I would add dedicated guidance for content managers as well as designers and developers.</p></div></div></section>
 
     <!-- Related Cases Section -->
     <section id="related" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
                     More case studies
@@ -288,7 +188,7 @@
 
     <!-- Footer -->
   <footer class="py-16 bg-gray-900 text-gray-400">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6 site-container">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <!-- Brand -->
                 <div>

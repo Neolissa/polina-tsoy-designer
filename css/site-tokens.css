@@ -1,8 +1,89 @@
-/* Единые токены цвета сайта */
+/* Shared portfolio foundation: primitives → semantic roles → components. */
 :root {
-    --color-accent: #6366f1;        /* индиго — ссылки, подчёркивания, старт градиента */
-    --color-accent-purple: #8b5cf6; /* фиолетовый — конец фирменного градиента */
-    --color-navy: #284d89;          /* тёмно-синий из анимации — подпись под hero */
+    /* Primitives retain the approved palette and geometry values. */
+    --palette-indigo-500: #6366f1;
+    --palette-violet-500: #8b5cf6;
+    --palette-navy-700: #284d89;
+    --palette-gray-50: #f9fafb;
+    --palette-gray-100: #f3f4f6;
+    --palette-gray-200: #e5e7eb;
+    --palette-gray-600: #4b5563;
+    --palette-gray-700: #374151;
+    --palette-gray-800: #1f2937;
+    --palette-gray-900: #111827;
+    --palette-white: #ffffff;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 1.75rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-28: 7rem;
+    --radius-sm: 0.5rem;
+    --radius-card: 1rem;
+    --radius-media: 1.5rem;
+    --radius-pill: 9999px;
+    --shadow-card-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --shadow-accent-hover: 0 10px 30px color-mix(in srgb, var(--accent) 30%, transparent);
+
+    /* Semantic roles are consumed by the shared Tailwind configuration. */
+    --font-sans: Inter, system-ui, sans-serif;
+    --text-primary: var(--palette-gray-800);
+    --text-strong: var(--palette-gray-900);
+    --text-muted: var(--palette-gray-600);
+    --surface-page: var(--palette-white);
+    --surface-subtle: var(--palette-gray-50);
+    --surface-control: var(--palette-gray-100);
+    --surface-raised: var(--palette-white);
+    --border-subtle: var(--palette-gray-200);
+    --accent: var(--palette-indigo-500);
+    --accent-link: #4f46e5;
+    --accent-strong: #4338ca;
+    --accent-border: #818cf8;
+    --accent-muted: #a5b4fc;
+    --accent-pale: #c7d2fe;
+    --surface-accent: #eef2ff;
+    --surface-accent-strong: #e0e7ff;
+    --accent-secondary: var(--palette-violet-500);
+    --focus-ring: var(--accent);
+    --space-page-gutter: var(--space-6);
+    --space-panel-inset: var(--space-6);
+    --space-section: var(--space-20);
+    --space-section-wide: var(--space-24);
+    --space-panel-compact: var(--space-5);
+    --space-panel-spacious: var(--space-7);
+    --layout-page-max: 72rem;
+    --layout-reading-max: 48rem;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+    --font-size-7xl: 4.5rem;
+    --type-body-size: var(--font-size-base);
+    --type-supporting-size: var(--font-size-sm);
+    --type-section-size: var(--font-size-3xl);
+    --type-section-size-wide: var(--font-size-4xl);
+    --type-title-size: var(--font-size-5xl);
+    --type-title-size-wide: var(--font-size-7xl);
+
+    /* Compatibility aliases retain existing public CSS values. */
+    --color-accent: var(--accent);
+    --color-accent-purple: var(--accent-secondary);
+    --color-navy: var(--palette-navy-700);
     --color-accent-rgb: 99, 102, 241;
     --gradient-brand: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-purple) 100%);
     --gradient-hero: linear-gradient(45deg, rgb(237, 244, 201), rgb(232, 164, 224));
@@ -14,6 +95,59 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* Page-level semantic consumers used by every public content route. */
+.site-page {
+    color: var(--text-primary);
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+}
+
+/* Semantic roles take precedence over equivalent legacy utilities. */
+.site-page .site-container {
+    max-width: var(--layout-page-max);
+    padding-left: var(--space-page-gutter);
+    padding-right: var(--space-page-gutter);
+}
+.site-page .site-panel {
+    padding: var(--space-panel-inset);
+    border-color: var(--border-subtle);
+    border-radius: var(--radius-card);
+    background-color: var(--surface-raised);
+}
+.site-page .site-panel--compact { padding: var(--space-panel-compact); }
+.site-page .site-panel--spacious { padding: var(--space-panel-spacious); }
+.site-page .site-section {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+}
+@media (min-width: 768px) {
+    .site-page .site-section {
+        padding-top: var(--space-section-wide);
+        padding-bottom: var(--space-section-wide);
+    }
+}
+
+html { scroll-behavior: smooth; }
+
+/* The default preserves the established 20px/.6s case animation. Pages with
+   the approved 18px/.55s treatment retain their local override. */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 .bg-grid {
@@ -41,7 +175,7 @@
 }
 
 .nav-link[aria-current="page"] {
-    color: #111827;
+    color: var(--text-strong);
     font-weight: 600;
 }
 
@@ -56,7 +190,122 @@
 
 .btn-primary:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.3);
+    box-shadow: var(--shadow-accent-hover);
+}
+
+.nav-link:focus-visible,
+.lang-trigger:focus-visible,
+.lang-option:focus-visible,
+.btn-primary:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
+/* Localized navigation is injected into every public route. */
+.lang-dropdown { position: relative; }
+.lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-width: 70px;
+    padding: 0.35rem 0.65rem;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    background: var(--surface-control);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+}
+.lang-trigger svg { width: 12px; height: 12px; color: #6b7280; }
+.lang-menu {
+    position: absolute;
+    z-index: 80;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 112px;
+    padding: 0.3rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+.lang-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.45rem;
+    padding: 0.45rem 0.55rem;
+    color: var(--palette-gray-700);
+    font-size: 0.78rem;
+    text-align: center;
+    background: transparent;
+    border-radius: var(--radius-sm);
+}
+.lang-option:hover { background: var(--surface-control); }
+.lang-option.active {
+    color: var(--accent-strong);
+    font-weight: 700;
+    background: var(--surface-accent);
+}
+@media (max-width: 640px) {
+    .lang-trigger {
+        min-width: 44px;
+        padding: 0.06rem 0.16rem;
+        font-size: 0.58rem;
+    }
+    .lang-trigger svg { width: 10px; height: 10px; }
+    .lang-dropdown { margin: 0 0.25rem; }
+    .lang-menu {
+        top: calc(100% + 6px);
+        min-width: 98px;
+        padding: 0.22rem;
+    }
+    .lang-option {
+        gap: 0.3rem;
+        padding: 0.36rem 0.45rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* Shared DocsBird and WUW case anatomy; demo-product colors remain local. */
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+.card-border-left { border-left: 4px solid var(--accent); }
+.icon-box {
+    border-radius: var(--radius-card);
+    background: var(--gradient-brand);
+}
+.process-step {
+    padding: var(--space-panel-inset);
+    background: var(--surface-raised);
+    border-color: var(--border-subtle);
+}
+.process-step:hover { border-color: var(--accent); }
+.step-number { background: var(--gradient-hero); }
+.case-card {
+    padding: var(--space-panel-inset);
+    background: var(--surface-subtle);
+}
+.timeline-step {
+    background: var(--surface-raised);
+    border-color: var(--border-subtle);
+}
+.architecture-step {
+    background: var(--surface-raised);
+    border-color: var(--border-subtle);
+}
+.architecture-step:hover { border-color: var(--accent); }
+.metric-row { background: var(--surface-subtle); }
+.metric-row:hover { background: var(--surface-control); }
+.gamification-node {
+    background: var(--surface-raised);
+    border-color: var(--border-subtle);
 }
 
 /* Case covers are 535 x 192: preserve their ratio instead of enlarging and
